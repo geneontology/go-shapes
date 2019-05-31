@@ -71,6 +71,7 @@ public class Validator {
 		Typing result = null;
 		RDF rdfFactory = new SimpleRDF();
 		JenaRDF jr = new JenaRDF();
+		//this shex implementation like to use the commons JenaRDF interface, nothing exciting here
 		JenaGraph shexy_graph = jr.asGraph(jena_model);
 		if(focus_node_iri!=null) {
 			Label shape_label = new Label(rdfFactory.createIRI(shape_id));

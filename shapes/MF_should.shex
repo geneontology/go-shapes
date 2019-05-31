@@ -1,19 +1,22 @@
 PREFIX  go:  <http://geneontology.org/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 #positive shape pattern - e.g. match shapes that are correct
-go:IdealMF  extra rdf:type{
-  #be typed as a molecular function
-  rdf:type [obo:GO_0003674 ];
-  #match nodes that are enabled by one protein
-  obo:RO_0002333 @go:protein {1} ;
-  #occur in one cellular location
-  obo:BFO_0000066 @go:cc {1} ;
-  #be part of one process .
-  obo:BFO_0000050 @go:bp {1} ;
-}
+#// rdfs:comment  "These constraints describe an ideal molecular function node in a GO-CAM" ;
+go:IdealMF
+ extra rdf:type{
+  rdf:type [obo:GO_0003674 ]
+  // rdfs:comment  "is of type molecular function" ;
+  obo:RO_0002333 @go:protein {1}
+  // rdfs:comment  "is enabled by one protein" ;
+  obo:BFO_0000066 @go:cc {1}
+  // rdfs:comment  "occurs in one cellular location" ;
+  obo:BFO_0000050 @go:bp {1}
+  // rdfs:comment  "part of one process" ;
+} // rdfs:comment  "(this comment is attached to the IdealMF shape) These constraints describe an ideal molecular function node in a GO-CAM"
 
 go:protein extra rdf:type  {
     rdf:type  [obo:CHEBI_36080] ;
