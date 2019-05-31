@@ -40,15 +40,27 @@ public class Validator {
 	 * @param args
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws Exception {
-		String shexpath = "../shapes/GO_Shape_test.shex";
+	public static void main(String[] args) {
+		String shexpath = "../shapes/MF_should.shex";
 		String test_model_file = "../test_ttl/go_cams/inferred/expanded_reactome-homosapiens-A_tetrasaccharide_linker_sequence_is_required_for_GAG_synthesis.ttl";
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(test_model_file) ;
-		ShexSchema schema = GenParser.parseSchema(new File(shexpath).toPath());
+		ShexSchema schema = null;
+		try {
+			schema = GenParser.parseSchema(new File(shexpath).toPath());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String focus_node_iri = null;//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
 		String shape_id = null;//e.g. "http://purl.org/pav/providedBy/S-integer";
-		Typing results = validateShex(schema, test_model, focus_node_iri, shape_id);
+		Typing results = null;
+		try {
+			results = validateShex(schema, test_model, focus_node_iri, shape_id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		boolean positive_only = true;
 		String report = shexTypingToString(results, positive_only); 
 		System.out.println(report);
