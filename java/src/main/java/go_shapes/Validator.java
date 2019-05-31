@@ -4,6 +4,7 @@
 package go_shapes;
 
 import java.io.File;
+import java.io.FileWriter;
 
 import org.apache.commons.rdf.api.RDF;
 import org.apache.commons.rdf.api.RDFTerm;
@@ -40,8 +41,8 @@ public class Validator {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception {
-		String shexpath = "/Users/bgood/Documents/GitHub/GO_Shapes/java/src/main/resources/shapes/GO_Shape_test.shex";
-		String test_model_file = "/Users/bgood/Desktop/test/go_cams/tmp_reasoned/expanded_reactome-homosapiens-A_tetrasaccharide_linker_sequence_is_required_for_GAG_synthesis.ttl";
+		String shexpath = "../shapes/GO_Shape_test.shex";
+		String test_model_file = "../test_ttl/go_cams/inferred/expanded_reactome-homosapiens-A_tetrasaccharide_linker_sequence_is_required_for_GAG_synthesis.ttl";
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(test_model_file) ;
 		ShexSchema schema = GenParser.parseSchema(new File(shexpath).toPath());
