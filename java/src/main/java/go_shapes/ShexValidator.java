@@ -41,12 +41,12 @@ import fr.inria.lille.shexjava.validation.Typing;
  * @author bgood
  *
  */
-public class Validator {
+public class ShexValidator {
 
 	/**
 	 * 
 	 */
-	public Validator() {
+	public ShexValidator() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -56,9 +56,10 @@ public class Validator {
 	 */
 	public static void main(String[] args) {
 		String shexpath = "../shapes/MF_should.shex";
-		String test_model_file = "../test_ttl/go_cams/inferred/expanded_reactome-homosapiens-A_tetrasaccharide_linker_sequence_is_required_for_GAG_synthesis.ttl";
+		String model_dir = "/Users/bgood/Desktop/test/go_cams/tmp_typed/";
+		String model_file = model_dir+"typed_reactome-homosapiens-trans-Golgi_Network_Vesicle_Budding.ttl";
 		Model test_model = ModelFactory.createDefaultModel() ;
-		test_model.read(test_model_file) ;
+		test_model.read(model_file) ;
 		ShexSchema schema = null;
 		try {
 			schema = GenParser.parseSchema(new File(shexpath).toPath());			

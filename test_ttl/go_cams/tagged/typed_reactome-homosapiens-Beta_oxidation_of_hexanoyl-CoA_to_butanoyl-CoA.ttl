@@ -1,0 +1,1552 @@
+@prefix : <http://model.geneontology.org/R-HSA-77350#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://model.geneontology.org/R-HSA-77350> .
+
+<http://model.geneontology.org/R-HSA-77350> rdf:type owl:Ontology ;
+                                             <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                             <http://geneontology.org/lego/modelstate> "development" ;
+                                             <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                             <http://purl.org/dc/elements/1.1/title> "Reactome:unexpanded:Beta oxidation of hexanoyl-CoA to butanoyl-CoA" ;
+                                             <http://purl.org/pav/providedBy> "https://reactome.org" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://geneontology.org/lego/evidence
+<http://geneontology.org/lego/evidence> rdf:type owl:AnnotationProperty .
+
+
+###  http://geneontology.org/lego/modelstate
+<http://geneontology.org/lego/modelstate> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/pav/providedBy
+<http://purl.org/pav/providedBy> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasDbXref
+<http://www.geneontology.org/formats/oboInOwl#hasDbXref> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/biolink/vocab/category
+<https://w3id.org/biolink/vocab/category> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+<http://purl.obolibrary.org/obo/BFO_0000050> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "part of" .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000066
+<http://purl.obolibrary.org/obo/BFO_0000066> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "occurs in" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002233
+<http://purl.obolibrary.org/obo/RO_0002233> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "has input" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002234
+<http://purl.obolibrary.org/obo/RO_0002234> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "has output" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002333
+<http://purl.obolibrary.org/obo/RO_0002333> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "enabled by" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002413
+<http://purl.obolibrary.org/obo/RO_0002413> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "directly provides input for (process to process)" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://model.geneontology.org/R-ALL-113521
+<http://model.geneontology.org/R-ALL-113521> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-113526
+<http://model.geneontology.org/R-ALL-113526> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-113529
+<http://model.geneontology.org/R-ALL-113529> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-113559
+<http://model.geneontology.org/R-ALL-113559> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-113596
+<http://model.geneontology.org/R-ALL-113596> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-29362
+<http://model.geneontology.org/R-ALL-29362> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-29374
+<http://model.geneontology.org/R-ALL-29374> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-31649
+<http://model.geneontology.org/R-ALL-31649> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-77318
+<http://model.geneontology.org/R-ALL-77318> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-77320
+<http://model.geneontology.org/R-ALL-77320> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-77322
+<http://model.geneontology.org/R-ALL-77322> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-77324
+<http://model.geneontology.org/R-ALL-77324> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-ALL-77326
+<http://model.geneontology.org/R-ALL-77326> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-HSA-71048
+<http://model.geneontology.org/R-HSA-71048> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-HSA-71052
+<http://model.geneontology.org/R-HSA-71052> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-HSA-77267
+<http://model.geneontology.org/R-HSA-77267> rdf:type owl:Class .
+
+
+###  http://model.geneontology.org/R-HSA-77316
+<http://model.geneontology.org/R-HSA-77316> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/ECO_0000313
+<http://purl.obolibrary.org/obo/ECO_0000313> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/ECO_0000363
+<http://purl.obolibrary.org/obo/ECO_0000363> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0003857
+<http://purl.obolibrary.org/obo/GO_0003857> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0003988
+<http://purl.obolibrary.org/obo/GO_0003988> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0003995
+<http://purl.obolibrary.org/obo/GO_0003995> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0004300
+<http://purl.obolibrary.org/obo/GO_0004300> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0005759
+<http://purl.obolibrary.org/obo/GO_0005759> rdf:type owl:Class ;
+                                            rdfs:label "mitochondrial matrix" .
+
+
+###  http://purl.obolibrary.org/obo/GO_0006635
+<http://purl.obolibrary.org/obo/GO_0006635> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-113521_R-HSA-77325
+<http://model.geneontology.org/R-HSA-77350/R-ALL-113521_R-HSA-77325> rdf:type owl:NamedIndividual ,
+                                                                              <http://model.geneontology.org/R-ALL-113521> ;
+                                                                     <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                     <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                     <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                     rdfs:comment "located_in mitochondrial matrix" ;
+                                                                     rdfs:label "H2O" ;
+                                                                     <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule57> ;
+                                                                     <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                               <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-113526_R-HSA-77323
+<http://model.geneontology.org/R-HSA-77350/R-ALL-113526_R-HSA-77323> rdf:type owl:NamedIndividual ,
+                                                                              <http://model.geneontology.org/R-ALL-113526> ;
+                                                                     <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                     <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                     <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                     rdfs:comment "located_in mitochondrial matrix" ;
+                                                                     rdfs:label "NAD" ;
+                                                                     <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule73> ;
+                                                                     <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                               <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-113529_R-HSA-77323
+<http://model.geneontology.org/R-HSA-77350/R-ALL-113529_R-HSA-77323> rdf:type owl:NamedIndividual ,
+                                                                              <http://model.geneontology.org/R-ALL-113529> ;
+                                                                     <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                     <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                     <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                     rdfs:comment "located_in mitochondrial matrix" ;
+                                                                     rdfs:label "H+" ;
+                                                                     <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule639> ;
+                                                                     <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                               <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-113559_R-HSA-77321
+<http://model.geneontology.org/R-HSA-77350/R-ALL-113559_R-HSA-77321> rdf:type owl:NamedIndividual ,
+                                                                              <http://model.geneontology.org/R-ALL-113559> ;
+                                                                     <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                     <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                     <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                     rdfs:comment "located_in mitochondrial matrix" ;
+                                                                     rdfs:label "Ac-CoA" ;
+                                                                     <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1350> ;
+                                                                     <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                               <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-113596_R-HSA-77327
+<http://model.geneontology.org/R-HSA-77350/R-ALL-113596_R-HSA-77327> rdf:type owl:NamedIndividual ,
+                                                                              <http://model.geneontology.org/R-ALL-113596> ;
+                                                                     <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                     <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                     <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                     rdfs:comment "located_in mitochondrial matrix" ;
+                                                                     rdfs:label "FAD" ;
+                                                                     <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1035> ;
+                                                                     <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                               <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-29362_R-HSA-77323
+<http://model.geneontology.org/R-HSA-77350/R-ALL-29362_R-HSA-77323> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-29362> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "NADH" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule605> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-29374_R-HSA-77321
+<http://model.geneontology.org/R-HSA-77350/R-ALL-29374_R-HSA-77321> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-29374> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1539> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-31649_R-HSA-77327
+<http://model.geneontology.org/R-HSA-77350/R-ALL-31649_R-HSA-77327> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-31649> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "FADH2" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1710> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77318_R-HSA-77321
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77318_R-HSA-77321> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77318> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "BT-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1733> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77321
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77321> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77320> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "3-Oxohexanoyl-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1732> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77323
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77323> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77320> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "3-Oxohexanoyl-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1732> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77323
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77323> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77322> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "(S)-Hydroxyhexanoyl-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1731> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77325
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77325> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77322> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "(S)-Hydroxyhexanoyl-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1731> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77325
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77325> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77324> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "trans-Hex-2-enoyl-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1730> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77327
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77327> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77324> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "trans-Hex-2-enoyl-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1730> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-ALL-77326_R-HSA-77327
+<http://model.geneontology.org/R-HSA-77350/R-ALL-77326_R-HSA-77327> rdf:type owl:NamedIndividual ,
+                                                                             <http://model.geneontology.org/R-ALL-77326> ;
+                                                                    <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                    <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                    <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                    rdfs:comment "located_in mitochondrial matrix" ;
+                                                                    rdfs:label "HX-CoA" ;
+                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#SmallMolecule1729> ;
+                                                                    <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                              <http://purl.obolibrary.org/obo/CHEBI_24431> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-71048_R-HSA-77325_controller
+<http://model.geneontology.org/R-HSA-77350/R-HSA-71048_R-HSA-77325_controller> rdf:type owl:NamedIndividual ,
+                                                                                        <http://model.geneontology.org/R-HSA-71048> ;
+                                                                               <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                               <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                               <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                               <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-71048" ;
+                                                                               rdfs:comment "located_in mitochondrial matrix" ;
+                                                                               rdfs:label "ECHS1 hexamer" ;
+                                                                               <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#Complex7215> ;
+                                                                               <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/CHEBI_24431> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0005575> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0032991> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-71052_R-HSA-77323_controller
+<http://model.geneontology.org/R-HSA-77350/R-HSA-71052_R-HSA-77323_controller> rdf:type owl:NamedIndividual ,
+                                                                                        <http://model.geneontology.org/R-HSA-71052> ;
+                                                                               <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                               <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                               <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                               <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-71052" ;
+                                                                               rdfs:comment "located_in mitochondrial matrix" ;
+                                                                               rdfs:label "HADH dimer" ;
+                                                                               <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#Complex7216> ;
+                                                                               <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/CHEBI_24431> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0005575> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0032991> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77267_R-HSA-77321_controller
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77267_R-HSA-77321_controller> rdf:type owl:NamedIndividual ,
+                                                                                        <http://model.geneontology.org/R-HSA-77267> ;
+                                                                               <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                               <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                               <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                               <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-77267" ;
+                                                                               rdfs:comment "located_in mitochondrial matrix" ;
+                                                                               rdfs:label "Trifunctional Protein" ;
+                                                                               <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#Complex7213> ;
+                                                                               <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/CHEBI_24431> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0005575> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0032991> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77316_R-HSA-77327_controller
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77316_R-HSA-77327_controller> rdf:type owl:NamedIndividual ,
+                                                                                        <http://model.geneontology.org/R-HSA-77316> ;
+                                                                               <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                               <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                               <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                               <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-77316" ;
+                                                                               rdfs:comment "located_in mitochondrial matrix" ;
+                                                                               rdfs:label "ACADS tetramer" ;
+                                                                               <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#Complex7219> ;
+                                                                               <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/CHEBI_24431> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0005575> ,
+                                                                                                                         <http://purl.obolibrary.org/obo/GO_0032991> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77321
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77321> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.obolibrary.org/obo/GO_0003988> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000050> <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/R-HSA-77350/7b788254-386c-4689-a2e9-589ba171f032> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002233> <http://model.geneontology.org/R-HSA-77350/R-ALL-29374_R-HSA-77321> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77321> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002234> <http://model.geneontology.org/R-HSA-77350/R-ALL-113559_R-HSA-77321> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77318_R-HSA-77321> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/R-HSA-77350/R-HSA-77267_R-HSA-77321_controller> ;
+                                                        <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                        <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                        <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                        <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-77321" ;
+                                                        rdfs:label "3-Oxohexanoyl-CoA+CoA-SH<=>Butanoyl-CoA" ;
+                                                        <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#BiochemicalReaction6250> ;
+                                                        <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0003674> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/2eb0b2c6-a21d-4d6a-986f-29216297cba8> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000066> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/7b788254-386c-4689-a2e9-589ba171f032> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/1df475e9-8c16-46b4-abb4-c57d98e1f7c0> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment "This relation was asserted based on the location of the enabling molecule. "
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-29374_R-HSA-77321> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/eb9515f7-f8c1-4208-976a-1c1bb69afd76> ,
+                                           <http://model.geneontology.org/R-HSA-77350/28602142-43f1-4080-b59c-379715dde2e7> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77321> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/a2336240-9be2-4ec4-89cb-4cd8383e486e> ,
+                                           <http://model.geneontology.org/R-HSA-77350/f8e22af2-25e0-4ad4-9b98-2c413fdbc1ec> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-113559_R-HSA-77321> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/b007adaa-0f18-40fa-b689-4b31251103b9> ,
+                                           <http://model.geneontology.org/R-HSA-77350/81e6f91f-1203-49ac-be09-b89c28e9ae58> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77318_R-HSA-77321> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/bfc5ed62-c50d-4cc0-ad6f-5d03acfe1a2c> ,
+                                           <http://model.geneontology.org/R-HSA-77350/4b79fc3e-c2b4-42e1-b9cf-3d3f6bfc6af6> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002333> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77267_R-HSA-77321_controller> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/93eb0ee0-4b3e-4892-9473-7e58335f82dd> ,
+                                           <http://model.geneontology.org/R-HSA-77350/9636956a-df40-4a82-af5c-364e28d03f18> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77323
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77323> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.obolibrary.org/obo/GO_0003857> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000050> <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/R-HSA-77350/c319218d-a3cb-4694-b239-ef5d40811324> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002233> <http://model.geneontology.org/R-HSA-77350/R-ALL-113526_R-HSA-77323> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77323> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002234> <http://model.geneontology.org/R-HSA-77350/R-ALL-113529_R-HSA-77323> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-29362_R-HSA-77323> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77323> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/R-HSA-77350/R-HSA-71052_R-HSA-77323_controller> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002413> <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+                                                        <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                        <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                        <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                        <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-77323" ;
+                                                        rdfs:label "(S)-Hydroxyhexanoyl-CoA+NAD<=>3-Oxohexanoyl-CoA+NADH+H" ;
+                                                        <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#BiochemicalReaction6249> ;
+                                                        <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0003674> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-113526_R-HSA-77323> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/affba263-5803-44bb-b96b-fc55dbc8f9d1> ,
+                                           <http://model.geneontology.org/R-HSA-77350/82fc0a29-6780-4123-80bf-c064e1f2c54d> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77323> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/dab4ada7-56ad-49c9-9875-405851587537> ,
+                                           <http://model.geneontology.org/R-HSA-77350/0ea8cd45-e449-4f5c-8ce2-350893a03d2f> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-113529_R-HSA-77323> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/07b424f0-48c5-4d3b-813d-2db4d3f1225e> ,
+                                           <http://model.geneontology.org/R-HSA-77350/5162f966-bd3a-4140-ac8f-3ab9bef29e39> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-29362_R-HSA-77323> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/0a1c3716-e416-46cb-8cac-53f987cc9ea6> ,
+                                           <http://model.geneontology.org/R-HSA-77350/3dfb4e72-d105-4d66-8426-5707a12909cb> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77320_R-HSA-77323> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/a490c9df-235d-4d68-93a8-67b2b098fa36> ,
+                                           <http://model.geneontology.org/R-HSA-77350/fdae9b2d-7279-4ba1-a7d1-c1cba666f493> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002333> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-71052_R-HSA-77323_controller> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/a34080d3-de06-4230-8486-158c8f9779af> ,
+                                           <http://model.geneontology.org/R-HSA-77350/d06ff534-43da-4041-a766-5e7c5ffb49c6> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002413> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77321> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/eaece6c2-21a5-45c7-81b4-d72e66b96389> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment """(rule:provides_input) The relation '(S)-Hydroxyhexanoyl-CoA+NAD<=>3-Oxohexanoyl-CoA+NADH+H' 'directly provides input for (process to process)' '3-Oxohexanoyl-CoA+CoA-SH<=>Butanoyl-CoA' was inferred because:
+ reaction1 has an output that is an input of reaction 2. See and comment on mapping rules at https://tinyurl.com/y8jctxxv """
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/dd9d41d6-033f-4225-beb1-8b331e23c752> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000066> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/c319218d-a3cb-4694-b239-ef5d40811324> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/568444e2-d38e-423e-9507-e2c9d59ea42f> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment "This relation was asserted based on the location of the enabling molecule. "
+ ] .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77325
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77325> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.obolibrary.org/obo/GO_0004300> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000050> <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/R-HSA-77350/c5f8da13-2574-4e64-841a-386644a9a9f9> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002233> <http://model.geneontology.org/R-HSA-77350/R-ALL-113521_R-HSA-77325> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77325> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002234> <http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77325> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/R-HSA-77350/R-HSA-71048_R-HSA-77325_controller> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002413> <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+                                                        <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                        <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                        <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                        <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-77325" ;
+                                                        rdfs:label "trans-Hex-2-enoyl-CoA+H2O<=>(S)-Hydroxyhexanoyl-CoA" ;
+                                                        <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#BiochemicalReaction6248> ;
+                                                        <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0003674> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/8322d9cb-d923-4260-9f99-3e053431f1f8> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000066> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/c5f8da13-2574-4e64-841a-386644a9a9f9> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/a91ab5e0-6ba2-47e7-8e84-08680ea0b591> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment "This relation was asserted based on the location of the enabling molecule. "
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-113521_R-HSA-77325> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/465eba08-054e-498b-a08f-044f807c2237> ,
+                                           <http://model.geneontology.org/R-HSA-77350/54224607-fad8-42f7-aeef-f50b04b59b1d> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77325> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/eab6fb43-e1a2-4da5-9ad9-e315d8e17095> ,
+                                           <http://model.geneontology.org/R-HSA-77350/8bdf4201-5da2-46c6-83e8-bffbfece02dd> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77322_R-HSA-77325> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/b07213a1-7511-482d-a461-e5060c7102b3> ,
+                                           <http://model.geneontology.org/R-HSA-77350/198b56ed-b905-434f-9b02-db63a2288697> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002333> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-71048_R-HSA-77325_controller> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/d7bc5c19-68b7-4d31-a98e-58b9a8e26ae9> ,
+                                           <http://model.geneontology.org/R-HSA-77350/f7e0346d-0078-4dec-b2bd-76b984e369fe> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002413> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77323> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/175a828e-1af1-4d22-b54c-d78610185f64> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment """(rule:provides_input) The relation 'trans-Hex-2-enoyl-CoA+H2O<=>(S)-Hydroxyhexanoyl-CoA' 'directly provides input for (process to process)' '(S)-Hydroxyhexanoyl-CoA+NAD<=>3-Oxohexanoyl-CoA+NADH+H' was inferred because:
+ reaction1 has an output that is an input of reaction 2. See and comment on mapping rules at https://tinyurl.com/y8jctxxv """
+ ] .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77327
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77327> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.obolibrary.org/obo/GO_0003995> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000050> <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/R-HSA-77350/a0e07376-03bf-4398-a123-07183d081f03> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002233> <http://model.geneontology.org/R-HSA-77350/R-ALL-113596_R-HSA-77327> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77326_R-HSA-77327> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002234> <http://model.geneontology.org/R-HSA-77350/R-ALL-31649_R-HSA-77327> ,
+                                                                                                    <http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77327> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/R-HSA-77350/R-HSA-77316_R-HSA-77327_controller> ;
+                                                        <http://purl.obolibrary.org/obo/RO_0002413> <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+                                                        <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                        <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                        <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                        <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "Reactome:R-HSA-77327" ;
+                                                        rdfs:label "Hexanoyl-CoA+FAD<=>trans-Hex-2-enoyl-CoA+FADH2" ;
+                                                        <http://www.w3.org/2004/02/skos/core#exactMatch> <http://www.reactome.org/biopax/69/48887#BiochemicalReaction6247> ;
+                                                        <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0003674> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77350> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/a5a5b348-a0f0-48cb-93e7-6dcad31eef87> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000066> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/a0e07376-03bf-4398-a123-07183d081f03> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/1ff4184d-fb8a-4fae-b2c4-a0319e9253a7> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment "This relation was asserted based on the location of the enabling molecule. "
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-113596_R-HSA-77327> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/dee82511-5d58-4583-93d2-5ecc81cba604> ,
+                                           <http://model.geneontology.org/R-HSA-77350/e23edc04-e03d-4b22-a795-504020da8e6b> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77326_R-HSA-77327> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/1847475e-7297-4108-81de-ddb267c12016> ,
+                                           <http://model.geneontology.org/R-HSA-77350/746a4785-3095-4073-94f6-be04065a4348> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-31649_R-HSA-77327> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/2c8b8f71-bd2b-470e-b255-bfca2afd43f2> ,
+                                           <http://model.geneontology.org/R-HSA-77350/8aa813d8-c61d-4963-be57-90c8c29224af> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-ALL-77324_R-HSA-77327> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/f5addbbb-e47b-4622-af10-f110fef66d70> ,
+                                           <http://model.geneontology.org/R-HSA-77350/1701f850-add7-45ad-90d9-9d9007c6341c> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002333> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77316_R-HSA-77327_controller> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/a7265b7e-78df-4e4e-b257-f84ad81186dd> ,
+                                           <http://model.geneontology.org/R-HSA-77350/f2186366-1d00-4296-a6a2-b1e351be3803> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/R-HSA-77350/R-HSA-77327> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002413> ;
+   owl:annotatedTarget <http://model.geneontology.org/R-HSA-77350/R-HSA-77325> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/R-HSA-77350/b0948b25-0745-41cb-b24a-414f72e2c301> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+   <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+   <http://purl.org/pav/providedBy> "https://reactome.org" ;
+   rdfs:comment """(rule:provides_input) The relation 'Hexanoyl-CoA+FAD<=>trans-Hex-2-enoyl-CoA+FADH2' 'directly provides input for (process to process)' 'trans-Hex-2-enoyl-CoA+H2O<=>(S)-Hydroxyhexanoyl-CoA' was inferred because:
+ reaction1 has an output that is an input of reaction 2. See and comment on mapping rules at https://tinyurl.com/y8jctxxv """
+ ] .
+
+
+###  http://model.geneontology.org/R-HSA-77350/R-HSA-77350
+<http://model.geneontology.org/R-HSA-77350/R-HSA-77350> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.obolibrary.org/obo/GO_0006635> ;
+                                                        <http://purl.org/dc/elements/1.1/contributor> "Authored: Gillespie, ME, 2003-09-19 00:00:00" ,
+                                                                                                      "Edited: Gillespie, ME, 0000-00-00 00:00:00" ,
+                                                                                                      "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                        <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                        <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                        <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "R-HSA-77350" ;
+                                                        rdfs:comment "The sixth pass through the beta-oxidation spiral picks up where the last left off with the saturated fatty acid hexanoyl-CoA and produces butanoyl-CoA. Four enzymatic steps are required starting with SCAD CoA dehydrogenase (Short Chain) activity, followed by the enoyl-CoA hydratase activity of crotonase, the 3-hydroxyacyl-CoA dehydrogenase activity of the short chain 3-hydroxyacyl-CoA dehydrogenase (SCHAD), and completed by the ketoacyl-CoA thiolase activity, present in the mitochondrial membrane associated trifunctional protein." ,
+                                                                     "http://www.reactome.org" ;
+                                                        rdfs:label "Beta oxidation of hexanoyl-CoA to butanoyl-CoA" ;
+                                                        <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0008150> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a0e07376-03bf-4398-a123-07183d081f03
+<http://model.geneontology.org/R-HSA-77350/a0e07376-03bf-4398-a123-07183d081f03> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/GO_0005759> ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0005575> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a2336240-9be2-4ec4-89cb-4cd8383e486e
+<http://model.geneontology.org/R-HSA-77350/a2336240-9be2-4ec4-89cb-4cd8383e486e> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77321" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a34080d3-de06-4230-8486-158c8f9779af
+<http://model.geneontology.org/R-HSA-77350/a34080d3-de06-4230-8486-158c8f9779af> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a490c9df-235d-4d68-93a8-67b2b098fa36
+<http://model.geneontology.org/R-HSA-77350/a490c9df-235d-4d68-93a8-67b2b098fa36> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77323" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a5a5b348-a0f0-48cb-93e7-6dcad31eef87
+<http://model.geneontology.org/R-HSA-77350/a5a5b348-a0f0-48cb-93e7-6dcad31eef87> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a7265b7e-78df-4e4e-b257-f84ad81186dd
+<http://model.geneontology.org/R-HSA-77350/a7265b7e-78df-4e4e-b257-f84ad81186dd> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77327" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/a91ab5e0-6ba2-47e7-8e84-08680ea0b591
+<http://model.geneontology.org/R-HSA-77350/a91ab5e0-6ba2-47e7-8e84-08680ea0b591> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/affba263-5803-44bb-b96b-fc55dbc8f9d1
+<http://model.geneontology.org/R-HSA-77350/affba263-5803-44bb-b96b-fc55dbc8f9d1> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/b007adaa-0f18-40fa-b689-4b31251103b9
+<http://model.geneontology.org/R-HSA-77350/b007adaa-0f18-40fa-b689-4b31251103b9> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/b07213a1-7511-482d-a461-e5060c7102b3
+<http://model.geneontology.org/R-HSA-77350/b07213a1-7511-482d-a461-e5060c7102b3> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/b0948b25-0745-41cb-b24a-414f72e2c301
+<http://model.geneontology.org/R-HSA-77350/b0948b25-0745-41cb-b24a-414f72e2c301> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000363> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/bfc5ed62-c50d-4cc0-ad6f-5d03acfe1a2c
+<http://model.geneontology.org/R-HSA-77350/bfc5ed62-c50d-4cc0-ad6f-5d03acfe1a2c> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77321" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/c319218d-a3cb-4694-b239-ef5d40811324
+<http://model.geneontology.org/R-HSA-77350/c319218d-a3cb-4694-b239-ef5d40811324> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/GO_0005759> ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0005575> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/c5f8da13-2574-4e64-841a-386644a9a9f9
+<http://model.geneontology.org/R-HSA-77350/c5f8da13-2574-4e64-841a-386644a9a9f9> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/GO_0005759> ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0005575> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/d06ff534-43da-4041-a766-5e7c5ffb49c6
+<http://model.geneontology.org/R-HSA-77350/d06ff534-43da-4041-a766-5e7c5ffb49c6> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77323" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/d7bc5c19-68b7-4d31-a98e-58b9a8e26ae9
+<http://model.geneontology.org/R-HSA-77350/d7bc5c19-68b7-4d31-a98e-58b9a8e26ae9> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77325" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/dab4ada7-56ad-49c9-9875-405851587537
+<http://model.geneontology.org/R-HSA-77350/dab4ada7-56ad-49c9-9875-405851587537> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/dd9d41d6-033f-4225-beb1-8b331e23c752
+<http://model.geneontology.org/R-HSA-77350/dd9d41d6-033f-4225-beb1-8b331e23c752> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/dee82511-5d58-4583-93d2-5ecc81cba604
+<http://model.geneontology.org/R-HSA-77350/dee82511-5d58-4583-93d2-5ecc81cba604> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/e23edc04-e03d-4b22-a795-504020da8e6b
+<http://model.geneontology.org/R-HSA-77350/e23edc04-e03d-4b22-a795-504020da8e6b> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77327" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/eab6fb43-e1a2-4da5-9ad9-e315d8e17095
+<http://model.geneontology.org/R-HSA-77350/eab6fb43-e1a2-4da5-9ad9-e315d8e17095> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/eaece6c2-21a5-45c7-81b4-d72e66b96389
+<http://model.geneontology.org/R-HSA-77350/eaece6c2-21a5-45c7-81b4-d72e66b96389> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000363> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/eb9515f7-f8c1-4208-976a-1c1bb69afd76
+<http://model.geneontology.org/R-HSA-77350/eb9515f7-f8c1-4208-976a-1c1bb69afd76> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/f2186366-1d00-4296-a6a2-b1e351be3803
+<http://model.geneontology.org/R-HSA-77350/f2186366-1d00-4296-a6a2-b1e351be3803> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/f5addbbb-e47b-4622-af10-f110fef66d70
+<http://model.geneontology.org/R-HSA-77350/f5addbbb-e47b-4622-af10-f110fef66d70> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/f7e0346d-0078-4dec-b2bd-76b984e369fe
+<http://model.geneontology.org/R-HSA-77350/f7e0346d-0078-4dec-b2bd-76b984e369fe> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/f8e22af2-25e0-4ad4-9b98-2c413fdbc1ec
+<http://model.geneontology.org/R-HSA-77350/f8e22af2-25e0-4ad4-9b98-2c413fdbc1ec> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/fdae9b2d-7279-4ba1-a7d1-c1cba666f493
+<http://model.geneontology.org/R-HSA-77350/fdae9b2d-7279-4ba1-a7d1-c1cba666f493> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/0a1c3716-e416-46cb-8cac-53f987cc9ea6
+<http://model.geneontology.org/R-HSA-77350/0a1c3716-e416-46cb-8cac-53f987cc9ea6> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/0ea8cd45-e449-4f5c-8ce2-350893a03d2f
+<http://model.geneontology.org/R-HSA-77350/0ea8cd45-e449-4f5c-8ce2-350893a03d2f> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77323" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/07b424f0-48c5-4d3b-813d-2db4d3f1225e
+<http://model.geneontology.org/R-HSA-77350/07b424f0-48c5-4d3b-813d-2db4d3f1225e> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77323" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/1df475e9-8c16-46b4-abb4-c57d98e1f7c0
+<http://model.geneontology.org/R-HSA-77350/1df475e9-8c16-46b4-abb4-c57d98e1f7c0> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/1ff4184d-fb8a-4fae-b2c4-a0319e9253a7
+<http://model.geneontology.org/R-HSA-77350/1ff4184d-fb8a-4fae-b2c4-a0319e9253a7> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/1701f850-add7-45ad-90d9-9d9007c6341c
+<http://model.geneontology.org/R-HSA-77350/1701f850-add7-45ad-90d9-9d9007c6341c> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77327" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/175a828e-1af1-4d22-b54c-d78610185f64
+<http://model.geneontology.org/R-HSA-77350/175a828e-1af1-4d22-b54c-d78610185f64> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000363> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/1847475e-7297-4108-81de-ddb267c12016
+<http://model.geneontology.org/R-HSA-77350/1847475e-7297-4108-81de-ddb267c12016> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77327" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/198b56ed-b905-434f-9b02-db63a2288697
+<http://model.geneontology.org/R-HSA-77350/198b56ed-b905-434f-9b02-db63a2288697> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77325" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/2c8b8f71-bd2b-470e-b255-bfca2afd43f2
+<http://model.geneontology.org/R-HSA-77350/2c8b8f71-bd2b-470e-b255-bfca2afd43f2> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/2eb0b2c6-a21d-4d6a-986f-29216297cba8
+<http://model.geneontology.org/R-HSA-77350/2eb0b2c6-a21d-4d6a-986f-29216297cba8> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/28602142-43f1-4080-b59c-379715dde2e7
+<http://model.geneontology.org/R-HSA-77350/28602142-43f1-4080-b59c-379715dde2e7> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77321" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/3dfb4e72-d105-4d66-8426-5707a12909cb
+<http://model.geneontology.org/R-HSA-77350/3dfb4e72-d105-4d66-8426-5707a12909cb> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77323" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/4b79fc3e-c2b4-42e1-b9cf-3d3f6bfc6af6
+<http://model.geneontology.org/R-HSA-77350/4b79fc3e-c2b4-42e1-b9cf-3d3f6bfc6af6> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/465eba08-054e-498b-a08f-044f807c2237
+<http://model.geneontology.org/R-HSA-77350/465eba08-054e-498b-a08f-044f807c2237> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77325" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/5162f966-bd3a-4140-ac8f-3ab9bef29e39
+<http://model.geneontology.org/R-HSA-77350/5162f966-bd3a-4140-ac8f-3ab9bef29e39> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/54224607-fad8-42f7-aeef-f50b04b59b1d
+<http://model.geneontology.org/R-HSA-77350/54224607-fad8-42f7-aeef-f50b04b59b1d> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/568444e2-d38e-423e-9507-e2c9d59ea42f
+<http://model.geneontology.org/R-HSA-77350/568444e2-d38e-423e-9507-e2c9d59ea42f> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/7b788254-386c-4689-a2e9-589ba171f032
+<http://model.geneontology.org/R-HSA-77350/7b788254-386c-4689-a2e9-589ba171f032> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/GO_0005759> ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0005575> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/746a4785-3095-4073-94f6-be04065a4348
+<http://model.geneontology.org/R-HSA-77350/746a4785-3095-4073-94f6-be04065a4348> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/8aa813d8-c61d-4963-be57-90c8c29224af
+<http://model.geneontology.org/R-HSA-77350/8aa813d8-c61d-4963-be57-90c8c29224af> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77327" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/8bdf4201-5da2-46c6-83e8-bffbfece02dd
+<http://model.geneontology.org/R-HSA-77350/8bdf4201-5da2-46c6-83e8-bffbfece02dd> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77325" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/81e6f91f-1203-49ac-be09-b89c28e9ae58
+<http://model.geneontology.org/R-HSA-77350/81e6f91f-1203-49ac-be09-b89c28e9ae58> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77321" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/82fc0a29-6780-4123-80bf-c064e1f2c54d
+<http://model.geneontology.org/R-HSA-77350/82fc0a29-6780-4123-80bf-c064e1f2c54d> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77323" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/8322d9cb-d923-4260-9f99-3e053431f1f8
+<http://model.geneontology.org/R-HSA-77350/8322d9cb-d923-4260-9f99-3e053431f1f8> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/93eb0ee0-4b3e-4892-9473-7e58335f82dd
+<http://model.geneontology.org/R-HSA-77350/93eb0ee0-4b3e-4892-9473-7e58335f82dd> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77350" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+###  http://model.geneontology.org/R-HSA-77350/9636956a-df40-4a82-af5c-364e28d03f18
+<http://model.geneontology.org/R-HSA-77350/9636956a-df40-4a82-af5c-364e28d03f18> rdf:type owl:NamedIndividual ,
+                                                                                          <http://purl.obolibrary.org/obo/ECO_0000313> ;
+                                                                                 <http://purl.org/dc/elements/1.1/contributor> "https://reactome.org/content/detail/R-HSA-77350" ;
+                                                                                 <http://purl.org/dc/elements/1.1/date> "2019-06-17" ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> "Reactome:R-HSA-77321" ;
+                                                                                 <http://purl.org/pav/providedBy> "https://reactome.org" ;
+                                                                                 <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://placeholder/union_set> rdfs:label "Unordered collection" .
+
+
+<http://purl.obolibrary.org/obo/BFO_0000002> rdfs:label "Continuant" .
+
+
+<http://purl.obolibrary.org/obo/BFO_0000015> rdfs:label "Process" .
+
+
+<http://purl.obolibrary.org/obo/BFO_0000051> rdfs:label "has part" .
+
+
+<http://purl.obolibrary.org/obo/CHEBI_23367> rdfs:label "molecular entity" .
+
+
+<http://purl.obolibrary.org/obo/CHEBI_24431> rdfs:label "chemical entity" .
+
+
+<http://purl.obolibrary.org/obo/CHEBI_33695> rdfs:label "chebi gene" .
+
+
+<http://purl.obolibrary.org/obo/CHEBI_36080> rdfs:label "chebi protein" .
+
+
+<http://purl.obolibrary.org/obo/CHEBI_50906> rdfs:label "chemical role" .
+
+
+<http://purl.obolibrary.org/obo/GO_0003674> rdfs:label "Molecular Function" .
+
+
+<http://purl.obolibrary.org/obo/GO_0005575> rdfs:label "Cellular Component" .
+
+
+<http://purl.obolibrary.org/obo/GO_0008150> rdfs:label "Biological Process" .
+
+
+<http://purl.obolibrary.org/obo/GO_0032991> rdfs:label "protein-containing complex" .
+
+
+<http://purl.obolibrary.org/obo/HINO_0008749> rdfs:label "unfolded protein" .
+
+
+<http://purl.obolibrary.org/obo/RO_0000057> rdfs:label "has participant" .
+
+
+<http://purl.obolibrary.org/obo/RO_0000087> rdfs:label "has role" .
+
+
+<http://purl.obolibrary.org/obo/RO_0001025> rdfs:label "located in" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002023> rdfs:label "directly negatively regulated by" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002024> rdfs:label "directly positively regulated by" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002212> rdfs:label "negatively regulates" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002213> rdfs:label "positively regulateds" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002304> rdfs:label "causally upstream of with a positive effect" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002305> rdfs:label "causally upstream of with a negative effect" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002327> rdfs:label "enables" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002328> rdfs:label "functionally related to" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002334> rdfs:label "regulated by" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002406> rdfs:label "directly activates (process to process)" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002408> rdfs:label "directly inhibits (process to process)" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002411> rdfs:label "causally upstream of" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002428> rdfs:label "involved in regulation of" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002429> rdfs:label "involved in positive regulation_of" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002430> rdfs:label "involved in negative regulation_of" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002434> rdfs:label "interacts with" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002629> rdfs:label "directly positively regulates" .
+
+
+<http://purl.obolibrary.org/obo/RO_0002630> rdfs:label "directly negatively regulates" .
+
+
+###  Generated by the OWL API (version 4.2.8) https://github.com/owlcs/owlapi
