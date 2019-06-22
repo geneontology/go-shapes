@@ -22,62 +22,23 @@ PREFIX occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX wb: <http://identifiers.org/wormbase/WBGene00015168>
 PREFIX bl: <https://w3id.org/biolink/vocab/>
+PREFIX evidence_rel: <http://geneontology.org/lego/evidence>
 
-<BL_UNTYPED> {
-   bl:category . {0}
-}
+<EVIDENCE> {
+   bl:category [evidence:]  ;
+}// rdfs:comment  "A kind of evidence"
 
-<BL_TYPED> {
-   bl:category . {1}
-}
-
-<BL_MULTI_TYPED> {
-   bl:category . {2,}
-}
-
-<BP> {
-   bl:category [biological_process:]  ;
-}
-
-<MF> {
-   bl:category [molecular_function:]  ;
-}
-
-<CC> {
-   bl:category [cellular_component:]  ;
-}
-
-<CELL> {
-   bl:category [cell:]  ;
-}
-
-<ANATOMICAL> {
-   bl:category [anatomical_entity:]  ;
-}
-
-<COMPLEX> {
-   bl:category [complex:]  ;
+<AnnotatedAxiom> {
+rdf:type [owl:Axiom];
+evidence_rel: @<EVIDENCE>+ ;
 }
 
 <MOLECULAR_ENTITY>  EXTRA bl:category {
    bl:category [molecular_entity:]  ;
-}
-
-<GENE> {
-   bl:category [gene:]  ;
-}
-
-<PROTEIN> {
-   bl:category [protein:]  ;
-}
-
-<CHEMICAL_ENTITY> EXTRA bl:category{
-   bl:category [chemical_entity:]  ;
-}
-<EVIDENCE> {
-   bl:category [evidence:]  ;
-}
-
-<ShouldMF> @<MF> AND {
-  enabled_by: @<protein> {1}
+  ^owl:annotatedSource @<AnnotatedAxiom> +
+}// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
+<MOLECULAR_ENTITY_NOT>  EXTRA bl:category{
+  bl:category [molecular_entity:]  ;
+} AND NOT {
+  ^owl:annotatedSource @<AnnotatedAxiom> +
 }
