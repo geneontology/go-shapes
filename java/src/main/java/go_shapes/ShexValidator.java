@@ -55,9 +55,9 @@ public class ShexValidator {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) {
-		String shexpath = "../shapes/MF_should.shex";
-		String model_dir = "/Users/bgood/Desktop/test/go_cams/tmp_typed/";
-		String model_file = model_dir+"typed_reactome-homosapiens-trans-Golgi_Network_Vesicle_Budding.ttl";
+		String shexpath = "../shapes/go-cam-shapes.shex";
+		String model_dir = "../test_ttl/go_cams/tagged/";
+		String model_file = model_dir+"typed_reactome-homosapiens-Acetylation.ttl";
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(model_file) ;
 		ShexSchema schema = null;
@@ -72,15 +72,22 @@ public class ShexValidator {
 		Typing results = null;
 		try {
 			results = validateShex(schema, test_model, focus_node_iri, shape_id);
-			Set<RDFTerm> mfs = findMFNodes(results);
-			boolean positive_only = false;
+			Set<RDFTerm> test_nodes = findNonBNodes(results);
+					//findMFNodes(results);
+			boolean positive_only = true;
 			SimpleRDF sr = new SimpleRDF();
-			Label ideal_mf_nesty = new Label(sr.createIRI("http://geneontology.org/NestyIdealMF"));
+			Label MF = new Label(sr.createIRI("http://geneontology.org/MF"));
+			Label BP = new Label(sr.createIRI("http://geneontology.org/BP"));
+			Label CC = new Label(sr.createIRI("http://geneontology.org/CC"));
+			Label MMM = new Label(sr.createIRI("http://geneontology.org/MOLECULAR_ENTITY"));
 			Set<Label> test_shapes = new HashSet<Label>();
-			test_shapes.add(ideal_mf_nesty);
-			String report = shexTypingToString(mfs, test_shapes, results, positive_only); 
-			System.out.println(report);
-			printSchemaComments(schema);
+			test_shapes.add(MF);
+			test_shapes.add(BP);
+			test_shapes.add(CC);
+			test_shapes.add(MMM);
+			String report = shexTypingToString(test_nodes, test_shapes, results, positive_only); 
+			System.out.println("Report\n"+report);
+		//	printSchemaComments(schema);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,30 +134,48 @@ public class ShexValidator {
 
 	public static String shexTypingToString(Set<RDFTerm> nodes, Set<Label> test_shapes, Typing result, boolean positive_only) {
 		String s = "";		
-		for(RDFTerm node : nodes) {			
+		Set<RDFTerm> all_nodes = null;
+		if(nodes!=null) {
+			all_nodes = nodes;
+		}else {
+			
+		}
+		for(Label test_shape : test_shapes) {		
 			//Pair<RDFTerm, Label>
-			for(Label test_shape : test_shapes) {
+			for(RDFTerm node : all_nodes) {	
 				Pair<RDFTerm, Label> p = new Pair<RDFTerm, Label>(node, test_shape);
 				Status r = result.getStatusMap().get(p);
 				if(positive_only&&r.equals(Status.CONFORMANT)&&(!p.two.isGenerated())) {
-					s=s+"node: "+p.one+"\tshape id: "+p.two+"\tresult: "+r.toString()+"\n";
+					s=s+"shape id: "+p.two+"\tnode: "+p.one+"\tresult: "+r.toString()+"\n";
 				}else if(!positive_only){
-					s=s+"node: "+p.one+"\tshape id: "+p.two+"\tresult: "+r.toString()+"\n";
+					s=s+"shape id: "+p.two+"\t node: "+p.one+"\t\tresult: "+r.toString()+"\n";
 					// e.g. node: <http://purl.obolibrary.org/obo/RO_HOM0000011>	shape id: _:SLGEN_0000	result: NONCONFORMANT
-				}
-				
+				}				
 			}
 		}
 		return s;
 	}
 
+	public static Set<RDFTerm> findNonBNodes(Typing result){
+		Set<RDFTerm> mfs = new HashSet<RDFTerm>();
+		for(Pair<RDFTerm, Label> p : result.getStatusMap().keySet()) {
+			Status r = result.getStatusMap().get(p);
+			Label shape_id = p.two;
+			String uri = shape_id.stringValue();
+			if(r.equals(Status.CONFORMANT)&&(uri.startsWith("http://geneontology.org/"))) {
+				mfs.add(p.one);
+			}
+		}
+		return mfs;
+	}
+	
 	public static Set<RDFTerm> findMFNodes(Typing result){
 		Set<RDFTerm> mfs = new HashSet<RDFTerm>();
 		for(Pair<RDFTerm, Label> p : result.getStatusMap().keySet()) {
 			Status r = result.getStatusMap().get(p);
 			Label shape_id = p.two;
 			String uri = shape_id.stringValue();
-			if(r.equals(Status.CONFORMANT)&&(uri.equals("http://geneontology.org/mf"))) {
+			if(r.equals(Status.CONFORMANT)&&(uri.equals("http://geneontology.org/MF"))) {
 				mfs.add(p.one);
 			}
 		}

@@ -24,17 +24,29 @@ PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
 PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX provides_direct_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
+PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
 PREFIX date: <http://purl.org/dc/elements/1.1/date>
 PREFIX providedBy: <http://purl.org/pav/providedBy>
 PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
 PREFIX exactMatch: <http://www.w3.org/2004/02/skos/core#exactMatch>
 
+##something wrong with this one
+# note it effects other shapes that use it
 <BP> {
-   bl:category [biological_process:]  ;
+  a . *;
+  contributor: . *;
+  date: . *;
+  providedBy: . *;
+  xref: . *;
+  rdfs:label . *;
+  exactMatch: . *;
+  rdfs:comment: . *;
+  bl:category [biological_process:]  ;
+  part_of: @<BP> *;
 } // rdfs:comment  "A biological process"
 
-<MF> CLOSED {
+<MF> {
    a . *;
    contributor: . *;
    date: . *;
@@ -49,6 +61,7 @@ PREFIX exactMatch: <http://www.w3.org/2004/02/skos/core#exactMatch>
    has_output: @<MOLECULAR_ENTITY> *;
    has_input: @<MOLECULAR_ENTITY> *;
    provides_direct_input_for: @<MF> *;
+#   directly_positively_regulates: @<MF> *;
 } // rdfs:comment  "A molecular function"
 
 <CC> {
