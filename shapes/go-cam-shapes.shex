@@ -1,99 +1,97 @@
-BASE   <http://geneontology.org/>
+BASE   <http://purl.obolibrary.org/obo/go/shapes/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+#metadata
+PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
 PREFIX provided_by: <http://purl.org/pav/providedBy>
 PREFIX date: <http://purl.org/dc/elements/1.1/date>
-PREFIX protein: <http://purl.obolibrary.org/obo/CHEBI_36080>
-PREFIX cellular_component: <http://purl.obolibrary.org/obo/GO_0005575>
-PREFIX biological_process: <http://purl.obolibrary.org/obo/GO_0008150>
-PREFIX molecular_function: <http://purl.obolibrary.org/obo/GO_0003674>
-PREFIX gene: <http://purl.obolibrary.org/obo/CHEBI_33695>
-PREFIX molecular_entity: <http://purl.obolibrary.org/obo/CHEBI_23367>
-PREFIX chemical_entity: <http://purl.obolibrary.org/obo/CHEBI_24431>
-PREFIX evidence: <http://purl.obolibrary.org/obo/ECO_0000000>
-PREFIX complex: <http://purl.obolibrary.org/obo/GO_0032991>
-PREFIX anatomical_entity: <http://purl.obolibrary.org/obo/UBERON_0001062>
-PREFIX cell:  <http://purl.obolibrary.org/obo/CL_0000000>
+PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
+PREFIX exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch>
+#semantic: classes
+PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
+PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
+PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
+PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
+PREFIX GoGene: <http://purl.obolibrary.org/obo/CHEBI_33695>
+PREFIX GoMolecularEntity: <http://purl.obolibrary.org/obo/CHEBI_23367>
+PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
+PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
+PREFIX GoComplex: <http://purl.obolibrary.org/obo/GO_0032991>
+PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
+PREFIX GoCell:  <http://purl.obolibrary.org/obo/CL_0000000>
+#semantic: relations
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
 PREFIX occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
-PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX provides_direct_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
-PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
-PREFIX date: <http://purl.org/dc/elements/1.1/date>
-PREFIX providedBy: <http://purl.org/pav/providedBy>
-PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
-PREFIX exactMatch: <http://www.w3.org/2004/02/skos/core#exactMatch>
+
+<GoCamEntity> EXTRA a {
+  a [owl:NamedIndividual] {1} // rdfs:comment  "Every entity we care about is a named individual";
+  contributor: . *;
+  date: . *;
+  provided_by: . *;
+  xref: . *;
+  rdfs:label . *;
+  exact_match: . *;
+  rdfs:comment: . *;
+} // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 ##something wrong with this one
 # note it effects other shapes that use it
-<BP> {
-  a . *;
-  contributor: . *;
-  date: . *;
-  providedBy: . *;
-  xref: . *;
-  rdfs:label . *;
-  exactMatch: . *;
-  rdfs:comment: . *;
-  bl:category [biological_process:]  ;
-  part_of: @<BP> *;
+<BiologicalProcess> @<GoCamEntity> AND {
+  bl:category [GoBiologicalProcess:]  ;
+  part_of: @<BiologicalProcess> *;
 } // rdfs:comment  "A biological process"
 
-<MF> {
-   a . *;
-   contributor: . *;
-   date: . *;
-   providedBy: . *;
-   xref: . *;
-   rdfs:label . *;
-   exactMatch: . *;
-   bl:category [molecular_function:]  ;
-   enabled_by: @<MOLECULAR_ENTITY> *;
-   part_of: @<BP> *;
-   occurs_in: @<CC> *;
-   has_output: @<MOLECULAR_ENTITY> *;
-   has_input: @<MOLECULAR_ENTITY> *;
-   provides_direct_input_for: @<MF> *;
-#   directly_positively_regulates: @<MF> *;
+<MolecularFunction> @<GoCamEntity> AND {
+   bl:category [GoMolecularFunction:]  ;
+   enabled_by: @<MolecularEntity> *;
+   part_of: @<BiologicalProcess> *;
+   occurs_in: @<CellularComponent> *;
+   has_output: @<MolecularEntity> *;
+   has_input: @<MolecularEntity> *;
+   provides_direct_input_for: @<MolecularFunction> *;
+# adding the following seems to break both the js and java shex implementations
+# for: http://noctua-dev.berkeleybop.org/download/gomodel:R-HSA-156582/owl
+#   directly_positively_regulates: @<MolecularFunction> *;
 } // rdfs:comment  "A molecular function"
 
-<CC> {
-   bl:category [cellular_component:]  ;
+<CellularComponent> @<GoCamEntity> AND {
+   bl:category [GoCellularComponent:]  ;
 } // rdfs:comment  "a cellular component"
 
-<CELL> {
-   bl:category [cell:]  ;
+<Cell> {
+   bl:category [GoCell:]  ;
 } // rdfs:comment  "a cell type"
 
-<ANATOMICAL> {
-   bl:category [anatomical_entity:]  ;
+<AnatomicalEntity> {
+   bl:category [GoAnatomicalEntity:]  ;
 } // rdfs:comment  "an anatomical entity"
 
-<COMPLEX> {
-   bl:category [complex:]  ;
+<Complex> {
+   bl:category [GoComplex:]  ;
 }// rdfs:comment  "a protein complex"
 
-<MOLECULAR_ENTITY>  EXTRA bl:category {
-   bl:category [molecular_entity:]  ;
+<MolecularEntity>  EXTRA bl:category {
+   bl:category [GoMolecularEntity:]  ;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
-<GENE> {
-   bl:category [gene:]  ;
-}// rdfs:comment  "a gene (a piece of DNA)"
+<Gene> {
+   bl:category [GoGene:]  ;
+}// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
-<PROTEIN> {
-   bl:category [protein:]  ;
+<Protein> {
+   bl:category [GoProtein:]  ;
 }// rdfs:comment  "a protein"
 
-<CHEMICAL_ENTITY> EXTRA bl:category{
-   bl:category [chemical_entity:]  ;
+<ChemicalEntity> EXTRA bl:category{
+   bl:category [GoChemicalEntity:]  ;
 }// rdfs:comment  "a chemical entity"
 
 #<EVIDENCE> {

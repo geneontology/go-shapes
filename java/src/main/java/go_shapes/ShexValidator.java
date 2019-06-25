@@ -42,7 +42,7 @@ import fr.inria.lille.shexjava.validation.Typing;
  *
  */
 public class ShexValidator {
-
+	public final static String shape_base = "http://purl.obolibrary.org/obo/go/shapes/";
 	/**
 	 * 
 	 */
@@ -67,27 +67,29 @@ public class ShexValidator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String focus_node_iri = null;//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
-		String shape_id = null;//e.g. "http://purl.org/pav/providedBy/S-integer";
+		String focus_node_iri = null;//"http://model.geneontology.org/R-HSA-156582/R-HSA-174967";//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
+		String shape_id = null;//"http://geneontology.org/MF";//e.g. "http://purl.org/pav/providedBy/S-integer";
 		Typing results = null;
 		try {
 			results = validateShex(schema, test_model, focus_node_iri, shape_id);
 			Set<RDFTerm> test_nodes = findNonBNodes(results);
-					//findMFNodes(results);
 			boolean positive_only = true;
 			SimpleRDF sr = new SimpleRDF();
-			Label MF = new Label(sr.createIRI("http://geneontology.org/MF"));
-			Label BP = new Label(sr.createIRI("http://geneontology.org/BP"));
-			Label CC = new Label(sr.createIRI("http://geneontology.org/CC"));
-			Label MMM = new Label(sr.createIRI("http://geneontology.org/MOLECULAR_ENTITY"));
+			Label MF = new Label(sr.createIRI(shape_base+"MolecularFunction"));
+			Label BP = new Label(sr.createIRI(shape_base+"BiologicalProcess"));
+			Label CC = new Label(sr.createIRI(shape_base+"CellularComponent"));
+			Label MMM = new Label(sr.createIRI(shape_base+"MolecularEntity"));
+			Label meta = new Label(sr.createIRI(shape_base+"GoCamEntity"));
+			//http://purl.obolibrary.org/obo/go/shapes/GoCamEntity
 			Set<Label> test_shapes = new HashSet<Label>();
 			test_shapes.add(MF);
 			test_shapes.add(BP);
 			test_shapes.add(CC);
-			test_shapes.add(MMM);
+		//	test_shapes.add(MMM);
+		//	test_shapes.add(meta);
 			String report = shexTypingToString(test_nodes, test_shapes, results, positive_only); 
 			System.out.println("Report\n"+report);
-		//	printSchemaComments(schema);
+			//	printSchemaComments(schema);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -109,7 +111,7 @@ public class ShexValidator {
 			}
 		}
 	}
-	
+
 	public static Set<Annotation> getAnnos(Set<Annotation> annos, TripleExpr exp){
 		if(annos==null) {
 			annos = new HashSet<Annotation>();
@@ -130,7 +132,7 @@ public class ShexValidator {
 		}
 		return annos;
 	}
-	
+
 
 	public static String shexTypingToString(Set<RDFTerm> nodes, Set<Label> test_shapes, Typing result, boolean positive_only) {
 		String s = "";		
@@ -138,19 +140,21 @@ public class ShexValidator {
 		if(nodes!=null) {
 			all_nodes = nodes;
 		}else {
-			
+
 		}
 		for(Label test_shape : test_shapes) {		
 			//Pair<RDFTerm, Label>
 			for(RDFTerm node : all_nodes) {	
 				Pair<RDFTerm, Label> p = new Pair<RDFTerm, Label>(node, test_shape);
 				Status r = result.getStatusMap().get(p);
-				if(positive_only&&r.equals(Status.CONFORMANT)&&(!p.two.isGenerated())) {
-					s=s+"shape id: "+p.two+"\tnode: "+p.one+"\tresult: "+r.toString()+"\n";
-				}else if(!positive_only){
-					s=s+"shape id: "+p.two+"\t node: "+p.one+"\t\tresult: "+r.toString()+"\n";
-					// e.g. node: <http://purl.obolibrary.org/obo/RO_HOM0000011>	shape id: _:SLGEN_0000	result: NONCONFORMANT
-				}				
+				if(r!=null) {
+					if(positive_only&&r.equals(Status.CONFORMANT)&&(!p.two.isGenerated())) {
+						s=s+"shape id: "+p.two+"\tnode: "+p.one+"\tresult: "+r.toString()+"\n";
+					}else if(!positive_only){
+						s=s+"shape id: "+p.two+"\t node: "+p.one+"\t\tresult: "+r.toString()+"\n";
+						// e.g. node: <http://purl.obolibrary.org/obo/RO_HOM0000011>	shape id: _:SLGEN_0000	result: NONCONFORMANT
+					}	
+				}
 			}
 		}
 		return s;
@@ -162,13 +166,13 @@ public class ShexValidator {
 			Status r = result.getStatusMap().get(p);
 			Label shape_id = p.two;
 			String uri = shape_id.stringValue();
-			if(r.equals(Status.CONFORMANT)&&(uri.startsWith("http://geneontology.org/"))) {
+			if(r.equals(Status.CONFORMANT)&&(uri.startsWith(shape_base))) {
 				mfs.add(p.one);
 			}
 		}
 		return mfs;
 	}
-	
+
 	public static Set<RDFTerm> findMFNodes(Typing result){
 		Set<RDFTerm> mfs = new HashSet<RDFTerm>();
 		for(Pair<RDFTerm, Label> p : result.getStatusMap().keySet()) {
