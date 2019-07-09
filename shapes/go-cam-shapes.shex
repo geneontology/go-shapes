@@ -37,7 +37,7 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
   date: . *;
   provided_by: . *;
   xref: . *;
-  rdfs:label . *;
+  rdfs:label . {0,1};
   exact_match: . *;
   rdfs:comment: . *;
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
@@ -46,17 +46,17 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 # note it effects other shapes that use it
 <BiologicalProcess> @<GoCamEntity> AND {
   bl:category [GoBiologicalProcess:]  ;
-  part_of: @<BiologicalProcess> *;
+  part_of: @<BiologicalProcess> {0,1};
 } // rdfs:comment  "A biological process"
 
 <MolecularFunction> @<GoCamEntity> AND {
    bl:category [GoMolecularFunction:]  ;
-   enabled_by: @<MolecularEntity> *;
-   part_of: @<BiologicalProcess> *;
-   occurs_in: @<CellularComponent> *;
+   enabled_by: @<MolecularEntity> {0,1};
+   part_of: @<BiologicalProcess> {0,1};
+   occurs_in: @<CellularComponent> {0,1};
    has_output: @<MolecularEntity> *;
    has_input: @<MolecularEntity> *;
-   provides_direct_input_for: @<MolecularFunction> *;
+   provides_direct_input_for: @<MolecularFunction> {0,1};
 # adding the following seems to break both the js and java shex implementations
 # for: http://noctua-dev.berkeleybop.org/download/gomodel:R-HSA-156582/owl
 #   directly_positively_regulates: @<MolecularFunction> *;
@@ -64,10 +64,12 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 
 <CellularComponent> @<GoCamEntity> AND {
    bl:category [GoCellularComponent:]  ;
+   part_of: @<Cell> {0,1};
 } // rdfs:comment  "a cellular component"
 
 <Cell> {
    bl:category [GoCell:]  ;
+   part_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment  "a cell type"
 
 <AnatomicalEntity> {
