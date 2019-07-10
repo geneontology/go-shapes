@@ -66,7 +66,7 @@ public class ShexValidatorTest {
 		Set<Model> bad_models = loadRDF(bad_models_dir);
 		for(Model model : bad_models) {			
 			ModelValidationResult r = v.runValidation(model, schema, focus_node_iri, shape_id);
-			assertFalse("bad model not caught "+r.model_title, r.model_is_valid);
+			assertFalse("bad model not caught: "+r.model_title, r.model_is_valid);
 		}
 	}
 	
@@ -79,7 +79,7 @@ public class ShexValidatorTest {
 		Set<Model> bad_models = loadRDF(good_models_dir);
 		for(Model model : bad_models) {			
 			ModelValidationResult r = v.runValidation(model, schema, focus_node_iri, shape_id);
-			assertTrue("good model failed to validate "+r.model_title,r.model_is_valid);
+			assertTrue("good model failed to validate: "+r.model_title,r.model_is_valid);
 		}
 	}
 	
@@ -98,11 +98,6 @@ public class ShexValidatorTest {
 			models.add(model);
 		}	
 		return models;
-	}
-	
-	private Object multiply(int i, int j) {
-		// TODO Auto-generated method stub
-		return i*j;
 	}
 
 }
