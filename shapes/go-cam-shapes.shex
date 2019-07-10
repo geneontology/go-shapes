@@ -21,6 +21,7 @@ PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
 PREFIX GoComplex: <http://purl.obolibrary.org/obo/GO_0032991>
 PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
+PREFIX GoGrossAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
 PREFIX GoOrganism: <http://purl.obolibrary.org/obo/NCBITaxon_1>
 PREFIX GoCell:  <http://purl.obolibrary.org/obo/CL_0000000>
 #semantic: relations
@@ -63,19 +64,25 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 #   directly_positively_regulates: @<MolecularFunction> *;
 } // rdfs:comment  "A molecular function"
 
-<CellularComponent> @<GoCamEntity> AND {
+
+<AnatomicalEntity> @<GoCamEntity> AND {
+   bl:category [GoAnatomicalEntity:]  ;
+}// rdfs:comment  "a chemical entity"
+
+<CellularComponent>  @<AnatomicalEntity> AND {
    bl:category [GoCellularComponent:]  ;
    part_of: @<Cell> {0,1};
    part_of: @<Organism> {0,1};  // allow direct pass-through for single-cell organisms
 } // rdfs:comment  "a cellular component"
 
-<Cell> {
+<Cell> @<AnatomicalEntity> AND {
    bl:category [GoCell:]  ;
     part_of: @<GrossAnatomicalEntity> {0,1};
 } // rdfs:comment  "a cell type"
 
-<GrossAnatomicalEntity> {
-   bl:category [GoAnatomicalEntity:]  ;
+
+<GrossAnatomicalEntity>  @<AnatomicalEntity> AND {
+   bl:category [GoGrossAnatomicalEntity:]  ;
    part_of: @<Organism> {0,1};
 } // rdfs:comment  "an anatomical entity"
 
