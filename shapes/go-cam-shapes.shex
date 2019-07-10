@@ -66,14 +66,15 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 <CellularComponent> @<GoCamEntity> AND {
    bl:category [GoCellularComponent:]  ;
    part_of: @<Cell> {0,1};
+   part_of: @<Organism> {0,1};  // allow direct pass-through for single-cell organisms
 } // rdfs:comment  "a cellular component"
 
 <Cell> {
    bl:category [GoCell:]  ;
-    part_of: @<AnatomicalEntity> {0,1};
+    part_of: @<GrossAnatomicalEntity> {0,1};
 } // rdfs:comment  "a cell type"
 
-<AnatomicalEntity> {
+<GrossAnatomicalEntity> {
    bl:category [GoAnatomicalEntity:]  ;
    part_of: @<Organism> {0,1};
 } // rdfs:comment  "an anatomical entity"
@@ -82,7 +83,7 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
    bl:category [GoOrganism:]  ;
 } // rdfs:comment  "an organism"
 
-<Complex> {
+<Complex> @<MolecularEntity> {
    bl:category [GoComplex:]  ;
 }// rdfs:comment  "a protein complex"
 
@@ -90,11 +91,11 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
    bl:category [GoMolecularEntity:]  ;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
-<Gene> {
+<Gene> @<MolecularEntity> {
    bl:category [GoGene:]  ;
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
-<Protein> {
+<Protein> @<MolecularEntity> {
    bl:category [GoProtein:]  ;
 }// rdfs:comment  "a protein"
 
