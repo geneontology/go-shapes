@@ -56,7 +56,7 @@ public class ShexValidator {
 	 */
 	public static void main(String[] args) {
 		String shexpath = "../shapes/go-cam-shapes.shex";
-		String model_dir = "../test_ttl/go_cams/tagged/";
+		String model_dir = "../test_ttl/go_cams/should_pass/";
 		String model_file = model_dir+"typed_reactome-homosapiens-Acetylation.ttl";
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(model_file) ;
@@ -70,51 +70,45 @@ public class ShexValidator {
 		String focus_node_iri = null;//"http://model.geneontology.org/R-HSA-156582/R-HSA-174967";//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
 		String shape_id = null;//"http://geneontology.org/MF";//e.g. "http://purl.org/pav/providedBy/S-integer";
 		ShexValidator v = new ShexValidator();
-		v.runValidation(test_model, schema, focus_node_iri, shape_id);
-	}
-
-	public class ModelValidationResult {
-		boolean is_valid;
-		String report;
+		ModelValidationResult r = v.runValidation(test_model, schema, focus_node_iri, shape_id);
 	}
 	
 	public ModelValidationResult runValidation(Model model, ShexSchema schema,String focus_node_iri, String shape_id) {
-		ModelValidationResult result = new ModelValidationResult();
-		result.is_valid = false;
-		String report = ""; //todo replace with dedicated report object
+		ModelValidationResult validation_result = new ModelValidationResult(model);
+		//TODO - connect to Arachne and do this for real
+		//if not already present, add biolink typing here
+		validation_result = runOwlValidation(model, validation_result);
 		try {
-			Typing results = validateShex(schema, model, focus_node_iri, shape_id);
-			Set<RDFTerm> test_nodes = findNonBNodes(results);
+			Typing typing_results = validateShex(schema, model, focus_node_iri, shape_id);
 			boolean positive_only = true;
-			SimpleRDF sr = new SimpleRDF();
-			Label MF = new Label(sr.createIRI(shape_base+"MolecularFunction"));
-			Label BP = new Label(sr.createIRI(shape_base+"BiologicalProcess"));
-			Label CC = new Label(sr.createIRI(shape_base+"CellularComponent"));
-			Label MMM = new Label(sr.createIRI(shape_base+"MolecularEntity"));
-			Label meta = new Label(sr.createIRI(shape_base+"GoCamEntity"));
-			//http://purl.obolibrary.org/obo/go/shapes/GoCamEntity
-			Set<Label> test_shapes = new HashSet<Label>();
-			test_shapes.add(MF);
-			test_shapes.add(BP);
-			test_shapes.add(CC);
-		//	test_shapes.add(MMM);
-		//	test_shapes.add(meta);
-			report = shexTypingToString(test_nodes, test_shapes, results, positive_only); 
-			System.out.println("Report\n"+report);
-			result.report = report;
-			//	printSchemaComments(schema);
+			validation_result = shexTypingToReport(schema, typing_results, positive_only, validation_result); 
+			//not working
+			//printSchemaComments(schema);
+			System.out.println(validation_result.model_report);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return result;
+		return validation_result;
 	}
 	
 	
+	private ModelValidationResult runOwlValidation(Model model, ModelValidationResult result) {
+		// TODO Auto-generated method stub
+		if(result==null) {
+			result = new ModelValidationResult(model);
+		}
+		result.model_is_consistent = false;
+		return result;
+	}
+	
 	public static void printSchemaComments(ShexSchema schema) {
 		for(Label label : schema.getRules().keySet()) {
+			
+			ShapeExpr shape_exp = schema.getRules().get(label);
 			Shape shape_rule = (Shape) schema.getRules().get(label);
+			
 			List<Annotation> annotations = shape_rule.getAnnotations();
 			for(Annotation a : annotations) {
 				System.out.println(shape_rule.getId()+" \n\t"+a.getPredicate()+" "+a.getObjectValue());
@@ -145,24 +139,23 @@ public class ShexValidator {
 			for(TripleExpr sub_exp : sub_exps) {
 				annos = getAnnos(annos, sub_exp);
 			}
-		}
+		} 
 		return annos;
 	}
 
 
-	public static String shexTypingToString(Set<RDFTerm> nodes, Set<Label> test_shapes, Typing result, boolean positive_only) {
+	public static ModelValidationResult shexTypingToReport(ShexSchema schema, Typing typing_result, boolean positive_only, ModelValidationResult validation_result) {
 		String s = "";		
 		Set<RDFTerm> all_nodes = null;
+		Set<RDFTerm> nodes = findNonBNodes(typing_result);
 		if(nodes!=null) {
 			all_nodes = nodes;
-		}else {
-
 		}
-		for(Label test_shape : test_shapes) {		
+		for(Label test_shape : schema.getRules().keySet()) {		
 			//Pair<RDFTerm, Label>
 			for(RDFTerm node : all_nodes) {	
 				Pair<RDFTerm, Label> p = new Pair<RDFTerm, Label>(node, test_shape);
-				Status r = result.getStatusMap().get(p);
+				Status r = typing_result.getStatusMap().get(p);
 				if(r!=null) {
 					if(positive_only&&r.equals(Status.CONFORMANT)&&(!p.two.isGenerated())) {
 						s=s+"shape id: "+p.two+"\tnode: "+p.one+"\tresult: "+r.toString()+"\n";
@@ -173,33 +166,21 @@ public class ShexValidator {
 				}
 			}
 		}
-		return s;
+		validation_result.model_report = s;
+		return validation_result;
 	}
 
 	public static Set<RDFTerm> findNonBNodes(Typing result){
-		Set<RDFTerm> mfs = new HashSet<RDFTerm>();
+		Set<RDFTerm> nodes = new HashSet<RDFTerm>();
 		for(Pair<RDFTerm, Label> p : result.getStatusMap().keySet()) {
 			Status r = result.getStatusMap().get(p);
 			Label shape_id = p.two;
 			String uri = shape_id.stringValue();
 			if(r.equals(Status.CONFORMANT)&&(uri.startsWith(shape_base))) {
-				mfs.add(p.one);
+				nodes.add(p.one);
 			}
 		}
-		return mfs;
-	}
-
-	public static Set<RDFTerm> findMFNodes(Typing result){
-		Set<RDFTerm> mfs = new HashSet<RDFTerm>();
-		for(Pair<RDFTerm, Label> p : result.getStatusMap().keySet()) {
-			Status r = result.getStatusMap().get(p);
-			Label shape_id = p.two;
-			String uri = shape_id.stringValue();
-			if(r.equals(Status.CONFORMANT)&&(uri.equals("http://geneontology.org/MF"))) {
-				mfs.add(p.one);
-			}
-		}
-		return mfs;
+		return nodes;
 	}
 
 	public static Typing validateShex(ShexSchema schema, Model jena_model, String focus_node_iri, String shape_id) throws Exception {
