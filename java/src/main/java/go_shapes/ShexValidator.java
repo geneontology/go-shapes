@@ -69,9 +69,21 @@ public class ShexValidator {
 		}
 		String focus_node_iri = null;//"http://model.geneontology.org/R-HSA-156582/R-HSA-174967";//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
 		String shape_id = null;//"http://geneontology.org/MF";//e.g. "http://purl.org/pav/providedBy/S-integer";
-		Typing results = null;
+		ShexValidator v = new ShexValidator();
+		v.runValidation(test_model, schema, focus_node_iri, shape_id);
+	}
+
+	public class ModelValidationResult {
+		boolean is_valid;
+		String report;
+	}
+	
+	public ModelValidationResult runValidation(Model model, ShexSchema schema,String focus_node_iri, String shape_id) {
+		ModelValidationResult result = new ModelValidationResult();
+		result.is_valid = false;
+		String report = ""; //todo replace with dedicated report object
 		try {
-			results = validateShex(schema, test_model, focus_node_iri, shape_id);
+			Typing results = validateShex(schema, model, focus_node_iri, shape_id);
 			Set<RDFTerm> test_nodes = findNonBNodes(results);
 			boolean positive_only = true;
 			SimpleRDF sr = new SimpleRDF();
@@ -87,15 +99,19 @@ public class ShexValidator {
 			test_shapes.add(CC);
 		//	test_shapes.add(MMM);
 		//	test_shapes.add(meta);
-			String report = shexTypingToString(test_nodes, test_shapes, results, positive_only); 
+			report = shexTypingToString(test_nodes, test_shapes, results, positive_only); 
 			System.out.println("Report\n"+report);
+			result.report = report;
 			//	printSchemaComments(schema);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return result;
 	}
-
+	
+	
 	public static void printSchemaComments(ShexSchema schema) {
 		for(Label label : schema.getRules().keySet()) {
 			Shape shape_rule = (Shape) schema.getRules().get(label);
