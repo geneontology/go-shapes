@@ -71,8 +71,11 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 
 <CellularComponent>  @<AnatomicalEntity> AND {
    bl:category [GoCellularComponent:]  ;
+   
    part_of: @<Cell> {0,1};
-   part_of: @<Organism> {0,1};  // rdfs:comment "allow direct pass-through for single-cell organisms"
+   
+# allow direct pass-through for single-cell organisms"   
+   part_of: @<Organism> {0,1};  
 } // rdfs:comment  "a cellular component"
 
 <Cell> @<AnatomicalEntity> AND {
@@ -90,7 +93,7 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
    bl:category [GoOrganism:]  ;
 } // rdfs:comment  "an organism"
 
-<Complex> @<MolecularEntity> {
+<Complex> @<MolecularEntity> AND {
    bl:category [GoComplex:]  ;
 }// rdfs:comment  "a protein complex"
 
@@ -98,11 +101,11 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
    bl:category [GoMolecularEntity:]  ;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
-<Gene> @<MolecularEntity> {
+<Gene> @<MolecularEntity> AND {
    bl:category [GoGene:]  ;
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
-<Protein> @<MolecularEntity> {
+<Protein> @<MolecularEntity> AND {
    bl:category [GoProtein:]  ;
 }// rdfs:comment  "a protein"
 
