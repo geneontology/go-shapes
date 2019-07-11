@@ -72,9 +72,8 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 
 <CellularComponent>  @<AnatomicalEntity> AND {
    bl:category [GoCellularComponent:]  ;
-
+   part_of: @<CellularComponent> {0,1};
    part_of: @<Cell> {0,1};
-
 # allow direct pass-through for single-cell organisms"
    part_of: @<Organism> {0,1};
 } // rdfs:comment  "a cellular component"
