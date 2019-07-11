@@ -4,24 +4,24 @@
 package go_shapes;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.rdf.api.IRI;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.apache.commons.rdf.api.RDF;
 import org.apache.commons.rdf.api.RDFTerm;
 import org.apache.commons.rdf.jena.JenaGraph;
 import org.apache.commons.rdf.jena.JenaRDF;
 import org.apache.commons.rdf.simple.SimpleRDF;
-import org.apache.commons.rdf.simple.SimpleRDFTermFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -63,12 +63,41 @@ public class ShexValidator {
 
 	/**
 	 * @param args
+	 * @throws ParseException 
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
-		String shexpath = "../shapes/go-cam-shapes.shex";
-		String model_dir = "../test_ttl/go_cams/should_pass/";
-		String model_file = model_dir+"typed_reactome-homosapiens-Acetylation.ttl";
+	public static void main(String[] args) throws ParseException {
+		String shexpath = "";//"../shapes/go-cam-shapes.shex";
+		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
+
+		// create Options object
+		Options options = new Options();
+		options.addOption("f", true, "ttl file to validate");
+		options.addOption("s", true, "shex schema file");
+		options.addOption("all", false, "if added will return a map of all shapes to all non bnodes in the input rdf");
+		CommandLineParser parser = new DefaultParser();
+		CommandLine cmd = parser.parse( options, args);
+		
+		if(cmd.hasOption("f")) {
+			model_file = cmd.getOptionValue("f");
+		}
+		else {
+		    System.out.println("please provide a file to validate.  e.g. -f ../../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl");
+		    System.exit(0);
+		}
+		if(cmd.hasOption("s")) {
+			shexpath = cmd.getOptionValue("s");
+		}
+		else {
+		    System.out.println("please provide a shex schema file to validate.  e.g. -s ../../shapes/go-cam-shapes.shex");
+		    System.exit(0);
+		}
+		boolean run_all = false;
+		if(cmd.hasOption("all")) {
+			run_all = true;
+		}
+		
+		
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(model_file) ;
 		ShexSchema schema = null;
@@ -79,10 +108,15 @@ public class ShexValidator {
 			e.printStackTrace();
 		}
 		ShexValidator v = new ShexValidator();
-		ModelValidationResult r = v.runGoValidation(test_model, schema);
+		if(run_all) {
+			ModelValidationResult r = v.runGeneralValidation(test_model, schema, null, null);
+			System.out.println("report for model:"+r.model_title+"\n"+r.model_report);
+		}else {
+			ModelValidationResult r = v.runGoValidation(test_model, schema);
+			System.out.println("GO specific report for model:"+r.model_title+"\n"+r.model_report);
+		}
 		//not working
 		//printSchemaComments(schema);
-		System.out.println("report for model:"+r.model_title+"\n"+r.model_report);
 	}
 
 	public ModelValidationResult runGoValidation(Model model, ShexSchema schema) {
@@ -107,11 +141,11 @@ public class ShexValidator {
 				String s = getValidationReport(rdfFactory, model, schema, cc, CellularComponent);
 				validation_result.model_report+=s;
 			}
-			Set<String> chemicals = getChemicalnodes(model);
-			for(String c : chemicals ) {
-				String s = getValidationReport(rdfFactory, model, schema, c, ChemicalEntity);
-				validation_result.model_report+=s;
-			}
+//			Set<String> chemicals = getChemicalnodes(model);
+//			for(String c : chemicals ) {
+//				String s = getValidationReport(rdfFactory, model, schema, c, ChemicalEntity);
+//				validation_result.model_report+=s;
+//			}
 			//get all categorized nodes...
 //			Set<String> all = getFocusNodes(model, null);
 //			for(String a : all ) {
@@ -152,16 +186,12 @@ public class ShexValidator {
 		validation_result = runOwlValidation(model, validation_result);
 		try {
 			Typing typing_results = validateShex(schema, model, focus_node_iri, shape_id);
-			boolean positive_only = true;
+			boolean positive_only = false;
 			validation_result = shexTypingToReport(schema, typing_results, positive_only, validation_result); 
-			//not working
-			//printSchemaComments(schema);
-			System.out.println(validation_result.model_report);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return validation_result;
 	}
 
@@ -230,10 +260,9 @@ public class ShexValidator {
 				Status r = typing_result.getStatusMap().get(p);
 				if(r!=null) {
 					if(positive_only&&r.equals(Status.CONFORMANT)&&(!p.two.isGenerated())) {
-						s=s+"shape id: "+p.two+"\tnode: "+p.one+"\tresult: "+r.toString()+"\n";
+						s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
 					}else if(!positive_only){
-						s=s+"shape id: "+p.two+"\t node: "+p.one+"\t\tresult: "+r.toString()+"\n";
-						// e.g. node: <http://purl.obolibrary.org/obo/RO_HOM0000011>	shape id: _:SLGEN_0000	result: NONCONFORMANT
+						s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
 					}	
 				}
 			}
