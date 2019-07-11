@@ -32,6 +32,7 @@ PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
 PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
+PREFIX located_in: <http://purl.obolibrary.org/obo/RO_0001025>
 
 <GoCamEntity> EXTRA a {
   a [owl:NamedIndividual] {1} // rdfs:comment  "Every entity we care about is a named individual";
@@ -95,6 +96,7 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 
 <Complex> @<MolecularEntity> AND {
    bl:category [GoComplex:]  ;
+   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein complex"
 
 <MolecularEntity>  EXTRA bl:category {
@@ -103,10 +105,12 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
 
 <Gene> @<MolecularEntity> AND {
    bl:category [GoGene:]  ;
+   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
 <Protein> @<MolecularEntity> AND {
    bl:category [GoProtein:]  ;
+   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein"
 
 <ChemicalEntity> EXTRA bl:category{
