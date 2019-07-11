@@ -17,6 +17,11 @@ import org.apache.commons.rdf.jena.JenaGraph;
 import org.apache.commons.rdf.jena.JenaRDF;
 import org.apache.commons.rdf.simple.SimpleRDF;
 import org.apache.commons.rdf.simple.SimpleRDFTermFactory;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -42,7 +47,13 @@ import fr.inria.lille.shexjava.validation.Typing;
  *
  */
 public class ShexValidator {
+	//TODO dig these out of the schema rather than hard coding here
 	public final static String shape_base = "http://purl.obolibrary.org/obo/go/shapes/";
+	public final static String ChemicalEntity = shape_base+"ChemicalEntity";
+	public final static String MolecularFunction = shape_base+"MolecularFunction";
+	public final static String BiologicalProcess = shape_base+"BiologicalProcess";
+	public final static String CellularComponent = shape_base+"CellularComponent";
+	public final static String GoCamEntity = shape_base+"GoCamEntity";
 	/**
 	 * 
 	 */
@@ -67,13 +78,74 @@ public class ShexValidator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String focus_node_iri = null;//"http://model.geneontology.org/R-HSA-156582/R-HSA-174967";//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
-		String shape_id = null;//"http://geneontology.org/MF";//e.g. "http://purl.org/pav/providedBy/S-integer";
 		ShexValidator v = new ShexValidator();
-		ModelValidationResult r = v.runValidation(test_model, schema, focus_node_iri, shape_id);
+		ModelValidationResult r = v.runGoValidation(test_model, schema);
+		//not working
+		//printSchemaComments(schema);
+		System.out.println("report for model:"+r.model_title+"\n"+r.model_report);
+	}
+
+	public ModelValidationResult runGoValidation(Model model, ShexSchema schema) {
+		RDF rdfFactory = new SimpleRDF();
+		ModelValidationResult validation_result = new ModelValidationResult(model);
+		//TODO - connect to Arachne and do this for real
+		//if not already present, add biolink typing here
+		validation_result = runOwlValidation(model, validation_result);
+		try {
+			Set<String> mfs = getMFnodes(model);
+			for(String mf : mfs ) {
+				String s = getValidationReport(rdfFactory, model, schema, mf, MolecularFunction);
+				validation_result.model_report+=s;
+			}
+			Set<String> bps = getBPnodes(model);
+			for(String bp : bps ) {
+				String s = getValidationReport(rdfFactory, model, schema, bp, BiologicalProcess);
+				validation_result.model_report+=s;
+			}
+			Set<String> ccs = getCCnodes(model);
+			for(String cc : ccs ) {
+				String s = getValidationReport(rdfFactory, model, schema, cc, CellularComponent);
+				validation_result.model_report+=s;
+			}
+			Set<String> chemicals = getChemicalnodes(model);
+			for(String c : chemicals ) {
+				String s = getValidationReport(rdfFactory, model, schema, c, ChemicalEntity);
+				validation_result.model_report+=s;
+			}
+			//get all categorized nodes...
+//			Set<String> all = getFocusNodes(model, null);
+//			for(String a : all ) {
+//				String s = getValidationReport(rdfFactory, model, schema, a, GoCamEntity);
+//				validation_result.model_report+=s;
+//			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return validation_result;
+	}
+
+	public String getValidationReport(RDF rdfFactory, Model model, ShexSchema schema,String focus_node_iri, String shape_id) throws Exception {
+		Typing typing_result = validateShex(schema, model, focus_node_iri, shape_id);
+		boolean positive_only = false;
+		//validation_result = shexTypingToReport(schema, typing_results, positive_only, validation_result); 
+		Label shape_label = new Label(rdfFactory.createIRI(shape_id));
+		RDFTerm focus_node = rdfFactory.createIRI(focus_node_iri);
+		Pair<RDFTerm, Label> p = new Pair<RDFTerm, Label>(focus_node, shape_label);
+		Status r = typing_result.getStatusMap().get(p);
+		String s = "";
+		if(r!=null) {
+			if(positive_only&&r.equals(Status.CONFORMANT)&&(!p.two.isGenerated())) {
+				s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
+			}else if(!positive_only){
+				s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
+			}	
+		}
+		return s;
 	}
 	
-	public ModelValidationResult runValidation(Model model, ShexSchema schema,String focus_node_iri, String shape_id) {
+	
+	public ModelValidationResult runGeneralValidation(Model model, ShexSchema schema,String focus_node_iri, String shape_id) {
 		ModelValidationResult validation_result = new ModelValidationResult(model);
 		//TODO - connect to Arachne and do this for real
 		//if not already present, add biolink typing here
@@ -89,11 +161,11 @@ public class ShexValidator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return validation_result;
 	}
-	
-	
+
+
 	private ModelValidationResult runOwlValidation(Model model, ModelValidationResult result) {
 		// TODO Auto-generated method stub
 		if(result==null) {
@@ -102,13 +174,13 @@ public class ShexValidator {
 		result.model_is_consistent = false;
 		return result;
 	}
-	
+
 	public static void printSchemaComments(ShexSchema schema) {
 		for(Label label : schema.getRules().keySet()) {
-			
+
 			ShapeExpr shape_exp = schema.getRules().get(label);
 			Shape shape_rule = (Shape) schema.getRules().get(label);
-			
+
 			List<Annotation> annotations = shape_rule.getAnnotations();
 			for(Annotation a : annotations) {
 				System.out.println(shape_rule.getId()+" \n\t"+a.getPredicate()+" "+a.getObjectValue());
@@ -166,7 +238,7 @@ public class ShexValidator {
 				}
 			}
 		}
-		validation_result.model_report = s;
+		validation_result.model_report = validation_result.model_report+"\n\n"+s;
 		return validation_result;
 	}
 
@@ -204,4 +276,36 @@ public class ShexValidator {
 		}
 		return result;
 	}
+
+	public static Set<String> getChemicalnodes(Model model){
+		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/CHEBI_24431>");
+	}
+	public static Set<String> getMFnodes(Model model){
+		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/GO_0003674>");
+	}
+	public static Set<String> getBPnodes(Model model){
+		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/GO_0008150>");
+	}
+	public static Set<String> getCCnodes(Model model){
+		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/GO_0005575>");
+	}
+	public static Set<String> getFocusNodes(Model model, String category_uri){
+		if(category_uri==null) {
+			category_uri = "?any";
+		}
+		Set<String> nodes = new HashSet<String>();
+		String q = "select ?node where { " + 
+				" ?node <https://w3id.org/biolink/vocab/category> "+category_uri + 
+				" }";
+		QueryExecution qe = QueryExecutionFactory.create(q, model);
+		ResultSet results = qe.execSelect();
+		while (results.hasNext()) {
+			QuerySolution qs = results.next();
+			Resource node = qs.getResource("node");
+			nodes.add(node.getURI());
+		}
+		qe.close();
+		return nodes;
+	}
+
 }

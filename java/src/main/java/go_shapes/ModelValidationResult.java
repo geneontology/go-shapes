@@ -46,6 +46,7 @@ public class ModelValidationResult {
 			model_title = title.getString();
 		}
 		qe.close();
+		model_report = "shape id\tnode uri\tvalidation status\n";
 	}
 
 }

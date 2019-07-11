@@ -59,26 +59,20 @@ public class ShexValidatorTest {
 	
 	@Test
 	public void allBadModelsShouldFail() {
-		String focus_node_iri = null;//"http://model.geneontology.org/R-HSA-156582/R-HSA-174967";//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
-		String shape_id = null;//"http://geneontology.org/MF";//e.g. "http://purl.org/pav/providedBy/S-integer";
 		ShexValidator v = new ShexValidator();
-		
 		Set<Model> bad_models = loadRDF(bad_models_dir);
 		for(Model model : bad_models) {			
-			ModelValidationResult r = v.runValidation(model, schema, focus_node_iri, shape_id);
+			ModelValidationResult r = v.runGoValidation(model, schema);
 			assertFalse("bad model not caught: "+r.model_title, r.model_is_valid);
 		}
 	}
 	
 	@Test
 	public void allGoodModelsShouldPass() {
-		String focus_node_iri = null;//"http://model.geneontology.org/R-HSA-156582/R-HSA-174967";//e.g. "http://model.geneontology.org/R-HSA-140342/R-HSA-211196_R-HSA-211207";
-		String shape_id = null;//"http://geneontology.org/MF";//e.g. "http://purl.org/pav/providedBy/S-integer";
-		ShexValidator v = new ShexValidator();
-		
+		ShexValidator v = new ShexValidator();		
 		Set<Model> bad_models = loadRDF(good_models_dir);
 		for(Model model : bad_models) {			
-			ModelValidationResult r = v.runValidation(model, schema, focus_node_iri, shape_id);
+			ModelValidationResult r = v.runGoValidation(model, schema);
 			assertTrue("good model failed to validate: "+r.model_title,r.model_is_valid);
 		}
 	}
