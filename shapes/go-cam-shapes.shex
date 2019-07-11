@@ -30,7 +30,7 @@ PREFIX occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
-PREFIX provides_direct_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
+PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
 
 <GoCamEntity> EXTRA a {
@@ -59,7 +59,7 @@ PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629
   occurs_in: @<CellularComponent> {0,1};
   has_output: @<MolecularEntity> *;
   has_input: @<MolecularEntity> *;
-  provides_direct_input_for: @<MolecularFunction> {0,1};
+  directly_provides_input_for: @<MolecularFunction> {0,1};
 # adding the following seems to break both the js and java shex implementations
 # for: http://noctua-dev.berkeleybop.org/download/gomodel:R-HSA-156582/owl
 #   directly_positively_regulates: @<MolecularFunction> *;
