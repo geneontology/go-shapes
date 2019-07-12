@@ -22,8 +22,8 @@ import go_shapes.ModelValidationResult;
 public class ShexValidatorTest {
 
 	public static final String shexpath = "../shapes/go-cam-shapes.shex";
-	public static final String good_models_dir  = "../test_ttl/go_cams/should_pass/";
-	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/";
+	public static final String good_models_dir  = "../test_ttl/go_cams/should_pass/tagged/";
+	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/tagged/";
 	public static ShexSchema schema;
 	
 	@BeforeClass
