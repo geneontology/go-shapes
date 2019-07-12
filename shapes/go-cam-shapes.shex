@@ -74,29 +74,29 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   occurs_in: @<CellularComponent> {0,1};
   has_output: @<MolecularEntity> *;
   has_input: @<MolecularEntity> *;
-  directly_provides_input_for: @<MolecularFunction> {0,1};
-#  happens_during: @<BiologicalPhase> *;
-  regulates: @<MolecularFunction> {0,1};
-  negatively_regulates: @<MolecularFunction> {0,1};
-  positively_regulates: @<MolecularFunction> {0,1};
-  directly_regulates: @<MolecularFunction> {0,1};
-  directly_negatively_regulates: @<MolecularFunction> {0,1};
-  directly_positively_regulates: @<MolecularFunction> {0,1};
-  causally_upstream_of_or_within: @<BiologicalProcess> {0,1};
-  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> {0,1};
-  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> {0,1};
-  causally_upstream_of: @<BiologicalProcess> {0,1};
-  causally_upstream_of_negative_effect: @<BiologicalProcess> {0,1};
-  causally_upstream_of_positive_effect: @<BiologicalProcess> {0,1};
-# adding the following seems to break both the js and java shex implementations
-# for: http://noctua-dev.berkeleybop.org/download/gomodel:R-HSA-156582/owl
-#   directly_positively_regulates: @<MolecularFunction> *;
+  happens_during: @<BiologicalPhase> *;
+#any time more than pattern that references @<MolecularFunction> is added
+#to the <MolecularFunction> shape, this shape breaks the java parser.
+#any one reference by itself, it works.  (property does not matter) 
+#  directly_provides_input_for: @<MolecularFunction> {0,1};
+#  regulates: @<MolecularFunction> {0,1};
+#  negatively_regulates: @<MolecularFunction> {0,1};
+#  positively_regulates: @<MolecularFunction> {0,1};
+#  directly_regulates: @<MolecularFunction> {0,1};
+#  directly_negatively_regulates: @<MolecularFunction> {0,1};
+#  directly_positively_regulates: @<MolecularFunction> {0,1};
+#  causally_upstream_of_or_within: @<BiologicalProcess> {0,1};
+#  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> {0,1};
+#  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> {0,1};
+#  causally_upstream_of: @<BiologicalProcess> {0,1};
+#  causally_upstream_of_negative_effect: @<BiologicalProcess> {0,1};
+#  causally_upstream_of_positive_effect: @<BiologicalProcess> {0,1};
 } // rdfs:comment  "A molecular function"
 
 
-#<BiologicalPhase> @<GoCamEntity> AND {
-  # bl:category [BiologicalPhase:]  ;
-#}// rdfs:comment  "an biological phase"
+<BiologicalPhase> @<GoCamEntity> AND {
+   bl:category [GoBiologicalPhase:]  ;
+}// rdfs:comment  "an biological phase"
 
 <AnatomicalEntity> @<GoCamEntity> AND {
    bl:category [GoAnatomicalEntity:]  ;
