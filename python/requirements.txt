@@ -1,0 +1,3 @@
+PyShex>=0.0
+click>=0.0
+cachier==1.1.8
