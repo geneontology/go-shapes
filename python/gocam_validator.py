@@ -40,9 +40,14 @@ class ValidationReport():
 @click.argument('rdf_file', nargs=-1)
 def validate_files(rdf_file : [str]):
     shexc = get_shexc()
-    
+
+    all_files_successful = True
     for f in rdf_file:
-        validate(f, shexc)
+        rpt = validate(f, shexc)
+        print(f'File: {f} Success: {rpt.all_successful} PASS: {rpt.pass_list} FAIL: {rpt.fail_list}')
+        if not rpt.all_successful:
+            all_files_successful
+    print(f'Final report >> all files successful: { all_files_successful }')
         
 def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
     if shexc is None:
