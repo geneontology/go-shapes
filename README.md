@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/geneontology/GO_Shapes.svg?branch=master)](https://travis-ci.org/geneontology/GO_Shapes)
 
-
 # GO_Shapes
 
 Using RDF Shapes to define the schema of Gene Ontology Causal Activity Models
@@ -9,13 +8,23 @@ Using RDF Shapes to define the schema of Gene Ontology Causal Activity Models
 
 See [shapes/go-cam-shapes.shex](shapes/go-cam-shapes.shex)
 
+# Travis checks
+
+Any changes to the schema should be made via a Pull Request. This will trigger travis, which will check the schema against known passes and failures
+
+Currently error reporting may be opaque - we are working on this!
+
 # Running in Python
+
+You can run individual files through the python command line tool
 
 See the [python](python) folder
 
 # Running in Java (temporarily deprecated)
 
 After cloning the repo (https://github.com/geneontology/GO_Shapes.git) and going to its root
+
+```
 >cd java
 >maven install
 >cd bin
@@ -24,5 +33,5 @@ After cloning the repo (https://github.com/geneontology/GO_Shapes.git) and going
 #Test all non-bnodes in input ttl against all shapes in the go schema (https://github.com/geneontology/GO_Shapes/blob/master/shapes/go-cam-shapes.shex) 
 >java -jar go_shapes_cli.jar -f ../../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl -s ../../shapes/go-cam-shapes.shex -all
 
-
+```
 
