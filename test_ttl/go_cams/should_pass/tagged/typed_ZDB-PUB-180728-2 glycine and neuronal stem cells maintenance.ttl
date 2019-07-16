@@ -8,13 +8,12 @@
 
 <http://model.geneontology.org/5c4605cc00003994> rdf:type owl:Ontology ;
                                                   owl:versionIRI <http://model.geneontology.org/5c4605cc00003994> ;
-                                                  owl:imports <http://purl.obolibrary.org/obo/go/extensions/go-lego.owl> ;
                                                   <http://geneontology.org/lego/modelstate> "production"^^xsd:string ;
                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                   <http://www.geneontology.org/formats/oboInOwl#id> "gomodel:5c4605cc00003994"^^xsd:string ;
                                                   <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
-                                                  <http://purl.org/dc/elements/1.1/title> "ZDB-PUB-180728-2 glycine and neuronal stem cells maintenance"^^xsd:string ;
-                                                  <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string .
+                                                  <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
+                                                  <http://purl.org/dc/elements/1.1/title> "ZDB-PUB-180728-2 glycine and neuronal stem cells maintenance"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -40,6 +39,30 @@
 <http://geneontology.org/lego/hint/layout/y> rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.obolibrary.org/obo/BFO_0000066
+<http://purl.obolibrary.org/obo/BFO_0000066> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002333
+<http://purl.obolibrary.org/obo/RO_0002333> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002418
+<http://purl.obolibrary.org/obo/RO_0002418> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/pav/providedBy
 <http://purl.org/pav/providedBy> rdf:type owl:AnnotationProperty .
 
@@ -52,6 +75,38 @@
 rdfs:label rdf:type owl:AnnotationProperty .
 
 
+###  https://w3id.org/biolink/vocab/category
+<https://w3id.org/biolink/vocab/category> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://identifiers.org/zfin/ZDB-GENE-010410-3
+<http://identifiers.org/zfin/ZDB-GENE-010410-3> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/ECO_0000315
+<http://purl.obolibrary.org/obo/ECO_0000315> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/ECO_0000316
+<http://purl.obolibrary.org/obo/ECO_0000316> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0003674
+<http://purl.obolibrary.org/obo/GO_0003674> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/GO_0043524
+<http://purl.obolibrary.org/obo/GO_0043524> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/ZFA_0009019
+<http://purl.obolibrary.org/obo/ZFA_0009019> rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -61,19 +116,23 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                            <http://identifiers.org/zfin/ZDB-GENE-010410-3> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/CHEBI_23367> ,
+                                                                                                            <http://purl.obolibrary.org/obo/CHEBI_24431> ,
+                                                                                                            <http://purl.obolibrary.org/obo/CHEBI_33695> .
 
 
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00003996
 <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003996> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/GO_0003674> ;
-                                                                  <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003995> ;
-                                                                  <http://purl.obolibrary.org/obo/RO_0002418> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003997> ;
                                                                   <http://geneontology.org/lego/hint/layout/x> "75"^^xsd:string ;
                                                                   <http://geneontology.org/lego/hint/layout/y> "381.25"^^xsd:string ;
+                                                                  <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003995> ;
+                                                                  <http://purl.obolibrary.org/obo/RO_0002418> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003997> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0003674> .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003996> ;
@@ -81,8 +140,6 @@ rdfs:label rdf:type owl:AnnotationProperty .
    owl:annotatedTarget <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003995> ;
    <http://geneontology.org/lego/evidence> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003999> ,
                                            <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004000> ;
-   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
-   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
    <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string
  ] .
 
@@ -92,8 +149,6 @@ rdfs:label rdf:type owl:AnnotationProperty .
    owl:annotatedTarget <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003997> ;
    <http://geneontology.org/lego/evidence> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004001> ,
                                            <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004002> ;
-   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
-   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
    <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string
  ] .
 
@@ -101,12 +156,13 @@ rdfs:label rdf:type owl:AnnotationProperty .
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00003997
 <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003997> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/GO_0043524> ;
-                                                                  <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004005> ;
                                                                   <http://geneontology.org/lego/hint/layout/x> "75"^^xsd:string ;
                                                                   <http://geneontology.org/lego/hint/layout/y> "75"^^xsd:string ;
+                                                                  <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004005> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/GO_0008150> .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource <http://model.geneontology.org/5c4605cc00003994/5c4605cc00003997> ;
@@ -114,8 +170,6 @@ rdfs:label rdf:type owl:AnnotationProperty .
    owl:annotatedTarget <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004005> ;
    <http://geneontology.org/lego/evidence> <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004006> ,
                                            <http://model.geneontology.org/5c4605cc00003994/5c4605cc00004007> ;
-   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
-   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
    <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string
  ] .
 
@@ -127,7 +181,8 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:30050902"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
 
 
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00004000
@@ -137,7 +192,8 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:30050902"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
 
 
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00004001
@@ -147,7 +203,8 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:30050902"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
 
 
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00004002
@@ -157,7 +214,8 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:30050902"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
 
 
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00004005
@@ -175,7 +233,8 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:30050902"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
 
 
 ###  http://model.geneontology.org/5c4605cc00003994/5c4605cc00004007
@@ -185,7 +244,8 @@ rdfs:label rdf:type owl:AnnotationProperty .
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-4142-7153"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-05-16"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:30050902"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string .
+                                                                  <http://purl.org/pav/providedBy> "http://zfin.org"^^xsd:string ;
+                                                                  <https://w3id.org/biolink/vocab/category> <http://purl.obolibrary.org/obo/ECO_0000000> .
 
 
 ###  Generated by the OWL API (version 4.2.8) https://github.com/owlcs/owlapi
