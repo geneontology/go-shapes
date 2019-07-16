@@ -15,6 +15,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from cachier import cachier
 from dataclasses import dataclass, field
 import datetime
+import sys
 
 
 GOSHAPES = Namespace("http://purl.obolibrary.org/obo/go/shapes/")
@@ -22,7 +23,10 @@ GOSHAPES = Namespace("http://purl.obolibrary.org/obo/go/shapes/")
 cmap = {
     "http://purl.obolibrary.org/obo/GO_0003674" : "MolecularFunction",
     "http://purl.obolibrary.org/obo/GO_0008150" : "BiologicalProcess",
-    "http://purl.obolibrary.org/obo/GO_0005575" : "CellularComponent"
+    "http://purl.obolibrary.org/obo/GO_0005575" : "CellularComponent",
+    "http://purl.obolibrary.org/obo/CHEBI_36080" : "Protein",
+
+    "http://purl.obolibrary.org/obo/ECO_0000000" : "Evidence"
 }
 
 shex_source = '../shapes/go-cam-shapes.shex'
@@ -65,12 +69,20 @@ def validate_files(rdf_file : [str], verbose):
             for inst, sc, reason in rpt.fail_list:
                 print(f'  FAIL: {inst} SHAPE: {sc} REASON: {reason}')
     print(f'Final report >> all files successful: { all_files_successful }')
+    if all_files_successful:
+        exit_code = 0
+    else:
+        exit_code = 1
+    sys.exit(exit_code)
         
 def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
     if shexc is None:
         shexc = get_shexc()
     g = Graph()
     g.parse(filename, format="turtle")
+    # TESTING...
+    g.namespace_manager.bind('M', 'http://purl.obolibrary.org/obo/GO_0097325', override=True, replace=True)
+    g.serialize(destination='foo.ttl', format='turtle')
     inst_cls_tuples = []
     smap = {}
     rpt = ValidationReport(shexc=shexc, rdf_file=filename)
@@ -80,10 +92,12 @@ def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
             continue
         inst_cls_tuples.append( (inst, cls) )
         ancs = get_ancestors(cls)
+        #print(f'Ancs {cls} subClassOf {ancs}')
         shape_classes = []
         for a in ancs:
             if a in cmap:
                 # inject
+                #print(f'Injecting {cls} subClassOf {a}')
                 g.add( (cls, RDF.type, OWL.Class) )
                 g.add( (cls, RDFS.subClassOf, URIRef(a)) )
                 shape_classes.append(GOSHAPES[cmap[a]])
