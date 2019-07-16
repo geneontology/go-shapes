@@ -115,10 +115,10 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }// rdfs:comment  "an anatomical entity"
 
 <CellularComponentClass> @<OwlClass> AND {
-  rdfs:subClassOf GoCellularComponent: ;
+  rdfs:subClassOf [ GoCellularComponent: ];
 }
 <CellularComponent>  @<AnatomicalEntity> AND EXTRA a {
-  a @<CellularComponentClass> *;
+  a @<CellularComponentClass> {1};
    part_of: @<CellularComponent> {0,1};
    part_of: @<Cell> {0,1};
 # allow direct pass-through for single-cell organisms"
@@ -148,16 +148,24 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
    located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
-<Protein> @<MolecularEntity> AND {
+<ProteinClass> @<OwlClass> AND {
+  rdfs:subClassOf [ GoProtein: ];
+}
+<Protein> @<MolecularEntity> AND EXTRA a {
+   a @<ProteinClass> ;
    located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein"
 
 <ChemicalEntity> EXTRA bl:category{
 }// rdfs:comment  "a chemical entity"
 
-#<EVIDENCE> {
-#   bl:category [evidence:]  ;
-#}// rdfs:comment  "A kind of evidence"
+<EvidenceClass> @<OwlClass> AND {
+  rdfs:subClassOf [ GoEvidence: ] ;
+}
+
+<Evidence> @<GoCamEntity> AND EXTRA a  {
+  a @<EvidenceClass> *;   
+}// rdfs:comment  "A kind of evidence"
 
 #<BL_UNTYPED> {
 #   bl:category . {0}
