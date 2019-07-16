@@ -9,6 +9,7 @@ from rdflib import Graph
 
 SKIP_LIST = [
     'test3.ttl',    # should pass
+    'XBP-1 is a Cell-Nonautonomous regulator of Stress Resistance and Longevity.owl',
     'fail_enabled_by_3.ttl', 'fail_no_evidence_4.ttl', 'fail_occurs_in_2.ttl'
 ]
 
@@ -28,8 +29,11 @@ class ValidateAgainstExamplesTestCase(unittest.TestCase):
         for root, subdirs, files in os.walk(test_files):
             for f in files:
                 if f in SKIP_LIST:
-                    logging.info(f"Skipping {f} -- REMEMBER TO COME BACK TO THIS LATER")            
+                    logging.info(f"Skipping {f} as is in skip list -- REMEMBER TO COME BACK TO THIS LATER")            
                     continue
+                #if not f.endswith(".ttl")
+                #    logging.info(f"Skipping {f} as is not ttl -- REMEMBER TO COME BACK TO THIS LATER")            
+                #    continue
                 logging.info(f"Validating {f}")            
                 yield validate(root + "/" + f)
 
