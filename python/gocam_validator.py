@@ -1,3 +1,10 @@
+"""
+A shex-based validator for GO-CAMs.
+
+This can either be used via the command line, or as a module
+
+"""
+
 import click
 import logging
 from pyshex.evaluate import evaluate
