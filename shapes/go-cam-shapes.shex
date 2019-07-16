@@ -49,7 +49,7 @@ PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
 
 <GoCamEntity> EXTRA a {
-  a [owl:NamedIndividual] {1} // rdfs:comment  "Every entity we care about is a named individual";
+  a [owl:NamedIndividual] * // rdfs:comment  "Every entity we care about is a named individual";
   contributor: . *;
   date: . *;
   provided_by: . *;
@@ -59,51 +59,66 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   rdfs:comment: . *;
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
+<OwlClass> {
+  rdf:type [ owl:Class ] {1} ;
+}
+
+<BiologicalProcessClass> @<OwlClass> AND {
+  rdfs:subClassOf [ GoBiologicalProcess: ] ;
+}
+
 ##something wrong with this one
 # note it effects other shapes that use it
-<BiologicalProcess> @<GoCamEntity> AND {
-  bl:category [GoBiologicalProcess:]  ;
+<BiologicalProcess> @<GoCamEntity> AND EXTRA a {
+  a @<BiologicalProcessClass> {1};
   part_of: @<BiologicalProcess> {0,1};
 } // rdfs:comment  "A biological process"
 
 
-<MolecularFunction> @<GoCamEntity> AND {
-  bl:category [GoMolecularFunction:]  ;
-  enabled_by: @<MolecularEntity> {0,1};
+<MolecularFunctionClass> @<OwlClass> AND {
+  rdfs:subClassOf [ GoMolecularFunction: ] ;
+}
+
+<MolecularFunction> @<GoCamEntity> AND EXTRA a {
+  a @<MolecularFunctionClass> {1};
+  enabled_by:  ( @<Protein> OR @<Complex> ) {0,1};
   part_of: @<BiologicalProcess> {0,1};
   occurs_in: @<CellularComponent> {0,1};
   has_output: @<MolecularEntity> *;
   has_input: @<MolecularEntity> *;
+  directly_provides_input_for: @<MolecularFunction> {0,1};
+  regulates: @<MolecularFunction> {0,1};
+  negatively_regulates: @<MolecularFunction> {0,1};
+  positively_regulates: @<MolecularFunction> {0,1};
+  directly_regulates: @<MolecularFunction> {0,1};
+  directly_negatively_regulates: @<MolecularFunction> {0,1};
+  directly_positively_regulates: @<MolecularFunction> {0,1};
+  causally_upstream_of_or_within: ( @<BiologicalProcess> OR @<MolecularFunction> ) {0,1};
+  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> {0,1};
+  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> {0,1};
+  causally_upstream_of: @<BiologicalProcess> {0,1};
+  causally_upstream_of_negative_effect: @<BiologicalProcess> {0,1};
+  causally_upstream_of_positive_effect: @<BiologicalProcess> {0,1};
+# adding the following seems to break both the js and java shex implementations
+# for: http://noctua-dev.berkeleybop.org/download/gomodel:R-HSA-156582/owl
+#   directly_positively_regulates: @<MolecularFunction> *;
   happens_during: @<BiologicalPhase> *;
-#any time more than pattern that references @<MolecularFunction> is added
-#to the <MolecularFunction> shape, this shape breaks the java parser.
-#any one reference by itself, it works.  (property does not matter) 
-#  directly_provides_input_for: @<MolecularFunction> {0,1};
-#  regulates: @<MolecularFunction> {0,1};
-#  negatively_regulates: @<MolecularFunction> {0,1};
-#  positively_regulates: @<MolecularFunction> {0,1};
-#  directly_regulates: @<MolecularFunction> {0,1};
-#  directly_negatively_regulates: @<MolecularFunction> {0,1};
-#  directly_positively_regulates: @<MolecularFunction> {0,1};
-#  causally_upstream_of_or_within: @<BiologicalProcess> {0,1};
-#  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> {0,1};
-#  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> {0,1};
-#  causally_upstream_of: @<BiologicalProcess> {0,1};
-#  causally_upstream_of_negative_effect: @<BiologicalProcess> {0,1};
-#  causally_upstream_of_positive_effect: @<BiologicalProcess> {0,1};
 } // rdfs:comment  "A molecular function"
 
+<MacromolecularMachine> ( @<Protein> OR @<Complex> ) AND {}
 
 <BiologicalPhase> @<GoCamEntity> AND {
    bl:category [GoBiologicalPhase:]  ;
 }// rdfs:comment  "an biological phase"
 
 <AnatomicalEntity> @<GoCamEntity> AND {
-   bl:category [GoAnatomicalEntity:]  ;
 }// rdfs:comment  "an anatomical entity"
 
-<CellularComponent>  @<AnatomicalEntity> AND {
-   bl:category [GoCellularComponent:]  ;
+<CellularComponentClass> @<OwlClass> AND {
+  rdfs:subClassOf GoCellularComponent: ;
+}
+<CellularComponent>  @<AnatomicalEntity> AND EXTRA a {
+  a @<CellularComponentClass> *;
    part_of: @<CellularComponent> {0,1};
    part_of: @<Cell> {0,1};
 # allow direct pass-through for single-cell organisms"
@@ -111,41 +126,33 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 } // rdfs:comment  "a cellular component"
 
 <Cell> @<AnatomicalEntity> AND {
-   bl:category [GoCell:]  ;
     part_of: @<GrossAnatomicalEntity> {0,1};
 } // rdfs:comment  "a cell type"
 
 
 <GrossAnatomicalEntity>  @<AnatomicalEntity> AND {
-   bl:category [GoGrossAnatomicalEntity:]  ;
    part_of: @<Organism> {0,1};
 } // rdfs:comment  "an anatomical entity"
 
 <Organism> {
-   bl:category [GoOrganism:]  ;
 } // rdfs:comment  "an organism"
 
 <Complex> @<MolecularEntity> AND {
-   bl:category [GoComplex:]  ;
    located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein complex"
 
 <MolecularEntity>  EXTRA bl:category {
-   bl:category [GoMolecularEntity:]  ;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
 <Gene> @<MolecularEntity> AND {
-   bl:category [GoGene:]  ;
    located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
 <Protein> @<MolecularEntity> AND {
-   bl:category [GoProtein:]  ;
    located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein"
 
 <ChemicalEntity> EXTRA bl:category{
-   bl:category [GoChemicalEntity:]  ;
 }// rdfs:comment  "a chemical entity"
 
 #<EVIDENCE> {
