@@ -2,9 +2,19 @@
 
 
 # GO_Shapes
+
 Using RDF Shapes to define the schema of Gene Ontology Causal Activity Models
 
-# Running in Java
+# Schema
+
+See [shapes/go-cam-shapes.shex](shapes/go-cam-shapes.shex)
+
+# Running in Python
+
+See the [python](python) folder
+
+# Running in Java (temporarily deprecated)
+
 After cloning the repo (https://github.com/geneontology/GO_Shapes.git) and going to its root
 >cd java
 >maven install
