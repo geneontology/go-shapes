@@ -1,0 +1,33 @@
+include prefixes.ttl
+@prefix kinase_activity: GO:0016301 ! kinase activity
+@prefix molecular_function: GO:0003674 ! molecular_function
+@prefix nucleus: GO:0005634 ! nucleus
+@prefix neuron: CL:0000540 ! neuron
+@prefix neocortex: UBERON:0001950 ! neocortex
+
+gp1: a uniprot:Q13253 .
+
+mf1: a molecular_function: ;
+  occurs_in: n1:
+.
+  
+
+ka1: a kinase_activity: ;
+  enabled_by: gp1: ;
+  occurs_in: n1:
+.
+  
+  
+n1: a nucleus: ;
+  part_of: neuron1:
+.
+  
+neuron1: a neuron: ;
+  part_of: neocortex1:
+.
+  
+neocortex1: a neocortex: 
+.
+  
+
+    

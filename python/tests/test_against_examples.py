@@ -25,9 +25,14 @@ class ValidateAgainstExamplesTestCase(unittest.TestCase):
 
     @staticmethod
     def _test_file_iter(subdir : str):
+        print(f"FETCHING FILES IN {subdir}")
+        
         test_files = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../test_ttl/go_cams/' + subdir ))
         for root, subdirs, files in os.walk(test_files):
             for f in files:
+                if 'typed' in f:
+                    # we don't need these, redundant
+                    continue
                 # for now this runs over both the main test files and those in the typed_X subdir
                 if f in SKIP_LIST or f.replace('typed_', '') in SKIP_LIST:
                     logging.info(f"Skipping {f} as is in skip list -- REMEMBER TO COME BACK TO THIS LATER")            
@@ -35,13 +40,14 @@ class ValidateAgainstExamplesTestCase(unittest.TestCase):
                 #if not f.endswith(".ttl")
                 #    logging.info(f"Skipping {f} as is not ttl -- REMEMBER TO COME BACK TO THIS LATER")            
                 #    continue
-                logging.info(f"Validating {f}")            
+                print(f"Validating {f}")            
                 yield validate(root + "/" + f)
 
     def test_positive_examples(self):
         """ Test positive examples succeed """
         n = 0
         for rpt in self._test_file_iter('should_pass'):
+            print(f"TESTED+ : {rpt.rdf_file}")
             n += 1
             if not rpt.all_successful:
                 print(f"FAILURES IN : {rpt.rdf_file}")
@@ -54,6 +60,7 @@ class ValidateAgainstExamplesTestCase(unittest.TestCase):
         """ Test negative examples fail """
         n = 0
         for rpt in self._test_file_iter('should_fail'):
+            print(f"TESTED- : {rpt.rdf_file}")
             n += 1
             if rpt.all_successful:
                 print(f"Expected at least one of the following to FAIL in {rpt.rdf_file}")
