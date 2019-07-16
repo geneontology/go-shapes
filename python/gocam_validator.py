@@ -44,9 +44,9 @@ def validate_files(rdf_file : [str]):
     all_files_successful = True
     for f in rdf_file:
         rpt = validate(f, shexc)
-        print(f'File: {f} Success: {rpt.all_successful} PASS: {rpt.pass_list} FAIL: {rpt.fail_list}')
+        print(f'File: {f} Success: {rpt.all_successful} PASS: {len(rpt.pass_list)} FAIL: {rpt.fail_list}')
         if not rpt.all_successful:
-            all_files_successful
+            all_files_successful = False
     print(f'Final report >> all files successful: { all_files_successful }')
         
 def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
@@ -75,7 +75,7 @@ def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
             smap[inst] = shape_classes
         else:
             rpt.nodes_with_no_shape.append(inst)
-            logging.warn(f"No shape class for tuple {inst} {cls}")
+            logging.info(f"No shape class for tuple {inst} {cls}")
 
     rpt.all_successful = True
     for inst, shape_classes in smap.items():
@@ -85,7 +85,7 @@ def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
                 logging.info(f"Success: {inst} {sc}")
                 rpt.pass_list.append( (inst, sc, reason) )
             else:
-                all_successful = False
+                rpt.all_successful = False
                 logging.info(f"Fail: {inst} {sc} Reason: {reason}")
                 rpt.fail_list.append( (inst, sc, reason) )
     return rpt

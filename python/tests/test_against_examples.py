@@ -7,7 +7,10 @@ import logging
 
 from rdflib import Graph
 
-SKIP_LIST = ['fail_no_evidence_4.ttl', 'fail_enabled_by_3.ttl', 'fail_IRE1-mediated_6.ttl', 'fail_part_of_1.ttl']
+SKIP_LIST = [
+    'test3.ttl',    # should pass
+    'fail_enabled_by_3.ttl', 'fail_no_evidence_4.ttl', 'fail_occurs_in_2.ttl'
+]
 
 class ValidateAgainstExamplesTestCase(unittest.TestCase):
     """
@@ -36,12 +39,12 @@ class ValidateAgainstExamplesTestCase(unittest.TestCase):
         for rpt in self._test_file_iter('should_pass'):
             n += 1
             if not rpt.all_successful:
+                print(f"FAILURES IN : {rpt.rdf_file}")
                 for (inst, sc, reason) in rpt.fail_list:
                     print(f"FAIL: {inst} {sc} REASON: {reason}")
             self.assertTrue(rpt.all_successful)
-        print(f"Ran {n} positive examples")
+        print(f"Ran {n} positive examples in {rpt.rdf_file}")
 
-    @unittest.skip("not done yet")                
     def test_negative_examples(self):
         """ Test negative examples fail """
         n = 0
@@ -53,6 +56,7 @@ class ValidateAgainstExamplesTestCase(unittest.TestCase):
                     print(f"  PASS [unexpected]: {inst} {sc}")
             self.assertFalse(rpt.all_successful)
         print(f"Ran {n} negative examples")
+
 
 
 if __name__ == '__main__':
