@@ -1,8 +1,18 @@
-language: java
+dist: trusty
+sudo: false
 
-jdk:
-  - openjdk11
+language: python
+python:
+  - "3.7"
 
-# run tests
-script:
-  - cd java; mvn clean test
+env:
+  - COLUMNS=80
+
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+
+# command to run tests
+script: 
+  - python -m unittest tests/test_*.py
+
