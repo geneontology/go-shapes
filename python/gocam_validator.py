@@ -38,15 +38,25 @@ class ValidationReport():
 
 @click.command()
 @click.argument('rdf_file', nargs=-1)
-def validate_files(rdf_file : [str]):
+@click.option('-v', '--verbose', count=True)
+def validate_files(rdf_file : [str], verbose):
+    if verbose >= 2:
+        logging.basicConfig(level=logging.DEBUG)
+    elif verbose == 1:
+        logging.basicConfig(level=logging.INFO)
+    else:
+        logging.basicConfig(level=logging.WARNING)
+    
     shexc = get_shexc()
 
     all_files_successful = True
     for f in rdf_file:
         rpt = validate(f, shexc)
-        print(f'File: {f} Success: {rpt.all_successful} PASS: {len(rpt.pass_list)} FAIL: {rpt.fail_list}')
+        print(f'File: {f} Success: {rpt.all_successful} PASS: {len(rpt.pass_list)} FAIL: {len(rpt.fail_list)}')
         if not rpt.all_successful:
             all_files_successful = False
+            for inst, sc, reason in rpt.fail_list:
+                print(f'  FAIL: {inst} SHAPE: {sc} REASON: {reason}')
     print(f'Final report >> all files successful: { all_files_successful }')
         
 def validate(filename : str, shexc : Optional[str] = None) -> ValidationReport:
