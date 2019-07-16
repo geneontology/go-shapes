@@ -7,7 +7,19 @@
 pip install -r requirements.txt
 ```
 
-## Running
+## Running Tests
+
+```
+make test
+```
+
+Currently this will
+
+ - check syntax of shex file is correct
+ - ensure all in should_pass actually pass
+ - ensure all in should_fail actually fail
+
+## Running on selected files
 
 `python ./gocam_validator.py ../test_ttl/go_cams/should_pass/test2.ttl`
 
