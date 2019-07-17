@@ -1,3 +1,6 @@
-
+python/venv/
+python/tests/__pycache__/
+*.old
+java/.idea/
 .DS_Store
 *.jar
