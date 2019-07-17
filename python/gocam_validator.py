@@ -25,6 +25,7 @@ cmap = {
     "http://purl.obolibrary.org/obo/GO_0008150" : "BiologicalProcess",
     "http://purl.obolibrary.org/obo/GO_0005575" : "CellularComponent",
     "http://purl.obolibrary.org/obo/CHEBI_36080" : "Protein",
+    "http://purl.obolibrary.org/obo/CHEBI_33695" : "InformationBiomacromolecule",
 
     "http://purl.obolibrary.org/obo/ECO_0000000" : "Evidence"
 }
