@@ -1,0 +1,45 @@
+include prefixes.ttl
+@prefix kinase_activity: GO:0016301 ! kinase activity
+@prefix mapk_cascade: GO:0000165 ! MAPK cascade
+@prefix cell_proliferation: GO:0008283 ! cell proliferation
+@prefix molecular_function: GO:0003674 ! molecular_function
+@prefix nucleolus: GO:0005730 ! nucleolus
+@prefix nucleus: GO:0005634 ! nucleus
+@prefix neuron: CL:0000540 ! neuron
+@prefix neocortex: UBERON:0001950 ! neocortex
+
+
+## ========================================
+## ACTIVIY UNIT 1
+## ========================================
+
+gp1: a uniprot:Q13253
+.
+
+
+n1: a nucleus:
+;  part_of: neuron1:
+.
+  
+neuron1: a neuron:
+;  part_of: neocortex1:
+.
+  
+neocortex1: a neocortex: 
+.
+
+
+mf1: a molecular_function:
+;  enabled_by: gp1: 
+;  causally_upstream_of_or_within: mapk_cascade1:
+.
+
+
+mapk_cascade1: a mapk_cascade:
+;  occurs_in: n1:
+.
+
+  
+  
+
+    
