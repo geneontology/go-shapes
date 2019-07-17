@@ -67,10 +67,14 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   rdfs:subClassOf [ GoBiologicalProcess: ] ;
 }
 
+<NegatedBiologicalProcessClass> BNode @<OwlClass> AND {
+  owl:complementOf @<BiologicalProcessClass>
+}
+
 ##something wrong with this one
 # note it effects other shapes that use it
 <BiologicalProcess> @<GoCamEntity> AND EXTRA a {
-  a @<BiologicalProcessClass> {1};
+  a ( @<BiologicalProcessClass> OR @<NegatedBiologicalProcessClass> ) {1};
   part_of: @<BiologicalProcess> {0,1};
 } // rdfs:comment  "A biological process"
 
@@ -121,8 +125,13 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <CellularComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoCellularComponent: ];
 }
+
+<NegatedCellularComponentClass> BNode @<OwlClass> AND {
+  owl:complementOf @<CellularComponentClass>
+}
+
 <CellularComponent>  @<AnatomicalEntity> AND EXTRA a {
-  a @<CellularComponentClass> {1};
+  a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1};
    part_of: @<CellularComponent> {0,1};
    part_of: @<Cell> {0,1};
 # allow direct pass-through for single-cell organisms"
