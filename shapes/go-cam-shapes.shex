@@ -63,7 +63,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   rdf:type [ owl:Class ] {1} ;
 }
 
-<BiologicalProcessClass> @<OwlClass> AND {
+<BiologicalProcessClass> @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoBiologicalProcess: ] ;
 }
 
@@ -75,7 +75,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 } // rdfs:comment  "A biological process"
 
 
-<MolecularFunctionClass> IRI @<OwlClass> AND {
+<MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
 }
 
@@ -118,7 +118,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <AnatomicalEntity> @<GoCamEntity> AND {
 }// rdfs:comment  "an anatomical entity"
 
-<CellularComponentClass> @<OwlClass> AND {
+<CellularComponentClass> @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoCellularComponent: ];
 }
 <CellularComponent>  @<AnatomicalEntity> AND EXTRA a {
@@ -152,7 +152,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
    located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
-<ProteinClass> @<OwlClass> AND {
+<ProteinClass> @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoProtein: ];
 }
 <Protein> @<MolecularEntity> AND EXTRA a {
@@ -163,7 +163,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <ChemicalEntity> EXTRA bl:category{
 }// rdfs:comment  "a chemical entity"
 
-<EvidenceClass> @<OwlClass> AND {
+<EvidenceClass> @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoEvidence: ] ;
 }
 
