@@ -1,13 +1,17 @@
+@prefix ka_gp1: <http://model.geneontology.org/1> .
+@prefix n2: <http://model.geneontology.org/10> .
+@prefix mf2: <http://model.geneontology.org/9> .
+@prefix neuron1: <http://model.geneontology.org/3> .
+@prefix mapk_cascade1: <http://model.geneontology.org/6> .
+@prefix neocortex1: <http://model.geneontology.org/4> .
+@prefix mf_gp2: <http://model.geneontology.org/8> .
+@prefix ka1: <http://model.geneontology.org/5> .
+@prefix n1: <http://model.geneontology.org/2> .
+@prefix cell_proliferation1: <http://model.geneontology.org/7> .
 ## ========================================
 ## Auto-generated from ttlite file
 ## ========================================
 ## ** do not edit the file, edit the source **
-@prefix neuron1: <http://model.geneontology.org/5> .
-@prefix n1: <http://model.geneontology.org/4> .
-@prefix neocortex1: <http://model.geneontology.org/6> .
-@prefix mf1: <http://model.geneontology.org/2> .
-@prefix ka1: <http://model.geneontology.org/3> .
-@prefix gp1: <http://model.geneontology.org/1> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -59,34 +63,67 @@
 @prefix uniprot: <http://identifiers.org/uniprot/> .
 
 @prefix kinase_activity: <http://purl.obolibrary.org/obo/GO_0016301> .
+@prefix mapk_cascade: <http://purl.obolibrary.org/obo/GO_0000165> .
+@prefix cell_proliferation: <http://purl.obolibrary.org/obo/GO_0008283> .
 @prefix molecular_function: <http://purl.obolibrary.org/obo/GO_0003674> .
+@prefix nucleolus: <http://purl.obolibrary.org/obo/GO_0005730> .
 @prefix nucleus: <http://purl.obolibrary.org/obo/GO_0005634> .
 @prefix neuron: <http://purl.obolibrary.org/obo/CL_0000540> .
 @prefix neocortex: <http://purl.obolibrary.org/obo/UBERON_0001950> .
 
-gp1: a owl:NamedIndividual, uniprot:Q13253 .
 
-mf1: a owl:NamedIndividual, molecular_function: ;
-  occurs_in: n1:
-.
-  
+## ========================================
+## ACTIVIY UNIT 1
+## ========================================
 
-ka1: a owl:NamedIndividual, kinase_activity: ;
-  enabled_by: gp1: ;
-  occurs_in: n1:
+ka_gp1: a owl:NamedIndividual, uniprot:Q13253
+.
+
+
+n1: a owl:NamedIndividual, nucleus:
+;  part_of: neuron1:
 .
   
-  
-n1: a owl:NamedIndividual, nucleus: ;
-  part_of: neuron1:
-.
-  
-neuron1: a owl:NamedIndividual, neuron: ;
-  part_of: neocortex1:
+neuron1: a owl:NamedIndividual, neuron:
+;  part_of: neocortex1:
 .
   
 neocortex1: a owl:NamedIndividual, neocortex: 
 .
+
+
+ka1: a owl:NamedIndividual, kinase_activity:
+;  enabled_by: ka_gp1: 
+;  occurs_in: n1:
+;  positively_regulates: mf2:
+.
+
+
+
+mapk_cascade1: a owl:NamedIndividual, mapk_cascade:
+;  part_of: cell_proliferation1:
+.
+
+cell_proliferation1: a owl:NamedIndividual, cell_proliferation:
+.
+
+
+## ========================================
+## ACTIVIY UNIT 2
+## ========================================
+
+mf_gp2: a owl:NamedIndividual, uniprot:P12643
+.
+
+mf2: a owl:NamedIndividual, molecular_function:
+;  occurs_in: n2:
+;  enabled_by: mf_gp2:
+.
+
+n2: a owl:NamedIndividual, nucleolus:
+.
+
+  
   
 
     

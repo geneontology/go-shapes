@@ -9,13 +9,25 @@ include prefixes.ttl
 @prefix neocortex: UBERON:0001950 ! neocortex
 
 
-## ========================================
-## ACTIVIY UNIT 1
-## ========================================
-
 ka_gp1: a uniprot:Q13253
 .
 
+ka_gp2: a uniprot:Q13253
+.
+
+ka1: a kinase_activity:
+;  enabled_by: ka_gp1: 
+;  enabled_by: ka_gp2:     ### INJECTED ERROR: cardinality violation
+;  occurs_in: n1:
+;  positively_regulates: mf2:
+.
+
+mapk_cascade1: a mapk_cascade:
+;  part_of: cell_proliferation1:
+.
+
+cell_proliferation1: a cell_proliferation:
+.
 
 n1: a nucleus:
 ;  part_of: neuron1:
@@ -27,39 +39,6 @@ neuron1: a neuron:
   
 neocortex1: a neocortex: 
 .
-
-
-ka1: a kinase_activity:
-;  enabled_by: ka_gp1: 
-;  occurs_in: n1:
-;  positively_regulates: mf2:
-.
-
-#FAIL multiple-enabled-by
-# ka_gp2: a uniprot:Q13253
-# .
-# ## adding a second enabled_by for ka1
-# ka1: enabled_by: ka_gp2:
-# .
-#END
-
-#FAIL multiple-occurs-in
-# ## adding a second enabled_by for ka1
-# ka1: occurs_in: n2:
-# .
-#END
-
-mapk_cascade1: a mapk_cascade:
-;  part_of: cell_proliferation1:
-.
-
-cell_proliferation1: a cell_proliferation:
-.
-
-
-## ========================================
-## ACTIVIY UNIT 2
-## ========================================
 
 mf_gp2: a uniprot:P12643
 .
