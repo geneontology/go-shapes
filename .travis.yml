@@ -14,5 +14,5 @@ install:
 
 # command to run tests
 script: 
-  - "(cd python && make test"
+  - "(cd python && make test)"
 
