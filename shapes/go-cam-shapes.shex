@@ -56,7 +56,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   xref: . *;
   rdfs:label . {0,1};
   exact_match: . *;
-  rdfs:comment: . *;
+  rdfs:comment . *;
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
