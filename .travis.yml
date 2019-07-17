@@ -14,5 +14,5 @@ install:
 
 # command to run tests
 script: 
-  - "(cd python && python -m unittest tests/test_*.py)"
+  - "(cd python && make test)"
 
