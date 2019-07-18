@@ -51,7 +51,7 @@ PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
 
-<ProvenanceAnnotated> EXTRA {
+<ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
   date: xsd:string *; #TODO can we make this an xsd:date?
   provided_by: xsd:string *; #TODO would be better as an IRI
