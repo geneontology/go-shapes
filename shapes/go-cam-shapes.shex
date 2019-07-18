@@ -170,7 +170,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }// rdfs:comment  "a protein"
 
 
-<InformationBiomacromoleculeClass> @<OwlClass> AND {
+<InformationBiomacromoleculeClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoInformationBiomacromolecule: ];
 }
 <InformationBiomacromolecule> @<MolecularEntity> AND EXTRA a {
