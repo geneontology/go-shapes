@@ -13,9 +13,10 @@
                                                   <http://purl.org/dc/elements/1.1/title> "GO_shapes Activity unit test 20"^^xsd:string ;
                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-1706-4196"^^xsd:string ,
                                                                                                 "http://orcid.org/0000-0003-1813-6857"^^xsd:string ;
-                                                  <http://purl.org/pav/providedBy> "http://www.wormbase.org"^^xsd:string ,
-                                                                                   "http://geneontology.org"^^xsd:string ;
-                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-12"^^xsd:string .
+                                                  <http://purl.org/pav/providedBy> "http://www.wormbase.org"^^xsd:string ;
+                                                  rdfs:comment "PASS happens_during_biological_phase"^^xsd:string ;
+                                                  <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string ;
+                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-18"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -77,7 +78,7 @@
                                                                            <http://purl.obolibrary.org/obo/GO_0009008> ;
                                                                   <http://purl.obolibrary.org/obo/BFO_0000050> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000461> ;
                                                                   <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000457> ;
-                                                                  <http://purl.obolibrary.org/obo/RO_0002092> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000463> ;
+                                                                  <http://purl.obolibrary.org/obo/RO_0002092> <http://model.geneontology.org/5d27d1cf00000444/5d29218800000029> ;
                                                                   <http://purl.obolibrary.org/obo/RO_0002233> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000453> ;
                                                                   <http://purl.obolibrary.org/obo/RO_0002234> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000445> ;
                                                                   <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000446> ;
@@ -114,10 +115,9 @@
 [ rdf:type owl:Axiom ;
    owl:annotatedSource <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000449> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002092> ;
-   owl:annotatedTarget <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000463> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000723> ;
+   owl:annotatedTarget <http://model.geneontology.org/5d27d1cf00000444/5d29218800000029> ;
    <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0003-1813-6857"^^xsd:string ;
-   <http://purl.org/dc/elements/1.1/date> "2019-07-12"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2019-07-18"^^xsd:string ;
    <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string
  ] .
 
@@ -320,22 +320,13 @@
                                                                   <http://purl.org/pav/providedBy> "http://www.wormbase.org"^^xsd:string .
 
 
-###  http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000463
-<http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000463> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/GO_0006261> ;
-                                                                  <http://geneontology.org/lego/hint/layout/x> "97"^^xsd:string ;
-                                                                  <http://geneontology.org/lego/hint/layout/y> "274.99998474121094"^^xsd:string ;
+###  http://model.geneontology.org/5d27d1cf00000444/5d29218800000029
+<http://model.geneontology.org/5d27d1cf00000444/5d29218800000029> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/GO_0051318> ;
+                                                                  <http://geneontology.org/lego/hint/layout/x> "87"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/hint/layout/y> "267"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0003-1813-6857"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-12"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string .
-
-
-###  http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000723
-<http://model.geneontology.org/5d27d1cf00000444/5d27d1cf00000723> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0003-1813-6857"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-12"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:10"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-18"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string .
 
 
