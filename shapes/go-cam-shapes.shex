@@ -60,7 +60,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
-  rdf:type [ owl:Class ] {1} ;
+  rdf:type [ owl:Class ] {1};
 }
 
 <BiologicalProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -116,7 +116,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <MacromolecularMachine> ( @<Protein> OR @<Complex> ) AND {}
 
 <BiologicalPhase> @<GoCamEntity> AND {
-   bl:category [GoBiologicalPhase:]  ;
+  bl:category [GoBiologicalPhase:];
 }// rdfs:comment  "an biological phase"
 
 <AnatomicalEntity> @<GoCamEntity> AND {
@@ -132,40 +132,40 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 
 <CellularComponent>  @<AnatomicalEntity> AND EXTRA a {
   a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1};
-   part_of: @<CellularComponent> {0,1};
-   part_of: @<Cell> {0,1};
+  part_of: @<CellularComponent> {0,1};
+  part_of: @<Cell> {0,1};
 # allow direct pass-through for single-cell organisms"
-   part_of: @<Organism> {0,1};
+  part_of: @<Organism> {0,1};
 } // rdfs:comment  "a cellular component"
 
 <Cell> @<AnatomicalEntity> AND {
-    part_of: @<GrossAnatomicalEntity> {0,1};
+  part_of: @<GrossAnatomicalEntity> {0,1};
 } // rdfs:comment  "a cell type"
 
 <GrossAnatomicalEntity>  @<AnatomicalEntity> AND {
-   part_of: @<Organism> {0,1};
+  part_of: @<Organism> {0,1};
 } // rdfs:comment  "an anatomical entity"
 
 <Organism> {
 } // rdfs:comment  "an organism"
 
 <Complex> @<MolecularEntity> AND {
-   located_in: @<CellularComponent> {0,1};
+  located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein complex"
 
 <MolecularEntity> EXTRA bl:category {
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
 <Gene> @<MolecularEntity> AND {
-   located_in: @<CellularComponent> {0,1};
+  located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a gene (a piece of DNA with a purpose)"
 
 <ProteinClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoProtein: ];
 }
 <Protein> @<MolecularEntity> AND EXTRA a {
-   a @<ProteinClass> ;
-   located_in: @<CellularComponent> {0,1};
+  a @<ProteinClass> ;
+  located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein"
 
 <ChemicalEntity> EXTRA bl:category{
