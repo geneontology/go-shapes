@@ -1,8 +1,10 @@
-[![Build Status](https://travis-ci.org/geneontology/GO_Shapes.svg?branch=master)](https://travis-ci.org/geneontology/GO_Shapes)
+[![Build Status](https://travis-ci.org/geneontology/go-shapes.svg?branch=master)](https://travis-ci.org/geneontology/go-shapes)
 
 # GO_Shapes
 
 Using RDF Shapes to define the schema of Gene Ontology Causal Activity Models
+
+The schema here is intended to be synced with the corresponding [google doc](https://docs.google.com/document/d/1OsE19zh8KE_2wT3-8oJysqEGqy-fahnhcjthO34IWP4/edit#), but there may be cases of things being out of sync for now.
 
 # Schema
 

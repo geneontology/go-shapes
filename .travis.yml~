@@ -1,9 +1,0 @@
-language: java
-
-jdk:
-  - oraclejdk8
-  - openjdk11
-
-# run tests
-script:
-  - cd java; mvn clean test
