@@ -22,7 +22,7 @@ See also [#38](https://github.com/geneontology/go-shapes/issues/38)
 
 We have two sets of tests.
 
-The first set are ttl files that are authored in Noctua and then copied across to this repo. They consist of 
+## ttl files authored in Noctua and then copied across to this repo. They consist of: 
 
  * [test_ttl/](test_ttl)
      * [go_cams/](test_ttl/go_cams)
@@ -36,8 +36,27 @@ Minimal Working Example (MWE) in software testing. See [this wikipedia
 page](https://en.wikipedia.org/wiki/Minimal_working_example) for
 concepts.
 
-We additionally have a second set of tests that can be authored by software developers and curators familiar with ttl. These are currently in:
+How to create a Noctua test file: 
+* Create a model to test in Noctua. 
+* Add a comment from the Model > Edit annotations menu: 
+** If the model is supposed to pass, the comment should start with PASS and a short explanation of why it should pass. 
+** If the model is supposed to fail, the comment should start with FAIL and a short explanation of why it should fail. 
+* Save the model. 
+* Go to Model > Export to OWL. 
+* Copy the OWL output. 
 
+Commit to the GitHub go-shapes/test_ttl/go_cams directory
+* Go to the go-shapes repo, navigate to the https://github.com/geneontology/go-shapes/tree/master/test_ttl/go_cams directory
+* If the model is supposed to PASS, open the 'should_pass' directory. 
+* Click on the button on the upper right corner 'Create new file'
+* Paste the OWL in that new file. 
+* Name the file Test-###-short-explanation-for-fail-or-pass. 
+
+* If the model is supposed to FAIL, do the same steps as above, creating the file in the 'should_fail' directory. 
+
+## ttl files authored by software developers and curators familiar with ttl 
+
+These are currently in:
  * [python/tests/data/](python/tests/data/)
 
 (they move out of here later as they are not python specific)
