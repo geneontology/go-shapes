@@ -8,6 +8,10 @@ import org.apache.jena.vocabulary.{OWL2, RDF, RDFS}
 
 import scala.collection.JavaConverters._
 
+
+/**
+ * Run using Ammonite: amm enrich-with-superclasses.sc --infile inmodel.ttl --outfile outmodel.ttl
+ */
 @main
 def main(endpoint: String = "http://rdf.geneontology.org/sparql", infile: os.Path, outfile: os.Path): Unit = {
     val rdfType = RDF.`type`.getURI
