@@ -41,7 +41,8 @@ def main(endpoint: String = "http://rdf.geneontology.org/sparql", infile: os.Pat
     val superclassesQuery =
     s"""
         CONSTRUCT {
-        ?term <$rdfsSubClassOf> ?superclass
+        ?term <$rdfsSubClassOf> ?superclass .
+        ?term a <$owlClass> .
         }
         WHERE {
         VALUES ?term { $terms }
