@@ -3,6 +3,7 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 #metadata
 PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
@@ -10,6 +11,9 @@ PREFIX provided_by: <http://purl.org/pav/providedBy>
 PREFIX date: <http://purl.org/dc/elements/1.1/date>
 PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
 PREFIX exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch>
+PREFIX source: <http://purl.org/dc/elements/1.1/source>
+PREFIX evidence: <http://geneontology.org/lego/evidence>
+PREFIX with: <http://geneontology.org/lego/evidence-with>
 #semantic: classes
 PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
@@ -48,15 +52,18 @@ PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
 
-<GoCamEntity> IRI EXTRA a {
+<ProvenanceAnnotated> {
+  contributor: xsd:string *; #TODO would be better as an IRI
+  date: xsd:string *; #TODO can we make this an xsd:date?
+  provided_by: xsd:string *; #TODO would be better as an IRI
+  rdfs:comment xsd:string *
+}
+
+<GoCamEntity> IRI @<ProvenanceAnnotated> AND EXTRA a {
   a [owl:NamedIndividual] * // rdfs:comment  "Every entity we care about is a named individual";
-  contributor: . *;
-  date: . *;
-  provided_by: . *;
   xref: . *;
   rdfs:label . {0,1};
   exact_match: . *;
-  rdfs:comment . *;
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
@@ -178,8 +185,18 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }
 
 <Evidence> @<GoCamEntity> AND EXTRA a  {
-  a @<EvidenceClass> *;   
+  a @<EvidenceClass> {1};
+  source: xsd:string {0,1};
+  with: xsd:string {0,1}
 }// rdfs:comment  "A kind of evidence"
+
+<AnnotatedEdge> BNode @<ProvenanceAnnotated> AND {
+  a owl:Axiom ;
+  owl:annotatedSource @<GoCamEntity> ;
+  owl:annotatedProperty IRI ;
+  owl:annotatedTarget @<GoCamEntity> ;
+  evidence: @<Evidence> {0,1}
+}
 
 #<BL_UNTYPED> {
 #   bl:category . {0}
