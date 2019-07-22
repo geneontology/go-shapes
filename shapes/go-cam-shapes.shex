@@ -15,6 +15,7 @@ PREFIX source: <http://purl.org/dc/elements/1.1/source>
 PREFIX evidence: <http://geneontology.org/lego/evidence>
 PREFIX with: <http://geneontology.org/lego/evidence-with>
 #semantic: classes
+PREFIX GoInformationBiomacromolecule: <http://purl.obolibrary.org/obo/CHEBI_33695>
 PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
 PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
@@ -98,7 +99,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 
 <MolecularFunction> @<GoCamEntity> AND EXTRA a {
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
-  enabled_by:  ( @<Protein> OR @<Complex> ) {0,1};
+  enabled_by:  ( @<Protein> OR @<Complex> OR @<InformationBiomacromolecule> ) {0,1};
   part_of: @<BiologicalProcess> {0,1};
   occurs_in: @<CellularComponent> {0,1};
   has_output: @<MolecularEntity> *;
@@ -176,6 +177,15 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   a @<ProteinClass> ;
   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein"
+
+
+<InformationBiomacromoleculeClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  rdfs:subClassOf [ GoInformationBiomacromolecule: ];
+}
+<InformationBiomacromolecule> @<MolecularEntity> AND EXTRA a {
+   a @<InformationBiomacromoleculeClass> ;
+   located_in: @<CellularComponent> {0,1};
+}// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
 <ChemicalEntity> EXTRA bl:category{
 }// rdfs:comment  "a chemical entity"
