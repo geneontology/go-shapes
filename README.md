@@ -50,7 +50,7 @@ Commit to the GitHub go-shapes/test_ttl/go_cams directory
 * If the model is supposed to PASS, open the 'should_pass' directory. 
 * Click on the button on the upper right corner 'Create new file'
 * Paste the OWL in that new file. 
-* Name the file Test-###-short-explanation-for-fail-or-pass. 
+* Name the file Test-###-short-explanation-for-fail-or-pass (don't include spaces in the filename). 
 
 * If the model is supposed to FAIL, do the same steps as above, creating the file in the 'should_fail' directory. 
 
