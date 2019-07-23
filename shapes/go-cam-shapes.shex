@@ -17,6 +17,7 @@ PREFIX with: <http://geneontology.org/lego/evidence-with>
 #semantic: classes
 PREFIX GoInformationBiomacromolecule: <http://purl.obolibrary.org/obo/CHEBI_33695>
 PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
+PREFIX GoProteinContainingComplex: <http://purl.obolibrary.org/obo/GO_0032991>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
 PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
@@ -24,8 +25,7 @@ PREFIX GoGene: <http://purl.obolibrary.org/obo/CHEBI_33695>
 PREFIX GoMolecularEntity: <http://purl.obolibrary.org/obo/CHEBI_23367>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
-PREFIX GoComplex: <http://purl.obolibrary.org/obo/GO_0032991>
-PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
+PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/CARO_0000000>
 PREFIX GoGrossAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
 PREFIX GoOrganism: <http://purl.obolibrary.org/obo/NCBITaxon_1>
 PREFIX GoCell:  <http://purl.obolibrary.org/obo/CL_0000000>
@@ -101,7 +101,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
   enabled_by:  ( @<Protein> OR @<Complex> OR @<InformationBiomacromolecule> ) {0,1};
   part_of: @<BiologicalProcess> {0,1};
-  occurs_in: @<CellularComponent> {0,1};
+  occurs_in: (@<CellularComponent> OR @<AnatomicalEntity>) {0,1};
   has_output: @<MolecularEntity> *;
   has_input: @<MolecularEntity> *;
   directly_provides_input_for: @<MolecularFunction> *;
@@ -129,7 +129,12 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   bl:category [GoBiologicalPhase:];
 }// rdfs:comment  "an biological phase"
 
-<AnatomicalEntity> @<GoCamEntity> AND {
+<AnatomicalEntityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  rdfs:subClassOf [ GoAnatomicalEntity: ];
+}
+
+<AnatomicalEntity> @<GoCamEntity> AND EXTRA a {
+  a @<AnatomicalEntityClass>;
 }// rdfs:comment  "an anatomical entity"
 
 <CellularComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -140,7 +145,8 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   owl:complementOf @<CellularComponentClass>
 }
 
-<CellularComponent>  @<AnatomicalEntity> AND EXTRA a {
+#<CellularComponent> @<AnatomicalEntity> AND EXTRA a { # If we want to intersect with anatomical entity, then GO cellular_component needs to subclass anatomical entity in go-lego
+<CellularComponent> @<GoCamEntity> AND EXTRA a {
   a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1};
   part_of: @<CellularComponent> {0,1};
   part_of: @<Cell> {0,1};
@@ -159,11 +165,16 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <Organism> {
 } // rdfs:comment  "an organism"
 
-<Complex> @<MolecularEntity> AND {
+<Complex> @<MolecularEntity> AND EXTRA a {
+  a @<ProteinContainingComplexClass>;
   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein complex"
 
-<MolecularEntity> EXTRA bl:category {
+<ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  rdfs:subClassOf [ GoProteinContainingComplex: ];
+}
+
+<MolecularEntity> {
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
 <Gene> @<MolecularEntity> AND {
