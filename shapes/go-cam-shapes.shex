@@ -165,7 +165,8 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <Organism> {
 } // rdfs:comment  "an organism"
 
-<Complex> @<MolecularEntity> AND EXTRA a {
+#<Complex> @<MolecularEntity> AND EXTRA a {
+<Complex> EXTRA a {
   a @<ProteinContainingComplexClass>;
   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein complex"
