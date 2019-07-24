@@ -174,8 +174,13 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   rdfs:subClassOf [ GoProteinContainingComplex: ];
 }
 
-<MolecularEntity> {
+<MolecularEntity> @<GoCamEntity> AND EXTRA a {
+  a @<MolecularEntityClass>;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
+
+<MolecularEntityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf  {
+  rdfs:subClassOf [ GoMolecularEntity: ];
+}
 
 <Gene> @<MolecularEntity> AND {
   located_in: @<CellularComponent> {0,1};
