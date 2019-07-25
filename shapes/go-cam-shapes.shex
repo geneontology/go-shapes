@@ -165,7 +165,8 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <Organism> {
 } // rdfs:comment  "an organism"
 
-<Complex> @<MolecularEntity> AND EXTRA a {
+#<Complex> @<MolecularEntity> AND EXTRA a {
+<Complex> EXTRA a {
   a @<ProteinContainingComplexClass>;
   located_in: @<CellularComponent> {0,1};
 }// rdfs:comment  "a protein complex"
@@ -174,8 +175,14 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   rdfs:subClassOf [ GoProteinContainingComplex: ];
 }
 
-<MolecularEntity> {
+<MolecularEntity> @<GoCamEntity> AND EXTRA a {
+  a @<MolecularEntityClass>;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
+
+<MolecularEntityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf  {
+  #rdfs:subClassOf [ GoMolecularEntity: ];
+  rdfs:subClassOf [ GoChemicalEntity: ]; # Weakened this from molecular entity to chemical entity until we clarify the requirements. A test model used 'methylated polymer', which is not under molecular entity.
+}
 
 <Gene> @<MolecularEntity> AND {
   located_in: @<CellularComponent> {0,1};
