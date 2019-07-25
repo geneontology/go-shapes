@@ -35,8 +35,8 @@
 #    Classes
 #################################################################
 
-###  http://purl.obolibrary.org/obo/CHEBI_75962
-<http://purl.obolibrary.org/obo/CHEBI_75962> rdf:type owl:Class .
+###  http://purl.obolibrary.org/obo/CHEBI_4705
+<http://purl.obolibrary.org/obo/CHEBI_4705> rdf:type owl:Class .
 
 
 #################################################################
@@ -173,7 +173,7 @@
 
 ###  http://model.geneontology.org/5d251e6800000000/5d251e6800000008
 <http://model.geneontology.org/5d251e6800000000/5d251e6800000008> rdf:type owl:NamedIndividual ,
-                                                                           <http://identifiers.org/wormbase/WBGene00006594> ;
+                                                                           <http://purl.obolibrary.org/obo/CHEBI_15414> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-1706-4196"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-07-11"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "http://www.wormbase.org"^^xsd:string .
@@ -190,7 +190,7 @@
 
 ###  http://model.geneontology.org/5d251e6800000000/5d251e6800000010
 <http://model.geneontology.org/5d251e6800000000/5d251e6800000010> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/CHEBI_75962> ;
+                                                                           <http://purl.obolibrary.org/obo/CHEBI_4705> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-1706-4196"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2019-07-11"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "http://www.wormbase.org"^^xsd:string .
