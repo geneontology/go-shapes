@@ -13,7 +13,7 @@ import scala.collection.JavaConverters._
  * Run using Ammonite: amm enrich-with-superclasses.sc --infile inmodel.ttl --outfile outmodel.ttl
  */
 @main
-def main(endpoint: String = "http://rdf.geneontology.org/sparql", infile: os.Path, outfile: os.Path): Unit = {
+def main(endpoint: String = "http://rdf.geneontology.org/blazegraph/sparql", infile: os.Path, outfile: os.Path): Unit = {
     val rdfType = RDF.`type`.getURI
     val rdfsSubClassOf = RDFS.subClassOf.getURI
     val owlClass = OWL2.Class.getURI
