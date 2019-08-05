@@ -21,14 +21,11 @@ PREFIX GoProteinContainingComplex: <http://purl.obolibrary.org/obo/GO_0032991>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
 PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
-PREFIX GoGene: <http://purl.obolibrary.org/obo/CHEBI_33695>
 PREFIX GoMolecularEntity: <http://purl.obolibrary.org/obo/CHEBI_23367>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
 PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/CARO_0000000>
-PREFIX GoGrossAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
 PREFIX GoOrganism: <http://purl.obolibrary.org/obo/NCBITaxon_1>
-PREFIX GoCell:  <http://purl.obolibrary.org/obo/CL_0000000>
 PREFIX GoBiologicalPhase: <http://purl.obolibrary.org/obo/GO_0044848>
 #semantic: relations
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
@@ -99,7 +96,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 
 <MolecularFunction> @<GoCamEntity> AND EXTRA a {
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
-  enabled_by:  ( @<Protein> OR @<Complex> OR @<InformationBiomacromolecule> ) {0,1};
+  enabled_by:  ( @<Protein> OR @<Complex> OR @<InformationBiomacromolecule> ) {0,1}; # get rid of protein
   part_of: @<BiologicalProcess> {0,1};
   occurs_in: (@<CellularComponent> OR @<AnatomicalEntity>) {0,1};
   has_output: @<MolecularEntity> *;
