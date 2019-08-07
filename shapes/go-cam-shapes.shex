@@ -114,9 +114,6 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   causally_upstream_of: @<BiologicalProcess> *;
   causally_upstream_of_negative_effect: @<BiologicalProcess> *;
   causally_upstream_of_positive_effect: @<BiologicalProcess> *;
-# adding the following seems to break both the js and java shex implementations
-# for: http://noctua-dev.berkeleybop.org/download/gomodel:R-HSA-156582/owl
-#   directly_positively_regulates: @<MolecularFunction> *;
   happens_during: @<BiologicalPhase> *;
 } // rdfs:comment  "A molecular function"
 
