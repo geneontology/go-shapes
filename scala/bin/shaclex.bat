@@ -41,7 +41,7 @@ set _JAVA_PARAMS=
 set _APP_ARGS=
 
 set "APP_CLASSPATH="
-set "APP_MAIN_CLASS=-jar "%APP_LIB_DIR%\es.weso.shaclex-0.1.24-launcher.jar""
+set "APP_MAIN_CLASS=-jar "%APP_LIB_DIR%\es.weso.shaclex-0.1.25-launcher.jar""
 set "SCRIPT_CONF_FILE=%APP_HOME%\conf\application.ini"
 
 rem Bundled JRE has priority over standard environment variables

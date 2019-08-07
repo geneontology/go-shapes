@@ -344,7 +344,7 @@ declare -r real_script_path="$(realpath "$0")"
 declare -r app_home="$(realpath "$(dirname "$real_script_path")")"
 # TODO - Check whether this is ok in cygwin...
 declare -r lib_dir="$(realpath "${app_home}/../lib")"
-declare -a app_mainclass=(-jar "$lib_dir/es.weso.shaclex-0.1.24-launcher.jar")
+declare -a app_mainclass=(-jar "$lib_dir/es.weso.shaclex-0.1.25-launcher.jar")
 
 declare -r script_conf_file="${app_home}/../conf/application.ini"
 declare -r app_classpath=""
