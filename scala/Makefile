@@ -16,6 +16,7 @@ test/%-enriched.ttl: ../test_ttl/go_cams/%.ttl
 
 .PRECIOUS: test/%-enriched.ttl
 
+# Give an error result if the shapeMap does or doesn't contain unmatched shapes (!@)
 %.shapeMap: %.ttl
 	$(SHACLEX) \
 	--schema ../shapes/go-cam-shapes.shex \
@@ -27,8 +28,9 @@ test/%-enriched.ttl: ../test_ttl/go_cams/%.ttl
 	--no-showData \
 	--no-showResult \
 	--no-explain \
-	--outFile $@ &&\
-	grep $(if $(findstring should_pass,$@),-v,) '@!' $@ # Give an error result if the shapeMap does or doesn't contain unmatched shapes
+	--outFile $@.tmp &&\
+	grep $(if $(findstring should_pass,$@),-v,) '@!' $@.tmp >/dev/null &&\
+	mv $@.tmp $@
 
 test-pass: $(PASS_SHAPE_MAPS)
 
