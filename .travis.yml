@@ -1,18 +1,13 @@
 dist: trusty
 sudo: false
 
-language: python
-python:
-  - "3.6"
+language: java
 
-env:
-  - COLUMNS=80
+jdk:
+  - openjdk8
 
-# command to install dependencies
-install:
-  - "(cd python && pip install -r requirements.txt)"
+install: "(cd scala && ./bin/amm enrich-with-superclasses.sc; true)"
 
 # command to run tests
 script: 
-  - "(cd python && make test)"
-
+  - "(cd scala && make test)"
