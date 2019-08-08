@@ -4,3 +4,6 @@ python/tests/__pycache__/
 java/.idea/
 .DS_Store
 
+*.log
+scala/target/*
+scala/test/*

@@ -26,8 +26,8 @@ public class ShexValidatorTest {
 
 	public static final String shexpath = "../shapes/go-cam-shapes.shex";
 	public static final String goshapemappath = "../shapes/go-cam-shapes.shapeMap";
-	public static final String good_models_dir  = "/Users/bgood/Desktop/test/shex/should_pass"; //"../test_ttl/go_cams/should_pass/";
-	public static final String bad_models_dir  = "/Users/bgood/Desktop/test/shex/should_fail";//"../test_ttl/go_cams/should_fail/";
+	public static final String good_models_dir  = "../scala/target/should_pass/";
+	public static final String bad_models_dir  = "../scala/target/should_fail/";
 	public static ShexSchema schema;
 	public static Map<String, String> GoQueryMap;
 	

@@ -36,8 +36,8 @@ public class ModelValidationResult {
 	 */
 	public ModelValidationResult(Model model) {
 		String q = "select ?cam ?title where {"
-			//	+ "?cam <http://purl.org/dc/elements/1.1/title> ?title }";
-				+ "?cam <"+DC.description.getURI()+"> ?title }";
+				+ "?cam <http://purl.org/dc/elements/1.1/title> ?title }";
+			//	+ "?cam <"+DC.description.getURI()+"> ?title }";
 		QueryExecution qe = QueryExecutionFactory.create(q, model);
 		ResultSet results = qe.execSelect();
 		if (results.hasNext()) {
