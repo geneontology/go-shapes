@@ -6,7 +6,7 @@ language: java
 jdk:
   - openjdk8
 
-install: "(./scala/bin/amm enrich-with-superclasses.sc; true)"
+install: "(cd scala && ./bin/amm enrich-with-superclasses.sc; true)"
 
 # command to run tests
 script: 
