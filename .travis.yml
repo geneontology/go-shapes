@@ -1,18 +1,11 @@
 dist: trusty
 sudo: false
 
-language: python
-python:
-  - "3.6"
+language: java
 
-env:
-  - COLUMNS=80
-
-# command to install dependencies
-install:
-  - "(cd python && pip install -r requirements.txt)"
+jdk:
+  - openjdk8
 
 # command to run tests
 script: 
-  - "(cd python && make test)"
-
+  - "(cd scala && make -j 4 test)"
