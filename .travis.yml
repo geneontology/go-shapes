@@ -6,6 +6,8 @@ language: java
 jdk:
   - openjdk8
 
+install: "(cd scala && ./bin/amm --help)"
+
 # command to run tests
 script: 
-  - "(cd scala && make -j 4 test)"
+  - "(cd scala && make test)"
