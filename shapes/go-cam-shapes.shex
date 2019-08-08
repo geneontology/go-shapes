@@ -117,8 +117,6 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   happens_during: @<BiologicalPhase> *;
 } // rdfs:comment  "A molecular function"
 
-<MacromolecularMachine> ( @<Protein> OR @<Complex> ) AND {}
-
 <BiologicalPhase> @<GoCamEntity> AND {
   bl:category [GoBiologicalPhase:];
 }// rdfs:comment  "an biological phase"
