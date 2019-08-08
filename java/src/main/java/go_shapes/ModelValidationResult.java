@@ -14,6 +14,7 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.DC;
 
 /**
  * @author bgood
@@ -35,7 +36,8 @@ public class ModelValidationResult {
 	 */
 	public ModelValidationResult(Model model) {
 		String q = "select ?cam ?title where {"
-				+ "?cam <http://purl.org/dc/elements/1.1/title> ?title }";
+			//	+ "?cam <http://purl.org/dc/elements/1.1/title> ?title }";
+				+ "?cam <"+DC.description.getURI()+"> ?title }";
 		QueryExecution qe = QueryExecutionFactory.create(q, model);
 		ResultSet results = qe.execSelect();
 		if (results.hasNext()) {

@@ -1,0 +1,8 @@
+python/venv/
+python/tests/__pycache__/
+*.old
+java/.idea/
+.DS_Store
+
+*.log
+scala/target/should_pass/test-negation1-enriched.shapeMap
