@@ -10,14 +10,14 @@ FAIL_FILES := $(wildcard $(FAIL_DIR)/*.ttl)
 FAIL_ENRICHED := $(subst $(FAIL_DIR),target/should_fail,$(FAIL_FILES:.ttl=-enriched.ttl))
 FAIL_SHAPE_MAPS := $(FAIL_ENRICHED:.ttl=.shapeMap)
 
-target/%-enriched.ttl: ../test_ttl/go_cams/%.ttl
+target/%-enriched.ttl: ../test_ttl/go_cams/%.ttl enrich-with-superclasses.sc
 	mkdir -p $(dir $@) &&\
 	$(AMM) enrich-with-superclasses.sc --infile $< --outfile $@
 
 .PRECIOUS: target/%-enriched.ttl
 
 # Give an error result if the shapeMap does or doesn't contain unmatched shapes (!@)
-%.shapeMap: %.ttl
+%.shapeMap: %.ttl ../shapes/go-cam-shapes.shex ../shapes/go-cam-shapes.shapeMap
 	$(SHACLEX) \
 	--schema ../shapes/go-cam-shapes.shex \
 	--schemaFormat SHEXC \
