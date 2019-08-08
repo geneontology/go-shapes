@@ -10,4 +10,4 @@ install: "(cd scala && ./bin/amm enrich-with-superclasses.sc; true)"
 
 # command to run tests
 script: 
-  - "(cd scala && make -j 4 test)"
+  - "(cd scala && make test)"
