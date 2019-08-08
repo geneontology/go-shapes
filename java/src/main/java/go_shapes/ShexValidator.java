@@ -73,7 +73,7 @@ public class ShexValidator {
 	 * @param args
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {		
 		ShexValidator v = new ShexValidator();
 		String shexpath = "";//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
@@ -83,7 +83,7 @@ public class ShexValidator {
 		options.addOption("f", true, "ttl file to validate");
 		options.addOption("s", true, "shex schema file");
 		options.addOption("all", false, "if added will return a map of all shapes to all non bnodes in the input rdf");
-		options.addOption("m", true, "query shape map file");
+		options.addOption("m", true, "query shape map file"); 
 		CommandLineParser parser = new DefaultParser();
 		CommandLine cmd = parser.parse( options, args);
 		
@@ -109,7 +109,10 @@ public class ShexValidator {
 			String shapemappath = cmd.getOptionValue("m");
 			v.GoQueryMap = makeGoQueryMap(shapemappath);
 		}
-				
+		else {
+		    System.out.println("please provide a shape map file to validate.  e.g. -s ../../shapes/go-cam-shapes.shapemap");
+		    System.exit(0);
+		}		
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(model_file) ;
 		ShexSchema schema = null;

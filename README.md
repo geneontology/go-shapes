@@ -91,18 +91,8 @@ You can run individual files through the python command line tool
 
 See the [python](python) folder
 
-# Running in Java (temporarily deprecated)
+# Running in Java 
+See [java/README.md](java/README.md)
 
-After cloning the repo (https://github.com/geneontology/GO_Shapes.git) and going to its root
-
-```
->cd java
->maven install
->cd bin
-#Test specific shapes for MF, BP, and CC nodes found in the input ttl via hard coded sparql query
->java -jar go_shapes_cli.jar -f ../../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl -s ../../shapes/go-cam-shapes.shex
-#Test all non-bnodes in input ttl against all shapes in the go schema (https://github.com/geneontology/GO_Shapes/blob/master/shapes/go-cam-shapes.shex) 
->java -jar go_shapes_cli.jar -f ../../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl -s ../../shapes/go-cam-shapes.shex -all
-
-```
-
+# Running in Scala
+See [scala/README.md](scala/README.md)
