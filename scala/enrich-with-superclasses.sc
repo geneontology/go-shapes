@@ -1,4 +1,5 @@
 import $ivy.`org.apache.jena:apache-jena-libs:3.12.0`
+import $ivy.`com.outr::scribe-slf4j:2.7.9`
 
 import java.io.{File, FileReader, FileWriter}
 
