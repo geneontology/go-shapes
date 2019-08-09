@@ -77,13 +77,14 @@ public class ShexValidator {
 		ShexValidator v = new ShexValidator();
 		String shexpath = "";//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
-
+		boolean addSuperClasses = false;
 		// create Options object
 		Options options = new Options();
 		options.addOption("f", true, "ttl file to validate");
 		options.addOption("s", true, "shex schema file");
 		options.addOption("all", false, "if added will return a map of all shapes to all non bnodes in the input rdf");
 		options.addOption("m", true, "query shape map file"); 
+		options.addOption("e", false, "if added, will use rdf.geneontology.org to add subclass relations to the model");
 		CommandLineParser parser = new DefaultParser();
 		CommandLine cmd = parser.parse( options, args);
 		
@@ -113,8 +114,15 @@ public class ShexValidator {
 		    System.out.println("please provide a shape map file to validate.  e.g. -s ../../shapes/go-cam-shapes.shapemap");
 		    System.exit(0);
 		}		
+		if(cmd.hasOption("e")) {
+			addSuperClasses = true;
+		}
+		
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(model_file) ;
+		if(addSuperClasses) {
+			test_model = Enricher.enrichSuperClasses(test_model);
+		}
 		ShexSchema schema = null;
 		try {
 			schema = GenParser.parseSchema(new File(shexpath).toPath());			
