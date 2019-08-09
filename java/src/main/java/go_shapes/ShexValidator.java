@@ -3,9 +3,15 @@
  */
 package go_shapes;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.cli.CommandLine;
@@ -13,6 +19,7 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.rdf.api.RDF;
 import org.apache.commons.rdf.api.RDFTerm;
 import org.apache.commons.rdf.jena.JenaGraph;
@@ -54,6 +61,7 @@ public class ShexValidator {
 	public final static String BiologicalProcess = shape_base+"BiologicalProcess";
 	public final static String CellularComponent = shape_base+"CellularComponent";
 	public final static String GoCamEntity = shape_base+"GoCamEntity";
+	public Map<String, String> GoQueryMap;
 	/**
 	 * 
 	 */
@@ -63,10 +71,10 @@ public class ShexValidator {
 
 	/**
 	 * @param args
-	 * @throws ParseException 
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws Exception {		
+		ShexValidator v = new ShexValidator();
 		String shexpath = "";//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
 
@@ -75,6 +83,7 @@ public class ShexValidator {
 		options.addOption("f", true, "ttl file to validate");
 		options.addOption("s", true, "shex schema file");
 		options.addOption("all", false, "if added will return a map of all shapes to all non bnodes in the input rdf");
+		options.addOption("m", true, "query shape map file"); 
 		CommandLineParser parser = new DefaultParser();
 		CommandLine cmd = parser.parse( options, args);
 		
@@ -96,8 +105,14 @@ public class ShexValidator {
 		if(cmd.hasOption("all")) {
 			run_all = true;
 		}
-		
-		
+		if(cmd.hasOption("m")) { 
+			String shapemappath = cmd.getOptionValue("m");
+			v.GoQueryMap = makeGoQueryMap(shapemappath);
+		}
+		else {
+		    System.out.println("please provide a shape map file to validate.  e.g. -s ../../shapes/go-cam-shapes.shapemap");
+		    System.exit(0);
+		}		
 		Model test_model = ModelFactory.createDefaultModel() ;
 		test_model.read(model_file) ;
 		ShexSchema schema = null;
@@ -107,19 +122,87 @@ public class ShexValidator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ShexValidator v = new ShexValidator();
+		
 		if(run_all) {
 			ModelValidationResult r = v.runGeneralValidation(test_model, schema, null, null);
 			System.out.println("report for model:"+r.model_title+"\n"+r.model_report);
-		}else {
-			ModelValidationResult r = v.runGoValidation(test_model, schema);
+		}else if(v.GoQueryMap!=null){
+			v.runShapeMapValidation(schema, test_model, true);
+		}else { //tagging pattern
+			ModelValidationResult r = v.runGoValidationWithTags(test_model, schema);
 			System.out.println("GO specific report for model:"+r.model_title+"\n"+r.model_report);
 		}
 		//not working
 		//printSchemaComments(schema);
 	}
 
-	public ModelValidationResult runGoValidation(Model model, ShexSchema schema) {
+	public ModelValidationResult runShapeMapValidation(ShexSchema schema, Model test_model, boolean stream_output) throws Exception {
+		Map<String, Typing> shape_node_typing = validateGoShapeMap(schema, test_model);
+		ModelValidationResult r = new ModelValidationResult(test_model);
+		RDF rdfFactory = new SimpleRDF();
+		for(String shape_node : shape_node_typing.keySet()) {
+			Typing typing = shape_node_typing.get(shape_node);
+			String shape_id = shape_node.split(",")[0];
+			String focus_node_iri = shape_node.split(",")[1];
+			String result = getValidationReport(typing, rdfFactory, focus_node_iri, shape_id, true);
+			r.model_report+=result;
+		}
+		if(r.model_report.contains("NONCONFORMANT")) {
+			r.model_is_valid=false;
+			if(stream_output) {
+				System.out.println("Invalid model: GO shape map report for model:"+r.model_title+"\n"+r.model_report);
+			}
+		}else {
+			r.model_is_valid=true;
+			if(stream_output) {
+				System.out.println("Valid model:"+r.model_title);
+			}
+		}
+		return r;
+	}
+
+	public ModelValidationResult runGoShapeMapValidation(Model model, ShexSchema schema) {
+		RDF rdfFactory = new SimpleRDF();
+		ModelValidationResult validation_result = new ModelValidationResult(model);
+		//TODO - connect to Arachne and do this for real
+		//if not already present, add biolink typing here
+		validation_result = runOwlValidation(model, validation_result);
+		
+		try {
+			Set<String> mfs = getMFnodes(model);
+			for(String mf : mfs ) {
+				String s = getValidationReport(rdfFactory, model, schema, mf, MolecularFunction);
+				validation_result.model_report+=s;
+			}
+			Set<String> bps = getBPnodes(model);
+			for(String bp : bps ) {
+				String s = getValidationReport(rdfFactory, model, schema, bp, BiologicalProcess);
+				validation_result.model_report+=s;
+			}
+			Set<String> ccs = getCCnodes(model);
+			for(String cc : ccs ) {
+				String s = getValidationReport(rdfFactory, model, schema, cc, CellularComponent);
+				validation_result.model_report+=s;
+			}
+//			Set<String> chemicals = getChemicalnodes(model);
+//			for(String c : chemicals ) {
+//				String s = getValidationReport(rdfFactory, model, schema, c, ChemicalEntity);
+//				validation_result.model_report+=s;
+//			}
+			//get all categorized nodes...
+//			Set<String> all = getFocusNodes(model, null);
+//			for(String a : all ) {
+//				String s = getValidationReport(rdfFactory, model, schema, a, GoCamEntity);
+//				validation_result.model_report+=s;
+//			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return validation_result;
+	}
+	
+	public ModelValidationResult runGoValidationWithTags(Model model, ShexSchema schema) {
 		RDF rdfFactory = new SimpleRDF();
 		ModelValidationResult validation_result = new ModelValidationResult(model);
 		//TODO - connect to Arachne and do this for real
@@ -174,6 +257,25 @@ public class ShexValidator {
 			}else if(!positive_only){
 				s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
 			}	
+		}
+		return s;
+	}
+	
+	public String getValidationReport(Typing typing_result, RDF rdfFactory, String focus_node_iri, String shape_id, boolean only_negative) throws Exception {
+		Label shape_label = new Label(rdfFactory.createIRI(shape_id));
+		RDFTerm focus_node = rdfFactory.createIRI(focus_node_iri);
+		Pair<RDFTerm, Label> p = new Pair<RDFTerm, Label>(focus_node, shape_label);
+		Status r = typing_result.getStatusMap().get(p);
+		String s = "";
+		if(r!=null) {
+			if(only_negative) {
+				if(r.equals(Status.NONCONFORMANT)) {
+					s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
+				}
+			}else { //report all
+				s+=p.two+"\t"+p.one+"\t"+r.toString()+"\n";
+			}
+			
 		}
 		return s;
 	}
@@ -305,20 +407,21 @@ public class ShexValidator {
 		}
 		return result;
 	}
+	
 
 	public static Set<String> getChemicalnodes(Model model){
-		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/CHEBI_24431>");
+		return getFocusNodesByTags(model, "<http://purl.obolibrary.org/obo/CHEBI_24431>");
 	}
 	public static Set<String> getMFnodes(Model model){
-		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/GO_0003674>");
+		return getFocusNodesByTags(model, "<http://purl.obolibrary.org/obo/GO_0003674>");
 	}
 	public static Set<String> getBPnodes(Model model){
-		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/GO_0008150>");
+		return getFocusNodesByTags(model, "<http://purl.obolibrary.org/obo/GO_0008150>");
 	}
 	public static Set<String> getCCnodes(Model model){
-		return getFocusNodes(model, "<http://purl.obolibrary.org/obo/GO_0005575>");
+		return getFocusNodesByTags(model, "<http://purl.obolibrary.org/obo/GO_0005575>");
 	}
-	public static Set<String> getFocusNodes(Model model, String category_uri){
+	public static Set<String> getFocusNodesByTags(Model model, String category_uri){
 		if(category_uri==null) {
 			category_uri = "?any";
 		}
@@ -336,5 +439,65 @@ public class ShexValidator {
 		qe.close();
 		return nodes;
 	}
+	
+	public static Set<String> getFocusNodesBySparql(Model model, String sparql){
+		Set<String> nodes = new HashSet<String>();
+		QueryExecution qe = QueryExecutionFactory.create(sparql, model);
+		ResultSet results = qe.execSelect();
+		while (results.hasNext()) {
+			QuerySolution qs = results.next();
+			Resource node = qs.getResource("x");
+			nodes.add(node.getURI());
+		}
+		qe.close();
+		return nodes;
+	}
+	
+	public static Map<String, String> makeGoQueryMap(String shapemap_file) throws IOException{ //"../shapes/go-cam-shapes.shapeMap
+		Map<String, String> shapelabel_sparql = new HashMap<String, String>();
+		BufferedReader reader = new BufferedReader(new FileReader(shapemap_file));
+		String line = reader.readLine();
+		String all = line;
+		while(line!=null) {
+			all+=line;
+			line = reader.readLine();			
+		}
+		reader.close();
+		String[] maps = all.split(",");
+		for(String map : maps) {
+			String sparql = StringUtils.substringBetween(map, "'", "'");
+			sparql = sparql.replace("a/", "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?c . ?c ");
+			String[] shapemaprow = map.split("@");
+			String shapelabel = shapemaprow[1];
+			shapelabel = shapelabel.replace(">", "");
+			shapelabel = shapelabel.replace("<", "");
+			shapelabel = shapelabel.trim();
+			shapelabel_sparql.put(shapelabel, sparql);
+		}
+		return shapelabel_sparql;
+	}
+	
+	public Map<String, Typing> validateGoShapeMap(ShexSchema schema, Model jena_model) throws Exception {
+		Map<String, Typing> shape_node_typing = new HashMap<String, Typing>();
+		Typing result = null;
+		RDF rdfFactory = new SimpleRDF();
+		JenaRDF jr = new JenaRDF();
+		//this shex implementation likes to use the commons JenaRDF interface, nothing exciting here
+		JenaGraph shexy_graph = jr.asGraph(jena_model);
+		//recursive only checks the focus node against the chosen shape.  
+		RecursiveValidation shex_recursive_validator = new RecursiveValidation(schema, shexy_graph);
+		for(String shapelabel : GoQueryMap.keySet()) {
+			Label shape_label = new Label(rdfFactory.createIRI(shapelabel));
+			Set<String> focus_nodes = getFocusNodesBySparql(jena_model, GoQueryMap.get(shapelabel));
+			for(String focus_node_iri : focus_nodes) {
+				RDFTerm focus_node = rdfFactory.createIRI(focus_node_iri);
+				shex_recursive_validator.validate(focus_node, shape_label);
+				result = shex_recursive_validator.getTyping();
+				shape_node_typing.put(shapelabel+","+focus_node_iri, result);
+			}
+		}
+		return shape_node_typing;
+	}
+	
 
 }

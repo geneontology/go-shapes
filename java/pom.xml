@@ -48,7 +48,8 @@
      	<dependency>
   			<groupId>fr.inria.lille.shexjava</groupId>
   			<artifactId>shexjava-core</artifactId>
-  			<version>1.2.2e</version>
+  			<version>1.2.3c</version> 
+  	<!--  		<version>1.2.2e</version> -->
     <!-- 	avoiding an incompatibility with the shexjava jena version 3.0.0 and the arachne version 3.11.0    --> 
   			<exclusions>
         		<exclusion>  <!-- declare the exclusion here -->
