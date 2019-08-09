@@ -206,8 +206,8 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 
 <Evidence> @<GoCamEntity> AND EXTRA a  {
   a @<EvidenceClass> {1};
-  source: xsd:string +;
-  with: xsd:string *;
+  source: xsd:string {1,};
+  with: xsd:string {0,1};
 }// rdfs:comment  "A kind of evidence"
 
 <AnnotatedEdge> BNode @<ProvenanceAnnotated> AND {
