@@ -26,8 +26,9 @@ public class ShexValidatorTest {
 
 	public static final String shexpath = "../shapes/go-cam-shapes.shex";
 	public static final String goshapemappath = "../shapes/go-cam-shapes.shapeMap";
-	public static final String good_models_dir  = "../scala/target/should_pass/";
-	public static final String bad_models_dir  = "../scala/target/should_fail/";
+	public static final String good_models_dir  = "../test_ttl/go_cams/should_pass/";
+	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/";
+	public static final boolean addSuperClasses = true;
 	public static ShexSchema schema;
 	public static Map<String, String> GoQueryMap;
 	
@@ -57,31 +58,24 @@ public class ShexValidatorTest {
     }
 	
 	@Test
-	public void modelFilesShouldParse() {
-		Set<Model> good_models = loadRDF(good_models_dir);
-		System.out.println("good models loaded: "+good_models.size());
-		assertTrue("good models load: "+good_models.size(),good_models.size()>0);
-		Set<Model> bad_models = loadRDF(bad_models_dir);
-		System.out.println("bad models loaded: "+bad_models.size());
-		assertTrue("bad models load: "+bad_models.size(),bad_models.size()>0);
-	}
-	
-	@Test
 	public void allBadModelsShouldFail() {
 		ShexValidator v = new ShexValidator();
 		v.GoQueryMap = GoQueryMap;
-		Set<Model> bad_models = loadRDF(bad_models_dir);
+		Map<String, Model> bad_models = Enricher.loadRDF(bad_models_dir);
 		boolean problem = false;
 		String problems = "";
-		for(Model model : bad_models) {			
+		for(String name :bad_models.keySet()) {		
+			Model model = bad_models.get(name);
+			if(addSuperClasses) {
+				model = Enricher.enrichSuperClasses(model);
+			}
 			try {
 				boolean stream_output = false;
 				ModelValidationResult r = v.runShapeMapValidation(schema, model, stream_output);
 				if(r.model_is_valid) {
 					problem = true;
-					problems+=("bad model failed to be detected: "+r.model_title+"\n"+r.model_report);
+					problems+=("bad model failed to be detected: "+name+"\n"+r.model_report);
 				}	
-				assertFalse("bad model not caught: "+r.model_title+"\n"+r.model_report, r.model_is_valid);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -94,16 +88,20 @@ public class ShexValidatorTest {
 	public void allGoodModelsShouldPass() {
 		ShexValidator v = new ShexValidator();	
 		v.GoQueryMap = GoQueryMap;
-		Set<Model> good_models = loadRDF(good_models_dir);
+		Map<String, Model> good_models = Enricher.loadRDF(good_models_dir);
 		boolean problem = false;
 		String problems = "";
-		for(Model model : good_models) {			
+		for(String name : good_models.keySet()) {
+			Model model = good_models.get(name);
+			if(addSuperClasses) {
+				model = Enricher.enrichSuperClasses(model);
+			}
 			try {
 				boolean stream_output = false;
 				ModelValidationResult r = v.runShapeMapValidation(schema, model, stream_output);
 				if(!r.model_is_valid) {
 					problem = true;
-					problems+=("good model failed to validate: "+r.model_title+"\n"+r.model_report);
+					problems+=("good model failed to validate: "+name+"\n"+r.model_report);
 				}				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -113,23 +111,4 @@ public class ShexValidatorTest {
 		assertFalse(problems, problem);
 	}
 	
-	private Set<Model> loadRDF(String model_dir){
-		Set<Model> models = new HashSet<Model>();
-		File good_dir = new File(model_dir);
-		assertTrue(good_dir.exists()&&good_dir.isDirectory());
-		File[] good_files = good_dir.listFiles(new FilenameFilter() {
-		    public boolean accept(File dir, String name) {
-		        return name.endsWith(".ttl");
-		    }
-		});		
-		for(File good_file : good_files) {
-			Model model = ModelFactory.createDefaultModel() ;
-			model.read(good_file.getAbsolutePath()) ;
-			Statement s = model.createLiteralStatement(model.createResource(), DC.description, good_file.getName());
-			model.add(s);
-			models.add(model);
-		}	
-		return models;
-	}
-
 }
