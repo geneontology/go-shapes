@@ -3,8 +3,6 @@
  */
 package go_shapes;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -113,20 +111,26 @@ public class Enricher {
 		model.write(o, "TURTLE");
 		o.close();
 	}
-	
+
 	public static Map<String, Model> loadRDF(String model_dir){
 		Map<String, Model> name_model = new HashMap<String, Model>();
 		File good_dir = new File(model_dir);
-		File[] good_files = good_dir.listFiles(new FilenameFilter() {
-		    public boolean accept(File dir, String name) {
-		        return name.endsWith(".ttl");
-		    }
-		});		
-		for(File good_file : good_files) {
+		if(good_dir.isDirectory()) {
+			File[] good_files = good_dir.listFiles(new FilenameFilter() {
+				public boolean accept(File dir, String name) {
+					return name.endsWith(".ttl");
+				}
+			});		
+			for(File good_file : good_files) {
+				Model model = ModelFactory.createDefaultModel() ;
+				model.read(good_file.getAbsolutePath()) ;
+				name_model.put(good_file.getName(), model);
+			}	
+		}else if(good_dir.getName().endsWith(".ttl")){
 			Model model = ModelFactory.createDefaultModel() ;
-			model.read(good_file.getAbsolutePath()) ;
-			name_model.put(good_file.getName(), model);
-		}	
+			model.read(good_dir.getAbsolutePath()) ;
+			name_model.put(good_dir.getName(), model);
+		}
 		return name_model;
 	}
 }

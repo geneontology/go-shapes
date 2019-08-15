@@ -1,0 +1,13 @@
+enriched_Test027-has_input_2_MolecularEntity.ttl	valid
+enriched_test-negation1.ttl	valid
+enriched_Test001-missing_enabled_by.ttl	valid
+enriched_Test026-has_output_2_MolecularEntity.ttl	valid
+enriched_test3.ttl	valid
+enriched_test1.ttl	valid
+enriched_Test019-happens_during_BiologicalPhase.ttl	valid
+enriched_Test000-Correct_and_complete_ActivityUnit_model.ttl	valid
+enriched_Test004-occurs_in_GO_Complex.ttl	valid
+enriched_Test002-enabled_by_GO_complex.ttl	valid
+enriched_test2.ttl	valid
+enriched_Test018-directly_positively_regulates_MolecularFunction.ttl	valid
+enriched_ZDB-PUB-180728-2_glycine_and_neuronal_stem_cells_maintenance.ttl	valid
