@@ -148,6 +148,7 @@ public class ShexValidator {
 				if(!r.model_is_valid) {
 					w.write("invalid\n");
 					bad++;
+					System.out.println(name+"\n\t"+r.model_report);
 				}else {
 					good++;
 					w.write("valid\n");
