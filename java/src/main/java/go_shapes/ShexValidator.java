@@ -20,7 +20,7 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.rdf.api.RDF;
 import org.apache.commons.rdf.api.RDFTerm;
 import org.apache.commons.rdf.jena.JenaGraph;
@@ -464,7 +464,7 @@ public class ShexValidator {
 		}
 		qe.close();
 		return nodes;
-	}
+	} 
 
 	public static Set<String> getFocusNodesBySparql(Model model, String sparql){
 		Set<String> nodes = new HashSet<String>();
