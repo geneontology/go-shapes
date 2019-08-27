@@ -33,7 +33,8 @@ import org.apache.jena.vocabulary.DC;
  *
  */
 public class Enricher {
-	public static final String endpoint = "http://rdf.geneontology.org/blazegraph/sparql";
+	public static final String go_endpoint = "http://rdf.geneontology.org/blazegraph/sparql";
+	public static String extra_info_endpoint = "http://192.168.1.5:9999/blazegraph/sparql";
 	/**
 	 * 
 	 */
@@ -46,13 +47,13 @@ public class Enricher {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String dir = "../test_ttl/go_cams/should_fail/";
+		String dir = "/Users/bgood/Desktop/test/go_cams/reactome/reactome-homosapiens-SLBP_independent_Processing_of_Histone_Pre-mRNAs.ttl";
 		Map<String,Model> name_model = loadRDF(dir);
 		System.out.println("Start on "+name_model.size()+" models "+System.currentTimeMillis()/1000);
 		for(String name : name_model.keySet()) {
 			Model model = name_model.get(name);
 			model = enrichSuperClasses(model);
-			write(model, "/Users/bgood/Desktop/test/shex/should_fail/enriched_"+name);
+			write(model, "/Users/bgood/Desktop/test/shex/enriched_"+name);
 		}
 		System.out.println("Finish on "+name_model.size()+" models "+System.currentTimeMillis()/1000);
 
@@ -97,11 +98,20 @@ public class Enricher {
 
 		Query query = QueryFactory.create(superQuery); 
 		try ( 
-				QueryExecution qexec = QueryExecutionFactory.sparqlService(endpoint, query) ) {
+				QueryExecution qexec = QueryExecutionFactory.sparqlService(go_endpoint, query) ) {
 			qexec.execConstruct(model);
 			qexec.close();
 		} catch(QueryParseException e){
 			e.printStackTrace();
+		}
+		if(extra_info_endpoint!=null) {
+			try ( 
+					QueryExecution qexec = QueryExecutionFactory.sparqlService(extra_info_endpoint, query) ) {
+				qexec.execConstruct(model);
+				qexec.close();
+			} catch(QueryParseException e){
+				e.printStackTrace();
+			}
 		}
 		return model;
 	}

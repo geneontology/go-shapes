@@ -111,7 +111,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   causally_upstream_of_or_within: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
   causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *;
   causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *;
-  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
+  causally_upstream_of: @<BiologicalProcess> *;
   causally_upstream_of_negative_effect: @<BiologicalProcess> *;
   causally_upstream_of_positive_effect: @<BiologicalProcess> *;
   happens_during: @<BiologicalPhase> *;

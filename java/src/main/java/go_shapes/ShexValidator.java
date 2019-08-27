@@ -6,9 +6,12 @@ package go_shapes;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -19,7 +22,6 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.rdf.api.RDF;
 import org.apache.commons.rdf.api.RDFTerm;
@@ -31,7 +33,6 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 
 import fr.inria.lille.shexjava.schema.Label;
@@ -76,7 +77,7 @@ public class ShexValidator {
 	 */
 	public static void main(String[] args) throws Exception {		
 		ShexValidator v = new ShexValidator();
-		String shexpath = "";//"../shapes/go-cam-shapes.shex";
+		String shexpath = null;//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
 		boolean addSuperClasses = false;
 		Map<String, Model> name_model = new HashMap<String, Model>();
@@ -124,7 +125,14 @@ public class ShexValidator {
 
 		ShexSchema schema = null;
 		try {
-			schema = GenParser.parseSchema(new File(shexpath).toPath());			
+			if(shexpath==null) {
+				URL shex_schema_url = new URL("https://raw.githubusercontent.com/geneontology/go-shapes/master/shapes/go-cam-shapes.shex");
+				File shex_schema_file = new File("shex-schema.shex");
+				org.apache.commons.io.FileUtils.copyURLToFile(shex_schema_url, shex_schema_file);
+				schema = GenParser.parseSchema(shex_schema_file.toPath());			
+			}else {
+				schema = GenParser.parseSchema(new File(shexpath).toPath());	
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -135,14 +143,25 @@ public class ShexValidator {
 			Model test_model = name_model.get(name);
 			if(addSuperClasses) {
 				test_model = Enricher.enrichSuperClasses(test_model);
+				try {
+					FileOutputStream o = new FileOutputStream("/Users/bgood/Desktop/test_inference_rnticher.ttl");
+					test_model.write(o, "TURTLE");
+					o.close();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			if(run_all) {
 				ModelValidationResult r = v.runGeneralValidation(test_model, schema, null, null);
 				System.out.println("report for model:"+r.model_title+"\n"+r.model_report);
-			//this is the main one - others can probably be dropped
+				//this is the main one - others can probably be dropped
 			}else if(v.GoQueryMap!=null){
 				//v.runShapeMapValidation(schema, test_model, true);
-				boolean stream_output = false;
+				boolean stream_output = true;
 				ModelValidationResult r = v.runShapeMapValidation(schema, test_model, stream_output);
 				w.write(name+"\t");
 				if(!r.model_is_valid) {

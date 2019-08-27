@@ -7,3 +7,6 @@ java/.idea/
 *.log
 scala/target/*
 scala/test/*
+*.icloud
+dev_report_error_trace.txt
+test_ttl/go_cams/should_fail/catalog-v001.xml
