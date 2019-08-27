@@ -34,7 +34,7 @@ import org.apache.jena.vocabulary.DC;
  */
 public class Enricher {
 	public static final String go_endpoint = "http://rdf.geneontology.org/blazegraph/sparql";
-	public static String extra_info_endpoint = "http://192.168.1.5:9999/blazegraph/sparql";
+	public static String extra_info_endpoint = null;//"http://192.168.1.5:9999/blazegraph/sparql";
 	/**
 	 * 
 	 */
