@@ -68,10 +68,11 @@ public class ShexValidatorTest {
 		Map<String, Model> bad_models = Enricher.loadRDF(bad_models_dir);
 		boolean problem = false;
 		String problems = "";
+		Enricher enrich = new Enricher(null);
 		for(String name :bad_models.keySet()) {		
 			Model model = bad_models.get(name);
 			if(addSuperClasses) {
-				model = Enricher.enrichSuperClasses(model);
+				model = enrich.enrichSuperClasses(model);
 			}
 			try {
 				boolean stream_output = false;
@@ -98,10 +99,11 @@ public class ShexValidatorTest {
 		int good = 0; int bad = 0;
 		try {
 			FileWriter w = new FileWriter(report_file);
+			Enricher enrich = new Enricher(null);
 			for(String name : good_models.keySet()) {
 				Model model = good_models.get(name);
 				if(addSuperClasses) {
-					model = Enricher.enrichSuperClasses(model);
+					model = enrich.enrichSuperClasses(model);
 				}
 				try {
 					boolean stream_output = false;

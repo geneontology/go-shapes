@@ -15,3 +15,6 @@ java/report_file.txt
 production_report.txt
 production_report_error_trace.txt
 report.txt
+java/bin/report_file.txt
+java/bin/reactome_validation.txt
+java/report_file.txt

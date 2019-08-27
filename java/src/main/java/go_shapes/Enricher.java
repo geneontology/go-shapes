@@ -34,12 +34,14 @@ import org.apache.jena.vocabulary.DC;
  */
 public class Enricher {
 	public static final String go_endpoint = "http://rdf.geneontology.org/blazegraph/sparql";
-	public static String extra_info_endpoint = null;//"http://192.168.1.5:9999/blazegraph/sparql";
+	public String extra_info_endpoint = null;
 	/**
 	 * 
 	 */
-	public Enricher() {
-		// TODO Auto-generated constructor stub
+	public Enricher(String extra_endpoint) {
+		if(extra_endpoint != null) {
+			extra_info_endpoint = extra_endpoint;
+		}
 	}
 
 	/**
@@ -50,16 +52,17 @@ public class Enricher {
 		String dir = "/Users/bgood/Desktop/test/go_cams/reactome/reactome-homosapiens-SLBP_independent_Processing_of_Histone_Pre-mRNAs.ttl";
 		Map<String,Model> name_model = loadRDF(dir);
 		System.out.println("Start on "+name_model.size()+" models "+System.currentTimeMillis()/1000);
+		Enricher e = new Enricher(null);
 		for(String name : name_model.keySet()) {
 			Model model = name_model.get(name);
-			model = enrichSuperClasses(model);
+			model = e.enrichSuperClasses(model);
 			write(model, "/Users/bgood/Desktop/test/shex/enriched_"+name);
 		}
 		System.out.println("Finish on "+name_model.size()+" models "+System.currentTimeMillis()/1000);
 
 	}
 
-	public static Model enrichSuperClasses(Model model) {
+	public Model enrichSuperClasses(Model model) {
 		String getOntTerms = 
 				"PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 						+ "SELECT DISTINCT ?term " + 
@@ -106,7 +109,7 @@ public class Enricher {
 		}
 		if(extra_info_endpoint!=null) {
 			try ( 
-					QueryExecution qexec = QueryExecutionFactory.sparqlService(extra_info_endpoint, query) ) {
+				QueryExecution qexec = QueryExecutionFactory.sparqlService(extra_info_endpoint, query) ) {
 				qexec.execConstruct(model);
 				qexec.close();
 			} catch(QueryParseException e){

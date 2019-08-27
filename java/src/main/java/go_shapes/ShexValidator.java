@@ -80,6 +80,7 @@ public class ShexValidator {
 		String shexpath = null;//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
 		boolean addSuperClasses = false;
+		String extra_endpoint = null;
 		Map<String, Model> name_model = new HashMap<String, Model>();
 		// create Options object
 		Options options = new Options();
@@ -88,6 +89,9 @@ public class ShexValidator {
 		options.addOption("all", false, "if added will return a map of all shapes to all non bnodes in the input rdf");
 		options.addOption("m", true, "query shape map file"); 
 		options.addOption("e", false, "if added, will use rdf.geneontology.org to add subclass relations to the model");
+		options.addOption("extra_endpoint", false, "if added, will use the additional endpoint at the indicated url - "
+				+ "e.g. http://192.168.1.5:9999/blazegraph/sparql to provide additional suuperclass expansions.  "
+				+ "Use this when the main GO endpoint rdf.geneontology.org does not contain all of the information required.");
 		CommandLineParser parser = new DefaultParser();
 		CommandLine cmd = parser.parse( options, args);
 
@@ -122,6 +126,9 @@ public class ShexValidator {
 		if(cmd.hasOption("e")) {
 			addSuperClasses = true;
 		}
+		if(cmd.hasOption("extra_endpoint")) {
+			extra_endpoint = cmd.getOptionValue("extra_endpoint");
+		}
 
 		ShexSchema schema = null;
 		try {
@@ -142,18 +149,8 @@ public class ShexValidator {
 		for(String name : name_model.keySet()) {
 			Model test_model = name_model.get(name);
 			if(addSuperClasses) {
-				test_model = Enricher.enrichSuperClasses(test_model);
-				try {
-					FileOutputStream o = new FileOutputStream("/Users/bgood/Desktop/test_inference_rnticher.ttl");
-					test_model.write(o, "TURTLE");
-					o.close();
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Enricher enrich = new Enricher(extra_endpoint);
+				test_model = enrich.enrichSuperClasses(test_model);
 			}
 			if(run_all) {
 				ModelValidationResult r = v.runGeneralValidation(test_model, schema, null, null);
