@@ -220,7 +220,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }// rdfs:comment  "A kind of evidence"
 
 <AnnotatedEdge> BNode @<ProvenanceAnnotated> AND {
-  a owl:Axiom ;
+  a [ owl:Axiom ] ;
   owl:annotatedSource @<GoCamEntity> ;
   owl:annotatedProperty IRI ;
   owl:annotatedTarget @<GoCamEntity> ;
