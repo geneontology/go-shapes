@@ -220,11 +220,21 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }// rdfs:comment  "A kind of evidence"
 
 <AnnotatedEdge> BNode @<ProvenanceAnnotated> AND {
-  a owl:Axiom ;
+  a [ owl:Axiom ] ;
   owl:annotatedSource @<GoCamEntity> ;
   owl:annotatedProperty IRI ;
   owl:annotatedTarget @<GoCamEntity> ;
   evidence: @<Evidence> {0,1}
+}
+
+<GoRule06Violations> BNode @<ProvenanceAnnotated> AND {
+  a [ owl:Axiom ] ;
+  owl:annotatedSource @<GoCamEntity> AND NOT @<BiologicalProcess>;
+  owl:annotatedProperty IRI ;
+  owl:annotatedTarget @<GoCamEntity> AND NOT @<BiologicalProcess>;
+  evidence: @<GoCamEntity> AND EXTRA a {
+    a [ obo:ECO_0007007 obo:ECO_0000270 ] ;
+  }
 }
 
 #<BL_UNTYPED> {

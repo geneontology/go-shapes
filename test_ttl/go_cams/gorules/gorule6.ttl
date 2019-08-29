@@ -1,0 +1,56 @@
+@prefix : <http://model.geneontology.org/gorule6/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+
+@prefix bl: <https://w3id.org/biolink/vocab/> .
+@prefix contributor: <http://purl.org/dc/elements/1.1/contributor> .
+@prefix provided_by: <http://purl.org/pav/providedBy> .
+@prefix date: <http://purl.org/dc/elements/1.1/date> .
+@prefix xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> .
+@prefix exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch> .
+@prefix source: <http://purl.org/dc/elements/1.1/source> .
+@prefix evidence: <http://geneontology.org/lego/evidence> .
+@prefix with: <http://geneontology.org/lego/evidence-with> .
+
+@prefix part_of: <http://purl.obolibrary.org/obo/BFO_0000050> .
+@prefix occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066> .
+@prefix enabled_by: <http://purl.obolibrary.org/obo/RO_0002333> .
+
+# Evidence, IEP
+:e rdf:type owl:NamedIndividual ,
+                                                                           obo:ECO_0007007;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-7334-7852"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-09"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:17"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string .
+                                                                  
+# GO individual, organelle (not in bio process)
+:go rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/GO_0043226> ;
+                                                                  <http://geneontology.org/lego/hint/layout/x> "323"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/hint/layout/y> "82"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-7334-7852"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2019-07-09"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string .
+                                                                  
+# GP individual
+:i rdf:type owl:NamedIndividual ,
+                                                                           <http://identifiers.org/uniprot/Q13253> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-7334-7852"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2017-12-20"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "http://purl.obolibrary.org/go/groups/BHF-UCL"^^xsd:string .
+                                                                  
+:i occurs_in: :go .
+
+_:a   rdf:type owl:Axiom ;
+      owl:annotatedSource :go ;
+      owl:annotatedProperty occurs_in: ;
+      owl:annotatedTarget :i ;
+      <http://geneontology.org/lego/evidence> :e ;
+      <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-7334-7852"^^xsd:string ;
+      <http://purl.org/dc/elements/1.1/date> "2019-07-09"^^xsd:string ;
+      <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string .
