@@ -224,7 +224,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   owl:annotatedSource @<GoCamEntity> ;
   owl:annotatedProperty IRI ;
   owl:annotatedTarget @<GoCamEntity> ;
-  evidence: @<Evidence> {0,1}
+  evidence: @<Evidence> *
 }
 
 #<BL_UNTYPED> {
