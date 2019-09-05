@@ -99,7 +99,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
   enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
   part_of: @<BiologicalProcess> {0,1};
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: ( @<AnatomicalEntity> OR @<CellularComponent> ) {0,1}; # revert to simply <AnatomicalEntity> once ontology fixes are complete
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   directly_provides_input_for: @<MolecularFunction> *;
@@ -220,11 +220,11 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }// rdfs:comment  "A kind of evidence"
 
 <AnnotatedEdge> BNode @<ProvenanceAnnotated> AND {
-  a owl:Axiom ;
+  a [ owl:Axiom ] ;
   owl:annotatedSource @<GoCamEntity> ;
   owl:annotatedProperty IRI ;
   owl:annotatedTarget @<GoCamEntity> ;
-  evidence: @<Evidence> {0,1}
+  evidence: @<Evidence> *
 }
 
 #<BL_UNTYPED> {

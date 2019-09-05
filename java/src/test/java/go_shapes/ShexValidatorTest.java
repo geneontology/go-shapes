@@ -33,16 +33,12 @@ public class ShexValidatorTest {
 	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/";
 	public static final String report_file  = "../report.txt";
 	public static final boolean addSuperClasses = true;
-	public static ShexSchema schema;
-	public static Map<String, String> GoQueryMap;
+	public static ShexValidator v;
 
 	@BeforeClass
 	public static void init() {
 		try {
-			System.out.println("Starting schema parse init "+System.currentTimeMillis()/1000);
-			schema = GenParser.parseSchema(new File(shexpath).toPath());	
-			System.out.println("Finished schema parse init "+System.currentTimeMillis()/1000);		
-			GoQueryMap = ShexValidator.makeGoQueryMap(goshapemappath);
+			v = new ShexValidator(shexpath, goshapemappath);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,13 +54,11 @@ public class ShexValidatorTest {
 	@Test
 	public void shexFileShouldParse() {
 		//schema initialized beforeclass
-		assertFalse(schema==null);
+		assertFalse(v.schema==null);
 	}
 
 	@Test
 	public void allBadModelsShouldFail() {
-		ShexValidator v = new ShexValidator();
-		v.GoQueryMap = GoQueryMap;
 		Map<String, Model> bad_models = Enricher.loadRDF(bad_models_dir);
 		boolean problem = false;
 		String problems = "";
@@ -76,11 +70,14 @@ public class ShexValidatorTest {
 			}
 			try {
 				boolean stream_output = false;
-				ModelValidationResult r = v.runShapeMapValidation(schema, model, stream_output);
-				if(r.model_is_valid) {
+				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
+				if(r.conformant) {
 					problem = true;
 					problems+=("bad model failed to be detected: "+name+"\n"+r.model_report);
-				}	
+				}else {
+					System.out.println("Bad model successfully detected, errors follow:");
+					System.out.println(r.getAsText());
+				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -91,8 +88,6 @@ public class ShexValidatorTest {
 
 	@Test
 	public void allGoodModelsShouldPass() {
-		ShexValidator v = new ShexValidator();	
-		v.GoQueryMap = GoQueryMap;
 		Map<String, Model> good_models = Enricher.loadRDF(good_models_dir);
 		boolean problem = false;
 		String problems = "";
@@ -107,9 +102,9 @@ public class ShexValidatorTest {
 				}
 				try {
 					boolean stream_output = false;
-					ModelValidationResult r = v.runShapeMapValidation(schema, model, stream_output);
+					ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
 					w.write(name+"\t");
-					if(!r.model_is_valid) {
+					if(!r.conformant) {
 						problem = true;
 						problems+=("good model failed to validate: "+name+"\n"+r.model_report);
 						w.write("invalid\n");
