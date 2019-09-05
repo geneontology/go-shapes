@@ -6,6 +6,8 @@ Using RDF Shapes to define the schema of Gene Ontology Causal Activity Models
 
 The schema here is intended to be synced with the corresponding [google doc](https://docs.google.com/document/d/1OsE19zh8KE_2wT3-8oJysqEGqy-fahnhcjthO34IWP4/edit#), but there may be cases of things being out of sync for now.
 
+The current implementation is the ShEx is represented in this [document](https://docs.google.com/document/d/1KMCHpPd_HytMIcQFQ725wxefaDeM1_GhNC-XHNkfmY0/edit?ts=5d3c3473#) (this is less information than the specification document, as it only display what has been successfully implemented)
+
 # Schema
 
 See [shapes/go-cam-shapes.shex](shapes/go-cam-shapes.shex)
