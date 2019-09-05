@@ -29,7 +29,7 @@ public class ShexValidatorTest {
 	public static final String shexpath = "../shapes/go-cam-shapes.shex";
 	public static final String goshapemappath = "../shapes/go-cam-shapes.shapeMap";
 	public static final String good_models_dir  = "../test_ttl/go_cams/should_pass/";
-		//	"/Users/bgood/Documents/GitHub/noctua-models/models/";
+	//	"/Users/bgood/Documents/GitHub/noctua-models/models/";
 	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/";
 	public static final String report_file  = "../report.txt";
 	public static final boolean addSuperClasses = true;
@@ -37,6 +37,7 @@ public class ShexValidatorTest {
 
 	@BeforeClass
 	public static void init() {
+		System.out.println("Starting testing "+System.currentTimeMillis()/1000);
 		try {
 			v = new ShexValidator(shexpath, goshapemappath);
 		} catch (Exception e) {
@@ -62,6 +63,7 @@ public class ShexValidatorTest {
 		Map<String, Model> bad_models = Enricher.loadRDF(bad_models_dir);
 		boolean problem = false;
 		String problems = "";
+		int good = 0; int bad = 0;
 		Enricher enrich = new Enricher(null);
 		for(String name :bad_models.keySet()) {		
 			Model model = bad_models.get(name);
@@ -73,16 +75,18 @@ public class ShexValidatorTest {
 				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
 				if(r.conformant) {
 					problem = true;
-					problems+=("bad model failed to be detected: "+name+"\n"+r.model_report);
+					problems+=("bad model failed to be detected: "+name+"\n"+r.getAsText());
+					good++;
 				}else {
-					System.out.println("Bad model successfully detected, errors follow:");
-					System.out.println(r.getAsText());
+					bad++;
+					System.out.println("Bad model successfully detected:"+name);
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		System.out.println("dir: "+bad_models_dir+" total:"+bad_models.size()+" missed n bad models:"+good+" detected n bad models "+bad);
 		assertFalse(problems, problem);
 	}
 
@@ -92,36 +96,27 @@ public class ShexValidatorTest {
 		boolean problem = false;
 		String problems = "";
 		int good = 0; int bad = 0;
-		try {
-			FileWriter w = new FileWriter(report_file);
-			Enricher enrich = new Enricher(null);
-			for(String name : good_models.keySet()) {
-				Model model = good_models.get(name);
-				if(addSuperClasses) {
-					model = enrich.enrichSuperClasses(model);
-				}
-				try {
-					boolean stream_output = false;
-					ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
-					w.write(name+"\t");
-					if(!r.conformant) {
-						problem = true;
-						problems+=("good model failed to validate: "+name+"\n"+r.model_report);
-						w.write("invalid\n");
-						bad++;
-					}else {
-						good++;
-						w.write("valid\n");
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		Enricher enrich = new Enricher(null);
+		for(String name : good_models.keySet()) {
+			Model model = good_models.get(name);
+			if(addSuperClasses) {
+				model = enrich.enrichSuperClasses(model);
 			}
-			w.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			try {
+				boolean stream_output = false;
+				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
+				if(!r.conformant) {
+					problem = true;
+					problems+=("good model failed to validate: "+name+"\n"+r.model_report);
+					bad++;
+				}else {
+					System.out.println("Good model validated: "+name);
+					good++;
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		System.out.println("dir: "+good_models_dir+" total:"+good_models.size()+" Good:"+good+" Bad:"+bad);
 		assertFalse(problems, problem);
