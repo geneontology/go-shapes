@@ -19,6 +19,13 @@ import org.apache.jena.vocabulary.DC;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 import fr.inria.lille.shexjava.schema.ShexSchema;
 import fr.inria.lille.shexjava.schema.parsing.GenParser;
@@ -28,11 +35,14 @@ public class ShexValidatorTest {
 
 	public static final String shexpath = "../shapes/go-cam-shapes.shex";
 	public static final String goshapemappath = "../shapes/go-cam-shapes.shapeMap";
-	public static final String good_models_dir  = "../test_ttl/go_cams/should_pass/";
+	public static final String good_models_dir  = "/Users/bgood/Desktop/test/go_cams/reactome/";
+			//"../test_ttl/go_cams/should_pass/";
 	//	"/Users/bgood/Documents/GitHub/noctua-models/models/";
 	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/";
 	public static final String report_file  = "../report.txt";
 	public static final boolean addSuperClasses = true;
+	public static final boolean useLocalReasoner = true;
+	public static OWLReasoner tbox_reasoner = null;
 	public static ShexValidator v;
 
 	@BeforeClass
@@ -40,6 +50,23 @@ public class ShexValidatorTest {
 		System.out.println("Starting testing "+System.currentTimeMillis()/1000);
 		try {
 			v = new ShexValidator(shexpath, goshapemappath);
+			if(useLocalReasoner) {
+				String tbox_file_2 = "/Users/bgood/gocam_ontology/REO.owl";
+				String tbox_file = "/Users/bgood/gocam_ontology/go-lego-merged-9-23-2019-human.owl";
+				OWLOntologyManager ontman = OWLManager.createOWLOntologyManager();	
+				System.out.println("loading ontology");
+				OWLOntology tbox = ontman.loadOntologyFromOntologyDocument(new File(tbox_file));
+				System.out.println("done loading "+tbox_file);
+				OWLOntology tbox2 = ontman.loadOntologyFromOntologyDocument(new File(tbox_file_2));
+				System.out.println("done loading "+tbox_file_2);
+				for(OWLAxiom a : tbox2.getAxioms()) {
+					ontman.addAxiom(tbox, a);
+				}
+				System.out.println("done adding axioms from "+tbox_file_2);
+				System.out.println("done loading, building reasoner");
+				OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
+				tbox_reasoner = reasonerFactory.createReasoner(tbox);
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,7 +91,7 @@ public class ShexValidatorTest {
 		boolean problem = false;
 		String problems = "";
 		int good = 0; int bad = 0;
-		Enricher enrich = new Enricher(null);
+		Enricher enrich = new Enricher(null, tbox_reasoner);
 		for(String name :bad_models.keySet()) {		
 			Model model = bad_models.get(name);
 			if(addSuperClasses) {
@@ -96,7 +123,7 @@ public class ShexValidatorTest {
 		boolean problem = false;
 		String problems = "";
 		int good = 0; int bad = 0;
-		Enricher enrich = new Enricher(null);
+		Enricher enrich = new Enricher(null, tbox_reasoner);
 		for(String name : good_models.keySet()) {
 			Model model = good_models.get(name);
 			if(addSuperClasses) {
@@ -104,8 +131,10 @@ public class ShexValidatorTest {
 			}
 			try {
 				boolean stream_output = false;
+				System.out.println("Validating (hopefully good) model: "+name);
 				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
 				if(!r.conformant) {
+					System.out.println("Good model failed!: "+name);
 					problem = true;
 					problems+=("good model failed to validate: "+name+"\n"+r.model_report);
 					bad++;

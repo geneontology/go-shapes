@@ -136,7 +136,7 @@ public class ShexValidatorCmdLine {
 		for(String name : name_model.keySet()) {
 			Model test_model = name_model.get(name);
 			if(addSuperClasses) {
-				Enricher enrich = new Enricher(extra_endpoint);
+				Enricher enrich = new Enricher(extra_endpoint, null);
 				test_model = enrich.enrichSuperClasses(test_model);
 			}
 			if(validator.GoQueryMap!=null){
