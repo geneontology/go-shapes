@@ -37,6 +37,9 @@ PREFIX overlaps: <http://purl.obolibrary.org/obo/RO_0002131>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
+PREFIX has_target_end_location: <http://purl.obolibrary.org/obo/RO_0002339>
+PREFIX has_target_start_location: <http://purl.obolibrary.org/obo/RO_0002338>
+PREFIX transports_or_maintains_localization_of: <http://purl.obolibrary.org/obo/RO_0002313>
 PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
 PREFIX located_in: <http://purl.obolibrary.org/obo/RO_0001025>
@@ -87,6 +90,16 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   part_of: @<BiologicalProcess> {0,1};
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
+  occurs_in: ( @<AnatomicalEntity> OR @<CellularComponent> ) {0,1};
+  transports_or_maintains_localization_of: @<InformationBiomacromolecule> *;
+  has_target_end_location: @<CellularComponent> {0,1};
+  has_target_start_location: @<CellularComponent> {0,1};
+  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
+  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
+  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
+  regulates: @<BiologicalProcess> *;
+  negatively_regulates: @<BiologicalProcess> *;
+  positively_regulates: @<BiologicalProcess> *;
 } // rdfs:comment  "A biological process"
 
 
