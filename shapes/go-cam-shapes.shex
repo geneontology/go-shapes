@@ -226,6 +226,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 <InformationBiomacromolecule> @<ChemicalEntity> AND EXTRA a {
    a @<InformationBiomacromoleculeClass> ;
    located_in: @<CellularComponent> {0,1};
+   part_of: @<ProteinContainingComplex> {0,1};
 }// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
 <EvidenceClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
