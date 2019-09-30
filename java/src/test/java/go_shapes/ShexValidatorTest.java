@@ -20,6 +20,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -35,13 +36,14 @@ public class ShexValidatorTest {
 
 	public static final String shexpath = "../shapes/go-cam-shapes.shex";
 	public static final String goshapemappath = "../shapes/go-cam-shapes.shapeMap";
-	public static final String good_models_dir  = "/Users/bgood/Desktop/test/go_cams/reactome/";
-			//"../test_ttl/go_cams/should_pass/";
-	//	"/Users/bgood/Documents/GitHub/noctua-models/models/";
+	public static final String good_models_dir  = "../test_ttl/go_cams/should_pass/";
+			//"/Users/bgood/Desktop/test/go_cams/reactome/";			
 	public static final String bad_models_dir  = "../test_ttl/go_cams/should_fail/";
 	public static final String report_file  = "../report.txt";
 	public static final boolean addSuperClasses = true;
 	public static final boolean useLocalReasoner = true;
+	public static final String url_for_tbox = "http://purl.obolibrary.org/obo/go/extensions/go-lego.owl";
+		//"https://raw.githubusercontent.com/geneontology/pathways2GO/master/exchange/generated/reo-go-lego.owl";
 	public static OWLReasoner tbox_reasoner = null;
 	public static ShexValidator v;
 
@@ -51,19 +53,10 @@ public class ShexValidatorTest {
 		try {
 			v = new ShexValidator(shexpath, goshapemappath);
 			if(useLocalReasoner) {
-				String tbox_file_2 = "/Users/bgood/gocam_ontology/REO.owl";
-				String tbox_file = "/Users/bgood/gocam_ontology/go-lego-merged-9-23-2019-human.owl";
 				OWLOntologyManager ontman = OWLManager.createOWLOntologyManager();	
-				System.out.println("loading ontology");
-				OWLOntology tbox = ontman.loadOntologyFromOntologyDocument(new File(tbox_file));
-				System.out.println("done loading "+tbox_file);
-				OWLOntology tbox2 = ontman.loadOntologyFromOntologyDocument(new File(tbox_file_2));
-				System.out.println("done loading "+tbox_file_2);
-				for(OWLAxiom a : tbox2.getAxioms()) {
-					ontman.addAxiom(tbox, a);
-				}
-				System.out.println("done adding axioms from "+tbox_file_2);
-				System.out.println("done loading, building reasoner");
+				System.out.println("loading tbox ontology from "+url_for_tbox);
+				OWLOntology tbox = ontman.loadOntology(IRI.create(url_for_tbox));
+				System.out.println("done loading, building structural reasoner");
 				OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 				tbox_reasoner = reasonerFactory.createReasoner(tbox);
 			}
@@ -122,24 +115,35 @@ public class ShexValidatorTest {
 		Map<String, Model> good_models = Enricher.loadRDF(good_models_dir);
 		boolean problem = false;
 		String problems = "";
-		int good = 0; int bad = 0;
+		int good = 0; int bad = 0; int n = 0; int total = good_models.keySet().size();
 		Enricher enrich = new Enricher(null, tbox_reasoner);
 		for(String name : good_models.keySet()) {
+			n++;
 			Model model = good_models.get(name);
+			int t0 = (int)System.currentTimeMillis()/1000;
+			int t_adding_superclasses = 0;
 			if(addSuperClasses) {
 				model = enrich.enrichSuperClasses(model);
+				t_adding_superclasses = (int)System.currentTimeMillis()/1000 - t0;
 			}
+			int t1 = (int)System.currentTimeMillis()/1000;
 			try {
 				boolean stream_output = false;
-				System.out.println("Validating (hopefully good) model: "+name);
+				System.out.print(name+"\t");
+				if(name.equals("reactome-homosapiens-Synthesis_of_PIPs_at_the_plasma_membrane.ttl")) {
+					System.out.print("skipped\t\n");
+					continue;
+				}
 				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
+				int t_validating = (int)System.currentTimeMillis()/1000 - t1;				
+				String result = "t_adding_superclasses:\t"+t_adding_superclasses+"\tt_validating:\t"+t_validating+"\t";
 				if(!r.conformant) {
-					System.out.println("Good model failed!: "+name);
+					System.out.print("fail\t"+result+"\n");
 					problem = true;
 					problems+=("good model failed to validate: "+name+"\n"+r.model_report);
 					bad++;
 				}else {
-					System.out.println("Good model validated: "+name);
+					System.out.print("pass\t"+result+"\n");
 					good++;
 				}
 			} catch (Exception e) {
