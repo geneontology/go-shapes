@@ -8,5 +8,4 @@ jdk:
 
 # command to run tests
 script: 
-  - cd java; mvn clean test
-
+  - cd java; MAVEN_OPTS=-Xmx8g mvn clean test
