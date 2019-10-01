@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -53,12 +54,18 @@ public class ShexValidatorTest {
 		try {
 			v = new ShexValidator(shexpath, goshapemappath);
 			if(useLocalReasoner) {
-				OWLOntologyManager ontman = OWLManager.createOWLOntologyManager();	
-				System.out.println("loading tbox ontology from "+url_for_tbox);
-				OWLOntology tbox = ontman.loadOntology(IRI.create(url_for_tbox));
+				//need to download it..
+				URL tbox_location = new URL(url_for_tbox);
+				File tbox_file = new File("./target/go-lego.owl");
+				System.out.println("downloading tbox ontology from "+url_for_tbox);
+				org.apache.commons.io.FileUtils.copyURLToFile(tbox_location, tbox_file);
+				System.out.println("loading tbox ontology from "+tbox_file.getAbsolutePath());
+				OWLOntologyManager ontman = OWLManager.createOWLOntologyManager();					
+				OWLOntology tbox = ontman.loadOntologyFromOntologyDocument(tbox_file);
 				System.out.println("done loading, building structural reasoner");
 				OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 				tbox_reasoner = reasonerFactory.createReasoner(tbox);
+				System.out.println("done building structural reasoner, starting tests");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
