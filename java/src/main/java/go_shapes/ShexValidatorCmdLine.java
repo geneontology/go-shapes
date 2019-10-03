@@ -83,7 +83,8 @@ public class ShexValidatorCmdLine {
 	 * @param args
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws Exception {		
+	public static void main(String[] args) throws Exception {	
+		String url_for_tbox = "http://purl.obolibrary.org/obo/go/extensions/go-lego.owl";
 		ShexValidator validator = null;
 		String shexpath = null;//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
@@ -145,9 +146,9 @@ public class ShexValidatorCmdLine {
 		int good = 0; int bad = 0;
 		Enricher enrich = new Enricher(extra_endpoint, null);
 		if(addSuperClassesLocal) {
-			URL tbox_location = new URL(ShexValidatorTest.url_for_tbox);
+			URL tbox_location = new URL(url_for_tbox);
 			File tbox_file = new File("./target/go-lego.owl");
-			System.out.println("downloading tbox ontology from "+ShexValidatorTest.url_for_tbox);
+			System.out.println("downloading tbox ontology from "+url_for_tbox);
 			org.apache.commons.io.FileUtils.copyURLToFile(tbox_location, tbox_file);
 			System.out.println("loading tbox ontology from "+tbox_file.getAbsolutePath());
 			OWLOntologyManager ontman = OWLManager.createOWLOntologyManager();					
