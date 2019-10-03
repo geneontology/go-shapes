@@ -38,6 +38,12 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.StmtIterator;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 import fr.inria.lille.shexjava.schema.Label;
 import fr.inria.lille.shexjava.schema.ShexSchema;
@@ -77,11 +83,13 @@ public class ShexValidatorCmdLine {
 	 * @param args
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws Exception {		
+	public static void main(String[] args) throws Exception {	
+		String url_for_tbox = "http://purl.obolibrary.org/obo/go/extensions/go-lego.owl";
 		ShexValidator validator = null;
 		String shexpath = null;//"../shapes/go-cam-shapes.shex";
 		String model_file = "";//"../test_ttl/go_cams/should_pass/typed_reactome-homosapiens-Acetylation.ttl";
 		boolean addSuperClasses = false;
+		boolean addSuperClassesLocal = false;
 		String extra_endpoint = null;
 		Map<String, Model> name_model = new HashMap<String, Model>();
 		// create Options object
@@ -89,6 +97,7 @@ public class ShexValidatorCmdLine {
 		options.addOption("f", true, "ttl file or directory of ttl files to validate");
 		options.addOption("s", true, "shex schema file");
 		options.addOption("m", true, "query shape map file"); 
+		options.addOption("elocal", false, "if added, will use download and use http://purl.obolibrary.org/obo/go/extensions/go-lego.owl to add subclass relations to the model");
 		options.addOption("e", false, "if added, will use rdf.geneontology.org to add subclass relations to the model");
 		options.addOption("extra_endpoint", true, "if added, will use the additional endpoint at the indicated url - "
 				+ "e.g. http://192.168.1.5:9999/blazegraph/sparql to provide additional suuperclass expansions.  "
@@ -122,6 +131,8 @@ public class ShexValidatorCmdLine {
 		}		
 		if(cmd.hasOption("e")) {
 			addSuperClasses = true;
+		}else if(cmd.hasOption("elocal")) {
+			addSuperClassesLocal = true;
 		}
 		if(cmd.hasOption("extra_endpoint")) {
 			extra_endpoint = cmd.getOptionValue("extra_endpoint");
@@ -133,10 +144,23 @@ public class ShexValidatorCmdLine {
 
 		FileWriter w = new FileWriter("report_file.txt");
 		int good = 0; int bad = 0;
+		Enricher enrich = new Enricher(extra_endpoint, null);
+		if(addSuperClassesLocal) {
+			URL tbox_location = new URL(url_for_tbox);
+			File tbox_file = new File("./target/go-lego.owl");
+			System.out.println("downloading tbox ontology from "+url_for_tbox);
+			org.apache.commons.io.FileUtils.copyURLToFile(tbox_location, tbox_file);
+			System.out.println("loading tbox ontology from "+tbox_file.getAbsolutePath());
+			OWLOntologyManager ontman = OWLManager.createOWLOntologyManager();					
+			OWLOntology tbox = ontman.loadOntologyFromOntologyDocument(tbox_file);
+			System.out.println("done loading, building structural reasoner");
+			OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
+			OWLReasoner tbox_reasoner = reasonerFactory.createReasoner(tbox);
+			enrich = new Enricher(null, tbox_reasoner);
+		}
 		for(String name : name_model.keySet()) {
 			Model test_model = name_model.get(name);
-			if(addSuperClasses) {
-				Enricher enrich = new Enricher(extra_endpoint, null);
+			if(addSuperClasses||addSuperClassesLocal) {
 				test_model = enrich.enrichSuperClasses(test_model);
 			}
 			if(validator.GoQueryMap!=null){
