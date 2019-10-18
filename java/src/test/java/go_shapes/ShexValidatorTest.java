@@ -48,36 +48,6 @@ public class ShexValidatorTest {
 	public static OWLReasoner tbox_reasoner = null;
 	public static ShexValidator v;
 
-	public static void reportSystemParams() {
-		 /* Total number of processors or cores available to the JVM */
-		  System.out.println("Available processors (cores): " + 
-		  Runtime.getRuntime().availableProcessors());
-
-		  /* Total amount of free memory available to the JVM */
-		  System.out.println("Free memory (m bytes): " + 
-		  Runtime.getRuntime().freeMemory()/1048576);
-
-		  /* This will return Long.MAX_VALUE if there is no preset limit */
-		  long maxMemory = Runtime.getRuntime().maxMemory()/1048576;
-		  /* Maximum amount of memory the JVM will attempt to use */
-		  System.out.println("Maximum memory (m bytes): " + 
-		  (maxMemory == Long.MAX_VALUE ? "no limit" : maxMemory));
-
-		  /* Total memory currently in use by the JVM */
-		  System.out.println("Total memory (m bytes): " + 
-		  Runtime.getRuntime().totalMemory()/1048576);
-
-		  /* Get a list of all filesystem roots on this system */
-		  File[] roots = File.listRoots();
-
-		  /* For each filesystem root, print some info */
-		  for (File root : roots) {
-		    System.out.println("File system root: " + root.getAbsolutePath());
-		    System.out.println("Total space (bytes): " + root.getTotalSpace());
-		    System.out.println("Free space (bytes): " + root.getFreeSpace());
-		    System.out.println("Usable space (bytes): " + root.getUsableSpace());
-		  }
-	}
 	
 	@BeforeClass
 	public static void init() {
@@ -194,4 +164,35 @@ public class ShexValidatorTest {
 		assertFalse(problems, problem);
 	}
 
+	
+	public static void reportSystemParams() {
+		 /* Total number of processors or cores available to the JVM */
+		  System.out.println("Available processors (cores): " + 
+		  Runtime.getRuntime().availableProcessors());
+
+		  /* Total amount of free memory available to the JVM */
+		  System.out.println("Free memory (m bytes): " + 
+		  Runtime.getRuntime().freeMemory()/1048576);
+
+		  /* This will return Long.MAX_VALUE if there is no preset limit */
+		  long maxMemory = Runtime.getRuntime().maxMemory()/1048576;
+		  /* Maximum amount of memory the JVM will attempt to use */
+		  System.out.println("Maximum memory (m bytes): " + 
+		  (maxMemory == Long.MAX_VALUE ? "no limit" : maxMemory));
+
+		  /* Total memory currently in use by the JVM */
+		  System.out.println("Total memory (m bytes): " + 
+		  Runtime.getRuntime().totalMemory()/1048576);
+
+		  /* Get a list of all filesystem roots on this system */
+		  File[] roots = File.listRoots();
+
+		  /* For each filesystem root, print some info */
+		  for (File root : roots) {
+		    System.out.println("File system root: " + root.getAbsolutePath());
+		    System.out.println("Total space (bytes): " + root.getTotalSpace());
+		    System.out.println("Free space (bytes): " + root.getFreeSpace());
+		    System.out.println("Usable space (bytes): " + root.getUsableSpace());
+		  }
+	}
 }

@@ -74,4 +74,38 @@ public class ShexValidationReport extends ModelValidationReport{
 		}
 		return report;
 	}
+
+	public Map<String, Set<String>> getNode_matched_shapes() {
+		return node_matched_shapes;
+	}
+
+	public void setNode_matched_shapes(Map<String, Set<String>> node_matched_shapes) {
+		this.node_matched_shapes = node_matched_shapes;
+	}
+
+	public Map<String, String> getNode_report() {
+		return node_report;
+	}
+
+	public void setNode_report(Map<String, String> node_report) {
+		this.node_report = node_report;
+	}
+
+	public String getModel_report() {
+		return model_report;
+	}
+
+	public void setModel_report(String model_report) {
+		this.model_report = model_report;
+	}
+
+	public String getModel_title() {
+		return model_title;
+	}
+
+	public void setModel_title(String model_title) {
+		this.model_title = model_title;
+	}
+	
+	
 }
