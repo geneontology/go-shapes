@@ -1,7 +1,7 @@
 /**
  * 
  */
-package go_shapes;
+package org.geneontology.shapes;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -17,6 +17,10 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.vocabulary.DC;
+import org.geneontology.shapes.Enricher;
+import org.geneontology.shapes.ModelValidationResult;
+import org.geneontology.shapes.ShexValidationReport;
+import org.geneontology.shapes.ShexValidator;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -31,7 +35,6 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 import fr.inria.lille.shexjava.schema.ShexSchema;
 import fr.inria.lille.shexjava.schema.parsing.GenParser;
-import go_shapes.ModelValidationResult;
 
 public class ShexValidatorTest {
 
@@ -102,7 +105,7 @@ public class ShexValidatorTest {
 			try {
 				boolean stream_output = false;
 				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
-				if(r.conformant) {
+				if(r.isConformant()) {
 					problem = true;
 					problems+=("bad model failed to be detected: "+name+"\n"+r.getAsText());
 					good++;
@@ -146,10 +149,10 @@ public class ShexValidatorTest {
 				ShexValidationReport r = v.runShapeMapValidation(model, stream_output);
 				int t_validating = (int)System.currentTimeMillis()/1000 - t1;				
 				String result = "t_adding_superclasses:\t"+t_adding_superclasses+"\tt_validating:\t"+t_validating+"\t";
-				if(!r.conformant) {
+				if(!r.isConformant()) {
 					System.out.print("fail\t"+result+"\n");
 					problem = true;
-					problems+=("good model failed to validate: "+name+"\n"+r.model_report);
+					problems+=("good model failed to validate: "+name+"\n"+r.getAsText());
 					bad++;
 				}else {
 					System.out.print("pass\t"+result+"\n");

@@ -1,10 +1,12 @@
 /**
  * 
  */
-package go_shapes;
+package org.geneontology.shapes;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * @author bgood
@@ -12,11 +14,15 @@ import java.util.Set;
  */
 public class ModelValidationReport {
 	final String id;
+	
+	@SerializedName("is-conformant")
 	boolean conformant;
 	final String tracker;
+	
+	@SerializedName("rule-file")
 	final String rulefile;
 	Set<Violation> violations;
-
+	
 	/**
 	 * 
 	 */
@@ -60,4 +66,5 @@ public class ModelValidationReport {
 	public String getRulefile() {
 		return rulefile;
 	}
+	
 }

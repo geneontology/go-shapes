@@ -1,7 +1,7 @@
 /**
  * 
  */
-package go_shapes;
+package org.geneontology.shapes;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,6 +25,7 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QueryParseException;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
@@ -103,6 +104,7 @@ public class ShexValidator {
 	}
 	
 	public ShexValidationReport runShapeMapValidation(Model test_model, boolean stream_output) throws Exception {
+		String model_title = getModelTitle(test_model);
 		ShexValidationReport r = new ShexValidationReport(null, test_model);	
 		RDF rdfFactory = new SimpleRDF();
 		JenaRDF jr = new JenaRDF();
@@ -136,50 +138,47 @@ public class ShexValidator {
 					focus_node = rdfFactory.createBlankNode(focus_node_resource.getId().getLabelString());
 					focus_node_id = focus_node_resource.getId().getLabelString();
 				}
-				
+				//deal with curies for output
+				String node = focus_node_id;
+				node = getPreferredId(node, focus_node_resource);
+//				if(curieHandler!=null) {
+//					node = curieHandler.getCuri(IRI.create(focus_node_resource.getURI()));
+//				}
 				//check the node against the intended shape
 				shex_recursive_validator.validate(focus_node, shape_label);
 				Typing typing = shex_recursive_validator.getTyping();
 				//capture the result
 				Status status = typing.getStatus(focus_node, shape_label);
 				if(status.equals(Status.CONFORMANT)) {
-					Set<String> shape_ids = r.node_matched_shapes.get(focus_node_id);
+					Set<String> shape_ids = r.node_matched_shapes.get(node);
 					if(shape_ids==null) {
 						shape_ids = new HashSet<String>();
 					}
-					shape_ids.add(shapelabel);
-					r.node_matched_shapes.put(focus_node_id, shape_ids);
+					shape_ids.add(shapelabel);				
+					r.node_matched_shapes.put(node, shape_ids);
 				}else if(status.equals(Status.NONCONFORMANT)) {
 					//if any of these tests is invalid, the model is invalid
 					all_good = false;
-					String error = focus_node_id+" did not match "+shapelabel;
-					r.node_report.put(focus_node_id, error);
-					if(stream_output) {
-						System.out.println("Invalid model:"+r.model_title+"\n\t"+error);
-					}
-					r.model_report += error+"\n";
 					//implementing a start on a generic violation report structure here
-					ShexViolation violation = new ShexViolation(focus_node_id);
-					violation.setCommentary(error);
-					 					
+					ShexViolation violation = new ShexViolation(node);				 					
 					ShexExplanation explanation = new ShexExplanation();
-					explanation.setShape_id(shapelabel);
-				
-					Set<ShexConstraint> unmet_constraints = getUnmetConstraints(focus_node_resource, shapelabel, test_model);
-					
+					explanation.setShape(shapelabel);				
+					Set<ShexConstraint> unmet_constraints = getUnmetConstraints(focus_node_resource, shapelabel, test_model);				
 					for(ShexConstraint constraint : unmet_constraints) {
 						explanation.addConstraint(constraint);
 						violation.addExplanation(explanation);
-					}				
+					}	
 					r.addViolation(violation);
+					String error = r.getAsText(); 
+					if(stream_output) {
+						System.out.println("Invalid model:"+model_title+"\n\t"+error);
+					}				
 				}else if(status.equals(Status.NOTCOMPUTED)) {
 					//if any of these are not computed, there is a problem
 					String error = focus_node_id+" was not tested against "+shapelabel;
-					r.node_report.put(focus_node_id, error);
 					if(stream_output) {
-						System.out.println("Invalid model:"+r.model_title+"\n\t"+error);
+						System.out.println("Invalid model:"+model_title+"\n\t"+error);
 					}
-					r.model_report += error+"\n";
 				}
 			}
 		}
@@ -189,6 +188,11 @@ public class ShexValidator {
 			r.conformant = false;
 		}
 		return r;
+	}
+
+	
+	public String getPreferredId(String node, Resource resource) {
+		return node;
 	}
 
 	public static Set<Resource> getFocusNodesBySparql(Model model, String sparql){
@@ -297,6 +301,10 @@ public class ShexValidator {
 			for (StmtIterator i = focus_node.listProperties(prop); i.hasNext(); ) {
 				RDFNode obj = i.nextStatement().getObject();
 				//check the computed shapes for this individual
+				if(!obj.isResource()) {
+					continue;
+					//no checks on literal values at this time
+				}
 				RDFTerm range_obj = rdfFactory.createIRI(obj.asResource().getURI());
 				//does it hit any allowable shapes?
 				boolean good = false;
@@ -315,8 +323,14 @@ public class ShexValidator {
 					}
 				}
 				if(!good) {
-					explanation+="\n"+obj+" range of "+prop+"\n\tshould match one of the following shapes but does not: \n\t\t"+expected_property_ranges.get(prop_uri);
-					ShexConstraint constraint = new ShexConstraint(obj.asResource().getURI(), prop_uri, expected_property_ranges.get(prop_uri));
+					String object = obj.toString();
+					String property = prop.toString();
+//					if(curieHandler!=null) {
+//						object = curieHandler.getCuri(IRI.create(object));
+//						property = curieHandler.getCuri(IRI.create(property));
+//					}
+					explanation+="\n"+object+" range of "+property+"\n\tshould match one of the following shapes but does not: \n\t\t"+expected_property_ranges.get(prop_uri);
+					ShexConstraint constraint = new ShexConstraint(object, property, expected_property_ranges.get(prop_uri));
 					unmet_constraints.add(constraint);
 				}
 			}
@@ -419,4 +433,20 @@ public class ShexValidator {
 		return shape_refs;
 	}
 	
+	public static String getModelTitle(Model model) {
+		String model_title = null;
+		String q = "select ?cam ?title where {"
+				+ "?cam <http://purl.org/dc/elements/1.1/title> ?title }";
+		//	+ "?cam <"+DC.description.getURI()+"> ?title }";
+		QueryExecution qe = QueryExecutionFactory.create(q, model);
+		ResultSet results = qe.execSelect();
+		if (results.hasNext()) {
+			QuerySolution qs = results.next();
+			Resource model_id_resource = qs.getResource("cam");
+			Literal title = qs.getLiteral("title");
+			model_title = title.getString();
+		}
+		qe.close();
+		return model_title;
+	}
 }

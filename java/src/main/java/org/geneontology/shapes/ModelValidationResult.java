@@ -1,7 +1,7 @@
 /**
  * 
  */
-package go_shapes;
+package org.geneontology.shapes;
 
 import java.util.HashSet;
 import java.util.Map;
