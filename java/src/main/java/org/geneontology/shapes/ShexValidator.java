@@ -190,11 +190,6 @@ public class ShexValidator {
 		return r;
 	}
 
-	
-	public String getPreferredId(String node, Resource resource) {
-		return node;
-	}
-
 	public static Set<Resource> getFocusNodesBySparql(Model model, String sparql){
 		Set<Resource> nodes = new HashSet<Resource>();
 		QueryExecution qe = QueryExecutionFactory.create(sparql, model);
@@ -325,6 +320,8 @@ public class ShexValidator {
 				if(!good) {
 					String object = obj.toString();
 					String property = prop.toString();
+					object = getPreferredId(object, IRI.create(object));
+					property = getPreferredId(property, IRI.create(property));
 //					if(curieHandler!=null) {
 //						object = curieHandler.getCuri(IRI.create(object));
 //						property = curieHandler.getCuri(IRI.create(property));
@@ -336,6 +333,21 @@ public class ShexValidator {
 			}
 		}
 		return unmet_constraints;
+	}
+	
+	
+	/**
+	 * If implementation has something like a curie handler and preference, override these methods
+	 * @param node
+	 * @param iri
+	 * @return
+	 */
+	public String getPreferredId(String node, IRI iri) {
+		return node;
+	}
+
+	public String getPreferredId(String node, Resource resource) {
+		return node;
 	}
 	
 	public static Map<String, Set<String>> getPropertyRangeMap(ShapeExpr expr, Map<String, Set<String>> prop_range){
