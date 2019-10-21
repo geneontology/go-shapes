@@ -10,7 +10,7 @@ jdk:
 script: 
  - git clone https://github.com/geneontology/minerva.git
  - cd minerva
- - git checkout add-validation-framework-as-package
+ - git checkout dev
  - ./build-cli.sh
  - cd minerva-cli/
  - pwd
