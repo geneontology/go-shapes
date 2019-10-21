@@ -13,4 +13,5 @@ script:
  - git checkout add-validation-framework-as-package
  - ./build-cli.sh
  - cd minerva-cli/
- - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_pass/ -e -r ./shape_report.txt
+ - bin/minerva-cli.sh --validate-go-cams -t -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_pass/ -e -r ./shape_report.txt
+ - bin/minerva-cli.sh --validate-go-cams -t -shouldfail -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_fail/ -e -r ./shape_report.txt
