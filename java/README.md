@@ -1,29 +1,18 @@
 # Java GO-CAM validator
 
-Uses https://github.com/iovka/shex-java to validate GO-CAM RDF.
-Built with Eclipse and Maven.
+Java code for validating GO-CAMs against the shex schema can be found in the minerva-core project at https://github.com/geneontology/minerva and can be accessed via the Minerva command line utility as seen in https://github.com/geneontology/minerva/blob/master/build-cli.sh 
 
-## Installation
+You can run it like this:
+ - git clone https://github.com/geneontology/minerva.git
+ - cd minerva
+ - git checkout dev
+ - ./build-cli.sh
+ - cd minerva-cli/
+ - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_pass/ -r ./shape_report_shouldpass.txt -expand -travis
+ - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_fail/ -r ./shape_report_shouldfail.txt -expand -travis -shouldfail
 
-```
-cd java
-mvn install
-```
-
-## Testing
-```
-mvn test
-```
-This (also happens automatically during above install) will:
+It will:
 
 - Enrich each GO-CAM with subclass relations linking instances to root classes 
 - then validate the resulting RDF models against the `go-cam-shapes.shex` schema using the `go-cam-shapes.shapeMap` shape map to look up the appropriate focus nodes.  
 - It will show errors if the ttl files in the should_pass directories do not validate or if the ttl files in the should_fail directories do validate.  
-
-## Running one off
-```
-mvn install
-cd bin
-java -jar go_shapes_cli.jar -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_fail/Test005-enabled_by_biological_process.ttl -e
-```
-The above is an example.  Change the shex, shapemap, and ttl files as you see fit.  
