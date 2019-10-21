@@ -1,0 +1,19 @@
+dist: trusty
+sudo: false
+
+language: java
+
+jdk:
+  - openjdk8
+
+# command to run tests
+script: 
+ - git clone https://github.com/geneontology/minerva.git
+ - cd minerva
+ - git checkout add-validation-framework-as-package
+ - ./build-cli.sh
+ - cd minerva-cli/
+ - pwd
+ - ls ../../
+ - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_pass/ -r ./shape_report_shouldpass.txt -e -t
+ - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_fail/ -r ./shape_report_shouldfail.txt -e -t -shouldfail 
