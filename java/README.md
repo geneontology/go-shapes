@@ -10,6 +10,7 @@ You can run it like this:
  - cd minerva-cli/
  - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_pass/ -r ./shape_report_shouldpass.txt -expand -travis
  - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_fail/ -r ./shape_report_shouldfail.txt -expand -travis -shouldfail
+ - fix the paths accordingly.  If you leave out the -s and -m options, it will download the schema and shapemap files from this repository.  
 
 It will:
 
