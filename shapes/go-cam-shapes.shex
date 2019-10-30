@@ -90,7 +90,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   part_of: @<BiologicalProcess> {0,1};
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
-  occurs_in: ( @<AnatomicalEntity> OR @<CellularComponent> ) {0,1};
+  occurs_in: ( @<AnatomicalEntity> ) {0,1};
   transports_or_maintains_localization_of: @<InformationBiomacromolecule> *;
   has_target_end_location: @<CellularComponent> {0,1};
   has_target_start_location: @<CellularComponent> {0,1};
@@ -115,7 +115,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
   enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
   part_of: @<BiologicalProcess> {0,1};
-  occurs_in: ( @<AnatomicalEntity> OR @<CellularComponent> ) {0,1}; # revert to simply <AnatomicalEntity> once ontology fixes are complete
+  occurs_in: ( @<AnatomicalEntity> ) {0,1};
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   directly_provides_input_for: @<MolecularFunction> *;
