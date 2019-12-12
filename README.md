@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/geneontology/go-shapes.svg?branch=master)](https://travis-ci.org/geneontology/go-shapes)
+[![Build Status](https://travis-ci.com/geneontology/go-shapes.svg?branch=master)](https://travis-ci.com/geneontology/go-shapes)
 
 # GO_Shapes
 
