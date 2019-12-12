@@ -90,8 +90,8 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
   occurs_in: ( @<AnatomicalEntity> ) {0,1};
   transports_or_maintains_localization_of: @<InformationBiomacromolecule> *;
-  has_target_end_location: @<CellularComponent> {0,1};
-  has_target_start_location: @<CellularComponent> {0,1};
+  has_target_end_location: @<AnatomicalEntity> {0,1};
+  has_target_start_location: @<AnatomicalEntity> {0,1};
   causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
   causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
   causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
@@ -223,7 +223,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
 }
 <InformationBiomacromolecule> @<ChemicalEntity> AND EXTRA a {
    a @<InformationBiomacromoleculeClass> ;
-   located_in: @<CellularComponent> {0,1};
+   part_of: @<CellularComponent> {0,1};
    part_of: @<ProteinContainingComplex> {0,1};
 }// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
