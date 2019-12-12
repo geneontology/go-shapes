@@ -7,13 +7,14 @@ jdk:
   - openjdk8
 
 # command to run tests
-script: 
+script:
  - git clone https://github.com/geneontology/minerva.git
  - cd minerva
- - git checkout dev
+ - git checkout gene-product-type-updater
+ - MAVEN_OPTS=-Xmx8g travis_wait 20
  - ./build-cli.sh
  - cd minerva-cli/
  - pwd
  - ls ../../
- - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_pass/ -r ./shape_report_shouldpass.txt -travis
- - bin/minerva-cli.sh --validate-go-cams -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -f ../../test_ttl/go_cams/should_fail/ -r ./shape_report_shouldfail.txt -travis -shouldfail 
+ - java -Xmx8g -jar bin/minerva-cli.jar --validate-go-cams --shex -c ../../ontology/catalog-for-validation.xml -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_pass/ -r ./shape_report_shouldpass.txt -e ./shape_explanation_shouldpass.txt -travis
+ - java -Xmx8g -jar bin/minerva-cli.jar --validate-go-cams --shex -c ../../ontology/catalog-for-validation.xml -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_fail/ -r ./shape_report_shouldfail.txt -e ./shape_explanation_shouldfail.txt -travis -shouldfail
