@@ -89,7 +89,7 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
   occurs_in: ( @<AnatomicalEntity> ) {0,1};
-  transports_or_maintains_localization_of: @<InformationBiomacromolecule> *;
+  transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<AnatomicalEntity> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
   causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
