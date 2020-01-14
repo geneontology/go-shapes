@@ -106,8 +106,8 @@ PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
 	rdfs:subClassOf [ GoAnatomicalStructureDevelopment: ] ;
 
 <AnatomicalStructureDevelopment> @<BiologicalProcess> AND EXTRA a {
-  a @<AnatomicalStructureDevelopmentClass>; {1}
-  results_in_development_of: @<AnatomicalEntity> {0,1};  
+  a @<AnatomicalStructureDevelopmentClass> {1};
+  results_in_development_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "an anatomical structure development class GO biological process or child”
 
 
