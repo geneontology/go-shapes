@@ -102,8 +102,10 @@ PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
   positively_regulates: @<BiologicalProcess> *;
 } // rdfs:comment  "A biological process"
 
+
 <AnatomicalStructureDevelopmentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoAnatomicalStructureDevelopment: ] ;
+}
 
 <AnatomicalStructureDevelopment> @<BiologicalProcess> AND EXTRA a {
   a @<AnatomicalStructureDevelopmentClass> {1};
