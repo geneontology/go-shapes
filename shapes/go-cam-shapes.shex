@@ -205,10 +205,6 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   rdfs:subClassOf [ GoChemicalEntity: ];
 }
 
-<Gene> @<ChemicalEntity> AND {
-  located_in: @<CellularComponent> {0,1};
-}// rdfs:comment  "a gene (a piece of DNA with a purpose)"
-
 <ProteinClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoProtein: ];
 }
