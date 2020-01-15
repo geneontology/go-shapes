@@ -20,6 +20,7 @@ PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
 PREFIX GoProteinContainingComplex: <http://purl.obolibrary.org/obo/GO_0032991>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
 PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
+PREFIX GoAnatomicalStructureDevelopment: <http://purl.obolibrary.org/obo/GO_0048856>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
@@ -56,6 +57,7 @@ PREFIX causally_upstream_of_or_within_positive_effect: <http://purl.obolibrary.o
 PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
+PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
@@ -100,6 +102,15 @@ PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_
   positively_regulates: @<BiologicalProcess> *;
 } // rdfs:comment  "A biological process"
 
+
+<AnatomicalStructureDevelopmentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoAnatomicalStructureDevelopment: ] ;
+}
+
+<AnatomicalStructureDevelopment> @<BiologicalProcess> AND EXTRA a {
+  a @<AnatomicalStructureDevelopmentClass> {1};
+  results_in_development_of: @<AnatomicalEntity> {0,1};
+} // rdfs:comment "an anatomical structure development class GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
