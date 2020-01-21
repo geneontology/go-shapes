@@ -141,6 +141,9 @@ PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
   causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
   causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
   happens_during: ( @<BiologicalPhase> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  transports_or_maintains_localization_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
+  has_target_end_location: @<AnatomicalEntity> {0,1};
+  has_target_start_location: @<AnatomicalEntity> {0,1};
 } // rdfs:comment  "A molecular function"
 
 <MacromolecularMachine> ( @<Protein> OR @<ProteinContainingComplex> ) AND {}
