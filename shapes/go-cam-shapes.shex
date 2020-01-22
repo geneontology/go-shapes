@@ -27,6 +27,7 @@ PREFIX GoCellDifferentiation: <http://purl.obolibrary.org/obo/GO_0030154>
 PREFIX GoCellFateCommitment: <http://purl.obolibrary.org/obo/GO_0045165>
 PREFIX GoCellFateDetermination: <http://purl.obolibrary.org/obo/GO_0001709>
 PREFIX GoCellFateSpecification: <http://purl.obolibrary.org/obo/GO_0001708>
+PREFIX GoCellularComponentAssembly: <http://purl.obolibrary.org/obo/GO_0022607>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
@@ -71,6 +72,7 @@ PREFIX results_in_acquisition_of_features_of: <http://purl.obolibrary.org/obo/RO
 PREFIX results_in_commitment_to: <http://purl.obolibrary.org/obo/RO_0002348>
 PREFIX results_in_determination_of: <http://purl.obolibrary.org/obo/RO_0002349>
 PREFIX results_in_specification_of: <http://purl.obolibrary.org/obo/RO_0002356>
+PREFIX results_in_assembly_of: <http://purl.obolibrary.org/obo/RO_0002588>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
@@ -178,6 +180,15 @@ PREFIX results_in_specification_of: <http://purl.obolibrary.org/obo/RO_0002356>
   a @<CellFateSpecificationClass> {1};
   results_in_specification_of: @<NativeCell> {0,1};
 } // rdfs:comment "a cell fate specification GO biological process or child"
+
+<CellularComponentAssemblyClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoCellularComponentAssembly: ] ;
+}
+
+<CellularComponentAssembly> @<BiologicalProcess> AND EXTRA a {
+  a @<CellularComponentAssemblyClass> {1};
+  results_in_assembly_of: @<CellularComponent> {0,1};
+} // rdfs:comment "a cellular component assembly GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
