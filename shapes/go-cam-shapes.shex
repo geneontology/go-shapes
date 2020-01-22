@@ -21,6 +21,7 @@ PREFIX GoProteinContainingComplex: <http://purl.obolibrary.org/obo/GO_0032991>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
 PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
 PREFIX GoAnatomicalStructureDevelopment: <http://purl.obolibrary.org/obo/GO_0048856>
+PREFIX GoAnatomicalStructureFormationInvolvedInMorphogenesis: <http://purl.obolibrary.org/obo/GO_0048646>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
@@ -58,6 +59,7 @@ PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
 PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
+PREFIX results_in_formation_of: <http://purl.obolibrary.org/obo/RO_0002297>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
@@ -111,6 +113,15 @@ PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
   a @<AnatomicalStructureDevelopmentClass> {1};
   results_in_development_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "an anatomical structure development class GO biological process or child"
+
+<AnatomicalStructureFormationInvolvedInMorphogenesisClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoAnatomicalStructureFormationInvolvedInMorphogenesis: ] ;
+}
+
+<AnatomicalStructureFormationInvolvedInMorphogenesis> @<BiologicalProcess> AND EXTRA a {
+  a @<AnatomicalStructureFormationInvolvedInMorphogenesisClass> {1};
+  results_in_formation_of: @<AnatomicalEntity> {0,1};
+} // rdfs:comment "an anatomical structure formation involved in morphogenesis class GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
