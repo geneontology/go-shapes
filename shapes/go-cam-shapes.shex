@@ -31,6 +31,7 @@ PREFIX GoCellularComponentAssembly: <http://purl.obolibrary.org/obo/GO_0022607>
 PREFIX GoCellularComponentDisassembly: <http://purl.obolibrary.org/obo/GO_0022411>
 PREFIX GoCellularComponentOrganization: <http://purl.obolibrary.org/obo/GO_0016043>
 PREFIX GoDevelopmentalMaturation: <http://purl.obolibrary.org/obo/GO_0021700>
+PREFIX GoGrowth: <http://purl.obolibrary.org/obo/GO_0040007>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
@@ -79,6 +80,7 @@ PREFIX results_in_assembly_of: <http://purl.obolibrary.org/obo/RO_0002588>
 PREFIX results_in_disassembly_of: <http://purl.obolibrary.org/obo/RO_0002590>
 PREFIX results_in_organization_of: <http://purl.obolibrary.org/obo/RO_0002592>
 PREFIX results_in_maturation_of: <http://purl.obolibrary.org/obo/RO_0002299>
+PREFIX results_in_growth_of: <http://purl.obolibrary.org/obo/RO_0002343>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
@@ -222,6 +224,15 @@ PREFIX results_in_maturation_of: <http://purl.obolibrary.org/obo/RO_0002299>
   a @<DevelopmentalMaturationClass> {1};
   results_in_maturation_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a developmental maturation GO biological process or child"
+
+<GrowthClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoGrowth: ] ;
+}
+
+<Growth> @<BiologicalProcess> AND EXTRA a {
+  a @<GrowthClass> {1};
+  results_in_growth_of: @<AnatomicalEntity> {0,1};
+} // rdfs:comment "a growth GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
