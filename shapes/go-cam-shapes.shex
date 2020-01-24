@@ -262,7 +262,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 }
 
 <ProteinContainingComplexRemodeling> @<BiologicalProcess> AND EXTRA a {
-  a @<ProteinContainingComplexRemodeling> {1};
+  a @<ProteinContainingComplexRemodelingClass> {1};
   results_in_remodeling_of: @<ProteinContainingComplex> {0,1};
 } // rdfs:comment "a protein containing complex remodeling GO biological process or child"
 
