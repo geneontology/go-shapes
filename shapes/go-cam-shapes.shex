@@ -35,6 +35,7 @@ PREFIX GoGrowth: <http://purl.obolibrary.org/obo/GO_0040007>
 PREFIX GoLocomotion: <http://purl.obolibrary.org/obo/GO_0040011>
 PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/GO_0006928>
 PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
+PREFIX GoPatternSpecificationProcess: <http://purl.obolibrary.org/obo/GO_0007389>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
@@ -265,6 +266,15 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<ProteinContainingComplexRemodelingClass> {1};
   results_in_remodeling_of: @<ProteinContainingComplex> {0,1};
 } // rdfs:comment "a protein containing complex remodeling GO biological process or child"
+
+<PatternSpecificationProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoPatternSpecificationProcess: ] ;
+}
+
+<PatternSpecificationProcess> @<BiologicalProcess> AND EXTRA a {
+  a @<PatternSpecificationProcessClass> {1};
+  results_in_specification_of: @<AnatomicalEntity> {0,1};
+} // rdfs:comment "a pattern specification process GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
