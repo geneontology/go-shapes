@@ -34,6 +34,7 @@ PREFIX GoDevelopmentalMaturation: <http://purl.obolibrary.org/obo/GO_0021700>
 PREFIX GoGrowth: <http://purl.obolibrary.org/obo/GO_0040007>
 PREFIX GoLocomotion: <http://purl.obolibrary.org/obo/GO_0040011>
 PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/GO_0006928>
+PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
@@ -84,6 +85,7 @@ PREFIX results_in_organization_of: <http://purl.obolibrary.org/obo/RO_0002592>
 PREFIX results_in_maturation_of: <http://purl.obolibrary.org/obo/RO_0002299>
 PREFIX results_in_growth_of: <http://purl.obolibrary.org/obo/RO_0002343>
 PREFIX results_in_movement_of: <http://purl.obolibrary.org/obo/RO_0002565>
+PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
@@ -254,6 +256,15 @@ PREFIX results_in_movement_of: <http://purl.obolibrary.org/obo/RO_0002565>
   a @<MovementOfCellOrSubcellularComponentClass> {1};
   results_in_movement_of: ( @<NativeCell> OR @<CellularComponent> ) {0,1};
 } // rdfs:comment "a movement of cell or subcellular component GO biological process or child"
+
+<ProteinContainingComplexRemodelingClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoProteinContainingComplexRemodeling: ] ;
+}
+
+<ProteinContainingComplexRemodeling> @<BiologicalProcess> AND EXTRA a {
+  a @<ProteinContainingComplexRemodelingClass> {1};
+  results_in_remodeling_of: @<ProteinContainingComplex> {0,1};
+} // rdfs:comment "a protein containing complex remodeling GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
