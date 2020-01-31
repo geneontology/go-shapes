@@ -24,6 +24,7 @@ PREFIX GoAnatomicalStructureDevelopment: <http://purl.obolibrary.org/obo/GO_0048
 PREFIX GoAnatomicalStructureFormationInvolvedInMorphogenesis: <http://purl.obolibrary.org/obo/GO_0048646>
 PREFIX GoAnatomicalStructureMorphogenesis: <http://purl.obolibrary.org/obo/GO_0009653>
 PREFIX GoCellDifferentiation: <http://purl.obolibrary.org/obo/GO_0030154>
+PREFIX GoCellDivision: <http://purl.obolibrary.org/obo/GO_0051301>
 PREFIX GoCellFateCommitment: <http://purl.obolibrary.org/obo/GO_0045165>
 PREFIX GoCellFateDetermination: <http://purl.obolibrary.org/obo/GO_0001709>
 PREFIX GoCellFateSpecification: <http://purl.obolibrary.org/obo/GO_0001708>
@@ -167,6 +168,15 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<CellDifferentiationClass> {1};
   results_in_acquisition_of_features_of: @<NativeCell> {0,1};
 } // rdfs:comment "a cell differentiation GO biological process or child"
+
+<CellDivisionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoCellDivision: ] ;
+}
+
+<CellDivision> @<BiologicalProcess> AND EXTRA a {
+  a @<CellDivisionClass> {1};
+  has_input: @<NativeCell> {0,1};
+} // rdfs:comment "a cell division GO biological process or child"
 
 <CellFateCommitmentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoCellFateCommitment: ] ;
