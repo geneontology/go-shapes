@@ -39,6 +39,7 @@ PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/G
 PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
 PREFIX GoPatternSpecificationProcess: <http://purl.obolibrary.org/obo/GO_0007389>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
+PREFIX GoTransporterActivity: <http://purl.obolibrary.org/obo/GO_0005215>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
 PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/CARO_0000000>
@@ -328,6 +329,16 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> ) *;
   happens_during: ( @<BiologicalPhase> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "A molecular function"
+
+<TransporterActivityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  rdfs:subClassOf [ GoTransporterActivity: ];
+}
+
+<TransporterActivity> @<MolecularFunction> AND EXTRA a {
+  a @<TransporterActivityClass> {1};
+  transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *; 
+} // rdfs:comment "a transporter activity GO molecular function or child"
+
 
 <MacromolecularMachine> ( @<Protein> OR @<ProteinContainingComplex> ) AND {}
 
