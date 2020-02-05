@@ -33,6 +33,7 @@ PREFIX GoCellularComponentDisassembly: <http://purl.obolibrary.org/obo/GO_002241
 PREFIX GoCellularComponentOrganization: <http://purl.obolibrary.org/obo/GO_0016043>
 PREFIX GoDevelopmentalMaturation: <http://purl.obolibrary.org/obo/GO_0021700>
 PREFIX GoGrowth: <http://purl.obolibrary.org/obo/GO_0040007>
+PREFIX GoLocalization: <http://purl.obolibrary.org/obo/GO_0051179>
 PREFIX GoLocomotion: <http://purl.obolibrary.org/obo/GO_0040011>
 PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/GO_0006928>
 PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
@@ -249,6 +250,17 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<GrowthClass> {1};
   results_in_growth_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a growth GO biological process or child"
+
+<LocalizationClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoLocalization: ] ;
+}
+
+<Localization> @<BiologicalProcess> AND EXTRA a {
+  a @<LocalizationClass> {1};
+  transports_or_maintains_localization_of: ( @<AnatomicalEntity> OR @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *; 
+  has_target_end_location: @<AnatomicalEntity> {0,1};
+  has_target_start_location: @<AnatomicalEntity> {0,1};
+} // rdfs:comment "a localization GO biological process or child"
 
 <LocomotionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoLocomotion: ] ;
