@@ -6,6 +6,11 @@ SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf>
 SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0009653> }' @ <http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureMorphogenesis>,
 SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0030154> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellDifferentiation>,
 SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0051301> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellDivision>,
+SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0045165> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellFateCommitment>,
+SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0001709> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellFateDetermination>,
+SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0001708> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellFateSpecification>,
+SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0022607> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellularComponentAssembly>,
+SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0022411> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellularComponentDisassembly>,
 SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/GO_0005575> }' @ <http://purl.obolibrary.org/obo/go/shapes/CellularComponent>,
 SPARQL 'SELECT ?x WHERE { ?x a/<http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/ECO_0000000> }' @ <http://purl.obolibrary.org/obo/go/shapes/Evidence>,
 SPARQL 'SELECT ?x WHERE { ?x a <http://www.w3.org/2002/07/owl#Axiom> . ?x <http://geneontology.org/lego/evidence> ?ev . }' @ <http://purl.obolibrary.org/obo/go/shapes/AnnotatedEdge>
