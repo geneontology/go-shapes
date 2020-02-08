@@ -14,6 +14,8 @@ PREFIX exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch>
 PREFIX source: <http://purl.org/dc/elements/1.1/source>
 PREFIX evidence: <http://geneontology.org/lego/evidence>
 PREFIX with: <http://geneontology.org/lego/evidence-with>
+PREFIX x: <http://geneontology.org/lego/hint/layout/x>
+PREFIX y: <http://geneontology.org/lego/hint/layout/y>
 #semantic: classes
 PREFIX GoInformationBiomacromolecule: <http://purl.obolibrary.org/obo/CHEBI_33695>
 PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
@@ -103,6 +105,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   xref: . *;
   rdfs:label . {0,1};
   exact_match: . *;
+  x: . {0, 1} // rdfs:comment  "X coordinate for node";
+  y: . {0, 1} // rdfs:comment  "Y coordinate for node";
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
@@ -258,7 +262,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <Localization> @<BiologicalProcess> AND EXTRA a {
   a @<LocalizationClass> {1};
-  transports_or_maintains_localization_of: ( @<AnatomicalEntity> OR @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *; 
+  transports_or_maintains_localization_of: ( @<AnatomicalEntity> OR @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a localization GO biological process or child"
@@ -336,7 +340,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <TransporterActivity> @<MolecularFunction> AND EXTRA a {
   a @<TransporterActivityClass> {1};
-  transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *; 
+  transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
 } // rdfs:comment "a transporter activity GO molecular function or child"
 
 
