@@ -103,10 +103,10 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <GoCamEntity> IRI @<ProvenanceAnnotated> AND EXTRA a {
   a [owl:NamedIndividual] * // rdfs:comment  "Every entity we care about is a named individual";
   xref: . *;
-  rdfs:label . {0,1};
+  rdfs:label . {0,1} //rdfs:comment "the name" ;
   exact_match: . *;
-  x: . {0, 1} // rdfs:comment  "X coordinate for node";
-  y: . {0, 1} // rdfs:comment  "Y coordinate for node";
+  x: . {0,1} // rdfs:comment  "Y coordinate for node";
+  y: . {0,1} // rdfs:comment  "Y coordinate for node";
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
@@ -126,7 +126,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   part_of: @<BiologicalProcess> {0,1};
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
-  occurs_in: ( @<AnatomicalEntity> ) {0,1};
+  occurs_in: @<AnatomicalEntity>{0,1};
   transports_or_maintains_localization_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
@@ -341,8 +341,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <TransporterActivity> @<MolecularFunction> AND EXTRA a {
   a @<TransporterActivityClass> {1};
   transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
-  has_target_end_location: ( @<CellularComponent> ) *;
-  has_target_start_location: ( @<CellularComponent> ) *;
+  has_target_end_location: @<CellularComponent> *;
+  has_target_start_location: @<CellularComponent> *;
 } // rdfs:comment "a transporter activity GO molecular function or child"
 
 
