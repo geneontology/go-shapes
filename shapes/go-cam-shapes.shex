@@ -105,7 +105,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   xref: . *;
   rdfs:label . {0,1} //rdfs:comment "the name" ;
   exact_match: . *;
-  x: . {0,1} // rdfs:comment  "Y coordinate for node";
+  x: . {0,1} // rdfs:comment  "X coordinate for node";
   y: . {0,1} // rdfs:comment  "Y coordinate for node";
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
@@ -451,7 +451,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   rdfs:subClassOf [ GoEvidence: ] ;
 }
 
-<Evidence> @<GoCamEntity> AND EXTRA a  {
+<Evidence> @<ProvenanceAnnotated> AND EXTRA a  {
   a @<EvidenceClass> {1};
   source: xsd:string {1};
   with: xsd:string {0,1}
