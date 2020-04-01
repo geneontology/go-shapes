@@ -24,7 +24,7 @@ PREFIX modelstate: <http://geneontology.org/lego/modelstate>
 PREFIX title: <http://purl.org/dc/elements/1.1/title>
 PREFIX imports: <http://www.w3.org/2002/07/owl#imports>
 # always limit imports to? <http://purl.obolibrary.org/obo/go/extensions/go-lego.owl> ;
-PREFIX <https://w3id.org/biolink/vocab/in_taxon>
+PREFIX in_taxon: <https://w3id.org/biolink/vocab/in_taxon>
 #semantic: classes
 PREFIX GoInformationBiomacromolecule: <http://purl.obolibrary.org/obo/CHEBI_33695>
 PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
@@ -109,7 +109,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   provided_by: xsd:string *; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   modelstate: xsd:string *; #TODO would be better as an IRI
-  taxon: IRI *;
+  in_taxon: IRI *;
   title: xsd:string *;
   imports: IRI *;
 }
