@@ -104,13 +104,13 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <GoCamModel> {
   a [ontology:] {1};
-  contributor: xsd:string *; #TODO would be better as an IRI
-  date: xsd:string *; #TODO can we make this an xsd:date?
-  provided_by: xsd:string *; #TODO would be better as an IRI
+  contributor: xsd:string +; #TODO would be better as an IRI
+  date: xsd:string {1}; #TODO can we make this an xsd:date?
+  provided_by: xsd:string +; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
-  modelstate: xsd:string *; #TODO would be better as an IRI
+  modelstate: xsd:string {1}; #TODO would be better as an IRI
   in_taxon: IRI *;
-  title: xsd:string *;
+  title: xsd:string {1};
   imports: IRI *;
 }
 
