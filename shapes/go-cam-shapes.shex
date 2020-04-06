@@ -102,8 +102,12 @@ PREFIX results_in_growth_of: <http://purl.obolibrary.org/obo/RO_0002343>
 PREFIX results_in_movement_of: <http://purl.obolibrary.org/obo/RO_0002565>
 PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
-<GoCamModel> AND EXTRA a {
+<OWLOntologyNode> {
   a [ontology:];
+}
+
+<GoCamModel> AND EXTRA a {
+  a <OWLOntologyNode>;
   contributor: xsd:string +; #TODO would be better as an IRI
   date: xsd:string {1}; #TODO can we make this an xsd:date?
   provided_by: xsd:string +; #TODO would be better as an IRI
