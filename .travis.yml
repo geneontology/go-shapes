@@ -11,7 +11,7 @@ script:
  - git clone https://github.com/geneontology/minerva.git
  - cd minerva
  - git checkout shapes
- - MAVEN_OPTS=-Xmx8g travis_wait 20
+ - MAVEN_OPTS=-Xmx8g travis_wait 20 --batch-mode -q 
  - ./build-cli.sh
  - cd minerva-cli/
  - pwd
