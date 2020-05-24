@@ -66,6 +66,7 @@ PREFIX transports_or_maintains_localization_of: <http://purl.obolibrary.org/obo/
 PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
 PREFIX located_in: <http://purl.obolibrary.org/obo/RO_0001025>
+PREFIX location_of: <http://purl.obolibrary.org/obo/RO_0001015>
 PREFIX happens_during: <http://purl.obolibrary.org/obo/RO_0002092>
 PREFIX regulates: <http://purl.obolibrary.org/obo/RO_0002211>
 PREFIX negatively_regulates: <http://purl.obolibrary.org/obo/RO_0002212>
@@ -317,7 +318,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
   enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
   part_of: @<BiologicalProcess> {0,1};
-  occurs_in: ( @<AnatomicalEntity> ) {0,1};
+  occurs_in: @<AnatomicalEntity> {0,1};
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   directly_provides_input_for: @<MolecularFunction> *;
@@ -385,6 +386,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <AnatomicalEntity> @<GoCamEntity> AND EXTRA a {
   a ( @<AnatomicalEntityClass> OR @<NegatedAnatomicalEntityClass> );
   part_of: @<AnatomicalEntity> {0,1};
+  location_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> OR @<Protein> ) {0,1};
 } // rdfs:comment  "an anatomical entity"
 
 <NativeCellClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -414,8 +416,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ProteinContainingComplex> EXTRA a {
   a @<ProteinContainingComplexClass>;
-  located_in: @<CellularComponent> {0,1};
-  has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
+  located_in: @<AnatomicalEntity> {0,1};
+  has_part: @<InformationBiomacromolecule> *;
 } // rdfs:comment  "a protein complex"
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -435,7 +437,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 }
 <Protein> @<ChemicalEntity> AND EXTRA a {
   a @<ProteinClass> ;
-  located_in: @<CellularComponent> {0,1};
+  located_in: @<AnatomicalEntity> {0,1};
+  part_of: @<ProteinContainingComplex> {0,1};
 }// rdfs:comment  "a protein"
 
 
@@ -444,7 +447,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 }
 <InformationBiomacromolecule> @<ChemicalEntity> AND EXTRA a {
    a @<InformationBiomacromoleculeClass> +;
-   part_of: @<CellularComponent> {0,1};
+   located_in: @<AnatomicalEntity> {0,1};
    part_of: @<ProteinContainingComplex> {0,1};
 }// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
