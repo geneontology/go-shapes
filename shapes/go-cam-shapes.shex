@@ -135,6 +135,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   exact_match: . *;
   x: . {0,1} // rdfs:comment  "X coordinate for node";
   y: . {0,1} // rdfs:comment  "Y coordinate for node";
+  skos:narrower . * //rdfs:comment "This entity (e.g. a node representing a pathway) represents a narrower (in any sense) concept then the target node. ";
+  skos:broader . * //rdfs:comment "This entity (e.g. a node representing a pathway) represents a broader (in any sense) concept then the target node. ";
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
