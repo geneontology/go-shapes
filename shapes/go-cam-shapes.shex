@@ -146,7 +146,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <BiologicalProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoBiologicalProcess: ] ;
-} rdfs:comment  "This refers to the root GO Biological Process or any subclass term."
+} // rdfs:comment  "This refers to the root GO Biological Process or any subclass term."
 
 <NegatedBiologicalProcessClass> BNode @<OwlClass> AND {
   owl:complementOf @<BiologicalProcessClass>
