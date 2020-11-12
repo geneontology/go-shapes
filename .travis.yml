@@ -14,5 +14,5 @@ script:
  - MAVEN_OPTS=-Xmx8g travis_wait 20
  - ./build-cli.sh
  - cd minerva-cli/
- - java -Xmx8g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_pass/ -r ./shape_report_shouldpass.txt -e ./shape_explanation_shouldpass.txt -travis
- - java -Xmx8g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl  -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_fail/ -r ./shape_report_shouldfail.txt -e ./shape_explanation_shouldfail.txt -travis -shouldfail
+ - java -Xmx12g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_pass/ -r ./ -travis
+ - java -Xmx12g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl  -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_fail/ -r ./ -travis -shouldfail
