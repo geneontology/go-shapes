@@ -107,34 +107,35 @@ PREFIX results_in_movement_of: <http://purl.obolibrary.org/obo/RO_0002565>
 PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <GoCamModel> {
-  a [owl:Ontology] + ;
+  a [owl:Ontology] + ; 
   contributor: xsd:string +; #TODO would be better as an IRI
-  date: xsd:string {1}; #TODO can we make this an xsd:date?
+  date: xsd:string {1} //rdfs:comment "Always refers to the date last modified."; #TODO can we make this an xsd:date? 
   provided_by: xsd:string +; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
-  modelstate: xsd:string {1}; #TODO would be better as an IRI
-  in_taxon: . *;
+  modelstate: xsd:string {1}; #TODO would be better as a value set
+  in_taxon: . * //rdfs:comment "Period means anything in terms of syntax, e.g. string or IRI.";
   title: xsd:string {1};
-  imports: . *;
-  oboinowlid: . *; #TODO not sure if we really want this?
+  imports: . *; #Need to delete this after imports work is completed
+  oboinowlid: . *; #TODO not sure if we really want this? Revisit to determine exactly where/how this is used.
   owl:versionIRI . *;
-}
+} // rdfs:comment "This shape describes the metadata associated with GO-CAM models."
+
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
   date: xsd:string *; #TODO can we make this an xsd:date?
   provided_by: xsd:string *; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
-  skos:note xsd:string *;
-}
+  skos:note xsd:string *; 
+} // rdfs:comment "This shape describes the metadata associated with GO-CAM models, entities and assertions/relatonships."
 
 <GoCamEntity> IRI @<ProvenanceAnnotated> AND EXTRA a {
-  a [owl:NamedIndividual] * // rdfs:comment  "Every entity we care about is a named individual";
-  xref: . *;
+  a [owl:NamedIndividual] * // rdfs:comment  "Every entity in a model is a named individual or class";
+  xref: . * // rdfs:comment  "This could be a CURIE, e.g. a Reactome reaction or pathway Reactome:HSAnnnnnnn or a URI";
   rdfs:label . {0,1} //rdfs:comment "the name" ;
-  exact_match: . *;
-  x: . {0,1} // rdfs:comment  "X coordinate for node";
-  y: . {0,1} // rdfs:comment  "Y coordinate for node";
+  exact_match: . * //rdfs:comment "Used to map, for example, IRIs between an external source and a GO-CAM model";
+  x: . {0,1} // rdfs:comment  "X coordinate for node. Initial creation of model has no x coordinate (this is why value of zero is allowed).";
+  y: . {0,1} // rdfs:comment  "Y coordinate for node. Initial creation of model has no y coordinate (this is why value of zero is allowed).";
   skos:narrower . * //rdfs:comment "This entity (e.g. a node representing a pathway) represents a narrower (in any sense) concept then the target node. ";
   skos:broader . * //rdfs:comment "This entity (e.g. a node representing a pathway) represents a broader (in any sense) concept then the target node. ";
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
@@ -145,7 +146,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <BiologicalProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoBiologicalProcess: ] ;
-}
+} // rdfs:comment  "This refers to the root GO Biological Process or any subclass term."
 
 <NegatedBiologicalProcessClass> BNode @<OwlClass> AND {
   owl:complementOf @<BiologicalProcessClass>
@@ -174,7 +175,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   regulates: @<BiologicalProcess> *;
   negatively_regulates: @<BiologicalProcess> *;
   positively_regulates: @<BiologicalProcess> *;
-} // rdfs:comment  "A biological process"
+} // rdfs:comment  "This shape refers to an instance of a biological process in a GO-CAM"
 
 
 <AnatomicalStructureDevelopmentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
