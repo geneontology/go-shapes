@@ -467,6 +467,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <ProteinContainingComplex> @<GoCamEntity> AND EXTRA a {
   a @<ProteinContainingComplexClass>;
   located_in: @<AnatomicalEntity> {0,1};
+  is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
 } // rdfs:comment  "a protein complex"
 
