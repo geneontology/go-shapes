@@ -78,6 +78,7 @@ PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
 PREFIX located_in: <http://purl.obolibrary.org/obo/RO_0001025>
 PREFIX location_of: <http://purl.obolibrary.org/obo/RO_0001015>
+PREFIX is_active_in: <http://purl.obolibrary.org/obo/RO_0002432>
 PREFIX happens_during: <http://purl.obolibrary.org/obo/RO_0002092>
 PREFIX regulates: <http://purl.obolibrary.org/obo/RO_0002211>
 PREFIX negatively_regulates: <http://purl.obolibrary.org/obo/RO_0002212>
@@ -451,6 +452,10 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   owl:complementOf @<CellularComponentClass>
 }
 
+<RootCellularComponent> IRI @<GoCamEntity> AND EXTRA a {
+  a [ GoCellularComponent: ];
+}
+
 #<CellularComponent> @<AnatomicalEntity> AND EXTRA a { # If we want to intersect with anatomical entity, then GO cellular_component needs to subclass anatomical entity in go-lego
 <CellularComponent> @<GoCamEntity> AND EXTRA a {
   a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1};
@@ -462,6 +467,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <ProteinContainingComplex> @<GoCamEntity> AND EXTRA a {
   a @<ProteinContainingComplexClass>;
   located_in: @<AnatomicalEntity> {0,1};
+  is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
 } // rdfs:comment  "a protein complex"
 
@@ -483,6 +489,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <Protein> @<ChemicalEntity> AND EXTRA a {
   a @<ProteinClass> ;
   located_in: @<AnatomicalEntity> {0,1};
+  is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   part_of: @<ProteinContainingComplex> {0,1};
 }// rdfs:comment  "a protein"
 
@@ -493,6 +500,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <InformationBiomacromolecule> @<ChemicalEntity> AND EXTRA a {
    a @<InformationBiomacromoleculeClass> +;
    located_in: @<AnatomicalEntity> {0,1};
+   is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
    part_of: @<ProteinContainingComplex> {0,1};
 }// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
