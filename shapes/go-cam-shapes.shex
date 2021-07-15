@@ -9,7 +9,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
 PREFIX provided_by: <http://purl.org/pav/providedBy>
-PREFIX modification_date: <http://purl.org/dc/terms/modified>
+PREFIX modification_date: <http://purl.org/dc/elements/1.1/date>
 PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
 PREFIX exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch>
 PREFIX source: <http://purl.org/dc/elements/1.1/source>
