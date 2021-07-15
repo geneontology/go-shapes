@@ -112,9 +112,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <GoCamModel> {
   a [owl:Ontology] + ;
   contributor: xsd:string +; #TODO would be better as an IRI
-  date: xsd:string {1}; #TODO can we make this an xsd:date?
-  creation_date: xsd:dateTime {0,1}
-  import_date: xsd:dateTime {0,1}
+  date: xsd:string {1}; #Use ISO 8601 as a standard
+  creation_date: xsd:string {0,1} #Use ISO 8601 as a standard
+  import_date: xsd:string {0,1} #Use ISO 8601 as a standard
   provided_by: xsd:string +; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   modelstate: xsd:string {1}; #TODO would be better as an IRI
@@ -127,9 +127,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
-  date: xsd:string *; #TODO can we make this an xsd:date?
-  creation_date: xsd:dateTime {0,1}
-  import_date: xsd:dateTime {0,1}
+  date: xsd:string *; #Use ISO 8601 as a standard
+  creation_date: xsd:string {0,1} #Use ISO 8601 as a standard
+  import_date: xsd:string {0,1} #Use ISO 8601 as a standard
   provided_by: xsd:string *; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   skos:note xsd:string *;
