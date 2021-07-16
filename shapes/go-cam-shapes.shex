@@ -10,6 +10,8 @@ PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
 PREFIX provided_by: <http://purl.org/pav/providedBy>
 PREFIX modification_date: <http://purl.org/dc/elements/1.1/date>
+PREFIX creation_date: <http://purl.org/dc/terms/created>
+PREFIX import_date: <http://purl.org/dc/terms/dateAccepted>
 PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
 PREFIX exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch>
 PREFIX source: <http://purl.org/dc/elements/1.1/source>
@@ -110,7 +112,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <GoCamModel> {
   a [owl:Ontology] + ;
   contributor: xsd:string +; #TODO would be better as an IRI
-  modification_date: xsd:string {1}; #TODO can we make this an xsd:date or xsd:dateTime? Need to consider all implications.
+  modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
+  creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
+  import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
   provided_by: xsd:string +; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   modelstate: xsd:string {1}; #TODO would be better as an IRI
@@ -123,7 +127,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
-  modification_date: xsd:string {1}; #TODO can we make this an xsd:date or xsd:dateTime? Need to consider all implications.
+  modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
+  creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
+  import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
   provided_by: xsd:string *; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   skos:note xsd:string *;
