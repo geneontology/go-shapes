@@ -25,6 +25,7 @@ PREFIX ontology: <http://www.w3.org/2002/07/owl#Ontology>
 PREFIX taxon: <https://w3id.org/biolink/vocab/in_taxon>
 PREFIX modelstate: <http://geneontology.org/lego/modelstate>
 PREFIX oboinowlid: <http://www.geneontology.org/formats/oboInOwl#id>
+PREFIX wasDerivedFrom: <http://www.w3.org/ns/prov#wasDerivedFrom>
 ###contributor, date, providedBy reused
 PREFIX title: <http://purl.org/dc/elements/1.1/title>
 PREFIX imports: <http://www.w3.org/2002/07/owl#imports>
@@ -124,7 +125,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   imports: . *;
   oboinowlid: . *; #TODO not sure if we really want this?
   owl:versionIRI . *;
-  wasDerivedFrom xsd:string <GoCamModel>; # for model copy
+  wasDerivedFrom <GoCamModel> {1}; # for model copy. TODO: determine if this will be modeled as string or IRI
 }
 
 <ProvenanceAnnotated> {
@@ -135,6 +136,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   provided_by: xsd:string *; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   skos:note xsd:string *;
+  wasDerivedFrom xsd:string <ProvenanceAnnotated> {1}; # for model copy. TODO: determine if this will be modeled as string or IRI
 }
 
 <GoCamEntity> IRI @<ProvenanceAnnotated> AND EXTRA a {
