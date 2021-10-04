@@ -71,6 +71,8 @@ PREFIX has_part: <http://purl.obolibrary.org/obo/BFO_0000051>
 PREFIX occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066>
 PREFIX adjacent_to: <http://purl.obolibrary.org/obo/RO_0002220>
 PREFIX overlaps: <http://purl.obolibrary.org/obo/RO_0002131>
+PREFIX existence_overlaps: <http://purl.obolibrary.org/obo/RO_0002490>
+PREFIX existence_starts_and_ends_during: <http://purl.obolibrary.org/obo/RO_0002491>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
@@ -470,6 +472,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   part_of: @<AnatomicalEntity> {0,1};
   adjacent_to: @<AnatomicalEntity> *;
   overlaps: @<AnatomicalEntity> *;
+  existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "a cellular component"
 
 <ProteinContainingComplex> @<GoCamEntity> AND EXTRA a {
@@ -477,6 +481,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   located_in: @<AnatomicalEntity> {0,1};
   is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
+  existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "a protein complex"
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
