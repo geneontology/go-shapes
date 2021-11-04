@@ -74,6 +74,7 @@ PREFIX overlaps: <http://purl.obolibrary.org/obo/RO_0002131>
 PREFIX existence_overlaps: <http://purl.obolibrary.org/obo/RO_0002490>
 PREFIX existence_starts_and_ends_during: <http://purl.obolibrary.org/obo/RO_0002491>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
+PREFIX contributes_to: <http://purl.obolibrary.org/obo/RO_0002326>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
 PREFIX has_target_end_location: <http://purl.obolibrary.org/obo/RO_0002339>
@@ -505,6 +506,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   located_in: @<AnatomicalEntity> {0,1};
   is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   part_of: @<ProteinContainingComplex> {0,1};
+  contributes_to: @<MolecularFunction> {0,1};
 }// rdfs:comment  "a protein"
 
 
@@ -516,6 +518,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
    located_in: @<AnatomicalEntity> {0,1};
    is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
    part_of: @<ProteinContainingComplex> {0,1};
+   contributes_to: @<MolecularFunction> {0,1};
 }// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
 <EvidenceClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
