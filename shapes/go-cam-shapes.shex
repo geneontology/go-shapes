@@ -98,6 +98,7 @@ PREFIX causally_upstream_of_or_within_positive_effect: <http://purl.obolibrary.o
 PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
+PREFIX acts_on_population_of: <http://purl.obolibrary.org/obo/RO_0012003>
 PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
 PREFIX results_in_formation_of: <http://purl.obolibrary.org/obo/RO_0002297>
 PREFIX results_in_morphogenesis_of: <http://purl.obolibrary.org/obo/RO_0002298>
@@ -186,6 +187,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   regulates: @<BiologicalProcess> *;
   negatively_regulates: @<BiologicalProcess> *;
   positively_regulates: @<BiologicalProcess> *;
+  acts_on_population_of: ( @<AnatomicalEntity> OR @<Organism> ) *;
 } // rdfs:comment  "A biological process"
 
 
