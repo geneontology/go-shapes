@@ -36,7 +36,7 @@ class NoctuaFormShex:
             name = 'GO'+name
         return self.pref_dict.get(name, None if clean else uri )
 
-    def lookup_table(self):
+    def gen_lookup_table(self):
         table = {v: {
                     'label':k
                 } for (k,v) in self.pref_dict.items()}
@@ -74,12 +74,12 @@ class NoctuaFormShex:
                     return
                 
                 preds[pred] = {}
-                preds[pred]['targets'] = []
+                preds[pred]['range'] = []
                 
                 if expr.max != None:
                     preds[pred]['cardinality'] = expr.max                    
                 
-                self._load_expr(expr.valueExpr, preds[pred]['targets'])
+                self._load_expr(expr.valueExpr, preds[pred]['range'])
 
     
     def parse(self):
@@ -107,4 +107,4 @@ with open("shex_dump.json", "w") as sf:
     json.dump(nfShex.json_shapes, sf, indent=2)
 
 with open("look_table.json", "w") as sf:
-    json.dump(nfShex.lookup_table(), sf, indent=2)
+    json.dump(nfShex.gen_lookup_table(), sf, indent=2)
