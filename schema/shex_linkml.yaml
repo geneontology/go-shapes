@@ -1,5 +1,5 @@
 id: go-shex-linkml
-name: GO ShEx
+name: GOShexLinkML
 description: a schema for he ShEx language representation of GO rules/validation.
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
@@ -585,7 +585,3 @@ slots:
         - Protein
         - InformationBiomacromolecule
     range: MolecularFunction
-
-
-
-enums:
