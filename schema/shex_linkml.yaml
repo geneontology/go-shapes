@@ -13,9 +13,6 @@ default_curi_maps:
   - monarch_context
   - semweb_context
 
-imports:
-  - linkml:types
-
 prefixes:
   biolink: https://w3id.org/biolink/vocab/
 
