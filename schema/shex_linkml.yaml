@@ -1,0 +1,591 @@
+id: go-shex-linkml
+name: GO ShEx
+description: a schema for he ShEx language representation of GO rules/validation.
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.1.0
+
+default_prefix: goshex
+default_range: string
+
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+imports:
+  - linkml:types
+
+prefixes:
+  biolink: https://w3id.org/biolink/vocab/
+
+classes:
+  Taxon:
+    class_uri: NCBITaxon:1
+
+  BiologicalProcess:
+    class_uri: GO:0008150
+
+  ChemicalEntity:
+    class_uri: CHEBI:24431
+
+  AnatomicalEntity:
+    class_uri: CARO:0000000
+
+  ProteinContainingComplex:
+    class_uri: GO:0032991
+
+  InformationBiomacromolecule:
+    class_uri: CHEBI:33695
+
+  MolecularFunction:
+    class_uri: GO:0003674
+
+  MolecularEvent:
+    class_uri: http://purl.obolibrary.org/obo/go/shapes/MolecularEvent
+
+  AnatomicalStructureDevelopment:
+    class_uri: GO:0048856
+
+  AnatomicalStructureFormationInvolvedInMutagenesis:
+    class_uri: GO:0048646
+
+  AnatomicalStructureMorphogenesis:
+    class_uri: GO:0009653
+
+  CellDifferentiation:
+    class_uri: GO:0030154
+
+  NativeCell:
+    class_uri: CL:0000003
+
+  CellDivision:
+    class_uri: GO:0051301
+
+  CellFateCommitment:
+    class_uri: GO:0045165
+
+  CellFateDetermination:
+    class_uri: GO:0001709
+
+  CellFateSpecification:
+    class_uri: GO:0001708
+
+  CellularComponent:
+    class_uri: GO:0005575
+
+  CellularComponentAssembly:
+    class_uri: GO:0022607
+
+  CellularComponentDisassembly:
+    class_uri: GO:0022411
+
+  CellularComponentOrganization:
+    class_uri: GO:0016043
+
+  DevelopmentalMaturation:
+    class_uri: GO:0021700
+
+  Growth:
+    class_uri: GO:0040007
+
+  LocalizationProcess:
+    class_uri: GO:0051179
+
+  Locomotion:
+    class_uri: GO:0040011
+
+  MovementOfCellOrSubcellularComponent:
+    class_uri: GO:0006928
+
+  ProteinContainingComplexRemodeling:
+    class_uri: GO:0034367
+
+  PatternSpecificationProcess:
+    class_uri: GO:0007389
+
+  BiologicalPhase:
+    class_uri: GO:0044848
+
+  LifeCycleStage:
+    class_uri: UBERON:0000105
+
+  PlantStructureDevelopmentStage:
+    class_uri: PO:0009012
+
+  TransporterActivity:
+    class_uri: GO:0005215
+
+  RootCellularComponent:
+    class_uri: http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent
+
+  Protein:
+    class_uri: CHEBI:36080
+
+  Evidence:
+    class_uri: ECO:0000000
+
+slots:
+
+  part_of:
+    slot_uri: BFO:0000050
+    notes: >-
+      this is combining two rules, one for BP-partof-BP and MF-partof-BP.
+      third rule uses inverse has_part, MF-partof-MF -- is there a problem to use 
+      this one way MF-partof-MF (or vice versa, whichever is the preferred direction).
+      AE-partof-AE is another combo here that was combined -- all ok?
+      NC-partof-AE is another combo here that was combined -- all ok?
+      CC-partof-AE is another combo here that was combined -- all ok?
+      P-partof-PCC is another combo here that was combined -- all ok?
+      IM-partof-PCC is another combo here that was combined -- all ok?
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+        - AnatomicalEntity
+        - NativeCell
+        - CellularComponent
+        - Protein
+        - InformationBiomacromolecule
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+        - AnatomicalEntity
+        - ProteinContainingComplex
+    inverse: has_part
+    exact_mappings:
+      - biolink:part_of
+
+  has_part:
+    slot_uri: BFO:0000051
+    notes: >- 
+      can we put primary annotation on one side of this relationship instead of both?
+      e.g.: convert to part_of rules here by flipping domain and range?
+    domain: ProteinContainingComplex
+    range:
+      any_of:
+        - InformationBiomacromolecule
+        - ProteinContainingComplex
+
+  has_input:
+    slot_uri: RO:0002233
+    notes: >-
+      this is a combination of two rules.
+    domain:
+      any_of:
+        - BiologicalProcess
+        - CellDivision
+        - MolecularFunction
+    range:
+      any_of:
+        - ChemicalEntity
+        - AnatomicalEntity
+        - ProteinContainingComplex
+        - Taxon  # what is an example of this?
+    inverse: input_of
+    exact_mappings:
+      - biolink:has_input
+
+  has_output:
+    slot_uri: RO:0002234
+    notes: >- 
+      this is a combination of two rules.
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - ChemicalEntity
+        - AnatomicalEntity
+        - ProteinContainingComplex
+    inverse: output_of
+    exact_mappings:
+      - biolink:has_output
+
+  occurs_in:
+    slot_uri: BFO:0000066
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range: AnatomicalEntity
+    inverse: has_participant
+    exact_mappings:
+      - biolink:occurs_in
+
+  transports_or_maintains_localization_of:
+    slot_uri: RO:0002436
+    notes: >-
+      This predicate is used in two different shape expressions: one for 
+      BP->InformationBiomacromolecule|ProteinContainingComplex and one for LocalizationProcess->AnatomicalEntity|
+      ChemicalEntity|InformationBiomacromolecule|ProteinContainingComplex.  
+      Does BP-transports_or_maintains_localization_of->ChemicalEntity make sense as well?
+      third rule combo is: TransporterActivity->
+    domain:
+      any_of:
+        - BiologicalProcess
+        - TransporterActivity
+    range:
+      any_of:
+        - InformationBiomacromolecule
+        - ProteinContainingComplex
+        - ChemicalEntity
+    inverse: transported_or_localized_by
+
+  has_target_end_location:
+    slot_uri: RO:0002339
+    domain:
+      any_of:
+        - BiologicalProcess
+        - LocalizationProcess
+        - TransporterActivity
+    range:
+      any_of:
+        - AnatomicalEntity
+        - CellularComponent
+    inverse: target_end_location_of
+
+  has_target_start_location:
+    slot_uri: RO:0002338
+    notes: >-
+      this is a combination of two rules. ok?
+    domain:
+      any_of:
+        - BiologicalProcess
+        - LocalizationProcess
+        - TransporterActivity
+    range:
+      any_of:
+        - AnatomicalEntity
+        - CellularComponent
+    inverse: target_start_location_of
+
+  causally_upstream_of:
+    slot_uri: RO:0002411
+    notes: >- 
+      this is a combination of two rules. all ok?
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+        - MolecularEvent
+
+  causally_upstream_of_or_within:
+    slot_uri: RO:0002418
+    domain: MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+        - MolecularEvent
+
+  causally_upstream_of_negative_effect:
+    is_a: causally_upstream_of
+    slot_uri: RO:0002305
+    notes: >-
+      this is a combination of two rules, all ok?
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+        - MolecularEvent
+
+  causally_upstream_of_positive_effect:
+    is_a: causally_upstream_of
+    slot_uri: RO:0002304
+    notes: >-
+      this is a combination of two rules, all ok?
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+        - MolecularEvent
+
+  regulates:
+    slot_uri: RO:0002211
+    notes: >-
+      this is a combination of two rules
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularEvent
+        - MolecularFunction
+    inverse: regulated_by
+    exact_mappings:
+      - biolink:regulates
+
+  negatively_regulates:
+    is_a: regulates
+    notes: >-
+      this is a combination of two rules
+    slot_uri: RO:0002212
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    inverse: negatively_regulated_by
+
+  positively_regulates:
+    is_a: regulates
+    notes: >-
+      this is a combination of two rules
+    slot_uri: RO:0002213
+    domain:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    range:
+      any_of:
+        - BiologicalProcess
+        - MolecularFunction
+    inverse: positively_regulated_by
+
+  acts_on_population_of:
+    slot_uri: RO:0012003
+    domain: BiologicalProcess
+    range: Taxon
+    inverse: population_acted_on_by
+
+  results_in_development_of:
+    slot_uri: RO:0002296
+    domain: AnatomicalStructureDevelopment
+    range: AnatomicalEntity
+
+  results_in_morphogenesis_of:
+    slot_uri: RO:0002298
+    domain: AnatomicalStructureMorphogenesis
+    range: AnatomicalEntity
+
+  results_in_acquisition_of_features_of:
+    slot_uri: RO:002315
+    domain: CellDifferentiation
+    range: NativeCell
+
+  results_in_commitment_to:
+    slot_uri: RO:0002348
+    domain: CellFateCommitment
+    range: NativeCell
+
+  results_in_determination_of:
+    slot_uri: RO:0002349
+    domain: CellFateDetermination
+    range: NativeCell
+
+  results_in_specification_of:
+    slot_uri: RO:0002356
+    notes: >-
+      These were two separate statements in the Shex.  Do all combinations of these
+      domains and ranges make sense?
+    domain:
+      any_of:
+        - CellFateSpecification
+        - PatternSpecificationProcess
+    range:
+      any_of:
+        - NativeCell
+        - AnatomicalEntity
+
+  results_in_assembly_of:
+    slot_uri: RO:0002588
+    domain: CellularComponentAssembly
+    range: CellularComponent
+
+  results_in_disassembly_of:
+    slot_uri: RO:0002589
+    domain: CellularComponenTDissaembly
+    range: CellularComponent
+
+  results_in_organization_of:
+    slot_uri: RO:0002592
+    domain: CellularComponentOrganization
+    range: CellularComponent
+
+  results_in_maturation_of:
+    slot_uri: RO:0002299
+    domain: DevelopmentalMaturation
+    range: AnatomicalEntity
+
+  results_in_growth_of:
+    slot_uri: RO:0002343
+    domain: Growth
+    range: AnatomicalEntity
+
+  results_in_localization_of:
+    slot_uri: RO:0002331
+    domain: Localization
+    range: AnatomicalEntity
+
+  results_in_movement_of:
+    slot_uri: RO:0002565
+    notes: >-
+      these were two rules, one for Locomotion, one for MovementOfCellOrSubcellularComponent.  I combined them into one rule.
+      does MovementOfCellOrSubcellularComponent->AnatomicalEntity make sense?
+      does MovementOfCellOrSubcellularComponent->NativeCell make sense?
+    domain:
+      any_of:
+        - Locomotion
+        - MovementOfCellOrSubcellularComponent
+    range:
+      any_of:
+        - AnatomicalEntity
+        - NativeCell
+        - CellularComponent
+
+  results_in_remodeling_of:
+    slot_uri: RO:0002591
+    domain: ProteinContainingComplexRemodeling
+    range: ProteinContainingComplex
+
+  enabled_by:
+    notes: >- 
+      should we flip this rule so that we are using canonical directions vs. inverses? 
+      in OLS, this looks like an inverse annotation. (could be wrong)
+    slot_uri: RO:0002333
+    domain: MolecularFunction
+    range:
+      any_of:
+        - InformationBiomacromolecule
+        - ProteinContainingComplex
+
+  directly_provides_input_for:
+    slot_uri: RO:0002413
+    domain: MolecularFunction
+    range:
+      any_of:
+        - MolecularEvent
+        - MolecularFunction
+
+  directly_regulates:
+    is_a: regulates
+    slot_uri: RO:0002578
+    domain: MolecularFunction
+    range: MolecularFunction
+
+  directly_negatively_regulates:
+    is_a: directly_regulates
+    slot_uri: RO:0002630
+    domain: MolecularFunction
+    range:
+      any_of:
+        - MolecularFunction
+        - MolecularEvent
+
+  directly_positively_regulates:
+    is_a: directly_regulates
+    slot_uri: RO:0002629
+    domain: MolecularFunction
+    range:
+      any_of:
+        - MolecularFunction
+        - MolecularEvent
+
+  happens_during:
+    slot_uri: RO:0002092
+    domain: MolecularFunction
+    range:
+      any_of:
+        - BiologicalPhase
+        - LifeCycleStage
+        - PlantStructureDevelopmentStage
+
+  location_of:
+    slot_uri: RO:0001015
+    domain: AnatomicalEntity
+    range:
+      any_of:
+        - ProteinContainingComplex
+        - InformationBiomacromolecule
+
+  located_in:
+    slot_uri: RO:0001025
+    domain:
+      any_of:
+        - ProteinContainingComplex
+        - Protein
+        - InformationBiomacromolecule
+    range: AnatomicalEntity
+
+  adjacent_to:
+    slot_uri: RO:0002220
+    domain: CellularComponent
+    range: AnatomicalEntity
+
+  overlaps:
+    slot_uri: RO:0002131
+    domain: CellularComponent
+    range: AnatomicalEntity
+
+  existence_overlaps:
+    slot_uri: RO:0002490
+    notes: >-
+      this is the result of combining two rules, all ok?
+    domain:
+      any_of:
+        - CellularComponent
+        - ProteinContainingComplex
+    range:
+      any_of:
+        - BiologicalProcess
+        - LifeCycleStage
+        - PlantStructureDevelopmentStage
+
+  existence_starts_and_ends_during:
+    slot_uri: RO:0002491
+    domain:
+      any_of:
+        - CellularComponent
+        - ProteinContainingComplex
+    range:
+      any_of:
+        - BiologicalPhase
+        - LifeCycleStage
+        - PlantStructureDevelopmentStage
+
+  is_active_in:
+    slot_uri: RO:0002432
+    notes: >-
+      What's the difference between RootCellularComponent and CellularComponent? 
+      Should CellularComponent be a range here too?
+    domain:
+      any_of:
+         - ProteinContainingComplex
+         - Protein
+         - InformationBiomacromolecule
+    range:
+      any_of:
+        - AnatomicalEntity
+        - RootCellularComponent
+
+  contributes_to:
+    slot_uri: RO:0002326
+    domain:
+      any_of:
+        - Protein
+        - InformationBiomacromolecule
+    range: MolecularFunction
+
+
+
+enums:
