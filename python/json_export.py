@@ -26,10 +26,12 @@ class NoctuaFormShex:
         shex_response = requests.get(shex_url)
         self.shex = generate_shexj.parse(shex_response.text)
         pref = PrefixLibrary(shex_response.text)
+        print("pref", pref)
         self.pref_dict = {
             k: get_suffix(str(v)) for (k, v) in dict(pref).items()
             if str(v).startswith('http://purl.obolibrary.org/obo/')
         }
+        print("self.pref_dict", self.pref_dict)
         del self.pref_dict['OBO']
 
     def get_shape_name(self, uri, clean=False):
