@@ -85,6 +85,7 @@ class NoctuaFormShex:
         shapes = self.shex.shapes
 
         for shape in shapes:
+            print(shape)
             shape_name = self.get_shape_name(shape['id'], True)
 
             if shape_name is None:
@@ -102,8 +103,8 @@ class NoctuaFormShex:
 nfShex = NoctuaFormShex()
 nfShex.parse()
 
-with open("shex_dump.json", "w") as sf:
+with open("../shex_dump.json", "w") as sf:
     json.dump(nfShex.json_shapes, sf, indent=2)
 
-with open("look_table.json", "w") as sf:
+with open("../look_table.json", "w") as sf:
     json.dump(nfShex.gen_lookup_table(), sf, indent=2)

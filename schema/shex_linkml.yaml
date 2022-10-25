@@ -4,7 +4,7 @@ description: a schema for he ShEx language representation of GO rules/validation
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
 
-default_prefix: goshex
+default_prefix: go
 default_range: string
 
 default_curi_maps:
@@ -135,21 +135,11 @@ slots:
       CC-partof-AE is another combo here that was combined -- all ok?
       P-partof-PCC is another combo here that was combined -- all ok?
       IM-partof-PCC is another combo here that was combined -- all ok?
-    domain:
-      any_of:
-        - BiologicalProcess
-        - MolecularFunction
-        - AnatomicalEntity
-        - NativeCell
-        - CellularComponent
-        - Protein
-        - InformationBiomacromolecule
-    range:
-      any_of:
-        - BiologicalProcess
-        - MolecularFunction
-        - AnatomicalEntity
-        - ProteinContainingComplex
+    any_of:
+      - range: BiologicalProcess
+      - range: MolecularFunction
+      - range: AnatomicalEntity
+      - range: ProteinContainingComplex
     inverse: has_part
     exact_mappings:
       - biolink:part_of
@@ -160,10 +150,9 @@ slots:
       can we put primary annotation on one side of this relationship instead of both?
       e.g.: convert to part_of rules here by flipping domain and range?
     domain: ProteinContainingComplex
-    range:
-      any_of:
-        - InformationBiomacromolecule
-        - ProteinContainingComplex
+    any_of:
+      - range: InformationBiomacromolecule
+      - range: ProteinContainingComplex
 
   has_input:
     slot_uri: RO:0002233
