@@ -1,0 +1,62 @@
+{
+   "$defs": {
+      "Cardinality": {
+         "description": "",
+         "enum": [
+            "1",
+            "-1",
+            "0"
+         ],
+         "title": "Cardinality",
+         "type": "string"
+      },
+      "Relationship": {
+         "additionalProperties": false,
+         "description": "A relationship between two entities",
+         "properties": {
+            "cardinality": {
+               "$ref": "#/$defs/Cardinality"
+            },
+            "id": {
+               "type": "string"
+            },
+            "range": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Relationship",
+         "type": "object"
+      },
+      "Shape": {
+         "additionalProperties": false,
+         "description": "A generic grouping for any identifiable entity",
+         "properties": {
+            "name": {
+               "type": "string"
+            },
+            "relationships": {
+               "items": {
+                  "$ref": "#/$defs/Relationship"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Shape",
+         "type": "object"
+      }
+   },
+   "$id": "go-shex-linkml",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
+   "metamodel_version": "1.7.0",
+   "properties": {},
+   "required": [],
+   "title": "GOShexLinkML",
+   "type": "object",
+   "version": "0.1.0"
+}
