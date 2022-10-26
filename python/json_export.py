@@ -8,7 +8,7 @@ from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf
 from pyshex import PrefixLibrary
-from shex_json_linkml import Collection, GoShape, Relationship, Cardinality
+from shex_json_linkml import Collection, GoShape, Relationship
 
 
 class NoctuaFormShex:
