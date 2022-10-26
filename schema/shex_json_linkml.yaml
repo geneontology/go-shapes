@@ -1,0 +1,64 @@
+id: go-shex-linkml
+name: GOShexLinkML
+description: a schema for he ShEx language representation of GO rules/validation.
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.1.0
+
+default_prefix: go
+default_range: string
+
+imports:
+  - linkml:types
+
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+prefixes:
+  biolink: https://w3id.org/biolink/vocab/
+  linkml: https://w3id.org/linkml/
+
+classes:
+  NamedThing:
+    description: >-
+      A generic grouping for any identifiable entity
+    slots:
+      - id
+      - relationships
+    close_mappings:
+     - schema:Thing
+
+  Relationship:
+    description: >-
+      A relationship between two entities
+    slots:
+      - id
+      - ranger
+      - cardinality
+    close_mappings:
+     - schema:Relationship
+
+slots:
+  relationships:
+    multivalued: true
+    range: Relationship
+
+  ranger:
+    multivalued: true
+    range: NamedThing
+
+  cardinality:
+    range: Cardinality
+
+  id:
+    range: string
+
+
+enums:
+  Cardinality:
+    permissible_values:
+      "1":
+      "-1":
+      "0":

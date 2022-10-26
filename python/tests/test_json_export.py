@@ -7,19 +7,21 @@ from pprint import pprint
 from linkml.generators.shexgen import ShExGenerator
 from linkml.generators.jsonschemagen import JsonSchemaGenerator
 
-REMOTE_PATH = (
+SHEX_LINKML_PATH = (
     "../../schema/shex_linkml.yaml"
+)
+SHEX_JSON_LINKML_PATH = (
+    "../../schema/shex_json_linkml.yaml"
 )
 
 
 def test_valid_schema():
-    sv = SchemaView(REMOTE_PATH)
+    sv = SchemaView(SHEX_JSON_LINKML_PATH)
     schemadef = sv.schema
     assert isinstance(schemadef, SchemaDefinition)
     assert sv.all_classes()
+    print(sv.all_classes())
 
-    shexGen = ShExGenerator(schema=schemadef)
-    print(shexGen.serialize())
     jsonGen = JsonSchemaGenerator(schema=schemadef)
     print(jsonGen.serialize())
 
