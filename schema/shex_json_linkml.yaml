@@ -1,6 +1,6 @@
-id: go-shex-linkml
-name: GOShexLinkML
-description: a schema for he ShEx language representation of GO rules/validation.
+id: go-shex-domain-range-constraints
+name: GODomainRangeConstraintsModel
+description: a schema for the domain and range exchange format for the GO shape expressions
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
 
@@ -40,7 +40,7 @@ classes:
     slots:
       - id
       - range
-      - cardinality
+      - is_multivalued
     close_mappings:
      - schema:Relationship
 
@@ -58,22 +58,15 @@ slots:
     multivalued: true
     range: uriorcurie
 
-  cardinality:
-    range: Cardinality
-
   id:
     range: string
 
   name:
     range: uriorcurie
 
+  is_multivalued:
+    range: boolean
+
   goshapes:
     multivalued: true
     range: GoShape
-
-enums:
-  Cardinality:
-    permissible_values:
-      "1":
-      "-1":
-      "0":

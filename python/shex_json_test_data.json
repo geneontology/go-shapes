@@ -5,12 +5,12 @@
       "relationships": [
         {
           "id": "BFO:0000050",
-          "cardinality": "-1",
+          "is_multivalued": false,
           "range": ["GO:0008150"]
         },
         {
           "id": "RO:0002233",
-          "cardinality": "-1",
+          "is_multivalued": true,
           "range": [
             "CHEBI:24431",
             "CARO:0000000",
@@ -25,7 +25,7 @@
       "relationships": [
         {
           "id": "RO:0002296",
-          "cardinality": "-1",
+          "is_multivalued": false,
           "range": ["CARO:00000000"]
         }
       ]

@@ -1,15 +1,5 @@
 {
    "$defs": {
-      "Cardinality": {
-         "description": "",
-         "enum": [
-            "1",
-            "-1",
-            "0"
-         ],
-         "title": "Cardinality",
-         "type": "string"
-      },
       "Collection": {
          "additionalProperties": false,
          "description": "",
@@ -47,11 +37,11 @@
          "additionalProperties": false,
          "description": "A relationship between two entities",
          "properties": {
-            "cardinality": {
-               "$ref": "#/$defs/Cardinality"
-            },
             "id": {
                "type": "string"
+            },
+            "is_multivalued": {
+               "type": "boolean"
             },
             "range": {
                "items": {
@@ -65,7 +55,7 @@
          "type": "object"
       }
    },
-   "$id": "go-shex-linkml",
+   "$id": "go-shex-domain-range-constraints",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "additionalProperties": true,
    "metamodel_version": "1.7.0",
@@ -78,7 +68,8 @@
       }
    },
    "required": [],
-   "title": "GOShexLinkML",
+   "title": "GODomainRangeConstraintsModel",
    "type": "object",
    "version": "0.1.0"
 }
+

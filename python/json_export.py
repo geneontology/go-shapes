@@ -44,7 +44,7 @@ class NoctuaFormShex:
 
     def _load_expr(self, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
 
-        if (preds == None):
+        if preds is None:
             preds = {}
         if isinstance(expr, str) and isinstance(preds, list):
             preds.append(self.get_shape_name(expr))
