@@ -4,7 +4,7 @@ description: a schema for he ShEx language representation of GO rules/validation
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
 
-default_prefix: go
+default_prefix: GO
 default_range: string
 
 imports:
@@ -46,7 +46,6 @@ classes:
 
   Collection:
     tree_root: true
-    multivalued: true
     slots:
       - goshapes
 
@@ -70,6 +69,7 @@ slots:
 
   goshapes:
     multivalued: true
+    range: Shape
 
 enums:
   Cardinality:

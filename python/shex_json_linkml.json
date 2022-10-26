@@ -10,6 +10,21 @@
          "title": "Cardinality",
          "type": "string"
       },
+      "Collection": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "goshapes": {
+               "items": {
+                  "$ref": "#/$defs/Shape"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Collection",
+         "type": "object"
+      },
       "Relationship": {
          "additionalProperties": false,
          "description": "A relationship between two entities",
@@ -54,7 +69,14 @@
    "$schema": "http://json-schema.org/draft-07/schema#",
    "additionalProperties": true,
    "metamodel_version": "1.7.0",
-   "properties": {},
+   "properties": {
+      "goshapes": {
+         "items": {
+            "$ref": "#/$defs/Shape"
+         },
+         "type": "array"
+      }
+   },
    "required": [],
    "title": "GOShexLinkML",
    "type": "object",
