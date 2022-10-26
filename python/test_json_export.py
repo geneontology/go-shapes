@@ -8,14 +8,14 @@ from linkml.generators.jsonschemagen import JsonSchemaGenerator
 from linkml.generators.pydanticgen import PydanticGenerator
 
 SHEX_LINKML_PATH = (
-    "../../schema/shex_linkml.yaml"
+    "../schema/shex_linkml.yaml"
 )
 SHEX_JSON_LINKML_PATH = (
-    "../../schema/shex_json_linkml.yaml"
+    "../schema/shex_json_linkml.yaml"
 )
 
 AUTO_LINKML_PATH = (
-    "../../schema/autogen_schema.yaml"
+    "../schema/autogen_schema.yaml"
 )
 
 
@@ -32,7 +32,7 @@ def test_valid_schema():
 
     json_format = open('shex_json_linkml.json', 'w')
     json_format.write(json_gen.serialize())
-    pyfile = open('tests/data/shex_json_linkml.py', 'w')
+    pyfile = open('shex_json_linkml.py', 'w')
     pyfile.write(python_gen.serialize())
 
 

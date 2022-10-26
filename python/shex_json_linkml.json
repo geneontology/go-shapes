@@ -16,13 +16,31 @@
          "properties": {
             "goshapes": {
                "items": {
-                  "$ref": "#/$defs/Shape"
+                  "$ref": "#/$defs/GoShape"
                },
                "type": "array"
             }
          },
          "required": [],
          "title": "Collection",
+         "type": "object"
+      },
+      "GoShape": {
+         "additionalProperties": false,
+         "description": "A generic grouping for any identifiable entity",
+         "properties": {
+            "name": {
+               "type": "string"
+            },
+            "relationships": {
+               "items": {
+                  "$ref": "#/$defs/Relationship"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "GoShape",
          "type": "object"
       },
       "Relationship": {
@@ -45,24 +63,6 @@
          "required": [],
          "title": "Relationship",
          "type": "object"
-      },
-      "Shape": {
-         "additionalProperties": false,
-         "description": "A generic grouping for any identifiable entity",
-         "properties": {
-            "name": {
-               "type": "string"
-            },
-            "relationships": {
-               "items": {
-                  "$ref": "#/$defs/Relationship"
-               },
-               "type": "array"
-            }
-         },
-         "required": [],
-         "title": "Shape",
-         "type": "object"
       }
    },
    "$id": "go-shex-linkml",
@@ -72,7 +72,7 @@
    "properties": {
       "goshapes": {
          "items": {
-            "$ref": "#/$defs/Shape"
+            "$ref": "#/$defs/GoShape"
          },
          "type": "array"
       }

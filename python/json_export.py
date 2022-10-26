@@ -1,15 +1,14 @@
 from os import path
 import json
 import requests
-from typing import List
 from ontobio.rdfgen.assoc_rdfgen import prefix_context
 from prefixcommons.curie_util import contract_uri
 from pyshexc.parser_impl import generate_shexj
 from typing import Optional, List, Union
-from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExprLabel, shapeExpr, \
+from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf
 from pyshex import PrefixLibrary
-from shex_json_linkml import Shape, Relationship, Collection, Cardinality
+from shex_json_linkml import Collection, GoShape, Relationship, Cardinality
 
 
 class NoctuaFormShex:
@@ -79,14 +78,17 @@ class NoctuaFormShex:
             self._load_expr(expr.valueExpr, preds[pred]['range'])
 
     def parse(self):
+        goshapes = []
+
         shapes = self.shex.shapes
 
         for shape in shapes:
+            goshape = GoShape()
             shape_name = self.get_shape_name(shape['id'], True)
 
-            if shape_name == None:
+            if shape_name is None:
                 continue
-
+            goshape.name = shape_name
             print('Parsing Shape: ' + shape['id'])
             self.json_shapes[shape_name] = {}
 
@@ -94,13 +96,13 @@ class NoctuaFormShex:
 
             for expr in shexps:
                 self.json_shapes[shape_name] = self._load_expr(expr)
-
+                print(self.json_shapes[shape_name])
 
 nfShex = NoctuaFormShex()
 nfShex.parse()
 
-with open("tests/shex_dump.json", "w") as sf:
+with open("shex_dump.json", "w") as sf:
     json.dump(nfShex.json_shapes, sf, indent=2)
 
-with open("tests/look_table.json", "w") as sf:
+with open("look_table.json", "w") as sf:
     json.dump(nfShex.gen_lookup_table(), sf, indent=2)
