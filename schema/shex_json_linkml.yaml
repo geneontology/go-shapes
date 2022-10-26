@@ -21,33 +21,43 @@ prefixes:
   linkml: https://w3id.org/linkml/
 
 classes:
-  NamedThing:
+  Shape:
     description: >-
       A generic grouping for any identifiable entity
     slots:
-      - id
+      - name
       - relationships
     close_mappings:
      - schema:Thing
+    slot_usage:
+        name:
+          notes: >-
+            This is the name of the rule, from the shex rules in JSON format, this can be a GO identifier. 
 
   Relationship:
     description: >-
       A relationship between two entities
     slots:
       - id
-      - ranger
+      - range
       - cardinality
     close_mappings:
      - schema:Relationship
+
+  Collection:
+    tree_root: true
+    multivalued: true
+    slots:
+      - goshapes
 
 slots:
   relationships:
     multivalued: true
     range: Relationship
 
-  ranger:
+  range:
     multivalued: true
-    range: NamedThing
+    range: uriorcurie
 
   cardinality:
     range: Cardinality
@@ -55,6 +65,11 @@ slots:
   id:
     range: string
 
+  name:
+    range: uriorcurie
+
+  goshapes:
+    multivalued: true
 
 enums:
   Cardinality:

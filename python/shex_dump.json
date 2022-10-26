@@ -1,582 +1,582 @@
 {
-  "NCBITaxon_1": {},
-  "GO_0008150": {
-    "BFO_0000050": {
+  "NCBITaxon:1": {},
+  "GO:0008150": {
+    "BFO:0000050": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0002233": {
+    "RO:0002233": {
       "range": [
-        "CHEBI_24431",
-        "CARO_0000000",
-        "GO_0032991",
-        "NCBITaxon_1"
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991",
+        "NCBITaxon:1"
       ],
       "cardinality": -1
     },
-    "RO_0002234": {
+    "RO:0002234": {
       "range": [
-        "CHEBI_24431",
-        "CARO_0000000",
-        "GO_0032991"
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "BFO_0000066": {
+    "BFO:0000066": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002313": {
+    "RO:0002313": {
       "range": [
-        "CHEBI_33695",
-        "GO_0032991"
+        "CHEBI:33695",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "RO_0002339": {
+    "RO:0002339": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002338": {
+    "RO:0002338": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002411": {
+    "RO:0002411": {
       "range": [
-        "GO_0008150",
-        "GO_0003674",
+        "GO:0008150",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002305": {
+    "RO:0002305": {
       "range": [
-        "GO_0008150",
-        "GO_0003674",
+        "GO:0008150",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002304": {
+    "RO:0002304": {
       "range": [
-        "GO_0008150",
-        "GO_0003674",
+        "GO:0008150",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002211": {
+    "RO:0002211": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0002212": {
+    "RO:0002212": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0002213": {
+    "RO:0002213": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0012003": {
+    "RO:0012003": {
       "range": [
-        "CARO_0000000",
-        "NCBITaxon_1"
+        "CARO:0000000",
+        "NCBITaxon:1"
       ],
       "cardinality": -1
     }
   },
-  "GO_0048856": {
-    "RO_0002296": {
+  "GO:0048856": {
+    "RO:0002296": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0048646": {
-    "RO_0002297": {
+  "GO:0048646": {
+    "RO:0002297": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0009653": {
-    "RO_0002298": {
+  "GO:0009653": {
+    "RO:0002298": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0030154": {
-    "RO_0002315": {
+  "GO:0030154": {
+    "RO:0002315": {
       "range": [
-        "CL_0000003"
+        "CL:0000003"
       ],
       "cardinality": 1
     }
   },
-  "GO_0051301": {
-    "RO_0002233": {
+  "GO:0051301": {
+    "RO:0002233": {
       "range": [
-        "CL_0000003"
+        "CL:0000003"
       ],
       "cardinality": 1
     }
   },
-  "GO_0045165": {
-    "RO_0002348": {
+  "GO:0045165": {
+    "RO:0002348": {
       "range": [
-        "CL_0000003"
+        "CL:0000003"
       ],
       "cardinality": 1
     }
   },
-  "GO_0001709": {
-    "RO_0002349": {
+  "GO:0001709": {
+    "RO:0002349": {
       "range": [
-        "CL_0000003"
+        "CL:0000003"
       ],
       "cardinality": 1
     }
   },
-  "GO_0001708": {
-    "RO_0002356": {
+  "GO:0001708": {
+    "RO:0002356": {
       "range": [
-        "CL_0000003"
+        "CL:0000003"
       ],
       "cardinality": 1
     }
   },
-  "GO_0022607": {
-    "RO_0002588": {
+  "GO:0022607": {
+    "RO:0002588": {
       "range": [
-        "GO_0005575"
+        "GO:0005575"
       ],
       "cardinality": 1
     }
   },
-  "GO_0022411": {
-    "RO_0002590": {
+  "GO:0022411": {
+    "RO:0002590": {
       "range": [
-        "GO_0005575"
+        "GO:0005575"
       ],
       "cardinality": 1
     }
   },
-  "GO_0016043": {
-    "RO_0002592": {
+  "GO:0016043": {
+    "RO:0002592": {
       "range": [
-        "GO_0005575"
+        "GO:0005575"
       ],
       "cardinality": 1
     }
   },
-  "GO_0021700": {
-    "RO_0002299": {
+  "GO:0021700": {
+    "RO:0002299": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0040007": {
-    "RO_0002343": {
+  "GO:0040007": {
+    "RO:0002343": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0051179": {
-    "RO_0002313": {
+  "GO:0051179": {
+    "RO:0002313": {
       "range": [
-        "CARO_0000000",
-        "CHEBI_24431",
-        "CHEBI_33695",
-        "GO_0032991"
+        "CARO:0000000",
+        "CHEBI:24431",
+        "CHEBI:33695",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "RO_0002339": {
+    "RO:0002339": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002338": {
+    "RO:0002338": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0040011": {
-    "RO_0002565": {
+  "GO:0040011": {
+    "RO:0002565": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0006928": {
-    "RO_0002565": {
+  "GO:0006928": {
+    "RO:0002565": {
       "range": [
-        "CL_0000003",
-        "GO_0005575"
+        "CL:0000003",
+        "GO:0005575"
       ],
       "cardinality": 1
     }
   },
-  "GO_0034367": {
-    "RO_0002591": {
+  "GO:0034367": {
+    "RO:0002591": {
       "range": [
-        "GO_0032991"
+        "GO:0032991"
       ],
       "cardinality": 1
     }
   },
-  "GO_0007389": {
-    "RO_0002356": {
+  "GO:0007389": {
+    "RO:0002356": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     }
   },
-  "GO_0003674": {
-    "RO_0002333": {
+  "GO:0003674": {
+    "RO:0002333": {
       "range": [
-        "CHEBI_33695",
-        "GO_0032991"
+        "CHEBI:33695",
+        "GO:0032991"
       ],
       "cardinality": 1
     },
-    "BFO_0000050": {
+    "BFO:0000050": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "BFO_0000051": {
+    "BFO:0000051": {
       "range": [
-        "GO_0003674"
+        "GO:0003674"
       ],
       "cardinality": -1
     },
-    "BFO_0000066": {
+    "BFO:0000066": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002234": {
+    "RO:0002234": {
       "range": [
-        "CHEBI_24431",
-        "GO_0032991"
+        "CHEBI:24431",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "RO_0002233": {
+    "RO:0002233": {
       "range": [
-        "CHEBI_24431",
-        "GO_0032991"
+        "CHEBI:24431",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "RO_0002413": {
+    "RO:0002413": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002211": {
+    "RO:0002211": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002212": {
+    "RO:0002212": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002213": {
+    "RO:0002213": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002578": {
+    "RO:0002578": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002630": {
+    "RO:0002630": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002629": {
+    "RO:0002629": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002418": {
+    "RO:0002418": {
       "range": [
-        "GO_0003674",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent",
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0004046": {
+    "RO:0004046": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0004047": {
+    "RO:0004047": {
       "range": [
-        "GO_0008150"
+        "GO:0008150"
       ],
       "cardinality": -1
     },
-    "RO_0002411": {
+    "RO:0002411": {
       "range": [
-        "GO_0008150",
-        "GO_0003674",
+        "GO:0008150",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002305": {
+    "RO:0002305": {
       "range": [
-        "GO_0008150",
-        "GO_0003674",
+        "GO:0008150",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002304": {
+    "RO:0002304": {
       "range": [
-        "GO_0008150",
-        "GO_0003674",
+        "GO:0008150",
+        "GO:0003674",
         "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
       ],
       "cardinality": -1
     },
-    "RO_0002092": {
+    "RO:0002092": {
       "range": [
-        "GO_0044848",
-        "UBERON_0000105",
-        "PO_0009012"
+        "GO:0044848",
+        "UBERON:0000105",
+        "PO:0009012"
       ],
       "cardinality": -1
     }
   },
-  "GO_0005215": {
-    "RO_0002313": {
+  "GO:0005215": {
+    "RO:0002313": {
       "range": [
-        "CHEBI_24431",
-        "CHEBI_33695",
-        "GO_0032991"
+        "CHEBI:24431",
+        "CHEBI:33695",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "RO_0002339": {
+    "RO:0002339": {
       "range": [
-        "GO_0005575"
+        "GO:0005575"
       ],
       "cardinality": -1
     },
-    "RO_0002338": {
+    "RO:0002338": {
       "range": [
-        "GO_0005575"
-      ],
-      "cardinality": -1
-    }
-  },
-  "GO_0044848": {},
-  "UBERON_0000105": {},
-  "PO_0009012": {},
-  "CARO_0000000": {
-    "BFO_0000050": {
-      "range": [
-        "CARO_0000000"
-      ],
-      "cardinality": 1
-    },
-    "RO_0001015": {
-      "range": [
-        "CHEBI_33695",
-        "GO_0032991"
-      ],
-      "cardinality": 1
-    }
-  },
-  "CL_0000003": {
-    "BFO_0000050": {
-      "range": [
-        "CARO_0000000"
-      ],
-      "cardinality": 1
-    }
-  },
-  "GO_0005575": {
-    "BFO_0000050": {
-      "range": [
-        "CARO_0000000"
-      ],
-      "cardinality": 1
-    },
-    "RO_0002220": {
-      "range": [
-        "CARO_0000000"
-      ],
-      "cardinality": -1
-    },
-    "RO_0002131": {
-      "range": [
-        "CARO_0000000"
-      ],
-      "cardinality": -1
-    },
-    "RO_0002490": {
-      "range": [
-        "GO_0008150",
-        "UBERON_0000105",
-        "PO_0009012"
-      ],
-      "cardinality": -1
-    },
-    "RO_0002491": {
-      "range": [
-        "GO_0008150",
-        "UBERON_0000105",
-        "PO_0009012"
+        "GO:0005575"
       ],
       "cardinality": -1
     }
   },
-  "GO_0032991": {
-    "RO_0001025": {
+  "GO:0044848": {},
+  "UBERON:0000105": {},
+  "PO:0009012": {},
+  "CARO:0000000": {
+    "BFO:0000050": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002432": {
+    "RO:0001015": {
       "range": [
-        "CARO_0000000",
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "cardinality": 1
+    }
+  },
+  "CL:0000003": {
+    "BFO:0000050": {
+      "range": [
+        "CARO:0000000"
+      ],
+      "cardinality": 1
+    }
+  },
+  "GO:0005575": {
+    "BFO:0000050": {
+      "range": [
+        "CARO:0000000"
+      ],
+      "cardinality": 1
+    },
+    "RO:0002220": {
+      "range": [
+        "CARO:0000000"
+      ],
+      "cardinality": -1
+    },
+    "RO:0002131": {
+      "range": [
+        "CARO:0000000"
+      ],
+      "cardinality": -1
+    },
+    "RO:0002490": {
+      "range": [
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "cardinality": -1
+    },
+    "RO:0002491": {
+      "range": [
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "cardinality": -1
+    }
+  },
+  "GO:0032991": {
+    "RO:0001025": {
+      "range": [
+        "CARO:0000000"
+      ],
+      "cardinality": 1
+    },
+    "RO:0002432": {
+      "range": [
+        "CARO:0000000",
         "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
       ],
       "cardinality": 1
     },
-    "BFO_0000051": {
+    "BFO:0000051": {
       "range": [
-        "CHEBI_33695",
-        "GO_0032991"
+        "CHEBI:33695",
+        "GO:0032991"
       ],
       "cardinality": -1
     },
-    "RO_0002490": {
+    "RO:0002490": {
       "range": [
-        "GO_0008150",
-        "UBERON_0000105",
-        "PO_0009012"
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
       ],
       "cardinality": -1
     },
-    "RO_0002491": {
+    "RO:0002491": {
       "range": [
-        "GO_0008150",
-        "UBERON_0000105",
-        "PO_0009012"
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
       ],
       "cardinality": -1
     }
   },
-  "CHEBI_24431": {},
-  "CHEBI_36080": {
-    "RO_0001025": {
+  "CHEBI:24431": {},
+  "CHEBI:36080": {
+    "RO:0001025": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002432": {
+    "RO:0002432": {
       "range": [
-        "CARO_0000000",
+        "CARO:0000000",
         "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
       ],
       "cardinality": 1
     },
-    "BFO_0000050": {
+    "BFO:0000050": {
       "range": [
-        "GO_0032991"
+        "GO:0032991"
       ],
       "cardinality": 1
     },
-    "RO_0002326": {
+    "RO:0002326": {
       "range": [
-        "GO_0003674"
+        "GO:0003674"
       ],
       "cardinality": 1
     }
   },
-  "CHEBI_33695": {
-    "RO_0001025": {
+  "CHEBI:33695": {
+    "RO:0001025": {
       "range": [
-        "CARO_0000000"
+        "CARO:0000000"
       ],
       "cardinality": 1
     },
-    "RO_0002432": {
+    "RO:0002432": {
       "range": [
-        "CARO_0000000",
+        "CARO:0000000",
         "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
       ],
       "cardinality": 1
     },
-    "BFO_0000050": {
+    "BFO:0000050": {
       "range": [
-        "GO_0032991"
+        "GO:0032991"
       ],
       "cardinality": 1
     },
-    "RO_0002326": {
+    "RO:0002326": {
       "range": [
-        "GO_0003674"
+        "GO:0003674"
       ],
       "cardinality": 1
     }
   },
-  "ECO_0000000": {}
+  "ECO:0000000": {}
 }

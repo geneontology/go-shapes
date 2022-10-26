@@ -14,6 +14,10 @@ SHEX_JSON_LINKML_PATH = (
     "../../schema/shex_json_linkml.yaml"
 )
 
+AUTO_LINKML_PATH = (
+    "../../schema/autogen_schema.yaml"
+)
+
 
 def test_valid_schema():
     sv = SchemaView(SHEX_JSON_LINKML_PATH)
@@ -22,8 +26,11 @@ def test_valid_schema():
     assert sv.all_classes()
     print(sv.all_classes())
 
-    jsonGen = JsonSchemaGenerator(schema=schemadef)
-    print(jsonGen.serialize())
+    json_gen = JsonSchemaGenerator(schema=schemadef)
+    print(json_gen.serialize())
+
+    json_format = open('../shex_json_linkml.json', 'w')
+    json_format.write(json_gen.serialize())
 
 
 def test_json_parser():

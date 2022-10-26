@@ -1,0 +1,34 @@
+{
+  "goshapes": [
+    {
+      "name": "GO:0008150",
+      "relationships": [
+        {
+          "id": "BFO:0000050",
+          "cardinality": "-1",
+          "range": ["GO:0008150"]
+        },
+        {
+          "id": "RO:0002233",
+          "cardinality": "-1",
+          "range": [
+            "CHEBI:24431",
+            "CARO:0000000",
+            "GO:0032991",
+            "NCBITaxon:1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GO:0048856",
+      "relationships": [
+        {
+          "id": "RO:0002296",
+          "cardinality": "-1",
+          "range": ["CARO:00000000"]
+        }
+      ]
+    }
+  ]
+}

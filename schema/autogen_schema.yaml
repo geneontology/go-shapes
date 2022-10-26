@@ -5,6 +5,7 @@ imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  goshex: https://w3id.org/goshex/
 default_prefix: GOSHEX
 
 slots:
