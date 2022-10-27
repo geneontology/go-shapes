@@ -15,8 +15,4 @@ jobs:
     - uses: actions/checkout@v3
     
     - run: git clone https://github.com/geneontology/minerva.git
-    - run: cd minerva
-    - run: ./build-cli.sh
-    - run: cd minerva-cli/
-    - run: java -Xmx6g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_pass/ -r ./ -travis
-    - run: java -Xmx6g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl  -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_fail/ -r ./ -travis -shouldfail
+    - run: cd minerva && ./build-cli.sh && cd minerva-cli/ && java -Xmx6g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_pass/ -r ./ -travis && java -Xmx6g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl  -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_fail/ -r ./ -travis -shouldfail
