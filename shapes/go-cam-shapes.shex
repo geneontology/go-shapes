@@ -9,7 +9,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
 PREFIX provided_by: <http://purl.org/pav/providedBy>
-PREFIX date: <http://purl.org/dc/elements/1.1/date>
+PREFIX modification_date: <http://purl.org/dc/elements/1.1/date>
+PREFIX creation_date: <http://purl.org/dc/terms/created>
+PREFIX import_date: <http://purl.org/dc/terms/dateAccepted>
 PREFIX xref: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
 PREFIX exact_match: <http://www.w3.org/2004/02/skos/core#exactMatch>
 PREFIX source: <http://purl.org/dc/elements/1.1/source>
@@ -21,6 +23,7 @@ PREFIX y: <http://geneontology.org/lego/hint/layout/y>
 PREFIX ontology: <http://www.w3.org/2002/07/owl#Ontology>
 PREFIX taxon: <https://w3id.org/biolink/vocab/in_taxon>
 PREFIX modelstate: <http://geneontology.org/lego/modelstate>
+PREFIX templatestate: <http://geneontology.org/lego/templatestate>
 PREFIX oboinowlid: <http://www.geneontology.org/formats/oboInOwl#id>
 ###contributor, date, providedBy reused
 PREFIX title: <http://purl.org/dc/elements/1.1/title>
@@ -68,7 +71,10 @@ PREFIX has_part: <http://purl.obolibrary.org/obo/BFO_0000051>
 PREFIX occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066>
 PREFIX adjacent_to: <http://purl.obolibrary.org/obo/RO_0002220>
 PREFIX overlaps: <http://purl.obolibrary.org/obo/RO_0002131>
+PREFIX existence_overlaps: <http://purl.obolibrary.org/obo/RO_0002490>
+PREFIX existence_starts_and_ends_during: <http://purl.obolibrary.org/obo/RO_0002491>
 PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
+PREFIX contributes_to: <http://purl.obolibrary.org/obo/RO_0002326>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
 PREFIX has_target_end_location: <http://purl.obolibrary.org/obo/RO_0002339>
@@ -78,6 +84,7 @@ PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
 PREFIX located_in: <http://purl.obolibrary.org/obo/RO_0001025>
 PREFIX location_of: <http://purl.obolibrary.org/obo/RO_0001015>
+PREFIX is_active_in: <http://purl.obolibrary.org/obo/RO_0002432>
 PREFIX happens_during: <http://purl.obolibrary.org/obo/RO_0002092>
 PREFIX regulates: <http://purl.obolibrary.org/obo/RO_0002211>
 PREFIX negatively_regulates: <http://purl.obolibrary.org/obo/RO_0002212>
@@ -91,6 +98,7 @@ PREFIX causally_upstream_of_or_within_positive_effect: <http://purl.obolibrary.o
 PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
+PREFIX acts_on_population_of: <http://purl.obolibrary.org/obo/RO_0012003>
 PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
 PREFIX results_in_formation_of: <http://purl.obolibrary.org/obo/RO_0002297>
 PREFIX results_in_morphogenesis_of: <http://purl.obolibrary.org/obo/RO_0002298>
@@ -109,10 +117,13 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <GoCamModel> {
   a [owl:Ontology] + ;
   contributor: xsd:string +; #TODO would be better as an IRI
-  date: xsd:string {1}; #TODO can we make this an xsd:date?
+  modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
+  creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
+  import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
   provided_by: xsd:string +; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   modelstate: xsd:string {1}; #TODO would be better as an IRI
+  templatestate: xsd:string {0,1}; #TODO should be modeled as xsd:boolean but currently a string. No value means false.
   in_taxon: . *;
   title: xsd:string {1};
   imports: . *;
@@ -122,7 +133,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ProvenanceAnnotated> {
   contributor: xsd:string *; #TODO would be better as an IRI
-  date: xsd:string *; #TODO can we make this an xsd:date?
+  modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
+  creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
+  import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
   provided_by: xsd:string *; #TODO would be better as an IRI
   rdfs:comment xsd:string *;
   skos:note xsd:string *;
@@ -174,6 +187,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   regulates: @<BiologicalProcess> *;
   negatively_regulates: @<BiologicalProcess> *;
   positively_regulates: @<BiologicalProcess> *;
+  acts_on_population_of: ( @<AnatomicalEntity> OR @<Organism> ) *;
 } // rdfs:comment  "A biological process"
 
 
@@ -364,7 +378,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <MolecularFunction> @<GoCamEntity> AND EXTRA a {
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
   enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
-  part_of: @<BiologicalProcess> {0,1};
+  part_of: @<BiologicalProcess> *;
+  has_part: @<MolecularFunction> *;
   occurs_in: @<AnatomicalEntity> {0,1};
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
@@ -450,18 +465,27 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   owl:complementOf @<CellularComponentClass>
 }
 
+<RootCellularComponent> IRI @<GoCamEntity> AND EXTRA a {
+  a [ GoCellularComponent: ];
+}
+
 #<CellularComponent> @<AnatomicalEntity> AND EXTRA a { # If we want to intersect with anatomical entity, then GO cellular_component needs to subclass anatomical entity in go-lego
 <CellularComponent> @<GoCamEntity> AND EXTRA a {
   a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1};
   part_of: @<AnatomicalEntity> {0,1};
   adjacent_to: @<AnatomicalEntity> *;
   overlaps: @<AnatomicalEntity> *;
+  existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "a cellular component"
 
 <ProteinContainingComplex> @<GoCamEntity> AND EXTRA a {
   a @<ProteinContainingComplexClass>;
   located_in: @<AnatomicalEntity> {0,1};
+  is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
+  existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "a protein complex"
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -482,7 +506,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <Protein> @<ChemicalEntity> AND EXTRA a {
   a @<ProteinClass> ;
   located_in: @<AnatomicalEntity> {0,1};
+  is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   part_of: @<ProteinContainingComplex> {0,1};
+  contributes_to: @<MolecularFunction> {0,1};
 }// rdfs:comment  "a protein"
 
 
@@ -492,7 +518,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <InformationBiomacromolecule> @<ChemicalEntity> AND EXTRA a {
    a @<InformationBiomacromoleculeClass> +;
    located_in: @<AnatomicalEntity> {0,1};
+   is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
    part_of: @<ProteinContainingComplex> {0,1};
+   contributes_to: @<MolecularFunction> {0,1};
 }// rdfs:comment  "an information biomacromolecule - e.g. a protein or RNA product"
 
 <EvidenceClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
