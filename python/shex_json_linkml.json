@@ -19,6 +19,9 @@
          "additionalProperties": false,
          "description": "A generic grouping for any identifiable entity",
          "properties": {
+            "domain_name": {
+               "type": "string"
+            },
             "name": {
                "type": "string"
             },
