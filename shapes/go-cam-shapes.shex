@@ -54,6 +54,8 @@ PREFIX GoLocomotion: <http://purl.obolibrary.org/obo/GO_0040011>
 PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/GO_0006928>
 PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
 PREFIX GoPatternSpecificationProcess: <http://purl.obolibrary.org/obo/GO_0007389>
+PREFIX GoMetabolicProcess: <http://purl.obolibrary.org/obo/GO_0008152>
+PREFIX GoTransport: <http://purl.obolibrary.org/obo/GO_0006810>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 prefix GoMolecularEvent: <http://purl.obolibrary.org/obo/go/extensions/reacto.owl#molecular_event>
 PREFIX GoTransporterActivity: <http://purl.obolibrary.org/obo/GO_0005215>
@@ -77,6 +79,8 @@ PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX contributes_to: <http://purl.obolibrary.org/obo/RO_0002326>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
+PREFIX has_primary_input: <http://purl.obolibrary.org/obo/RO_0004009>
+PREFIX has_primary_output: <http://purl.obolibrary.org/obo/RO_0004008>
 PREFIX has_target_end_location: <http://purl.obolibrary.org/obo/RO_0002339>
 PREFIX has_target_start_location: <http://purl.obolibrary.org/obo/RO_0002338>
 PREFIX transports_or_maintains_localization_of: <http://purl.obolibrary.org/obo/RO_0002313>
@@ -328,6 +332,12 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   results_in_movement_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a locomotion GO biological process or child"
 
+<MetabolicProcess> @<BiologicalProcess> AND EXTRA a {
+  a @<MetabolicProcessClass> {1};
+  has_primary_input: @<ChemicalEntity> *;
+  has_primary_output: @<ChemicalEntity> *;
+} // rdfs:comment "a metabolic process GO biological process or child"
+
 <MovementOfCellOrSubcellularComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoMovementOfCellOrSubcellularComponent: ] ;
 }
@@ -354,6 +364,12 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<PatternSpecificationProcessClass> {1};
   results_in_specification_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a pattern specification process GO biological process or child"
+
+<Transport> @<BiologicalProcess> AND EXTRA a {
+  a @<TransportClass> {1};
+  has_primary_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
+  has_primary_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
+} // rdfs:comment "a transport GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
