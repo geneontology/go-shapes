@@ -25,7 +25,7 @@ classes:
     description: >-
       A generic grouping for any identifiable entity
     slots:
-      - name
+      - domain_name
       - relationships
     close_mappings:
      - schema:Thing
@@ -61,7 +61,7 @@ slots:
   id:
     range: string
 
-  name:
+  domain_name:
     range: uriorcurie
 
   is_multivalued:

@@ -9,6 +9,15 @@ from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, 
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf
 from pyshex import PrefixLibrary
 from shex_json_linkml import Collection, GoShape, Relationship
+from pprint import pprint
+
+
+def get_suffix(uri):
+    suffix = contract_uri(uri, cmaps=[prefix_context])
+    if len(suffix) > 0:
+        return suffix[0]
+
+    return path.basename(uri)
 
 
 class NoctuaFormShex:
@@ -19,16 +28,9 @@ class NoctuaFormShex:
         self.shex = generate_shexj.parse(shex_response.text)
         pref = PrefixLibrary(shex_response.text)
         self.pref_dict = {
-            k: self.get_suffix(str(v)) for (k, v) in dict(pref).items()
+            k: get_suffix(str(v)) for (k, v) in dict(pref).items()
             if str(v).startswith('http://purl.obolibrary.org/obo/')}
         del self.pref_dict['OBO']
-
-    def get_suffix(self, uri):
-        suffix = contract_uri(uri, cmaps=[prefix_context])
-        if len(suffix) > 0:
-            return suffix[0]
-
-        return path.basename(uri)
 
     def get_shape_name(self, uri, clean=False):
         name = path.basename(uri).upper()
@@ -47,6 +49,7 @@ class NoctuaFormShex:
         if preds is None:
             preds = {}
         if isinstance(expr, str) and isinstance(preds, list):
+            # ('Adding: ' + expr + ' to ' + str(preds))
             preds.append(self.get_shape_name(expr))
         if isinstance(expr, (ShapeOr, ShapeAnd)):
             for expr2 in expr.shapeExprs:
@@ -58,13 +61,13 @@ class NoctuaFormShex:
 
         return preds
 
-    def _load_triple_expr(self, expr: Union[tripleExpr, tripleExprLabel], preds=None) -> None:
+    def _load_triple_expr(self, expr: Union[tripleExpr, tripleExprLabel], preds=None) ->  None:
 
         if isinstance(expr, (OneOf, EachOf)):
             for expr2 in expr.expressions:
                 self._load_triple_expr(expr2, preds)
         elif isinstance(expr, TripleConstraint) and expr.valueExpr is not None:
-            pred = self.get_suffix(expr.predicate)
+            pred = get_suffix(expr.predicate)
 
             if pred not in self.pref_dict.values():
                 return
@@ -72,7 +75,7 @@ class NoctuaFormShex:
             preds[pred] = {}
             preds[pred]['range'] = []
 
-            if expr.max != None:
+            if expr.max is not None:
                 preds[pred]['cardinality'] = expr.max
 
             self._load_expr(expr.valueExpr, preds[pred]['range'])
@@ -83,20 +86,27 @@ class NoctuaFormShex:
         shapes = self.shex.shapes
 
         for shape in shapes:
-            goshape = GoShape()
+            print(shape)
+            print("")
             shape_name = self.get_shape_name(shape['id'], True)
 
             if shape_name is None:
                 continue
+
+            goshape = GoShape()
             goshape.name = shape_name
-            print('Parsing Shape: ' + shape['id'])
+            goshape.relationships = []
+            # print('Parsing Shape: ' + shape['id'])
             self.json_shapes[shape_name] = {}
 
             shexps = shape.shapeExprs or []
 
             for expr in shexps:
                 self.json_shapes[shape_name] = self._load_expr(expr)
-                print(self.json_shapes[shape_name])
+                goshape.relationships.append(self._load_expr(expr))
+            goshapes.append(goshape)
+            # print(goshapes)
+
 
 nfShex = NoctuaFormShex()
 nfShex.parse()

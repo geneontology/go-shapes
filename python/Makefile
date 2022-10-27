@@ -47,4 +47,7 @@ gen-pydantic:
 gen-jsonschema:
 	rm -f shex_json_linkml.json && gen-json-schema ../schema/shex_json_linkml.yaml > shex_json_linkml.json
 
+gen-typescript:
+	rm -f shex_json_linkml.ts && gen-typescript ../schema/shex_json_linkml.yaml > shex_json_linkml.ts
+
 .PRECIOUS: tests/data/%.ttl
