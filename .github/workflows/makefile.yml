@@ -16,7 +16,6 @@ jobs:
     
     - run: git clone https://github.com/geneontology/minerva.git
     - run: cd minerva
-    - run: git checkout shapes
     - run: ./build-cli.sh
     - run: cd minerva-cli/
     - run: java -Xmx6g -jar bin/minerva-cli.jar --validate-go-cams --shex --ontojournal /tmp/go-lego-reacto-neo.jnl --ontology http://purl.obolibrary.org/obo/go/extensions/go-lego-reacto.owl -s ../../shapes/go-cam-shapes.shex -m ../../shapes/go-cam-shapes.shapeMap -i ../../test_ttl/go_cams/should_pass/ -r ./ -travis
