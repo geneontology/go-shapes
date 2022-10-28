@@ -8,17 +8,10 @@ from linkml.generators.jsonschemagen import JsonSchemaGenerator
 from linkml.generators.pydanticgen import PydanticGenerator
 from json_export import NoctuaFormShex
 
-
-SHEX_LINKML_PATH = (
-    "../schema/shex_linkml.yaml"
-)
 SHEX_JSON_LINKML_PATH = (
     "../schema/shex_json_linkml.yaml"
 )
 
-AUTO_LINKML_PATH = (
-    "../schema/autogen_schema.yaml"
-)
 
 
 def test_valid_schema():
