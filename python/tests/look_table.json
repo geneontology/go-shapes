@@ -1,0 +1,242 @@
+{
+  "CHEBI:33695": {
+    "label": "GOINFORMATIONBIOMACROMOLECULE"
+  },
+  "CHEBI:36080": {
+    "label": "GOPROTEIN"
+  },
+  "GO:0032991": {
+    "label": "GOPROTEINCONTAININGCOMPLEX"
+  },
+  "GO:0005575": {
+    "label": "GOCELLULARCOMPONENT"
+  },
+  "GO:0008150": {
+    "label": "GOBIOLOGICALPROCESS"
+  },
+  "GO:0048856": {
+    "label": "GOANATOMICALSTRUCTUREDEVELOPMENT"
+  },
+  "GO:0048646": {
+    "label": "GOANATOMICALSTRUCTUREFORMATIONINVOLVEDINMORPHOGENESIS"
+  },
+  "GO:0009653": {
+    "label": "GOANATOMICALSTRUCTUREMORPHOGENESIS"
+  },
+  "GO:0030154": {
+    "label": "GOCELLDIFFERENTIATION"
+  },
+  "GO:0051301": {
+    "label": "GOCELLDIVISION"
+  },
+  "GO:0045165": {
+    "label": "GOCELLFATECOMMITMENT"
+  },
+  "GO:0001709": {
+    "label": "GOCELLFATEDETERMINATION"
+  },
+  "GO:0001708": {
+    "label": "GOCELLFATESPECIFICATION"
+  },
+  "GO:0022607": {
+    "label": "GOCELLULARCOMPONENTASSEMBLY"
+  },
+  "GO:0022411": {
+    "label": "GOCELLULARCOMPONENTDISASSEMBLY"
+  },
+  "GO:0016043": {
+    "label": "GOCELLULARCOMPONENTORGANIZATION"
+  },
+  "GO:0021700": {
+    "label": "GODEVELOPMENTALMATURATION"
+  },
+  "GO:0040007": {
+    "label": "GOGROWTH"
+  },
+  "GO:0051179": {
+    "label": "GOLOCALIZATION"
+  },
+  "GO:0040011": {
+    "label": "GOLOCOMOTION"
+  },
+  "GO:0006928": {
+    "label": "GOMOVEMENTOFCELLORSUBCELLULARCOMPONENT"
+  },
+  "GO:0034367": {
+    "label": "GOPROTEINCONTAININGCOMPLEXREMODELING"
+  },
+  "GO:0007389": {
+    "label": "GOPATTERNSPECIFICATIONPROCESS"
+  },
+  "GO:0003674": {
+    "label": "GOMOLECULARFUNCTION"
+  },
+  "GO:0005215": {
+    "label": "GOTRANSPORTERACTIVITY"
+  },
+  "CHEBI:24431": {
+    "label": "GOCHEMICALENTITY"
+  },
+  "ECO:0000000": {
+    "label": "GOEVIDENCE"
+  },
+  "CARO:0000000": {
+    "label": "GOANATOMICALENTITY"
+  },
+  "CL:0000003": {
+    "label": "GONATIVECELL"
+  },
+  "NCBITaxon:1": {
+    "label": "GOORGANISM"
+  },
+  "GO:0044848": {
+    "label": "GOBIOLOGICALPHASE"
+  },
+  "UBERON:0000105": {
+    "label": "GOLIFECYCLESTAGE"
+  },
+  "PO:0009012": {
+    "label": "GOPLANTSTRUCTUREDEVELOPMENTSTAGE"
+  },
+  "BFO:0000050": {
+    "label": "PART_OF"
+  },
+  "BFO:0000051": {
+    "label": "HAS_PART"
+  },
+  "BFO:0000066": {
+    "label": "OCCURS_IN"
+  },
+  "RO:0002220": {
+    "label": "ADJACENT_TO"
+  },
+  "RO:0002131": {
+    "label": "OVERLAPS"
+  },
+  "RO:0002490": {
+    "label": "EXISTENCE_OVERLAPS"
+  },
+  "RO:0002491": {
+    "label": "EXISTENCE_STARTS_AND_ENDS_DURING"
+  },
+  "RO:0002333": {
+    "label": "ENABLED_BY"
+  },
+  "RO:0002326": {
+    "label": "CONTRIBUTES_TO"
+  },
+  "RO:0002233": {
+    "label": "HAS_INPUT"
+  },
+  "RO:0002234": {
+    "label": "HAS_OUTPUT"
+  },
+  "RO:0002339": {
+    "label": "HAS_TARGET_END_LOCATION"
+  },
+  "RO:0002338": {
+    "label": "HAS_TARGET_START_LOCATION"
+  },
+  "RO:0002313": {
+    "label": "TRANSPORTS_OR_MAINTAINS_LOCALIZATION_OF"
+  },
+  "RO:0002413": {
+    "label": "DIRECTLY_PROVIDES_INPUT_FOR"
+  },
+  "RO:0002629": {
+    "label": "DIRECTLY_POSITIVELY_REGULATES"
+  },
+  "RO:0001025": {
+    "label": "LOCATED_IN"
+  },
+  "RO:0001015": {
+    "label": "LOCATION_OF"
+  },
+  "RO:0002432": {
+    "label": "IS_ACTIVE_IN"
+  },
+  "RO:0002092": {
+    "label": "HAPPENS_DURING"
+  },
+  "RO:0002211": {
+    "label": "REGULATES"
+  },
+  "RO:0002212": {
+    "label": "NEGATIVELY_REGULATES"
+  },
+  "RO:0002213": {
+    "label": "POSITIVELY_REGULATES"
+  },
+  "RO:0002578": {
+    "label": "DIRECTLY_REGULATES"
+  },
+  "RO:0002630": {
+    "label": "DIRECTLY_NEGATIVELY_REGULATES"
+  },
+  "RO:0002406": {
+    "label": "DIRECTLY_ACTIVATES"
+  },
+  "RO:0002418": {
+    "label": "CAUSALLY_UPSTREAM_OF_OR_WITHIN"
+  },
+  "RO:0004046": {
+    "label": "CAUSALLY_UPSTREAM_OF_OR_WITHIN_NEGATIVE_EFFECT"
+  },
+  "RO:0004047": {
+    "label": "CAUSALLY_UPSTREAM_OF_OR_WITHIN_POSITIVE_EFFECT"
+  },
+  "RO:0002411": {
+    "label": "CAUSALLY_UPSTREAM_OF"
+  },
+  "RO:0002305": {
+    "label": "CAUSALLY_UPSTREAM_OF_NEGATIVE_EFFECT"
+  },
+  "RO:0002304": {
+    "label": "CAUSALLY_UPSTREAM_OF_POSITIVE_EFFECT"
+  },
+  "RO:0012003": {
+    "label": "ACTS_ON_POPULATION_OF"
+  },
+  "RO:0002296": {
+    "label": "RESULTS_IN_DEVELOPMENT_OF"
+  },
+  "RO:0002297": {
+    "label": "RESULTS_IN_FORMATION_OF"
+  },
+  "RO:0002298": {
+    "label": "RESULTS_IN_MORPHOGENESIS_OF"
+  },
+  "RO:0002315": {
+    "label": "RESULTS_IN_ACQUISITION_OF_FEATURES_OF"
+  },
+  "RO:0002348": {
+    "label": "RESULTS_IN_COMMITMENT_TO"
+  },
+  "RO:0002349": {
+    "label": "RESULTS_IN_DETERMINATION_OF"
+  },
+  "RO:0002356": {
+    "label": "RESULTS_IN_SPECIFICATION_OF"
+  },
+  "RO:0002588": {
+    "label": "RESULTS_IN_ASSEMBLY_OF"
+  },
+  "RO:0002590": {
+    "label": "RESULTS_IN_DISASSEMBLY_OF"
+  },
+  "RO:0002592": {
+    "label": "RESULTS_IN_ORGANIZATION_OF"
+  },
+  "RO:0002299": {
+    "label": "RESULTS_IN_MATURATION_OF"
+  },
+  "RO:0002343": {
+    "label": "RESULTS_IN_GROWTH_OF"
+  },
+  "RO:0002565": {
+    "label": "RESULTS_IN_MOVEMENT_OF"
+  },
+  "RO:0002591": {
+    "label": "RESULTS_IN_REMODELING_OF"
+  }
+}
