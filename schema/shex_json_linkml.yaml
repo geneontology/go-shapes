@@ -54,24 +54,36 @@ classes:
     tree_root: true
     slots:
       - goshapes
+    description: >-
+      A collection of GO domain/range constraint shapes
 
 slots:
   relationships:
     multivalued: true
     range: Relationship
     required: true
+    description: >-
+      A list of relationships that are defined for a particular domain
 
   range:
     multivalued: true
     range: uriorcurie
     required: true
+    description: >-
+      The range of the relationship identified by the Relationship.id parameter
+      (This contains the values can be provided in the object of a statement)
 
   id:
     range: string
+    description: >-
+      The relationship id is the predicate of the relationship between the domain and 
+      range of the GO shape expression rule.
 
   domain_name:
     range: uriorcurie
     required: true
+    description: >-
+      The domain of the GO shape expression rule, this is the subject of the relationship.
 
   is_multivalued:
     range: boolean
