@@ -134,7 +134,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 }
 
 <ProvenanceAnnotated> {
-  contributor: xsd:string *; #TODO would be better as an IRI
+  contributor: xsd:string +; #TODO would be better as an IRI
   modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
   creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
   import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
