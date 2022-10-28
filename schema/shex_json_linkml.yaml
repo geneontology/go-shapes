@@ -23,7 +23,8 @@ prefixes:
 classes:
   GoShape:
     description: >-
-      A generic grouping for any identifiable entity
+      GO domain/range constraint shape is defined as the domain, relationship, and range of a GO shape 
+      expression rule
     slots:
       - domain_name
       - relationships
@@ -36,11 +37,16 @@ classes:
 
   Relationship:
     description: >-
-      A relationship between two entities
+      A relationship object holds the relationship (Relationship.id) between a GoShape.domain (subject) and the Relatioship.range (object), 
+      the range of the relationship (what values can be provided in the object of a statement), whether or not the 
+      object can be multivalued, if the object is required when used with a particular domain and what context the 
+      relationship should be used for.
     slots:
       - id
       - range
       - is_multivalued
+      - is_required
+      - context
     close_mappings:
      - schema:Relationship
 
@@ -53,10 +59,12 @@ slots:
   relationships:
     multivalued: true
     range: Relationship
+    required: true
 
   range:
     multivalued: true
     range: uriorcurie
+    required: true
 
   id:
     range: string
@@ -67,7 +75,25 @@ slots:
 
   is_multivalued:
     range: boolean
+    required: true
+    description: >-
+      for this shape, the relationship in question supports multiple values in the object of the association.
 
   goshapes:
     multivalued: true
     range: GoShape
+    description: >-
+      A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape 
+      is defined as the domain, relationship, and range of a GO shape expression rule.
+
+  is_required:
+    range: boolean
+    required: true
+
+  context:
+    range: string
+    description: >-
+      used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes
+      annotated with like this https://github.com/geneontology/go-shapes/pull/285/files will be exlcuded from the
+      visual pathway editor but still included in the file so this file can be used in the graphical editor as well.
+    required: true
