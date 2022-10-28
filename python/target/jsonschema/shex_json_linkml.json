@@ -1,0 +1,99 @@
+{
+   "$defs": {
+      "Collection": {
+         "additionalProperties": false,
+         "description": "A collection of GO domain/range constraint shapes.  This is primarily used in this schema to allow several  test data objects to be submitted in a single file.",
+         "properties": {
+            "goshapes": {
+               "description": "A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape  is defined as the domain, relationship, and range of a GO shape expression rule.",
+               "items": {
+                  "$ref": "#/$defs/GoShape"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Collection",
+         "type": "object"
+      },
+      "GoShape": {
+         "additionalProperties": false,
+         "description": "GO domain/range constraint shape is defined as the domain, relationship, and range of a GO shape  expression rule",
+         "properties": {
+            "domain_name": {
+               "description": "The domain of the GO shape expression rule, this is the subject of the relationship.",
+               "type": "string"
+            },
+            "name": {
+               "type": "string"
+            },
+            "relationships": {
+               "description": "A list of relationships that are defined for a particular domain",
+               "items": {
+                  "$ref": "#/$defs/Relationship"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "domain_name",
+            "relationships"
+         ],
+         "title": "GoShape",
+         "type": "object"
+      },
+      "Relationship": {
+         "additionalProperties": false,
+         "description": "A relationship object holds the relationship (Relationship.id) between a GoShape.domain (subject) and the Relatioship.range (object),  the range of the relationship (what values can be provided in the object of a statement), whether or not the  object can be multivalued, if the object is required when used with a particular domain and what context the  relationship should be used for.",
+         "properties": {
+            "context": {
+               "description": "used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes annotated with like this https://github.com/geneontology/go-shapes/pull/285/files will be exlcuded from the visual pathway editor but still included in the file so this file can be used in the graphical editor as well.",
+               "type": "string"
+            },
+            "id": {
+               "description": "The relationship id is the predicate of the relationship between the domain and  range of the GO shape expression rule.",
+               "type": "string"
+            },
+            "is_multivalued": {
+               "description": "for this shape, the relationship in question supports multiple values in the object of the association.",
+               "type": "boolean"
+            },
+            "is_required": {
+               "type": "boolean"
+            },
+            "range": {
+               "description": "The range of the relationship identified by the Relationship.id parameter (This contains the values can be provided in the object of a statement)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "range",
+            "is_multivalued",
+            "is_required",
+            "context"
+         ],
+         "title": "Relationship",
+         "type": "object"
+      }
+   },
+   "$id": "go-shex-domain-range-constraints",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
+   "metamodel_version": "1.7.0",
+   "properties": {
+      "goshapes": {
+         "description": "A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape  is defined as the domain, relationship, and range of a GO shape expression rule.",
+         "items": {
+            "$ref": "#/$defs/GoShape"
+         },
+         "type": "array"
+      }
+   },
+   "required": [],
+   "title": "GODomainRangeConstraintsModel",
+   "type": "object",
+   "version": "0.1.0"
+}
