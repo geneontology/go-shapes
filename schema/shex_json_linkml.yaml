@@ -55,7 +55,8 @@ classes:
     slots:
       - goshapes
     description: >-
-      A collection of GO domain/range constraint shapes
+      A collection of GO domain/range constraint shapes.  This is primarily used in this schema to allow several 
+      test data objects to be submitted in a single file. 
 
 slots:
   relationships:
