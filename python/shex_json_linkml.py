@@ -54,4 +54,3 @@ class Collection(ConfiguredBaseModel):
 GoShape.update_forward_refs()
 Relationship.update_forward_refs()
 Collection.update_forward_refs()
-
