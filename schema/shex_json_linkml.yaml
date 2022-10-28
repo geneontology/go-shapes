@@ -63,6 +63,7 @@ slots:
 
   domain_name:
     range: uriorcurie
+    required: true
 
   is_multivalued:
     range: boolean
