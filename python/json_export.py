@@ -10,6 +10,7 @@ from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, 
 from pyshex import PrefixLibrary
 from shex_json_linkml import Collection, GoShape, Relationship
 from pprint import pprint
+from pathlib import Path
 
 
 def get_suffix(uri):
@@ -94,7 +95,7 @@ class NoctuaFormShex:
                 continue
 
             goshape = GoShape()
-            goshape.name = shape_name
+            goshape.domain_name = shape_name
             goshape.relationships = []
             # print('Parsing Shape: ' + shape['id'])
             self.json_shapes[shape_name] = {}
@@ -111,8 +112,13 @@ class NoctuaFormShex:
 nfShex = NoctuaFormShex()
 nfShex.parse()
 
-with open("../shapes/json/shex_dump.json", "w") as sf:
+base_path = Path(__file__).parent
+json_shapes_file_path = (base_path / "../shapes/json/shex_dump.json").resolve()
+look_table_file_path = (base_path / "../shapes/json/look_table.json").resolve()
+
+
+with open(json_shapes_file_path, "w") as sf:
     json.dump(nfShex.json_shapes, sf, indent=2)
 
-with open("../shapes/json/look_table.json", "w") as sf:
+with open(look_table_file_path, "w") as sf:
     json.dump(nfShex.gen_lookup_table(), sf, indent=2)
