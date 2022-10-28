@@ -111,7 +111,7 @@ class NoctuaFormShex:
 nfShex = NoctuaFormShex()
 nfShex.parse()
 
-with open("shex_dump.json", "w") as sf:
+with open("../shapes/json/shex_dump.json", "w") as sf:
     json.dump(nfShex.json_shapes, sf, indent=2)
 
 with open("../shapes/json/look_table.json", "w") as sf:
