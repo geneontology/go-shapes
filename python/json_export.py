@@ -114,5 +114,5 @@ nfShex.parse()
 with open("shex_dump.json", "w") as sf:
     json.dump(nfShex.json_shapes, sf, indent=2)
 
-with open("look_table.json", "w") as sf:
+with open("tests/look_table.json", "w") as sf:
     json.dump(nfShex.gen_lookup_table(), sf, indent=2)

@@ -6,6 +6,8 @@ from python import json_export
 from pprint import pprint
 from linkml.generators.jsonschemagen import JsonSchemaGenerator
 from linkml.generators.pydanticgen import PydanticGenerator
+from json_export import NoctuaFormShex
+
 
 SHEX_LINKML_PATH = (
     "../schema/shex_linkml.yaml"
@@ -30,7 +32,7 @@ def test_valid_schema():
     python_gen = PydanticGenerator(schema=schemadef)
     print(json_gen.serialize())
 
-    json_format = open('shex_json_linkml.json', 'w')
+    json_format = open('../target/jsonschema/shex_json_linkml.json', 'w')
     json_format.write(json_gen.serialize())
     pyfile = open('shex_json_linkml.py', 'w')
     pyfile.write(python_gen.serialize())
