@@ -26,9 +26,9 @@ classes:
       GO domain/range constraint shape is defined as the domain, relationship, and range of a GO shape 
       expression rule
     slots:
-      - domain_name
-      - relationship
-      - range
+      - subject
+      - predicate
+      - object
       - is_multivalued
       - is_required
       - context
@@ -46,7 +46,7 @@ classes:
 
 slots:
 
-  range:
+  object:
     multivalued: true
     range: uriorcurie
     required: true
@@ -60,7 +60,13 @@ slots:
       The relationship id is the predicate of the relationship between the domain and 
       range of the GO shape expression rule.
 
-  domain_name:
+  predicate:
+    range: string
+    description: >-
+      The predicate is the relationship between the domain and 
+      range of the GO shape expression rule.
+
+  subject:
     range: uriorcurie
     required: true
     description: >-
@@ -74,7 +80,7 @@ slots:
 
   goshapes:
     multivalued: true
-    range: GoShape
+    range: Association
     description: >-
       A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape 
       is defined as the domain, relationship, and range of a GO shape expression rule.
