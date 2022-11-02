@@ -4,6 +4,7 @@ python/tests/__pycache__/
 java/.idea/
 .DS_Store
 
+.venv/
 *.log
 scala/target/*
 scala/test/*

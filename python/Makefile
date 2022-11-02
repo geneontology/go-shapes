@@ -41,4 +41,16 @@ p-%: tests/data/p-%.ttl
 f-%: tests/data/f-%.ttl
 	python ./gocam_validator.py $< && exit -1 || echo FAILED AS EXPECTED
 
+gen-pydantic:
+	rm -f shex_json_linkml.py && gen-pydantic schema/shex_json_linkml.yaml > shex_json_linkml.py
+
+gen-jsonschema:
+	rm -f target/jsonschema/shex_json_linkml.json && gen-json-schema schema/shex_json_linkml.yaml > target/jsonschema/shex_json_linkml.json
+
+gen-typescript:
+	rm -f target/typescript/shex_json_linkml.ts && gen-typescript schema/shex_json_linkml.yaml > target/typescript/shex_json_linkml.ts
+
+linkml: gen-pydantic gen-jsonschema gen-typescript
+
+
 .PRECIOUS: tests/data/%.ttl
