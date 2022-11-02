@@ -8,7 +8,7 @@ from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf
 from pyshex import PrefixLibrary
-from shex_json_linkml import Collection, GoShape, Relationship
+from shex_json_linkml import Association
 from pprint import pprint
 from pathlib import Path
 
@@ -31,7 +31,8 @@ class NoctuaFormShex:
         self.pref_dict = {
             k: get_suffix(str(v)) for (k, v) in dict(pref).items()
             if str(v).startswith('http://purl.obolibrary.org/obo/')}
-        del self.pref_dict['OBO']
+        del self.pref_dict['OBO']  # remove this filter and make sure that it works because it needs to be
+        # working for every shape.
 
     def get_shape_name(self, uri, clean=False):
         name = path.basename(uri).upper()
@@ -60,6 +61,7 @@ class NoctuaFormShex:
         elif isinstance(expr, Shape) and expr.expression is not None:
             self._load_triple_expr(expr.expression, preds)
 
+        # throw an error here if pred list is empty
         return preds
 
     def _load_triple_expr(self, expr: Union[tripleExpr, tripleExprLabel], preds=None) ->  None:

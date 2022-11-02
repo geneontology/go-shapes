@@ -2,7 +2,7 @@
 # https://docs.github.com/en/actions/guides/building-and-testing-python
 # https://github.com/snok/install-poetry#workflows-and-tips
 
-name: Build and test linkml-runtime
+name: Build and test LinkML output of GO domain/range constraints as JSON
 
 on: [pull_request]
 
@@ -46,7 +46,15 @@ jobs:
         run: poetry install --no-interaction
 
       #----------------------------------------------
-      #              run test suite
+      # regerate LinkML artifacts
       #----------------------------------------------
-      - name: Run tests
-        run: make test
+      - name: Regenerate LinkML artifacts
+        run: |
+          make clean-artifacts
+          make -B gen-artifacts
+          if [ $? -eq 0 ]; then
+            echo "LinkML artifacts generated successfully"
+          else
+            echo "LinkML artifacts generation failed"
+            exit 1
+          fi
