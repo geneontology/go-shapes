@@ -96,9 +96,9 @@ class NoctuaFormShex:
             if shape_name is None:
                 continue
 
-            goshape = GoShape()
-            goshape.domain_name = shape_name
-            goshape.relationships = []
+            goshape = Association()
+            goshape.subject = shape_name
+            goshape.relationship = ""
             # print('Parsing Shape: ' + shape['id'])
             self.json_shapes[shape_name] = {}
 
@@ -106,7 +106,7 @@ class NoctuaFormShex:
 
             for expr in shexps:
                 self.json_shapes[shape_name] = self._load_expr(expr)
-                goshape.relationships.append(self._load_expr(expr))
+
             goshapes.append(goshape)
             # print(goshapes)
 
