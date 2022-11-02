@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/geneontology/go-shapes.svg?branch=master)](https://travis-ci.com/geneontology/go-shapes)
+[![Build status](https://github.com/geneontology/go-shapes/actions/workflows/makefile.yml/badge.svg)](https://github.com/geneontology/go-shapes/actions/workflows/makefile.yml)
 
 # GO_Shapes
 
