@@ -334,6 +334,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   results_in_movement_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a locomotion GO biological process or child"
 
+<MetabolicProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoMetabolicProcess: ] ;
+
 <MetabolicProcess> @<BiologicalProcess> AND EXTRA a {
   a @<MetabolicProcessClass> {1};
   has_primary_input: @<ChemicalEntity> *;
@@ -366,6 +369,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<PatternSpecificationProcessClass> {1};
   results_in_specification_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a pattern specification process GO biological process or child"
+
+<TransportClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoTransport: ] ;
 
 <Transport> @<BiologicalProcess> AND EXTRA a {
   a @<TransportClass> {1};
