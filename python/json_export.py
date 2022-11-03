@@ -89,8 +89,6 @@ class NoctuaFormShex:
         shapes = self.shex.shapes
 
         for shape in shapes:
-            print(shape)
-            print("")
             shape_name = self.get_shape_name(shape['id'], True)
 
             if shape_name is None:
@@ -98,7 +96,7 @@ class NoctuaFormShex:
 
             goshape = Association()
             goshape.subject = shape_name
-            goshape.relationship = ""
+            goshape.predicate = ""
             # print('Parsing Shape: ' + shape['id'])
             self.json_shapes[shape_name] = {}
 
@@ -108,7 +106,6 @@ class NoctuaFormShex:
                 self.json_shapes[shape_name] = self._load_expr(expr)
 
             goshapes.append(goshape)
-            # print(goshapes)
 
 
 nfShex = NoctuaFormShex()
