@@ -52,7 +52,6 @@ PREFIX GoDevelopmentalMaturation: <http://purl.obolibrary.org/obo/GO_0021700>
 PREFIX GoGrowth: <http://purl.obolibrary.org/obo/GO_0040007>
 PREFIX GoLocalization: <http://purl.obolibrary.org/obo/GO_0051179>
 PREFIX GoLocomotion: <http://purl.obolibrary.org/obo/GO_0040011>
-PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/GO_0006928>
 PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
 PREFIX GoPatternSpecificationProcess: <http://purl.obolibrary.org/obo/GO_0007389>
 PREFIX GoMetabolicProcess: <http://purl.obolibrary.org/obo/GO_0008152>
@@ -342,15 +341,6 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   has_primary_input: @<ChemicalEntity> *;
   has_primary_output: @<ChemicalEntity> *;
 } // rdfs:comment "a metabolic process GO biological process or child"
-
-<MovementOfCellOrSubcellularComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
-	rdfs:subClassOf [ GoMovementOfCellOrSubcellularComponent: ] ;
-}
-
-<MovementOfCellOrSubcellularComponent> @<BiologicalProcess> AND EXTRA a {
-  a @<MovementOfCellOrSubcellularComponentClass> {1};
-  results_in_movement_of: ( @<NativeCell> OR @<CellularComponent> ) {0,1};
-} // rdfs:comment "a movement of cell or subcellular component GO biological process or child"
 
 <ProteinContainingComplexRemodelingClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoProteinContainingComplexRemodeling: ] ;
