@@ -335,6 +335,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <MetabolicProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoMetabolicProcess: ] ;
+}
 
 <MetabolicProcess> @<BiologicalProcess> AND EXTRA a {
   a @<MetabolicProcessClass> {1};
@@ -362,6 +363,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <TransportClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoTransport: ] ;
+}
 
 <Transport> @<BiologicalProcess> AND EXTRA a {
   a @<TransportClass> {1};
