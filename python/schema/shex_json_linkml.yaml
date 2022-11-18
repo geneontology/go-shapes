@@ -36,7 +36,7 @@ classes:
     close_mappings:
      - schema:Thing
 
-  Collection:
+  AssociationCollection:
     tree_root: true
     slots:
       - goshapes
@@ -81,6 +81,8 @@ slots:
   goshapes:
     multivalued: true
     range: Association
+    inlined: true
+    inlined_as_list: true
     description: >-
       A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape 
       is defined as the domain, relationship, and range of a GO shape expression rule.

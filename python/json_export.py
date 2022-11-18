@@ -1,6 +1,5 @@
 from os import path
 import json
-import requests
 from ontobio.rdfgen.assoc_rdfgen import prefix_context
 from prefixcommons.curie_util import contract_uri
 from pyshexc.parser_impl import generate_shexj
@@ -8,10 +7,13 @@ from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf, Annotation
 from pyshex import PrefixLibrary
-from shex_json_linkml import Association
-from pprint import pprint
+from shex_json_linkml import Association, AssociationCollection
+from linkml_runtime.dumpers import JSONDumper
+from linkml_runtime.loaders import JSONLoader
 from pathlib import Path
+import os
 
+OUT_JSON = os.path.join('../shapes/json/shex_dump.json')
 
 def get_suffix(uri):
     suffix = contract_uri(uri, cmaps=[prefix_context])
@@ -24,7 +26,7 @@ def get_suffix(uri):
 class NoctuaFormShex:
     def __init__(self, shex_text):
         self.exclude_ext_pred = 'http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions'
-        self.json_shapes = [] 
+        self.json_shapes = []
         
         self.shex = generate_shexj.parse(shex_text)
         pref = PrefixLibrary(shex_text)
@@ -76,21 +78,29 @@ class NoctuaFormShex:
 
             objects = []
             self._load_expr(subject, expr.valueExpr, objects)
-            goshape = {} #Association 
-            goshape['subject']=subject
-            goshape['object']=objects
-            goshape['predicate']=predicate  
-            
+
+            exclude_from_extensions = ""
             if isinstance(expr.annotations, list):                    
-                goshape['exclude_from_extensions']=self._load_annotation(expr, self.exclude_ext_pred) 
-            
+                exclude_from_extensions = self._load_annotation(expr, self.exclude_ext_pred)
+
+            is_multivalued = False
             if expr.max is not None:
-                goshape["is_multivalued"] = True if expr.max == -1 else False
-            
+                if expr.max == -1:
+                    is_multivalued = True
+
+            goshape = Association(
+                subject=subject,
+                object=objects,
+                predicate=predicate,
+                is_multivalued=is_multivalued,
+                is_required=False,
+                context=""
+            )
+            if exclude_from_extensions != "":
+                goshape.exclude_from_extensions = exclude_from_extensions,
             self.json_shapes.append(goshape)
 
             return preds
-
 
     def _load_annotation(self, expr: Union[tripleExpr, tripleExprLabel], annotation_key):
         for annotation in expr.annotations:
@@ -120,9 +130,7 @@ class NoctuaFormShex:
                 self._load_expr(shape_name, expr)
 
 
-
 if __name__ == "__main__":
-   
 
     base_path = Path(__file__).parent
     shex_fp = (base_path / "../shapes/go-cam-shapes.shex").resolve()
@@ -137,7 +145,9 @@ if __name__ == "__main__":
     nfShex.parse()
 
     with open(json_shapes_fp, "w") as sf:
-        json.dump(nfShex.json_shapes, sf, indent=2)
+        jd = JSONDumper()
+        coll = AssociationCollection(goshapes=nfShex.json_shapes)
+        jd.dump(coll, to_file=OUT_JSON)
 
     with open(look_table_fp, "w") as sf:
         json.dump(nfShex.gen_lookup_table(), sf, indent=2)
