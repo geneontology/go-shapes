@@ -1,5 +1,5 @@
 # Auto generated from shex_json_linkml.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-11-18T08:24:39
+# Generation date: 2022-11-18T12:44:53
 # Schema: GODomainRangeConstraintsModel
 #
 # id: go-shex-domain-range-constraints
@@ -102,22 +102,24 @@ class Association(YAMLRoot):
 
 
 @dataclass
-class Collection(YAMLRoot):
+class AssociationCollection(YAMLRoot):
     """
     A collection of GO domain/range constraint shapes. This is primarily used in this schema to allow several test
     data objects to be submitted in a single file.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = GO.Collection
-    class_class_curie: ClassVar[str] = "GO:Collection"
-    class_name: ClassVar[str] = "Collection"
-    class_model_uri: ClassVar[URIRef] = GO.Collection
+    class_class_uri: ClassVar[URIRef] = GO.AssociationCollection
+    class_class_curie: ClassVar[str] = "GO:AssociationCollection"
+    class_name: ClassVar[str] = "AssociationCollection"
+    class_model_uri: ClassVar[URIRef] = GO.AssociationCollection
 
     goshapes: Optional[Union[Union[dict, Association], List[Union[dict, Association]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="goshapes", slot_type=Association, key_name="subject", keyed=False)
+        if not isinstance(self.goshapes, list):
+            self.goshapes = [self.goshapes] if self.goshapes is not None else []
+        self.goshapes = [v if isinstance(v, Association) else Association(**as_dict(v)) for v in self.goshapes]
 
         super().__post_init__(**kwargs)
 

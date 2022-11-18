@@ -176,21 +176,6 @@
   "RO:0002406": {
     "label": "DIRECTLY_ACTIVATES"
   },
-  "RO:0012012": {
-    "label": "INDIRECTLY_REGULATES"
-  },
-  "RO:0002407": {
-    "label": "INDIRECTLY_POSITIVELY_REGULATES"
-  },
-  "RO:0002409": {
-    "label": "INDIRECTLY_NEGATIVELY_REGULATES"
-  },
-  "RO:0012009": {
-    "label": "CONSTITUTIVELY_UPSTREAM_OF"
-  },
-  "RO:0012010": {
-    "label": "REMOVES_INPUT_FOR"
-  },
   "RO:0002418": {
     "label": "CAUSALLY_UPSTREAM_OF_OR_WITHIN"
   },

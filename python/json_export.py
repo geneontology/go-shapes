@@ -7,11 +7,13 @@ from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf, Annotation
 from pyshex import PrefixLibrary
-from shex_json_linkml import Association, Collection
+from shex_json_linkml import Association, AssociationCollection
 from linkml_runtime.dumpers import JSONDumper
 from linkml_runtime.loaders import JSONLoader
 from pathlib import Path
+import os
 
+OUT_JSON = os.path.join('../shapes/json/shex_dump.json')
 
 def get_suffix(uri):
     suffix = contract_uri(uri, cmaps=[prefix_context])
@@ -24,7 +26,6 @@ def get_suffix(uri):
 class NoctuaFormShex:
     def __init__(self, shex_text):
         self.exclude_ext_pred = 'http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions'
-        constraint_collection = Collection()
         self.json_shapes = []
         
         self.shex = generate_shexj.parse(shex_text)
@@ -97,7 +98,7 @@ class NoctuaFormShex:
             )
             if exclude_from_extensions != "":
                 goshape.exclude_from_extensions = exclude_from_extensions,
-            self.json_shapes.goshapes.append(goshape)
+            self.json_shapes.append(goshape)
 
             return preds
 
@@ -145,8 +146,8 @@ if __name__ == "__main__":
 
     with open(json_shapes_fp, "w") as sf:
         jd = JSONDumper()
-        Collection.goshapes = nfShex.json_shapes
-        jd.dumps(nfShex.json_shapes)
+        coll = AssociationCollection(goshapes=nfShex.json_shapes)
+        jd.dump(coll, to_file=OUT_JSON)
 
     with open(look_table_fp, "w") as sf:
         json.dump(nfShex.gen_lookup_table(), sf, indent=2)
