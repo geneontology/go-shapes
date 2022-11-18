@@ -6,7 +6,7 @@ from prefixcommons.curie_util import contract_uri
 from pyshexc.parser_impl import generate_shexj
 from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
-    shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf
+    shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf, Annotation
 from pyshex import PrefixLibrary
 from shex_json_linkml import Association
 from pprint import pprint
@@ -22,12 +22,12 @@ def get_suffix(uri):
 
 
 class NoctuaFormShex:
-    def __init__(self):
-        self.json_shapes = {}
-        shex_url = "https://raw.githubusercontent.com/geneontology/go-shapes/master/shapes/go-cam-shapes.shex"
-        shex_response = requests.get(shex_url)
-        self.shex = generate_shexj.parse(shex_response.text)
-        pref = PrefixLibrary(shex_response.text)
+    def __init__(self, shex_text):
+        self.exclude_ext_pred = 'http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions'
+        self.json_shapes = [] 
+        
+        self.shex = generate_shexj.parse(shex_text)
+        pref = PrefixLibrary(shex_text)
         self.pref_dict = {
             k: get_suffix(str(v)) for (k, v) in dict(pref).items()
             if str(v).startswith('http://purl.obolibrary.org/obo/')}
@@ -46,46 +46,64 @@ class NoctuaFormShex:
         } for (k, v) in self.pref_dict.items()}
         return table
 
-    def _load_expr(self, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
+    def _load_expr(self, subject:str, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
 
         if preds is None:
             preds = {}
         if isinstance(expr, str) and isinstance(preds, list):
-            # ('Adding: ' + expr + ' to ' + str(preds))
             preds.append(self.get_shape_name(expr))
         if isinstance(expr, (ShapeOr, ShapeAnd)):
             for expr2 in expr.shapeExprs:
-                self._load_expr(expr2, preds)
+                self._load_expr(subject, expr2, preds)
         elif isinstance(expr, ShapeNot):
-            self._load_expr(expr.shapeExpr, preds)
+            self._load_expr(subject, expr.shapeExpr, preds)
         elif isinstance(expr, Shape) and expr.expression is not None:
-            self._load_triple_expr(expr.expression, preds)
+            self._load_triple_expr(subject, expr.expression, preds)
 
         # throw an error here if pred list is empty
         return preds
 
-    def _load_triple_expr(self, expr: Union[tripleExpr, tripleExprLabel], preds=None) ->  None:
+    def _load_triple_expr(self, subject:str, expr: Union[tripleExpr, tripleExprLabel], preds=None) ->  None:
 
         if isinstance(expr, (OneOf, EachOf)):
             for expr2 in expr.expressions:
-                self._load_triple_expr(expr2, preds)
+                self._load_triple_expr(subject, expr2, preds)
         elif isinstance(expr, TripleConstraint) and expr.valueExpr is not None:
             pred = get_suffix(expr.predicate)
 
             if pred not in self.pref_dict.values():
                 return
 
-            preds[pred] = {}
-            preds[pred]['range'] = []
-
+            objects = []
+            self._load_expr(subject, expr.valueExpr, objects)
+            goshape = {} #Association 
+            goshape['subject']=subject
+            goshape['object']=objects
+            goshape['predicate']=pred  
+            
+            if isinstance(expr.annotations, list):                    
+                goshape['exclude_from_extensions']=self._load_annotation(expr, self.exclude_ext_pred) 
+            
             if expr.max is not None:
-                preds[pred]['cardinality'] = expr.max
+                goshape["is_multivalued"] = True if expr.max == 1 else False
+            
+            self.json_shapes.append(goshape)
 
-            self._load_expr(expr.valueExpr, preds[pred]['range'])
+            return preds
+
+
+    def _load_annotation(self, expr: Union[tripleExpr, tripleExprLabel], annotation_key):
+        for annotation in expr.annotations:
+            if isinstance(annotation, Annotation) :
+                if annotation.predicate == annotation_key:
+                    return True if annotation.object.value=="true" else False
+
+        return None
+
+    def parse_raw(self):
+        return json.loads(self.shex._as_json_dumps())
 
     def parse(self):
-        goshapes = []
-
         shapes = self.shex.shapes
 
         for shape in shapes:
@@ -94,30 +112,35 @@ class NoctuaFormShex:
             if shape_name is None:
                 continue
 
-            goshape = Association()
-            goshape.subject = shape_name
-            goshape.predicate = ""
-            # print('Parsing Shape: ' + shape['id'])
-            self.json_shapes[shape_name] = {}
-
+            print('Parsing Shape: ' + shape['id'])
+            
             shexps = shape.shapeExprs or []
 
             for expr in shexps:
-                self.json_shapes[shape_name] = self._load_expr(expr)
-
-            goshapes.append(goshape)
+                self._load_expr(shape_name, expr)
 
 
-nfShex = NoctuaFormShex()
-nfShex.parse()
 
-base_path = Path(__file__).parent
-json_shapes_file_path = (base_path / "../shapes/json/shex_dump.json").resolve()
-look_table_file_path = (base_path / "../shapes/json/look_table.json").resolve()
+if __name__ == "__main__":
+   
 
+    base_path = Path(__file__).parent
+    shex_fp = (base_path / "../shapes/go-cam-shapes.shex").resolve()
+    json_shapes_fp = (base_path / "../shapes/json/shex_dump.json").resolve()
+    look_table_fp = (base_path / "../shapes/json/look_table.json").resolve()
+    shex_full_fp = (base_path / "../shapes/json/shex_full.json").resolve()
+    
+    with open(shex_fp) as f:
+        shex_text = f.read()
 
-with open(json_shapes_file_path, "w") as sf:
-    json.dump(nfShex.json_shapes, sf, indent=2)
+    nfShex = NoctuaFormShex(shex_text)
+    nfShex.parse()
 
-with open(look_table_file_path, "w") as sf:
-    json.dump(nfShex.gen_lookup_table(), sf, indent=2)
+    with open(json_shapes_fp, "w") as sf:
+        json.dump(nfShex.json_shapes, sf, indent=2)
+
+    with open(look_table_fp, "w") as sf:
+        json.dump(nfShex.gen_lookup_table(), sf, indent=2)
+
+    with open(shex_full_fp, "w") as sf:
+        json.dump(nfShex.parse_raw(), sf, indent=2)
