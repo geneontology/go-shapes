@@ -1,49 +1,157 @@
-from __future__ import annotations
-from datetime import datetime, date
-from enum import Enum
-from typing import List, Dict, Optional, Any
-from pydantic import BaseModel as BaseModel, Field
+# Auto generated from shex_json_linkml.yaml by pythongen.py version: 0.9.0
+# Generation date: 2022-11-18T08:24:39
+# Schema: GODomainRangeConstraintsModel
+#
+# id: go-shex-domain-range-constraints
+# description: a schema for the domain and range exchange format for the GO shape expressions
+# license: https://creativecommons.org/publicdomain/zero/1.0/
 
-metamodel_version = "None"
+import dataclasses
+import sys
+import re
+from jsonasobj2 import JsonObj, as_dict
+from typing import Optional, List, Union, Dict, ClassVar, Any
+from dataclasses import dataclass
+from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
+from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
+from rdflib import Namespace, URIRef
+from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.linkml_model.types import Boolean, String, Uriorcurie
+from linkml_runtime.utils.metamodelcore import Bool, URIorCURIE
+
+metamodel_version = "1.7.0"
 version = "0.1.0"
 
-class WeakRefShimBaseModel(BaseModel):
-   __slots__ = '__weakref__'
-    
-class ConfiguredBaseModel(WeakRefShimBaseModel,
-                validate_assignment = True, 
-                validate_all = True, 
-                underscore_attrs_are_private = True, 
-                extra = 'forbid', 
-                arbitrary_types_allowed = True):
-    pass                    
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
+
+# Namespaces
+GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
+BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
+LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
+SCHEMA = CurieNamespace('schema', 'http://example.org/UNKNOWN/schema/')
+DEFAULT_ = GO
 
 
-class Association(ConfiguredBaseModel):
+# Types
+
+# Class references
+
+
+
+@dataclass
+class Association(YAMLRoot):
     """
     GO domain/range constraint shape is defined as the domain, relationship, and range of a GO shape  expression rule
     """
-    subject: str = Field(None, description="""The domain of the GO shape expression rule, this is the subject of the relationship.""")
-    predicate: Optional[str] = Field(None, description="""The predicate is the relationship between the domain and  range of the GO shape expression rule.""")
-    object: List[str] = Field(default_factory=list, description="""The range of the relationship identified by the Relationship.id parameter (This contains the values can be provided in the object of a statement)""")
-    is_multivalued: bool = Field(None, description="""for this shape, the relationship in question supports multiple values in the object of the association.""")
-    is_required: bool = Field(None)
-    context: str = Field(None, description="""used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes annotated with like this https://github.com/geneontology/go-shapes/pull/285/files will be exlcuded from the visual pathway editor but still included in the file so this file can be used in the graphical editor as well.""")
-    exclude_from_extensions: Optional[bool] = Field(None, description="""used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes annotated with like this""")
-    
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = GO.Association
+    class_class_curie: ClassVar[str] = "GO:Association"
+    class_name: ClassVar[str] = "Association"
+    class_model_uri: ClassVar[URIRef] = GO.Association
+
+    subject: Union[str, URIorCURIE] = None
+    object: Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]] = None
+    is_multivalued: Union[bool, Bool] = None
+    is_required: Union[bool, Bool] = None
+    context: str = None
+    predicate: Optional[str] = None
+    exclude_from_extensions: Optional[Union[bool, Bool]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.subject):
+            self.MissingRequiredField("subject")
+        if not isinstance(self.subject, URIorCURIE):
+            self.subject = URIorCURIE(self.subject)
+
+        if self._is_empty(self.object):
+            self.MissingRequiredField("object")
+        if not isinstance(self.object, list):
+            self.object = [self.object] if self.object is not None else []
+        self.object = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.object]
+
+        if self._is_empty(self.is_multivalued):
+            self.MissingRequiredField("is_multivalued")
+        if not isinstance(self.is_multivalued, Bool):
+            self.is_multivalued = Bool(self.is_multivalued)
+
+        if self._is_empty(self.is_required):
+            self.MissingRequiredField("is_required")
+        if not isinstance(self.is_required, Bool):
+            self.is_required = Bool(self.is_required)
+
+        if self._is_empty(self.context):
+            self.MissingRequiredField("context")
+        if not isinstance(self.context, str):
+            self.context = str(self.context)
+
+        if self.predicate is not None and not isinstance(self.predicate, str):
+            self.predicate = str(self.predicate)
+
+        if self.exclude_from_extensions is not None and not isinstance(self.exclude_from_extensions, Bool):
+            self.exclude_from_extensions = Bool(self.exclude_from_extensions)
+
+        super().__post_init__(**kwargs)
 
 
-class Collection(ConfiguredBaseModel):
+@dataclass
+class Collection(YAMLRoot):
     """
-    A collection of GO domain/range constraint shapes.  This is primarily used in this schema to allow several  test data objects to be submitted in a single file. 
+    A collection of GO domain/range constraint shapes. This is primarily used in this schema to allow several test
+    data objects to be submitted in a single file.
     """
-    goshapes: Optional[List[Association]] = Field(default_factory=list, description="""A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape  is defined as the domain, relationship, and range of a GO shape expression rule.""")
-    
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = GO.Collection
+    class_class_curie: ClassVar[str] = "GO:Collection"
+    class_name: ClassVar[str] = "Collection"
+    class_model_uri: ClassVar[URIRef] = GO.Collection
+
+    goshapes: Optional[Union[Union[dict, Association], List[Union[dict, Association]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="goshapes", slot_type=Association, key_name="subject", keyed=False)
+
+        super().__post_init__(**kwargs)
 
 
+# Enumerations
 
-# Update forward refs
-# see https://pydantic-docs.helpmanual.io/usage/postponed_annotations/
-Association.update_forward_refs()
-Collection.update_forward_refs()
 
+# Slots
+class slots:
+    pass
+
+slots.object = Slot(uri=GO.object, name="object", curie=GO.curie('object'),
+                   model_uri=GO.object, domain=None, range=Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]])
+
+slots.id = Slot(uri=GO.id, name="id", curie=GO.curie('id'),
+                   model_uri=GO.id, domain=None, range=Optional[str])
+
+slots.predicate = Slot(uri=GO.predicate, name="predicate", curie=GO.curie('predicate'),
+                   model_uri=GO.predicate, domain=None, range=Optional[str])
+
+slots.subject = Slot(uri=GO.subject, name="subject", curie=GO.curie('subject'),
+                   model_uri=GO.subject, domain=None, range=Union[str, URIorCURIE])
+
+slots.is_multivalued = Slot(uri=GO.is_multivalued, name="is_multivalued", curie=GO.curie('is_multivalued'),
+                   model_uri=GO.is_multivalued, domain=None, range=Union[bool, Bool])
+
+slots.goshapes = Slot(uri=GO.goshapes, name="goshapes", curie=GO.curie('goshapes'),
+                   model_uri=GO.goshapes, domain=None, range=Optional[Union[Union[dict, Association], List[Union[dict, Association]]]])
+
+slots.is_required = Slot(uri=GO.is_required, name="is_required", curie=GO.curie('is_required'),
+                   model_uri=GO.is_required, domain=None, range=Union[bool, Bool])
+
+slots.context = Slot(uri=GO.context, name="context", curie=GO.curie('context'),
+                   model_uri=GO.context, domain=None, range=str)
+
+slots.exclude_from_extensions = Slot(uri=GO.exclude_from_extensions, name="exclude_from_extensions", curie=GO.curie('exclude_from_extensions'),
+                   model_uri=GO.exclude_from_extensions, domain=None, range=Optional[Union[bool, Bool]])
