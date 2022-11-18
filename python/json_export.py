@@ -69,9 +69,9 @@ class NoctuaFormShex:
             for expr2 in expr.expressions:
                 self._load_triple_expr(subject, expr2, preds)
         elif isinstance(expr, TripleConstraint) and expr.valueExpr is not None:
-            pred = get_suffix(expr.predicate)
+            predicate = get_suffix(expr.predicate)
 
-            if pred not in self.pref_dict.values():
+            if predicate not in self.pref_dict.values():
                 return
 
             objects = []
@@ -79,13 +79,13 @@ class NoctuaFormShex:
             goshape = {} #Association 
             goshape['subject']=subject
             goshape['object']=objects
-            goshape['predicate']=pred  
+            goshape['predicate']=predicate  
             
             if isinstance(expr.annotations, list):                    
                 goshape['exclude_from_extensions']=self._load_annotation(expr, self.exclude_ext_pred) 
             
             if expr.max is not None:
-                goshape["is_multivalued"] = True if expr.max == 1 else False
+                goshape["is_multivalued"] = True if expr.max == -1 else False
             
             self.json_shapes.append(goshape)
 
