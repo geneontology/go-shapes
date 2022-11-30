@@ -1,0 +1,4277 @@
+{
+  "type": "Schema",
+  "shapes": [
+    {
+      "type": "Shape",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/GoCamModel",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://www.w3.org/2002/07/owl#Ontology"
+              ]
+            },
+            "min": 1,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/elements/1.1/contributor",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/elements/1.1/date",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/terms/created",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/terms/dateAccepted",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/pav/providedBy",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://geneontology.org/lego/modelstate",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://geneontology.org/lego/templatestate",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "https://w3id.org/biolink/vocab/in_taxon",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/elements/1.1/title",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#imports",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.geneontology.org/formats/oboInOwl#id",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#versionIRI",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "Shape",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ProvenanceAnnotated",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/elements/1.1/contributor",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/elements/1.1/date",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/terms/created",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/dc/terms/dateAccepted",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": 1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://purl.org/pav/providedBy",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2004/02/skos/core#note",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+            },
+            "min": 0,
+            "max": -1
+          }
+        ]
+      }
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/ProvenanceAnnotated"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "values": [
+                    "http://www.w3.org/2002/07/owl#NamedIndividual"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "Every entity we care about is a named individual"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "mappings for the entity. Value is typically a CURIE string. Currently this is only used for Reactome-derived models."
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+                "min": 0,
+                "max": 1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "the name of the entity. Currently this is only used for Reactome-derived models."
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://geneontology.org/lego/hint/layout/x",
+                "min": 0,
+                "max": 1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "X coordinate for node. This is used for caching layouts in the Noctua Graph Editor."
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://geneontology.org/lego/hint/layout/y",
+                "min": 0,
+                "max": 1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "Y coordinate for node. This is used for caching layouts in the Noctua Graph Editor."
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2004/02/skos/core#narrower",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "This entity (e.g. a node representing a pathway) represents a narrower (in any sense) concept then the target node. "
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2004/02/skos/core#broader",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+                    "object": {
+                      "value": "This entity (e.g. a node representing a pathway) represents a broader (in any sense) concept then the target node. "
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "Every entity we care about is a named individual"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "mappings for the entity. Value is typically a CURIE string. Currently this is only used for Reactome-derived models."
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "the name of the entity. Currently this is only used for Reactome-derived models."
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "X coordinate for node. This is used for caching layouts in the Noctua Graph Editor."
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "Y coordinate for node. This is used for caching layouts in the Noctua Graph Editor."
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "This entity (e.g. a node representing a pathway) represents a narrower (in any sense) concept then the target node. "
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "This entity (e.g. a node representing a pathway) represents a broader (in any sense) concept then the target node. "
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "Default allowable metadata for GO-CAM entities"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Shape",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/OwlClass",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "valueExpr": {
+          "type": "NodeConstraint",
+          "values": [
+            "http://www.w3.org/2002/07/owl#Class"
+          ]
+        },
+        "min": 1,
+        "max": 1
+      }
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcessClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0008150"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NegatedBiologicalProcessClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "bnode"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#complementOf",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcessClass"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/OrganismClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/NCBITaxon_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Organism",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/OrganismClass"
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "A member of a class of organisms defined in the NCBI taxonomy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcessClass",
+                    "http://purl.obolibrary.org/obo/go/shapes/NegatedBiologicalProcessClass"
+                  ]
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002233",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
+                    "http://purl.obolibrary.org/obo/go/shapes/Organism"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000066",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002313",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002339",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002338",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002411",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002305",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002304",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002211",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002212",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002213",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0012003",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/Organism"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "A biological process"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureDevelopmentClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0048856"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureDevelopment",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureDevelopmentClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002296",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "an anatomical structure development class GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureFormationInvolvedInMorphogenesisClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0048646"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureFormationInvolvedInMorphogenesis",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureFormationInvolvedInMorphogenesisClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002297",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "an anatomical structure formation involved in morphogenesis class GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureMorphogenesisClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0009653"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureMorphogenesis",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalStructureMorphogenesisClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002298",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "an anatomical structure morphogenesis class GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellDifferentiationClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0030154"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellDifferentiation",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellDifferentiationClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002315",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/NativeCell",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cell differentiation GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellDivisionClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0051301"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellDivision",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellDivisionClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002233",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/NativeCell",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cell division GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellFateCommitmentClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0045165"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellFateCommitment",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellFateCommitmentClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002348",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/NativeCell",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cell fate commitment GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellFateDeterminationClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0001709"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellFateDetermination",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellFateDeterminationClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002349",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/NativeCell",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cell fate determination GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellFateSpecificationClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0001708"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellFateSpecification",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellFateSpecificationClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002356",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/NativeCell",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cell fate specification GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentAssemblyClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0022607"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentAssembly",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentAssemblyClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002588",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponent",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cellular component assembly GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentDisassemblyClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0022411"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentDisassembly",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentDisassemblyClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002590",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponent",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cellular component disassembly GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentOrganizationClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0016043"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentOrganization",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentOrganizationClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002592",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponent",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cellular component organization GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/DevelopmentalMaturationClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0021700"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/DevelopmentalMaturation",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/DevelopmentalMaturationClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002299",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a developmental maturation GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/GrowthClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0040007"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Growth",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/GrowthClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002343",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a growth GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/LocalizationClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0051179"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Localization",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/LocalizationClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002313",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002339",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002338",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a localization GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/LocomotionClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0040011"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Locomotion",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/LocomotionClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002565",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a locomotion GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/MetabolicProcessClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0008152"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/MetabolicProcess",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/MetabolicProcessClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004009",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004008",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a metabolic process GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplexRemodelingClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0034367"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplexRemodeling",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplexRemodelingClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002591",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a protein containing complex remodeling GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/PatternSpecificationProcessClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0007389"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/PatternSpecificationProcess",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/PatternSpecificationProcessClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002356",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a pattern specification process GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/TransportClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0006810"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Transport",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/TransportClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004009",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004008",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a transport GO biological process or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/MolecularFunctionClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0003674"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NegatedMolecularFunctionClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "bnode"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#complementOf",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/MolecularFunctionClass"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/MolecularEventClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/go/extensions/reacto.owl#molecular_event"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NegatedMolecularEventClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "bnode"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#complementOf",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/MolecularEventClass"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://purl.obolibrary.org/obo/go/shapes/MolecularEventClass",
+                "http://purl.obolibrary.org/obo/go/shapes/NegatedMolecularEventClass"
+              ]
+            },
+            "min": 1,
+            "max": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunctionClass",
+                    "http://purl.obolibrary.org/obo/go/shapes/NegatedMolecularFunctionClass"
+                  ]
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002333",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000051",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000066",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002233",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002413",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002211",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002212",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002213",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002578",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002630",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002629",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0012012",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002407",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002409",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0012009",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0012010",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002418",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent",
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004046",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004047",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002411",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002305",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002304",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                    "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+                  ]
+                },
+                "min": 0,
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002092",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhase",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "A molecular function"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/TransporterActivityClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0005215"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/TransporterActivity",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/TransporterActivityClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002313",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002339",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponent",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002338",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponent",
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a transporter activity GO molecular function or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhaseClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0044848"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhase",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhaseClass"
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a biological phase"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStageClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/UBERON_0000105"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStageClass"
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a lifecycle stage"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStageClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/PO_0009012"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStageClass"
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a plant structure developmental stage"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntityClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/CARO_0000000"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NegatedAnatomicalEntityClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "bnode"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#complementOf",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntityClass"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntityClass",
+                    "http://purl.obolibrary.org/obo/go/shapes/NegatedAnatomicalEntityClass"
+                  ]
+                }
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0001015",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "an anatomical entity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NativeCellClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/CL_0000003"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NativeCell",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/NativeCellClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a native cell or child"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0005575"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/NegatedCellularComponentClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "bnode"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2002/07/owl#complementOf",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/CellularComponentClass"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0005575"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/CellularComponent",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/CellularComponentClass",
+                    "http://purl.obolibrary.org/obo/go/shapes/NegatedCellularComponentClass"
+                  ]
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002220",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002131",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002490",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002491",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a cellular component"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplexClass"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0001025",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002432",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
+                  ]
+                },
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000051",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002490",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002491",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a protein complex"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplexClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/GO_0032991"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntityClass",
+            "min": 1,
+            "max": -1
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a molecular entity (a gene product, chemical, or complex typically)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntityClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/CHEBI_24431"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/ProteinClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/CHEBI_36080"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Protein",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ProteinClass"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0001025",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002432",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
+                  ]
+                },
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002326",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "a protein"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromoleculeClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/CHEBI_33695"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromolecule",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/InformationBiomacromoleculeClass",
+                "min": 1,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0001025",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002432",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
+                  ]
+                },
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000050",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
+                "min": 0,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002326",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/MolecularFunction",
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "an information biomacromolecule - e.g. a protein or RNA product"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/EvidenceClass",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "iri"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/OwlClass"
+          ]
+        },
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+          ],
+          "expression": {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://purl.obolibrary.org/obo/ECO_0000000"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/Evidence",
+      "shapeExprs": [
+        "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity",
+        {
+          "type": "Shape",
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ],
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/EvidenceClass",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.org/dc/elements/1.1/source",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://geneontology.org/lego/evidence-with",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://www.w3.org/2000/01/rdf-schema#comment",
+              "object": {
+                "value": "A kind of evidence"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ShapeAnd",
+      "id": "http://purl.obolibrary.org/obo/go/shapes/AnnotatedEdge",
+      "shapeExprs": [
+        {
+          "type": "ShapeAnd",
+          "shapeExprs": [
+            {
+              "type": "NodeConstraint",
+              "nodeKind": "bnode"
+            },
+            "http://purl.obolibrary.org/obo/go/shapes/ProvenanceAnnotated"
+          ]
+        },
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "values": [
+                    "http://www.w3.org/2002/07/owl#Axiom"
+                  ]
+                }
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2002/07/owl#annotatedSource",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2002/07/owl#annotatedProperty",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "nodeKind": "iri"
+                }
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/2002/07/owl#annotatedTarget",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity"
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://geneontology.org/lego/evidence",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/Evidence",
+                "min": 0,
+                "max": -1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

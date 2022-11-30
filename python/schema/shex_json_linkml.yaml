@@ -1,0 +1,106 @@
+id: go-shex-domain-range-constraints
+name: GODomainRangeConstraintsModel
+description: a schema for the domain and range exchange format for the GO shape expressions
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.1.0
+
+default_prefix: GO
+default_range: string
+
+imports:
+  - linkml:types
+
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+prefixes:
+  biolink: https://w3id.org/biolink/vocab/
+  linkml: https://w3id.org/linkml/
+
+classes:
+  Association:
+    description: >-
+      GO domain/range constraint shape is defined as the domain, relationship, and range of a GO shape 
+      expression rule
+    slots:
+      - subject
+      - predicate
+      - object
+      - is_multivalued
+      - is_required
+      - context
+      - exclude_from_extensions # where does this belong?
+    close_mappings:
+     - schema:Thing
+
+  AssociationCollection:
+    tree_root: true
+    slots:
+      - goshapes
+    description: >-
+      A collection of GO domain/range constraint shapes.  This is primarily used in this schema to allow several 
+      test data objects to be submitted in a single file. 
+
+slots:
+
+  object:
+    multivalued: true
+    range: uriorcurie
+    required: true
+    description: >-
+      The range of the relationship identified by the Relationship.id parameter
+      (This contains the values can be provided in the object of a statement)
+
+  id:
+    range: string
+    description: >-
+      The relationship id is the predicate of the relationship between the domain and 
+      range of the GO shape expression rule.
+
+  predicate:
+    range: string
+    description: >-
+      The predicate is the relationship between the domain and 
+      range of the GO shape expression rule.
+
+  subject:
+    range: uriorcurie
+    required: true
+    description: >-
+      The domain of the GO shape expression rule, this is the subject of the relationship.
+
+  is_multivalued:
+    range: boolean
+    required: true
+    description: >-
+      for this shape, the relationship in question supports multiple values in the object of the association.
+
+  goshapes:
+    multivalued: true
+    range: Association
+    inlined: true
+    inlined_as_list: true
+    description: >-
+      A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape 
+      is defined as the domain, relationship, and range of a GO shape expression rule.
+
+  is_required:
+    range: boolean
+    required: true
+
+  context:
+    range: string
+    description: >-
+      used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes
+      annotated with like this https://github.com/geneontology/go-shapes/pull/285/files will be exlcuded from the
+      visual pathway editor but still included in the file so this file can be used in the graphical editor as well.
+    required: true
+
+  exclude_from_extensions:
+    range: boolean
+    description: >-
+      used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes
+      annotated with like this

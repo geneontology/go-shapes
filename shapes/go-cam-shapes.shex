@@ -184,19 +184,19 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <BiologicalProcess> @<GoCamEntity> AND EXTRA a {
   a ( @<BiologicalProcessClass> OR @<NegatedBiologicalProcessClass> ) {1};
-  part_of: @<BiologicalProcess> *;
+  part_of: @<BiologicalProcess> * // <exclude_from_extensions> true;
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: @<AnatomicalEntity> {0,1} // <exclude_from_extensions> true;
   transports_or_maintains_localization_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
-  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  regulates: @<BiologicalProcess> *;
-  negatively_regulates: @<BiologicalProcess> *;
-  positively_regulates: @<BiologicalProcess> *;
+  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  regulates: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  negatively_regulates: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  positively_regulates: @<BiologicalProcess> *  // <exclude_from_extensions> true;
   acts_on_population_of: ( @<AnatomicalEntity> OR @<Organism> ) *;
 } // rdfs:comment  "A biological process"
 
@@ -399,29 +399,29 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <MolecularFunction> @<GoCamEntity> AND EXTRA a {
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
   enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
-  part_of: @<BiologicalProcess> *;
+  part_of: @<BiologicalProcess> * // <exclude_from_extensions> true;
   has_part: @<MolecularFunction> *;
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: @<AnatomicalEntity> {0,1} // <exclude_from_extensions> true;
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
-  directly_provides_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  directly_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  directly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  directly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  directly_provides_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  directly_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  directly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  directly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   indirectly_regulates: ( @<MolecularFunction> OR @<MolecularEvent>) *;
-  indirectly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  indirectly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  indirectly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  indirectly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   removes_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_or_within: ( @<MolecularFunction> OR @<MolecularEvent> OR @<BiologicalProcess> ) *;
-  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *;
-  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *;
-  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
+  causally_upstream_of_or_within: ( @<MolecularFunction> OR @<MolecularEvent> OR @<BiologicalProcess> ) *  // <exclude_from_extensions> true;
+  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   happens_during: ( @<BiologicalPhase> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "A molecular function"
 
