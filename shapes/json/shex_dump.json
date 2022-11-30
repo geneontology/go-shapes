@@ -9,9 +9,7 @@
       "is_required": false,
       "context": "",
       "predicate": "BFO:0000050",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -24,7 +22,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002233"
+      "predicate": "RO:0002233",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -36,7 +35,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002234"
+      "predicate": "RO:0002234",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -47,9 +47,7 @@
       "is_required": false,
       "context": "",
       "predicate": "BFO:0000066",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -60,7 +58,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002313"
+      "predicate": "RO:0002313",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -70,7 +69,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002339"
+      "predicate": "RO:0002339",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -80,7 +80,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002338"
+      "predicate": "RO:0002338",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -93,9 +94,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002411",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -108,9 +107,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002305",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -123,9 +120,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002304",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -136,9 +131,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002211",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -149,9 +142,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002212",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -162,9 +153,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002213",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -175,7 +164,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0012003"
+      "predicate": "RO:0012003",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0048856",
@@ -185,7 +175,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002296"
+      "predicate": "RO:0002296",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0048646",
@@ -195,7 +186,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002297"
+      "predicate": "RO:0002297",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0009653",
@@ -205,7 +197,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002298"
+      "predicate": "RO:0002298",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0030154",
@@ -215,7 +208,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002315"
+      "predicate": "RO:0002315",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0051301",
@@ -225,7 +219,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002233"
+      "predicate": "RO:0002233",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0045165",
@@ -235,7 +230,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002348"
+      "predicate": "RO:0002348",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0001709",
@@ -245,7 +241,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002349"
+      "predicate": "RO:0002349",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0001708",
@@ -255,7 +252,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002356"
+      "predicate": "RO:0002356",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0022607",
@@ -265,7 +263,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002588"
+      "predicate": "RO:0002588",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0022411",
@@ -275,7 +274,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002590"
+      "predicate": "RO:0002590",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0016043",
@@ -285,7 +285,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002592"
+      "predicate": "RO:0002592",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0021700",
@@ -295,7 +296,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002299"
+      "predicate": "RO:0002299",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0040007",
@@ -305,7 +307,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002343"
+      "predicate": "RO:0002343",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0051179",
@@ -318,7 +321,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002313"
+      "predicate": "RO:0002313",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0051179",
@@ -328,7 +332,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002339"
+      "predicate": "RO:0002339",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0051179",
@@ -338,7 +343,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002338"
+      "predicate": "RO:0002338",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0040011",
@@ -348,7 +354,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002565"
+      "predicate": "RO:0002565",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008152",
@@ -358,7 +365,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0004009"
+      "predicate": "RO:0004009",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008152",
@@ -368,7 +376,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0004008"
+      "predicate": "RO:0004008",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0034367",
@@ -378,7 +387,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002591"
+      "predicate": "RO:0002591",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0007389",
@@ -388,7 +398,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002356"
+      "predicate": "RO:0002356",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0006810",
@@ -400,7 +411,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0004009"
+      "predicate": "RO:0004009",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0006810",
@@ -412,7 +424,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0004008"
+      "predicate": "RO:0004008",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -423,7 +436,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002333"
+      "predicate": "RO:0002333",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -434,9 +448,7 @@
       "is_required": false,
       "context": "",
       "predicate": "BFO:0000050",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -446,7 +458,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000051"
+      "predicate": "BFO:0000051",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -457,9 +470,7 @@
       "is_required": false,
       "context": "",
       "predicate": "BFO:0000066",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -470,7 +481,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002234"
+      "predicate": "RO:0002234",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -481,7 +493,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002233"
+      "predicate": "RO:0002233",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -493,9 +506,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002413",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -507,9 +518,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002211",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -521,9 +530,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002212",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -535,9 +542,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002213",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -549,9 +554,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002578",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -563,9 +566,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002630",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -577,9 +578,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002629",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -590,7 +589,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0012012"
+      "predicate": "RO:0012012",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -602,9 +602,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002407",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -616,9 +614,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002409",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -629,7 +625,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0012009"
+      "predicate": "RO:0012009",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -640,7 +637,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0012010"
+      "predicate": "RO:0012010",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0003674",
@@ -653,9 +651,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002418",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -666,9 +662,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0004046",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -679,9 +673,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0004047",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -694,9 +686,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002411",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -709,9 +699,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002305",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -724,9 +712,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002304",
-      "exclude_from_extensions": [
-        true
-      ]
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -738,7 +724,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002092"
+      "predicate": "RO:0002092",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005215",
@@ -750,7 +737,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002313"
+      "predicate": "RO:0002313",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005215",
@@ -760,7 +748,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002339"
+      "predicate": "RO:0002339",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005215",
@@ -770,7 +759,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002338"
+      "predicate": "RO:0002338",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CARO:0000000",
@@ -780,7 +770,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000050"
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CARO:0000000",
@@ -791,7 +782,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0001015"
+      "predicate": "RO:0001015",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CL:0000003",
@@ -801,7 +793,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000050"
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005575",
@@ -811,7 +804,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000050"
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005575",
@@ -821,7 +815,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002220"
+      "predicate": "RO:0002220",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005575",
@@ -831,7 +826,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002131"
+      "predicate": "RO:0002131",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005575",
@@ -843,7 +839,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002490"
+      "predicate": "RO:0002490",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0005575",
@@ -855,7 +852,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002491"
+      "predicate": "RO:0002491",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0032991",
@@ -865,7 +863,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0001025"
+      "predicate": "RO:0001025",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0032991",
@@ -876,7 +875,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002432"
+      "predicate": "RO:0002432",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0032991",
@@ -887,7 +887,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000051"
+      "predicate": "BFO:0000051",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0032991",
@@ -899,7 +900,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002490"
+      "predicate": "RO:0002490",
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0032991",
@@ -911,7 +913,8 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002491"
+      "predicate": "RO:0002491",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:36080",
@@ -921,7 +924,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0001025"
+      "predicate": "RO:0001025",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:36080",
@@ -932,7 +936,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002432"
+      "predicate": "RO:0002432",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:36080",
@@ -942,7 +947,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000050"
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:36080",
@@ -952,7 +958,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002326"
+      "predicate": "RO:0002326",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:33695",
@@ -962,7 +969,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0001025"
+      "predicate": "RO:0001025",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:33695",
@@ -973,7 +981,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002432"
+      "predicate": "RO:0002432",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:33695",
@@ -983,7 +992,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000050"
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": false
     },
     {
       "subject": "CHEBI:33695",
@@ -993,7 +1003,8 @@
       "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002326"
+      "predicate": "RO:0002326",
+      "exclude_from_extensions": false
     }
   ],
   "@type": "AssociationCollection"

@@ -45,7 +45,7 @@ class NoctuaFormShex:
             name = 'GO' + name
         return self.pref_dict.get(name, None if clean else uri)
 
-    def gen_lookup_table(self):
+    def gen_terms_metadata(self):
         goApi = 'http://api.geneontology.org/api/ontology/term/'
         table = list()
         for k, v in self.pref_dict.items():
@@ -91,7 +91,7 @@ class NoctuaFormShex:
             objects = []
             self._load_expr(subject, expr.valueExpr, objects)
 
-            exclude_from_extensions = ""
+            exclude_from_extensions = False
             if isinstance(expr.annotations, list):
                 exclude_from_extensions = self._load_annotation(
                     expr, self.exclude_ext_pred)
@@ -105,11 +105,11 @@ class NoctuaFormShex:
                 object=objects,
                 predicate=predicate,
                 is_multivalued=is_multivalued,
+                exclude_from_extensions=exclude_from_extensions,
                 is_required=False,
                 context=""
             )
-            if exclude_from_extensions != "":
-                goshape.exclude_from_extensions = exclude_from_extensions,
+                
             self.json_shapes.append(goshape)
 
             return preds
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     base_path = Path(__file__).parent
     shex_fp = (base_path / "../shapes/go-cam-shapes.shex").resolve()
     json_shapes_fp = (base_path / "../shapes/json/shex_dump.json").resolve()
-    look_table_fp = (base_path / "../shapes/json/look_table.json").resolve()
+    terms_metadata_fp = (base_path / "../shapes/json/terms_metadata.json").resolve()
     shex_full_fp = (base_path / "../shapes/json/shex_full.json").resolve()
 
     with open(shex_fp) as f:
@@ -160,8 +160,8 @@ if __name__ == "__main__":
         coll = AssociationCollection(goshapes=nfShex.json_shapes)
         jd.dump(coll, to_file=OUT_JSON)
 
-    """ with open(look_table_fp, "w") as sf:
-        json.dump(nfShex.gen_lookup_table(), sf, indent=2) """
+    with open(terms_metadata_fp, "w") as sf:
+        json.dump(nfShex.gen_terms_metadata(), sf, indent=2)
 
     with open(shex_full_fp, "w") as sf:
         json.dump(nfShex.parse_raw(), sf, indent=2)
