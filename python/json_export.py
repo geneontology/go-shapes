@@ -7,6 +7,7 @@ from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
     shapeExprLabel, tripleExpr, tripleExprLabel, OneOf, EachOf, Annotation
 from pyshex import PrefixLibrary
+import requests
 from shex_json_linkml import Association, AssociationCollection
 from linkml_runtime.dumpers import JSONDumper
 from linkml_runtime.loaders import JSONLoader
@@ -14,6 +15,7 @@ from pathlib import Path
 import os
 
 OUT_JSON = os.path.join('../shapes/json/shex_dump.json')
+
 
 def get_suffix(uri):
     suffix = contract_uri(uri, cmaps=[prefix_context])
@@ -27,13 +29,14 @@ class NoctuaFormShex:
     def __init__(self, shex_text):
         self.exclude_ext_pred = 'http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions'
         self.json_shapes = []
-        
+
         self.shex = generate_shexj.parse(shex_text)
         pref = PrefixLibrary(shex_text)
         self.pref_dict = {
             k: get_suffix(str(v)) for (k, v) in dict(pref).items()
             if str(v).startswith('http://purl.obolibrary.org/obo/')}
-        del self.pref_dict['OBO']  # remove this filter and make sure that it works because it needs to be
+        # remove this filter and make sure that it works because it needs to be
+        del self.pref_dict['OBO']
         # working for every shape.
 
     def get_shape_name(self, uri, clean=False):
@@ -43,12 +46,21 @@ class NoctuaFormShex:
         return self.pref_dict.get(name, None if clean else uri)
 
     def gen_lookup_table(self):
-        table = {v: {
-            'label': k
-        } for (k, v) in self.pref_dict.items()}
+        goApi = 'http://api.geneontology.org/api/ontology/term/'
+        table = list()
+        for k, v in self.pref_dict.items():
+            resp = requests.get(goApi+v)
+            term = resp.json()
+            table.append({
+                'id': term['goid'],
+                'label': term['label'],
+                'definition': term.get('definition', ""),
+                'comment': term.get('comment', ""),
+                'synonyms': term.get('synonyms', "")
+            })
         return table
 
-    def _load_expr(self, subject:str, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
+    def _load_expr(self, subject: str, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
 
         if preds is None:
             preds = {}
@@ -65,7 +77,7 @@ class NoctuaFormShex:
         # throw an error here if pred list is empty
         return preds
 
-    def _load_triple_expr(self, subject:str, expr: Union[tripleExpr, tripleExprLabel], preds=None) ->  None:
+    def _load_triple_expr(self, subject: str, expr: Union[tripleExpr, tripleExprLabel], preds=None) -> None:
 
         if isinstance(expr, (OneOf, EachOf)):
             for expr2 in expr.expressions:
@@ -74,19 +86,19 @@ class NoctuaFormShex:
             predicate = get_suffix(expr.predicate)
 
             if predicate not in self.pref_dict.values():
-                return
+                return preds
 
             objects = []
             self._load_expr(subject, expr.valueExpr, objects)
 
             exclude_from_extensions = ""
-            if isinstance(expr.annotations, list):                    
-                exclude_from_extensions = self._load_annotation(expr, self.exclude_ext_pred)
+            if isinstance(expr.annotations, list):
+                exclude_from_extensions = self._load_annotation(
+                    expr, self.exclude_ext_pred)
 
             is_multivalued = False
-            if expr.max is not None:
-                if expr.max == -1:
-                    is_multivalued = True
+            if expr.max is not None and expr.max == -1:
+                is_multivalued = True
 
             goshape = Association(
                 subject=subject,
@@ -104,11 +116,10 @@ class NoctuaFormShex:
 
     def _load_annotation(self, expr: Union[tripleExpr, tripleExprLabel], annotation_key):
         for annotation in expr.annotations:
-            if isinstance(annotation, Annotation) :
-                if annotation.predicate == annotation_key:
-                    return True if annotation.object.value=="true" else False
+            if isinstance(annotation, Annotation) and annotation.predicate == annotation_key:
+                return True if annotation.object.value == "true" else False
 
-        return None
+        return False
 
     def parse_raw(self):
         return json.loads(self.shex._as_json_dumps())
@@ -123,7 +134,7 @@ class NoctuaFormShex:
                 continue
 
             print('Parsing Shape: ' + shape['id'])
-            
+
             shexps = shape.shapeExprs or []
 
             for expr in shexps:
@@ -137,7 +148,7 @@ if __name__ == "__main__":
     json_shapes_fp = (base_path / "../shapes/json/shex_dump.json").resolve()
     look_table_fp = (base_path / "../shapes/json/look_table.json").resolve()
     shex_full_fp = (base_path / "../shapes/json/shex_full.json").resolve()
-    
+
     with open(shex_fp) as f:
         shex_text = f.read()
 
@@ -149,8 +160,8 @@ if __name__ == "__main__":
         coll = AssociationCollection(goshapes=nfShex.json_shapes)
         jd.dump(coll, to_file=OUT_JSON)
 
-    with open(look_table_fp, "w") as sf:
-        json.dump(nfShex.gen_lookup_table(), sf, indent=2)
+    """ with open(look_table_fp, "w") as sf:
+        json.dump(nfShex.gen_lookup_table(), sf, indent=2) """
 
     with open(shex_full_fp, "w") as sf:
         json.dump(nfShex.parse_raw(), sf, indent=2)

@@ -1,0 +1,1000 @@
+{
+  "goshapes": [
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991",
+        "NCBITaxon:1"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002233"
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002234"
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000066",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002313"
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002339"
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002338"
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150",
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002411",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150",
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002305",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150",
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002304",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002211",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002212",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002213",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CARO:0000000",
+        "NCBITaxon:1"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0012003"
+    },
+    {
+      "subject": "GO:0048856",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002296"
+    },
+    {
+      "subject": "GO:0048646",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002297"
+    },
+    {
+      "subject": "GO:0009653",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002298"
+    },
+    {
+      "subject": "GO:0030154",
+      "object": [
+        "CL:0000003"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002315"
+    },
+    {
+      "subject": "GO:0051301",
+      "object": [
+        "CL:0000003"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002233"
+    },
+    {
+      "subject": "GO:0045165",
+      "object": [
+        "CL:0000003"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002348"
+    },
+    {
+      "subject": "GO:0001709",
+      "object": [
+        "CL:0000003"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002349"
+    },
+    {
+      "subject": "GO:0001708",
+      "object": [
+        "CL:0000003"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002356"
+    },
+    {
+      "subject": "GO:0022607",
+      "object": [
+        "GO:0005575"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002588"
+    },
+    {
+      "subject": "GO:0022411",
+      "object": [
+        "GO:0005575"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002590"
+    },
+    {
+      "subject": "GO:0016043",
+      "object": [
+        "GO:0005575"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002592"
+    },
+    {
+      "subject": "GO:0021700",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002299"
+    },
+    {
+      "subject": "GO:0040007",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002343"
+    },
+    {
+      "subject": "GO:0051179",
+      "object": [
+        "CARO:0000000",
+        "CHEBI:24431",
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002313"
+    },
+    {
+      "subject": "GO:0051179",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002339"
+    },
+    {
+      "subject": "GO:0051179",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002338"
+    },
+    {
+      "subject": "GO:0040011",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002565"
+    },
+    {
+      "subject": "GO:0008152",
+      "object": [
+        "CHEBI:24431"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004009"
+    },
+    {
+      "subject": "GO:0008152",
+      "object": [
+        "CHEBI:24431"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004008"
+    },
+    {
+      "subject": "GO:0034367",
+      "object": [
+        "GO:0032991"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002591"
+    },
+    {
+      "subject": "GO:0007389",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002356"
+    },
+    {
+      "subject": "GO:0006810",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004009"
+    },
+    {
+      "subject": "GO:0006810",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004008"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002333"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000051"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000066",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "CHEBI:24431",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002234"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "CHEBI:24431",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002233"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002413",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002211",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002212",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002213",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002578",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002630",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002629",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0012012"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002407",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002409",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0012009"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0012010"
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent",
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002418",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004046",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0008150"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004047",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0008150",
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002411",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0008150",
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002305",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0008150",
+        "GO:0003674",
+        "http://purl.obolibrary.org/obo/go/shapes/MolecularEvent"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002304",
+      "exclude_from_extensions": [
+        true
+      ]
+    },
+    {
+      "subject": "GO:0003674",
+      "object": [
+        "GO:0044848",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002092"
+    },
+    {
+      "subject": "GO:0005215",
+      "object": [
+        "CHEBI:24431",
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002313"
+    },
+    {
+      "subject": "GO:0005215",
+      "object": [
+        "GO:0005575"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002339"
+    },
+    {
+      "subject": "GO:0005215",
+      "object": [
+        "GO:0005575"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002338"
+    },
+    {
+      "subject": "CARO:0000000",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050"
+    },
+    {
+      "subject": "CARO:0000000",
+      "object": [
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0001015"
+    },
+    {
+      "subject": "CL:0000003",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050"
+    },
+    {
+      "subject": "GO:0005575",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050"
+    },
+    {
+      "subject": "GO:0005575",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002220"
+    },
+    {
+      "subject": "GO:0005575",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002131"
+    },
+    {
+      "subject": "GO:0005575",
+      "object": [
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002490"
+    },
+    {
+      "subject": "GO:0005575",
+      "object": [
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002491"
+    },
+    {
+      "subject": "GO:0032991",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0001025"
+    },
+    {
+      "subject": "GO:0032991",
+      "object": [
+        "CARO:0000000",
+        "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002432"
+    },
+    {
+      "subject": "GO:0032991",
+      "object": [
+        "CHEBI:33695",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000051"
+    },
+    {
+      "subject": "GO:0032991",
+      "object": [
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002490"
+    },
+    {
+      "subject": "GO:0032991",
+      "object": [
+        "GO:0008150",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002491"
+    },
+    {
+      "subject": "CHEBI:36080",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0001025"
+    },
+    {
+      "subject": "CHEBI:36080",
+      "object": [
+        "CARO:0000000",
+        "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002432"
+    },
+    {
+      "subject": "CHEBI:36080",
+      "object": [
+        "GO:0032991"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050"
+    },
+    {
+      "subject": "CHEBI:36080",
+      "object": [
+        "GO:0003674"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002326"
+    },
+    {
+      "subject": "CHEBI:33695",
+      "object": [
+        "CARO:0000000"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0001025"
+    },
+    {
+      "subject": "CHEBI:33695",
+      "object": [
+        "CARO:0000000",
+        "http://purl.obolibrary.org/obo/go/shapes/RootCellularComponent"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002432"
+    },
+    {
+      "subject": "CHEBI:33695",
+      "object": [
+        "GO:0032991"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "BFO:0000050"
+    },
+    {
+      "subject": "CHEBI:33695",
+      "object": [
+        "GO:0003674"
+      ],
+      "is_multivalued": false,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002326"
+    }
+  ],
+  "@type": "AssociationCollection"
+}

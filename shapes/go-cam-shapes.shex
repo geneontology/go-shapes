@@ -1,10 +1,11 @@
-BASE  <http://purl.obolibrary.org/obo/go/shapes/>
+BASE   <http://purl.obolibrary.org/obo/go/shapes/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 #metadata
 PREFIX bl: <https://w3id.org/biolink/vocab/>
 PREFIX contributor: <http://purl.org/dc/elements/1.1/contributor>
@@ -51,9 +52,10 @@ PREFIX GoDevelopmentalMaturation: <http://purl.obolibrary.org/obo/GO_0021700>
 PREFIX GoGrowth: <http://purl.obolibrary.org/obo/GO_0040007>
 PREFIX GoLocalization: <http://purl.obolibrary.org/obo/GO_0051179>
 PREFIX GoLocomotion: <http://purl.obolibrary.org/obo/GO_0040011>
-PREFIX GoMovementOfCellOrSubcellularComponent: <http://purl.obolibrary.org/obo/GO_0006928>
 PREFIX GoProteinContainingComplexRemodeling: <http://purl.obolibrary.org/obo/GO_0034367>
 PREFIX GoPatternSpecificationProcess: <http://purl.obolibrary.org/obo/GO_0007389>
+PREFIX GoMetabolicProcess: <http://purl.obolibrary.org/obo/GO_0008152>
+PREFIX GoTransport: <http://purl.obolibrary.org/obo/GO_0006810>
 PREFIX GoMolecularFunction: <http://purl.obolibrary.org/obo/GO_0003674>
 prefix GoMolecularEvent: <http://purl.obolibrary.org/obo/go/extensions/reacto.owl#molecular_event>
 PREFIX GoTransporterActivity: <http://purl.obolibrary.org/obo/GO_0005215>
@@ -77,6 +79,8 @@ PREFIX enabled_by: <http://purl.obolibrary.org/obo/RO_0002333>
 PREFIX contributes_to: <http://purl.obolibrary.org/obo/RO_0002326>
 PREFIX has_input: <http://purl.obolibrary.org/obo/RO_0002233>
 PREFIX has_output: <http://purl.obolibrary.org/obo/RO_0002234>
+PREFIX has_primary_input: <http://purl.obolibrary.org/obo/RO_0004009>
+PREFIX has_primary_output: <http://purl.obolibrary.org/obo/RO_0004008>
 PREFIX has_target_end_location: <http://purl.obolibrary.org/obo/RO_0002339>
 PREFIX has_target_start_location: <http://purl.obolibrary.org/obo/RO_0002338>
 PREFIX transports_or_maintains_localization_of: <http://purl.obolibrary.org/obo/RO_0002313>
@@ -92,6 +96,11 @@ PREFIX positively_regulates: <http://purl.obolibrary.org/obo/RO_0002213>
 PREFIX directly_regulates: <http://purl.obolibrary.org/obo/RO_0002578>
 PREFIX directly_negatively_regulates: <http://purl.obolibrary.org/obo/RO_0002630>
 PREFIX directly_activates: <http://purl.obolibrary.org/obo/RO_0002406>
+PREFIX indirectly_regulates: <http://purl.obolibrary.org/obo/RO_0012012>
+PREFIX indirectly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002407>
+PREFIX indirectly_negatively_regulates: <http://purl.obolibrary.org/obo/RO_0002409>
+PREFIX constitutively_upstream_of: <http://purl.obolibrary.org/obo/RO_0012009>
+PREFIX removes_input_for: <http://purl.obolibrary.org/obo/RO_0012010>
 PREFIX causally_upstream_of_or_within: <http://purl.obolibrary.org/obo/RO_0002418>
 PREFIX causally_upstream_of_or_within_negative_effect: <http://purl.obolibrary.org/obo/RO_0004046>
 PREFIX causally_upstream_of_or_within_positive_effect: <http://purl.obolibrary.org/obo/RO_0004047>
@@ -129,10 +138,11 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   imports: . *;
   oboinowlid: . *; #TODO not sure if we really want this?
   owl:versionIRI . *;
+  prov:wasDerivedFrom IRI {0,1}; # for model copy
 }
 
 <ProvenanceAnnotated> {
-  contributor: xsd:string *; #TODO would be better as an IRI
+  contributor: xsd:string +; #TODO would be better as an IRI
   modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
   creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
   import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
@@ -143,13 +153,13 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <GoCamEntity> IRI @<ProvenanceAnnotated> AND EXTRA a {
   a [owl:NamedIndividual] * // rdfs:comment  "Every entity we care about is a named individual";
-  xref: . *;
-  rdfs:label . {0,1} //rdfs:comment "the name" ;
+  xref: . * // rdfs:comment "mappings for the entity. Value is typically a CURIE string. Currently this is only used for Reactome-derived models." ;
+  rdfs:label . {0,1} // rdfs:comment "the name of the entity. Currently this is only used for Reactome-derived models." ;
   exact_match: . *;
-  x: . {0,1} // rdfs:comment  "X coordinate for node";
-  y: . {0,1} // rdfs:comment  "Y coordinate for node";
-  skos:narrower . * //rdfs:comment "This entity (e.g. a node representing a pathway) represents a narrower (in any sense) concept then the target node. ";
-  skos:broader . * //rdfs:comment "This entity (e.g. a node representing a pathway) represents a broader (in any sense) concept then the target node. ";
+  x: . {0,1} // rdfs:comment  "X coordinate for node. This is used for caching layouts in the Noctua Graph Editor.";
+  y: . {0,1} // rdfs:comment  "Y coordinate for node. This is used for caching layouts in the Noctua Graph Editor.";
+  skos:narrower . * // rdfs:comment "This entity (e.g. a node representing a pathway) represents a narrower (in any sense) concept then the target node. ";
+  skos:broader . * // rdfs:comment "This entity (e.g. a node representing a pathway) represents a broader (in any sense) concept then the target node. ";
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
@@ -174,19 +184,19 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <BiologicalProcess> @<GoCamEntity> AND EXTRA a {
   a ( @<BiologicalProcessClass> OR @<NegatedBiologicalProcessClass> ) {1};
-  part_of: @<BiologicalProcess> *;
+  part_of: @<BiologicalProcess> * // <exclude_from_extensions> true;
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: @<AnatomicalEntity> {0,1} // <exclude_from_extensions> true;
   transports_or_maintains_localization_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
-  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  regulates: @<BiologicalProcess> *;
-  negatively_regulates: @<BiologicalProcess> *;
-  positively_regulates: @<BiologicalProcess> *;
+  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  regulates: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  negatively_regulates: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  positively_regulates: @<BiologicalProcess> *  // <exclude_from_extensions> true;
   acts_on_population_of: ( @<AnatomicalEntity> OR @<Organism> ) *;
 } // rdfs:comment  "A biological process"
 
@@ -328,14 +338,15 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   results_in_movement_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a locomotion GO biological process or child"
 
-<MovementOfCellOrSubcellularComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
-	rdfs:subClassOf [ GoMovementOfCellOrSubcellularComponent: ] ;
+<MetabolicProcessClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoMetabolicProcess: ] ;
 }
 
-<MovementOfCellOrSubcellularComponent> @<BiologicalProcess> AND EXTRA a {
-  a @<MovementOfCellOrSubcellularComponentClass> {1};
-  results_in_movement_of: ( @<NativeCell> OR @<CellularComponent> ) {0,1};
-} // rdfs:comment "a movement of cell or subcellular component GO biological process or child"
+<MetabolicProcess> @<BiologicalProcess> AND EXTRA a {
+  a @<MetabolicProcessClass> {1};
+  has_primary_input: @<ChemicalEntity> *;
+  has_primary_output: @<ChemicalEntity> *;
+} // rdfs:comment "a metabolic process GO biological process or child"
 
 <ProteinContainingComplexRemodelingClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoProteinContainingComplexRemodeling: ] ;
@@ -354,6 +365,16 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<PatternSpecificationProcessClass> {1};
   results_in_specification_of: @<AnatomicalEntity> {0,1};
 } // rdfs:comment "a pattern specification process GO biological process or child"
+
+<TransportClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoTransport: ] ;
+}
+
+<Transport> @<BiologicalProcess> AND EXTRA a {
+  a @<TransportClass> {1};
+  has_primary_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
+  has_primary_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
+} // rdfs:comment "a transport GO biological process or child"
 
 <MolecularFunctionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoMolecularFunction: ] ;
@@ -377,25 +398,30 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <MolecularFunction> @<GoCamEntity> AND EXTRA a {
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
-  enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1} // <exclude_from_extensions> true ;
-  part_of: @<BiologicalProcess> * // <exclude_from_extensions> true ;
+  enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
+  part_of: @<BiologicalProcess> * // <exclude_from_extensions> true;
   has_part: @<MolecularFunction> *;
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: @<AnatomicalEntity> {0,1} // <exclude_from_extensions> true;
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
-  directly_provides_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  directly_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  directly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  directly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_or_within: ( @<MolecularFunction> OR @<MolecularEvent> OR @<BiologicalProcess> ) *;
-  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *;
-  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *;
-  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
-  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *;
+  directly_provides_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  directly_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  directly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  directly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  indirectly_regulates: ( @<MolecularFunction> OR @<MolecularEvent>) *;
+  indirectly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  indirectly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  removes_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  causally_upstream_of_or_within: ( @<MolecularFunction> OR @<MolecularEvent> OR @<BiologicalProcess> ) *  // <exclude_from_extensions> true;
+  causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *  // <exclude_from_extensions> true;
+  causally_upstream_of: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  causally_upstream_of_negative_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
+  causally_upstream_of_positive_effect: ( @<BiologicalProcess> OR @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   happens_during: ( @<BiologicalPhase> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "A molecular function"
 
@@ -406,8 +432,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <TransporterActivity> @<MolecularFunction> AND EXTRA a {
   a @<TransporterActivityClass> {1};
   transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
-  has_target_end_location: @<CellularComponent> *  // <exclude_from_extensions> true ;
-  has_target_start_location: @<CellularComponent> * // <exclude_from_extensions> true ;
+  has_target_end_location: @<CellularComponent> *;
+  has_target_start_location: @<CellularComponent> *;
 } // rdfs:comment "a transporter activity GO molecular function or child"
 
 <BiologicalPhaseClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
