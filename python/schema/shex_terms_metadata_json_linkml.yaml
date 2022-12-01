@@ -9,6 +9,7 @@ default_range: string
 
 imports:
   - linkml:types
+  - shex_json_linkml
 
 default_curi_maps:
   - obo_context
@@ -19,6 +20,7 @@ default_curi_maps:
 prefixes:
   biolink: https://w3id.org/biolink/vocab/
   linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
 
 classes:
   Term:
@@ -41,12 +43,6 @@ classes:
       A collection of terms 
 
 slots:
-
-  id:
-    range: uriorcurie
-    description: >-
-      The term id. It can be a GO Term, RO term
-    required: true
 
   label:
     range: string
