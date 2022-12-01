@@ -184,10 +184,12 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <BiologicalProcess> @<GoCamEntity> AND EXTRA a {
   a ( @<BiologicalProcessClass> OR @<NegatedBiologicalProcessClass> ) {1};
-  part_of: @<BiologicalProcess> * // <exclude_from_extensions> true;
-  has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) *;
-  has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
-  occurs_in: @<AnatomicalEntity> {0,1} // <exclude_from_extensions> true;
+  part_of: @<BiologicalProcess> *;
+  has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) * // <exclude_from_extensions> true;
+  has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) * // <exclude_from_extensions> true;
+  has_primary_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) *;
+  has_primary_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
+  occurs_in: @<AnatomicalEntity> {0,1};
   transports_or_maintains_localization_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
@@ -398,7 +400,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <MolecularFunction> @<GoCamEntity> AND EXTRA a {
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
-  enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
+  enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1} // <exclude_from_extensions> true;
   part_of: @<BiologicalProcess> * // <exclude_from_extensions> true;
   has_part: @<MolecularFunction> *;
   occurs_in: @<AnatomicalEntity> {0,1} // <exclude_from_extensions> true;
@@ -411,11 +413,11 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   directly_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   directly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   directly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
-  indirectly_regulates: ( @<MolecularFunction> OR @<MolecularEvent>) *;
+  indirectly_regulates: ( @<MolecularFunction> OR @<MolecularEvent>) * // <exclude_from_extensions> true;
   indirectly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
   indirectly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *  // <exclude_from_extensions> true;
-  constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
-  removes_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
+  removes_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) * // <exclude_from_extensions> true;
   causally_upstream_of_or_within: ( @<MolecularFunction> OR @<MolecularEvent> OR @<BiologicalProcess> ) *  // <exclude_from_extensions> true;
   causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *  // <exclude_from_extensions> true;
   causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *  // <exclude_from_extensions> true;
