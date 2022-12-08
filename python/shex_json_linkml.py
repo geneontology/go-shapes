@@ -1,5 +1,5 @@
 # Auto generated from shex_json_linkml.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-11-30T19:55:17
+# Generation date: 2022-12-01T13:14:33
 # Schema: GODomainRangeConstraintsModel
 #
 # id: go-shex-domain-range-constraints
@@ -35,7 +35,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-SCHEMA = CurieNamespace('schema', 'http://example.org/UNKNOWN/schema/')
+SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 DEFAULT_ = GO
 
 

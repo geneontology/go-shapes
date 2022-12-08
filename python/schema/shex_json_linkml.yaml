@@ -19,6 +19,7 @@ default_curi_maps:
 prefixes:
   biolink: https://w3id.org/biolink/vocab/
   linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
 
 classes:
   Association:
