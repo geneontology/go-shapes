@@ -1,5 +1,5 @@
 # Auto generated from shex_json_linkml.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-11-18T12:44:53
+# Generation date: 2022-11-30T19:55:17
 # Schema: GODomainRangeConstraintsModel
 #
 # id: go-shex-domain-range-constraints

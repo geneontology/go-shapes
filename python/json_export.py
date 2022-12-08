@@ -147,6 +147,7 @@ if __name__ == "__main__":
     shex_fp = (base_path / "../shapes/go-cam-shapes.shex").resolve()
     json_shapes_fp = (base_path / "../shapes/json/shex_dump.json").resolve()
     terms_metadata_fp = (base_path / "../shapes/json/terms_metadata.json").resolve()
+    terms_shorthand_fp = (base_path / "../shapes/json/terms_shorthand.json").resolve()
     shex_full_fp = (base_path / "../shapes/json/shex_full.json").resolve()
 
     with open(shex_fp) as f:
@@ -162,6 +163,6 @@ if __name__ == "__main__":
 
     with open(terms_metadata_fp, "w") as sf:
         json.dump(nfShex.gen_terms_metadata(), sf, indent=2)
-
+    
     with open(shex_full_fp, "w") as sf:
         json.dump(nfShex.parse_raw(), sf, indent=2)

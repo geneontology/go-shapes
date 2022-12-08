@@ -9,7 +9,7 @@
       "is_required": false,
       "context": "",
       "predicate": "BFO:0000050",
-      "exclude_from_extensions": true
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -23,7 +23,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002233",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0008150",
@@ -36,6 +36,33 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002234",
+      "exclude_from_extensions": true
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991",
+        "NCBITaxon:1"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004009",
+      "exclude_from_extensions": false
+    },
+    {
+      "subject": "GO:0008150",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004008",
       "exclude_from_extensions": false
     },
     {
@@ -47,7 +74,7 @@
       "is_required": false,
       "context": "",
       "predicate": "BFO:0000066",
-      "exclude_from_extensions": true
+      "exclude_from_extensions": false
     },
     {
       "subject": "GO:0008150",
@@ -437,7 +464,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002333",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -590,7 +617,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0012012",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -626,7 +653,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0012009",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -638,7 +665,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0012010",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
