@@ -28,6 +28,7 @@ classes:
       expression rule
     slots:
       - subject
+      - root_subject      
       - predicate
       - object
       - is_multivalued
@@ -72,6 +73,13 @@ slots:
     required: true
     description: >-
       The domain of the GO shape expression rule, this is the subject of the relationship.
+
+  root_subject:
+    range: uriorcurie
+    required: true
+    description: >-
+      The domain of the GO shape expression rule, this is the root subject of the relationship.
+
 
   is_multivalued:
     range: boolean

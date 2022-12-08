@@ -59,8 +59,16 @@ class NoctuaFormShex:
                 'synonyms': term.get('synonyms', "")
             })
         return table
+    
+    def _load_root_subject_expr(self, expr: Optional[Union[shapeExprLabel, shapeExpr]]) -> str:
+         
+        if expr is not None and len(expr)>0 and isinstance(expr[0], str):
+                return self.get_shape_name(expr[0])
+        
+        return None
+        
 
-    def _load_expr(self, subject: str, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
+    def _load_expr(self, root_subject: str, subject: str, expr: Optional[Union[shapeExprLabel, shapeExpr]], preds=None) -> List:
 
         if preds is None:
             preds = {}
@@ -68,20 +76,20 @@ class NoctuaFormShex:
             preds.append(self.get_shape_name(expr))
         if isinstance(expr, (ShapeOr, ShapeAnd)):
             for expr2 in expr.shapeExprs:
-                self._load_expr(subject, expr2, preds)
+                self._load_expr(root_subject, subject, expr2, preds)
         elif isinstance(expr, ShapeNot):
-            self._load_expr(subject, expr.shapeExpr, preds)
+            self._load_expr(root_subject, subject, expr.shapeExpr, preds)
         elif isinstance(expr, Shape) and expr.expression is not None:
-            self._load_triple_expr(subject, expr.expression, preds)
+            self._load_triple_expr(root_subject, subject, expr.expression, preds)
 
         # throw an error here if pred list is empty
         return preds
 
-    def _load_triple_expr(self, subject: str, expr: Union[tripleExpr, tripleExprLabel], preds=None) -> None:
+    def _load_triple_expr(self, root_subject: str, subject: str, expr: Union[tripleExpr, tripleExprLabel], preds=None) -> None:
 
         if isinstance(expr, (OneOf, EachOf)):
             for expr2 in expr.expressions:
-                self._load_triple_expr(subject, expr2, preds)
+                self._load_triple_expr(root_subject, subject, expr2, preds)
         elif isinstance(expr, TripleConstraint) and expr.valueExpr is not None:
             predicate = get_suffix(expr.predicate)
 
@@ -89,7 +97,7 @@ class NoctuaFormShex:
                 return preds
 
             objects = []
-            self._load_expr(subject, expr.valueExpr, objects)
+            self._load_expr(root_subject, subject, expr.valueExpr, objects)
 
             exclude_from_extensions = False
             if isinstance(expr.annotations, list):
@@ -101,6 +109,7 @@ class NoctuaFormShex:
                 is_multivalued = True
 
             goshape = Association(
+                root_subject=root_subject,
                 subject=subject,
                 object=objects,
                 predicate=predicate,
@@ -129,7 +138,8 @@ class NoctuaFormShex:
 
         for shape in shapes:
             shape_name = self.get_shape_name(shape['id'], True)
-
+            root_subject = self._load_root_subject_expr(shape.shapeExprs)
+            
             if shape_name is None:
                 continue
 
@@ -138,7 +148,7 @@ class NoctuaFormShex:
             shexps = shape.shapeExprs or []
 
             for expr in shexps:
-                self._load_expr(shape_name, expr)
+                self._load_expr(root_subject, shape_name, expr)
 
 
 if __name__ == "__main__":
@@ -161,8 +171,8 @@ if __name__ == "__main__":
         coll = AssociationCollection(goshapes=nfShex.json_shapes)
         jd.dump(coll, to_file=OUT_JSON)
 
-    with open(terms_metadata_fp, "w") as sf:
-        json.dump(nfShex.gen_terms_metadata(), sf, indent=2)
+    """ with open(terms_metadata_fp, "w") as sf:
+        json.dump(nfShex.gen_terms_metadata(), sf, indent=2) """
     
     with open(shex_full_fp, "w") as sf:
         json.dump(nfShex.parse_raw(), sf, indent=2)
