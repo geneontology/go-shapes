@@ -471,7 +471,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <AnatomicalEntity> @<GoCamEntity> AND EXTRA a {
   a ( @<AnatomicalEntityClass> OR @<NegatedAnatomicalEntityClass> );
   part_of: @<AnatomicalEntity> {0,1};
-  location_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
+  location_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1}; * // <exclude_from_extensions> true;
 } // rdfs:comment  "an anatomical entity"
 
 <NativeCellClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
