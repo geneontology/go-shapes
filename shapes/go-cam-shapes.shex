@@ -434,6 +434,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <TransporterActivity> @<MolecularFunction> AND EXTRA a {
   a @<TransporterActivityClass> {1};
   transports_or_maintains_localization_of: ( @<ChemicalEntity> OR @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
+  has_primary_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
+  has_primary_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<CellularComponent> *;
   has_target_start_location: @<CellularComponent> *;
 } // rdfs:comment "a transporter activity GO molecular function or child"
