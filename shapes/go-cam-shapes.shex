@@ -404,6 +404,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   occurs_in: @<AnatomicalEntity> {0,1};
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
+  has_primary_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
+  has_primary_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   directly_provides_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
