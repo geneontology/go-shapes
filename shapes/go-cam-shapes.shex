@@ -198,6 +198,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   negatively_regulates: @<BiologicalProcess> *;
   positively_regulates: @<BiologicalProcess> *;
   acts_on_population_of: ( @<AnatomicalEntity> OR @<Organism> ) *;
+  happens_during: ( @<BiologicalPhase> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "A biological process"
 
 
