@@ -86,6 +86,12 @@ PREFIX has_target_start_location: <http://purl.obolibrary.org/obo/RO_0002338>
 PREFIX transports_or_maintains_localization_of: <http://purl.obolibrary.org/obo/RO_0002313>
 PREFIX directly_provides_input_for: <http://purl.obolibrary.org/obo/RO_0002413>
 PREFIX directly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002629>
+PREFIX has_small_molecule_regulator: <http://purl.obolibrary.org/obo/RO_0012000>
+PREFIX has_small_molecule_activator: <http://purl.obolibrary.org/obo/RO_0012001>
+PREFIX has_small_molecule_inhibitor: <http://purl.obolibrary.org/obo/RO_0012002>
+PREFIX is_small_molecule_regulator_of: <http://purl.obolibrary.org/obo/RO_0012004>
+PREFIX is_small_molecule_activator_of: <http://purl.obolibrary.org/obo/RO_0012005>
+PREFIX is_small_molecule_inhibitor_of: <http://purl.obolibrary.org/obo/RO_0012006>
 PREFIX located_in: <http://purl.obolibrary.org/obo/RO_0001025>
 PREFIX location_of: <http://purl.obolibrary.org/obo/RO_0001015>
 PREFIX is_active_in: <http://purl.obolibrary.org/obo/RO_0002432>
@@ -419,6 +425,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   indirectly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   removes_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  has_small_molecule_regulator: @<ChemicalEntity> *;
+  has_small_molecule_activator: @<ChemicalEntity> *;
+  has_small_molecule_inhibitor: @<ChemicalEntity> *;
   causally_upstream_of_or_within: ( @<MolecularFunction> OR @<MolecularEvent> OR @<BiologicalProcess> ) *;
   causally_upstream_of_or_within_negative_effect: @<BiologicalProcess> *;
   causally_upstream_of_or_within_positive_effect: @<BiologicalProcess> *;
@@ -525,6 +534,9 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ChemicalEntity> @<GoCamEntity> AND EXTRA a {
   a @<ChemicalEntityClass> +;
+  is_small_molecule_regulator_of: @<MolecularFunction> *;
+  is_small_molecule_activator_of: @<MolecularFunction> *;
+  is_small_molecule_inhibitor_of: @<MolecularFunction> *;
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
 <ChemicalEntityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf  {
