@@ -62,7 +62,7 @@ PREFIX GoTransporterActivity: <http://purl.obolibrary.org/obo/GO_0005215>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
 PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/CARO_0000000>
-PREFIX GoNativeCell: <http://purl.obolibrary.org/obo/CL_0000003>
+PREFIX GoCell: <http://purl.obolibrary.org/obo/CL_0000000>
 PREFIX GoOrganism: <http://purl.obolibrary.org/obo/NCBITaxon_1>
 PREFIX GoBiologicalPhase: <http://purl.obolibrary.org/obo/GO_0044848>
 PREFIX GoLifeCycleStage: <http://purl.obolibrary.org/obo/UBERON_0000105>
@@ -241,7 +241,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <CellDifferentiation> @<BiologicalProcess> AND EXTRA a {
   a @<CellDifferentiationClass> {1};
-  results_in_acquisition_of_features_of: @<NativeCell> {0,1};
+  results_in_acquisition_of_features_of: @<Cell> {0,1};
 } // rdfs:comment "a cell differentiation GO biological process or child"
 
 <CellDivisionClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -250,7 +250,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <CellDivision> @<BiologicalProcess> AND EXTRA a {
   a @<CellDivisionClass> {1};
-  has_input: @<NativeCell> {0,1};
+  has_input: @<Cell> {0,1};
 } // rdfs:comment "a cell division GO biological process or child"
 
 <CellFateCommitmentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -259,7 +259,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <CellFateCommitment> @<BiologicalProcess> AND EXTRA a {
   a @<CellFateCommitmentClass> {1};
-  results_in_commitment_to: @<NativeCell> {0,1};
+  results_in_commitment_to: @<Cell> {0,1};
 } // rdfs:comment "a cell fate commitment GO biological process or child"
 
 <CellFateDeterminationClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -268,7 +268,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <CellFateDetermination> @<BiologicalProcess> AND EXTRA a {
   a @<CellFateDeterminationClass> {1};
-  results_in_determination_of: @<NativeCell> {0,1};
+  results_in_determination_of: @<Cell> {0,1};
 } // rdfs:comment "a cell fate determination GO biological process or child"
 
 <CellFateSpecificationClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -277,7 +277,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <CellFateSpecification> @<BiologicalProcess> AND EXTRA a {
   a @<CellFateSpecificationClass> {1};
-  results_in_specification_of: @<NativeCell> {0,1};
+  results_in_specification_of: @<Cell> {0,1};
 } // rdfs:comment "a cell fate specification GO biological process or child"
 
 <CellularComponentAssemblyClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
@@ -488,14 +488,14 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   location_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) {0,1};
 } // rdfs:comment  "an anatomical entity"
 
-<NativeCellClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
-  rdfs:subClassOf [ GoNativeCell: ];
+<CellClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  rdfs:subClassOf [ GoCell: ];
 }
 
-<NativeCell> @<GoCamEntity> AND EXTRA a {
-  a @<NativeCellClass> {1};
+<Cell> @<GoCamEntity> AND EXTRA a {
+  a @<CellClass> {1};
   part_of: @<AnatomicalEntity> {0,1};
-} // rdfs:comment  "a native cell or child"
+} // rdfs:comment  "a cell or child"
 
 <CellularComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoCellularComponent: ];
