@@ -256,10 +256,12 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 } // rdfs:comment  "a protein complex instance"
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  # disabled checking class hierarchy so that this is useable without running the enrichment script
   #rdfs:subClassOf [ GoProteinContainingComplex: ];
 }
 
 <InformationBiomacromoleculeClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  # disabled checking class hierarchy so that this is useable without running the enrichment script
   #rdfs:subClassOf [ GoInformationBiomacromolecule: ];
 }
 <InformationBiomacromolecule> IRI CLOSED {
@@ -271,6 +273,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <Enabler> @<InformationBiomacromolecule> OR @<ProteinContainingComplex>
 
 <EvidenceClass> IRI AND [ ECO:~ ] AND @<OwlClass> AND EXTRA rdfs:subClassOf {
+  # disabled checking class hierarchy so that this is useable without running the enrichment script
   #rdfs:subClassOf [ GoEvidence: ] ;
 }
 
