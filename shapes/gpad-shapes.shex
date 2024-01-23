@@ -72,6 +72,7 @@ PREFIX GoPlantStructureDevelopmentStage: <http://purl.obolibrary.org/obo/PO_0009
 #semantic: relations
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
 PREFIX has_part: <http://purl.obolibrary.org/obo/BFO_0000051>
+PREFIX colocalizes_with: <http://purl.obolibrary.org/obo/RO_0002325>
 PREFIX occurs_in: <http://purl.obolibrary.org/obo/BFO_0000066>
 PREFIX adjacent_to: <http://purl.obolibrary.org/obo/RO_0002220>
 PREFIX overlaps: <http://purl.obolibrary.org/obo/RO_0002131>
@@ -221,7 +222,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   &<standardEntityProperties> ;
   &<extensionRelations> ;
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
-  enabled_by: @<Enabler> ;
+  enabled_by: @<DBObject> ;
   ( part_of: @<BiologicalProcess> {0,1} |
     causally_upstream_of: @<BiologicalProcess> {0,1} |
     causally_upstream_of_positive_effect: @<BiologicalProcess> {0,1} |
@@ -246,14 +247,16 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   &<provAnnotations> ;
   &<standardEntityProperties> ;
   &<extensionRelations> ;
-  a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1};
+  a ( @<CellularComponentClass> OR @<NegatedCellularComponentClass> ) {1} ;
+  ( 
+    ^occurs_in: @<MolecularFunction> |
+    ^occurs_in: @<BiologicalProcess> |
+    ^located_in: @<DBObject> |
+    ^part_of: @<DBObject> |
+    ^is_active_in: @<DBObject> |
+    ^colocalizes_with: @<DBObject>
+  )
 } // rdfs:comment  "a cellular component instance"
-
-<ProteinContainingComplex> IRI CLOSED {
-  &<provAnnotations> ;
-  &<standardEntityProperties> ;
-  a @<ProteinContainingComplexClass>;
-} // rdfs:comment  "a protein complex instance"
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   # disabled checking class hierarchy so that this is useable without running the enrichment script
@@ -264,13 +267,20 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   # disabled checking class hierarchy so that this is useable without running the enrichment script
   #rdfs:subClassOf [ GoInformationBiomacromolecule: ];
 }
-<InformationBiomacromolecule> IRI CLOSED {
+
+<DBObject> IRI AND [ . - GO:~ ] AND CLOSED {
   &<provAnnotations> ;
   &<standardEntityProperties> ;
-  a @<InformationBiomacromoleculeClass> +;
-} // rdfs:comment  "an information biomacromolecule instance - e.g. a protein or RNA product"
-
-<Enabler> @<InformationBiomacromolecule> OR @<ProteinContainingComplex>
+  ( a @<InformationBiomacromoleculeClass> | a @<ProteinContainingComplexClass> ) ;
+  ( 
+    part_of: @<CellularComponent> |
+    located_in: @<CellularComponent> |
+    is_active_in: @<CellularComponent> |
+    colocalizes_with: @<CellularComponent> |
+    ^enabled_by: @<MolecularFunction> |
+    contributes_to: @<MolecularFunction>
+  )
+}
 
 <EvidenceClass> IRI AND [ ECO:~ ] AND @<OwlClass> AND EXTRA rdfs:subClassOf {
   # disabled checking class hierarchy so that this is useable without running the enrichment script
@@ -294,7 +304,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   evidence: @<Evidence> *
 }
 
-<Individual> @<MolecularFunction> OR @<BiologicalProcess> OR @<CellularComponent> OR @<Enabler> OR @<ExtensionNode> OR @<Evidence>
+<Individual> @<MolecularFunction> OR @<BiologicalProcess> OR @<CellularComponent> OR @<DBObject> OR @<ExtensionNode> OR @<Evidence>
 
 <HasExtensionRelations> {
   $<extensionRelations> (
