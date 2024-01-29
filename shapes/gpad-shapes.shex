@@ -205,6 +205,14 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   &<standardEntityProperties> ;
   &<extensionRelations> ;
   a ( @<BiologicalProcessClass> OR @<NegatedBiologicalProcessClass> ) ;
+  ( ^part_of: @<MolecularFunction> |
+    ^causally_upstream_of: @<MolecularFunction> |
+    ^causally_upstream_of_positive_effect: @<MolecularFunction> |
+    ^causally_upstream_of_negative_effect: @<MolecularFunction> |
+    ^causally_upstream_of_or_within: @<MolecularFunction> |
+    ^causally_upstream_of_or_within_positive_effect: @<MolecularFunction> |
+    ^causally_upstream_of_or_within_negative_effect: @<MolecularFunction>
+  ) ;
   occurs_in: @<CellularComponent> {0,1};
 } // rdfs:comment  "A biological process instance"
 
@@ -222,7 +230,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   &<standardEntityProperties> ;
   &<extensionRelations> ;
   a ( @<MolecularFunctionClass> OR @<NegatedMolecularFunctionClass> ) {1};
-  enabled_by: @<DBObject> ;
+  ( enabled_by: @<DBObject> | ^contributes_to: @<DBObject> );
   ( part_of: @<BiologicalProcess> {0,1} |
     causally_upstream_of: @<BiologicalProcess> {0,1} |
     causally_upstream_of_positive_effect: @<BiologicalProcess> {0,1} |
