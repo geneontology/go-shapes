@@ -184,7 +184,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a [ GO:~ ]
 }
 
-<ExtensionNode> CLOSED {
+<ExtensionNode> IRI CLOSED {
   &<provAnnotations> ;
   &<standardEntityProperties> ;
   &<inverseExtensionRelations> ;
@@ -388,6 +388,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
     <http://purl.obolibrary.org/obo/RO_0002578> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002629> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002630> @<ExtensionNode> * ;
+    <http://purl.obolibrary.org/obo/RO_0004008> @<ExtensionNode> * ;
+    <http://purl.obolibrary.org/obo/RO_0004009> @<ExtensionNode> * ;
   )
 }
 
@@ -472,6 +474,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
     ^<http://purl.obolibrary.org/obo/RO_0002565> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002578> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002629> @<GOTermInstance> |
-    ^<http://purl.obolibrary.org/obo/RO_0002630> @<GOTermInstance> 
+    ^<http://purl.obolibrary.org/obo/RO_0002630> @<GOTermInstance> |
+    ^<http://purl.obolibrary.org/obo/RO_0004008> @<GOTermInstance> |
+    ^<http://purl.obolibrary.org/obo/RO_0004009> @<GOTermInstance>
   )
 }
