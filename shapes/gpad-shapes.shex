@@ -412,6 +412,7 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
     <http://purl.obolibrary.org/obo/RO_0002429> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002430> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002431> @<ExtensionNode> * ;
+    <http://purl.obolibrary.org/obo/RO_0002491> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002495> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002565> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002578> @<ExtensionNode> * ;
@@ -499,6 +500,7 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
     ^<http://purl.obolibrary.org/obo/RO_0002429> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002430> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002431> @<GOTermInstance> |
+    ^<http://purl.obolibrary.org/obo/RO_0002491> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002495> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002565> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002578> @<GOTermInstance> |
