@@ -183,7 +183,7 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
 } // rdfs:comment  "Default allowable metadata for GO-CAM entities"
 
 <OwlClass> {
-  rdf:type [ owl:Class ] ;
+  rdf:type [ owl:Class ] ? ;
 }
 
 <GOTermInstance> IRI {
