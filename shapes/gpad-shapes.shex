@@ -141,16 +141,16 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
 
 <GoCamModel> {
   a [owl:Ontology] + ;
-  contributor: xsd:string +; #TODO would be better as an IRI
-  modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
-  creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
-  import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
-  provided_by: xsd:string +; #TODO would be better as an IRI
-  rdfs:comment xsd:string *;
-  modelstate: xsd:string {1}; #TODO would be better as an IRI
-  templatestate: xsd:string {0,1}; #TODO should be modeled as xsd:boolean but currently a string. No value means false.
+  contributor: Literal +; #TODO would be better as an IRI
+  modification_date: Literal {1}; #Use ISO 8601 as a standard.
+  creation_date: Literal {0,1}; #Use ISO 8601 as a standard.
+  import_date: Literal {0,1}; #Use ISO 8601 as a standard.
+  provided_by: Literal +; #TODO would be better as an IRI
+  rdfs:comment Literal *;
+  modelstate: Literal {1}; #TODO would be better as an IRI
+  templatestate: Literal {0,1}; #TODO should be modeled as xsd:boolean but currently a string. No value means false.
   in_taxon: . *;
-  title: xsd:string {1};
+  title: Literal {1};
   imports: . *;
   oboinowlid: . *; #TODO not sure if we really want this?
   owl:versionIRI . *;
@@ -159,13 +159,13 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
 
 <ProvenanceAnnotated> {
   $<provAnnotations> (
-    contributor: xsd:string +; #TODO would be better as an IRI
-    modification_date: xsd:string {1}; #Use ISO 8601 as a standard.
-    creation_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
-    import_date: xsd:string {0,1}; #Use ISO 8601 as a standard.
-    provided_by: xsd:string *; #TODO would be better as an IRI
-    rdfs:comment xsd:string *;
-    skos:note xsd:string *
+    contributor: Literal +; #TODO would be better as an IRI
+    modification_date: Literal {1}; #Use ISO 8601 as a standard.
+    creation_date: Literal {0,1}; #Use ISO 8601 as a standard.
+    import_date: Literal {0,1}; #Use ISO 8601 as a standard.
+    provided_by: Literal *; #TODO would be better as an IRI
+    rdfs:comment Literal *;
+    skos:note Literal *
   ) ;
 }
 
@@ -320,8 +320,8 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
   &<provAnnotations> ;
   &<standardEntityProperties> ;
   a @<EvidenceClass> {1};
-  source: xsd:string {1};
-  with: xsd:string {0,1}
+  source: Literal {1};
+  with: Literal {0,1}
 } // rdfs:comment  "An evidence instance"
 
 <AnnotatedEdge> BNode CLOSED {
