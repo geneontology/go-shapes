@@ -117,6 +117,7 @@ PREFIX causally_upstream_of: <http://purl.obolibrary.org/obo/RO_0002411>
 PREFIX causally_upstream_of_negative_effect: <http://purl.obolibrary.org/obo/RO_0002305>
 PREFIX causally_upstream_of_positive_effect: <http://purl.obolibrary.org/obo/RO_0002304>
 PREFIX acts_on_population_of: <http://purl.obolibrary.org/obo/RO_0012003>
+PREFIX regulates_transport_of: <http://purl.obolibrary.org/obo/RO_0002011>
 PREFIX results_in_development_of: <http://purl.obolibrary.org/obo/RO_0002296>
 PREFIX results_in_formation_of: <http://purl.obolibrary.org/obo/RO_0002297>
 PREFIX results_in_morphogenesis_of: <http://purl.obolibrary.org/obo/RO_0002298>
@@ -363,6 +364,7 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
     <http://purl.obolibrary.org/obo/RO_0001025> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002007> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002008> @<ExtensionNode> * ;
+    <http://purl.obolibrary.org/obo/RO_0002011> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002087> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002090> @<ExtensionNode> * ;
     <http://purl.obolibrary.org/obo/RO_0002092> @<ExtensionNode> * ;
@@ -451,6 +453,7 @@ PREFIX involved_in: <http://purl.obolibrary.org/obo/RO_0002331>
     ^<http://purl.obolibrary.org/obo/RO_0001025> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002007> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002008> @<GOTermInstance> |
+    ^<http://purl.obolibrary.org/obo/RO_0002011> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002087> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002090> @<GOTermInstance> |
     ^<http://purl.obolibrary.org/obo/RO_0002092> @<GOTermInstance> |
