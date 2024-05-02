@@ -172,6 +172,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   part_of: @<BiologicalProcess> *;
   has_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) *;
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
+  has_primary_input: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> OR @<Organism> ) *;
+  has_primary_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
   occurs_in: @<AnatomicalEntity> {0,1};
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
@@ -457,18 +459,18 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 <ProteinContainingComplex> @<GoCamEntity> AND EXTRA a {
   a @<ProteinContainingComplexClass>;
   enables: ( @<MolecularFunction> OR @<RootMolecularFuntion> ) {0,1};
-  contributes_to: @<MolecularFunction> {0,1};
   located_in: ( @<CellularAnatomicalEntity> OR @<VirionComponent> ) {0,1};
   is_active_in: ( @<CellularAnatomicalEntity> OR @<RootCellularComponent> OR @VirionComponent> ) {0,1};
   part_of: @<ProteinContainingComplex> *;
-  has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
-  existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
-  existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
   involved_in: ( @<BiologicalProcess> OR @<RootBiologicalProcess> ) {0,1}; 
   acts_upstream_of_negative_effect: @<BiologicalProcess> {0,1};
   acts_upstream_of_positive_effect: @<BiologicalProcess> {0,1};
   acts_upstream_of_or_within_negative_effect: @<BiologicalProcess> {0,1};
-  acts_upstream_of_or_within_positive_effect: @<BiologicalProcess> {0,1};	
+  acts_upstream_of_or_within_positive_effect: @<BiologicalProcess> {0,1};
+  has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
+  existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
+  
 } // rdfs:comment  "a protein complex"
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
