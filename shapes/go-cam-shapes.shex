@@ -129,6 +129,7 @@ PREFIX results_in_growth_of: <http://purl.obolibrary.org/obo/RO_0002343>
 PREFIX results_in_movement_of: <http://purl.obolibrary.org/obo/RO_0002565>
 PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
+
 <GoCamModel> {
   a [owl:Ontology] + ;
   contributor: xsd:string +; #TODO would be better as an IRI
