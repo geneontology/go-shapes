@@ -1,7 +1,11 @@
 from os import path
 import json
+from pathlib import Path
+import os
 from ontobio.rdfgen.assoc_rdfgen import prefix_context
-from prefixcommons.curie_util import contract_uri
+#from prefixcommons.curie_util import contract_uri
+
+from curies import Converter, Record
 from pyshexc.parser_impl import generate_shexj
 from typing import Optional, List, Union
 from ShExJSG.ShExJ import Shape, ShapeAnd, ShapeOr, ShapeNot, TripleConstraint, shapeExpr, \
@@ -11,18 +15,16 @@ import requests
 from shex_json_linkml import Association, AssociationCollection
 from linkml_runtime.dumpers import JSONDumper
 from linkml_runtime.loaders import JSONLoader
-from pathlib import Path
-import os
+
 
 OUT_JSON = os.path.join('../shapes/json/shex_dump.json')
+converter = Converter.from_prefix_map(prefix_context)
 
 
 def get_suffix(uri):
-    suffix = contract_uri(uri, cmaps=[prefix_context])
-    if len(suffix) > 0:
-        return suffix[0]
-
-    return path.basename(uri)
+    suffix = converter.compress(uri)
+    
+    return suffix if suffix else uri
 
 
 class NoctuaFormShex:
