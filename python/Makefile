@@ -42,7 +42,7 @@ f-%: tests/data/f-%.ttl
 	python ./gocam_validator.py $< && exit -1 || echo FAILED AS EXPECTED
 
 gen-python:
-	rm -f shex_json_linkml.py && gen-python schema/shex_terms_metadata_json_linkml.yaml > shex_terms_metadata_json_linkml.py
+	rm -f shex_json_linkml.py && gen-python schema/shex_term_metadata_json_linkml.yaml > shex_terms_metadata_json_linkml.py
 
 #gen-pydantic:
 #	rm -f shex_json_linkml.py && gen-pydantic schema/shex_json_linkml.yaml > shex_json_linkml.py
