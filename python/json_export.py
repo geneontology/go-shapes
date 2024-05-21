@@ -3,8 +3,6 @@ import json
 from pathlib import Path
 import os
 from prefixmaps import load_converter
-from ontobio.rdfgen.assoc_rdfgen import prefix_context
-#from prefixcommons.curie_util import contract_uri
 
 from curies import Converter, Record
 from pyshexc.parser_impl import generate_shexj
