@@ -64,6 +64,7 @@ slots:
     range: string
     description: >-
       The term synonyms
+    multivalued: true
   
   terms:
     multivalued: true

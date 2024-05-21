@@ -2,6 +2,7 @@ from os import path
 import json
 from pathlib import Path
 import os
+from prefixmaps import load_converter
 from ontobio.rdfgen.assoc_rdfgen import prefix_context
 #from prefixcommons.curie_util import contract_uri
 
@@ -18,12 +19,15 @@ from linkml_runtime.loaders import JSONLoader
 
 
 OUT_JSON = os.path.join('../shapes/json/shex_dump.json')
-converter = Converter.from_prefix_map(prefix_context)
+
+converter = load_converter("merged")
+# if you need to add a prefix specific to this codebase, not in merged.csv above, then you
+# can do things like this:
+# converter.add_prefix("Orphanet", "https://www.orpha.net/en/disease/detail/", merge=True)
 
 
 def get_suffix(uri):
     suffix = converter.compress(uri)
-    
     return suffix if suffix else uri
 
 
