@@ -2,8 +2,6 @@ from os import path
 import json
 from pathlib import Path
 import os
-from ontobio.rdfgen.assoc_rdfgen import prefix_context
-#from prefixcommons.curie_util import contract_uri
 
 from curies import Converter, Record
 from pyshexc.parser_impl import generate_shexj
@@ -18,11 +16,26 @@ from linkml_runtime.loaders import JSONLoader
 
 
 OUT_JSON = os.path.join('../shapes/json/shex_dump.json')
-converter = Converter.from_prefix_map(prefix_context)
 
+ROOT_ENTITY = "http://purl.obolibrary.org/obo/go/shapes/GoCamEntity"
+
+
+def get_converter():
+    with open('go_context.json') as file:
+        go_context = json.load(file)
+        prefix_context = go_context['@context']
+
+        converter = Converter.from_prefix_map(prefix_context)
+        
+        return converter
+    
+converter = get_converter()
 
 def get_suffix(uri):
+    
     suffix = converter.compress(uri)
+    
+    print(suffix if suffix else uri)
     
     return suffix if suffix else uri
 
@@ -65,7 +78,9 @@ class NoctuaFormShex:
     def _load_root_subject_expr(self, expr: Optional[Union[shapeExprLabel, shapeExpr]]) -> str:
          
         if expr is not None and len(expr)>0 and isinstance(expr[0], str):
-                return self.get_shape_name(expr[0])
+            if ROOT_ENTITY == expr[0]:
+                return ''
+            return self.get_shape_name(expr[0])
         
         return None
         
@@ -145,7 +160,7 @@ class NoctuaFormShex:
             if shape_name is None:
                 continue
 
-            print('Parsing Shape: ' + shape['id'])
+            #print('Parsing Shape: ' + shape['id'])
 
             shexps = shape.shapeExprs or []
 

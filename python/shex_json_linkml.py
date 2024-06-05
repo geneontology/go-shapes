@@ -72,8 +72,6 @@ class Association(YAMLRoot):
         if not isinstance(self.subject, URIorCURIE):
             self.subject = URIorCURIE(self.subject)
 
-        if self._is_empty(self.root_subject):
-            self.MissingRequiredField("root_subject")
         if not isinstance(self.root_subject, URIorCURIE):
             self.root_subject = URIorCURIE(self.root_subject)
 
