@@ -16,29 +16,12 @@
       "subject": "GO:0008150",
       "root_subject": "",
       "object": [
-        "CHEBI:24431",
-        "CARO:0000000",
-        "GO:0032991",
-        "NCBITaxon:1"
+        "CARO:0000000"
       ],
-      "is_multivalued": true,
+      "is_multivalued": false,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002233",
-      "exclude_from_extensions": false
-    },
-    {
-      "subject": "GO:0008150",
-      "root_subject": "",
-      "object": [
-        "CHEBI:24431",
-        "CARO:0000000",
-        "GO:0032991"
-      ],
-      "is_multivalued": true,
-      "is_required": false,
-      "context": "",
-      "predicate": "RO:0002234",
+      "predicate": "BFO:0000066",
       "exclude_from_extensions": false
     },
     {
@@ -69,12 +52,14 @@
       "subject": "GO:0008150",
       "root_subject": "",
       "object": [
-        "CARO:0000000"
+        "GO:0044848",
+        "UBERON:0000105",
+        "PO:0009012"
       ],
-      "is_multivalued": false,
+      "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "BFO:0000066",
+      "predicate": "RO:0002092",
       "exclude_from_extensions": false
     },
     {
@@ -112,6 +97,48 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002338",
+      "exclude_from_extensions": false
+    },
+    {
+      "subject": "GO:0008150",
+      "root_subject": "",
+      "object": [
+        "CARO:0000000",
+        "NCBITaxon:1"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0012003",
+      "exclude_from_extensions": false
+    },
+    {
+      "subject": "GO:0008150",
+      "root_subject": "",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991",
+        "NCBITaxon:1"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002233",
+      "exclude_from_extensions": false
+    },
+    {
+      "subject": "GO:0008150",
+      "root_subject": "",
+      "object": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002234",
       "exclude_from_extensions": false
     },
     {
@@ -190,33 +217,6 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002213",
-      "exclude_from_extensions": false
-    },
-    {
-      "subject": "GO:0008150",
-      "root_subject": "",
-      "object": [
-        "CARO:0000000",
-        "NCBITaxon:1"
-      ],
-      "is_multivalued": true,
-      "is_required": false,
-      "context": "",
-      "predicate": "RO:0012003",
-      "exclude_from_extensions": false
-    },
-    {
-      "subject": "GO:0008150",
-      "root_subject": "",
-      "object": [
-        "GO:0044848",
-        "UBERON:0000105",
-        "PO:0009012"
-      ],
-      "is_multivalued": true,
-      "is_required": false,
-      "context": "",
-      "predicate": "RO:0002092",
       "exclude_from_extensions": false
     },
     {
@@ -561,7 +561,34 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0002234",
+      "predicate": "RO:0004009",
+      "exclude_from_extensions": false
+    },
+    {
+      "subject": "GO:0003674",
+      "root_subject": "",
+      "object": [
+        "CHEBI:24431",
+        "GO:0032991"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0004008",
+      "exclude_from_extensions": false
+    },
+    {
+      "subject": "GO:0003674",
+      "root_subject": "",
+      "object": [
+        "GO:0044848",
+        "UBERON:0000105",
+        "PO:0009012"
+      ],
+      "is_multivalued": true,
+      "is_required": false,
+      "context": "",
+      "predicate": "RO:0002092",
       "exclude_from_extensions": false
     },
     {
@@ -587,20 +614,7 @@
       "is_multivalued": true,
       "is_required": false,
       "context": "",
-      "predicate": "RO:0004009",
-      "exclude_from_extensions": false
-    },
-    {
-      "subject": "GO:0003674",
-      "root_subject": "",
-      "object": [
-        "CHEBI:24431",
-        "GO:0032991"
-      ],
-      "is_multivalued": true,
-      "is_required": false,
-      "context": "",
-      "predicate": "RO:0004008",
+      "predicate": "RO:0002234",
       "exclude_from_extensions": false
     },
     {
@@ -627,7 +641,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002211",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -640,7 +654,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002212",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -653,7 +667,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002213",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -666,7 +680,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002578",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -679,7 +693,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002630",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -692,7 +706,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002629",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -845,7 +859,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002411",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -859,7 +873,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002305",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0003674",
@@ -873,21 +887,7 @@
       "is_required": false,
       "context": "",
       "predicate": "RO:0002304",
-      "exclude_from_extensions": false
-    },
-    {
-      "subject": "GO:0003674",
-      "root_subject": "",
-      "object": [
-        "GO:0044848",
-        "UBERON:0000105",
-        "PO:0009012"
-      ],
-      "is_multivalued": true,
-      "is_required": false,
-      "context": "",
-      "predicate": "RO:0002092",
-      "exclude_from_extensions": false
+      "exclude_from_extensions": true
     },
     {
       "subject": "GO:0005215",

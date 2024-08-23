@@ -593,32 +593,10 @@
               },
               {
                 "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0002233",
-                "valueExpr": {
-                  "type": "ShapeOr",
-                  "shapeExprs": [
-                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
-                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
-                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
-                    "http://purl.obolibrary.org/obo/go/shapes/Organism"
-                  ]
-                },
+                "predicate": "http://purl.obolibrary.org/obo/BFO_0000066",
+                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
                 "min": 0,
-                "max": -1
-              },
-              {
-                "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
-                "valueExpr": {
-                  "type": "ShapeOr",
-                  "shapeExprs": [
-                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
-                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
-                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
-                  ]
-                },
-                "min": 0,
-                "max": -1
+                "max": 1
               },
               {
                 "type": "TripleConstraint",
@@ -636,10 +614,17 @@
               },
               {
                 "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/BFO_0000066",
-                "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002092",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhase",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
+                  ]
+                },
                 "min": 0,
-                "max": 1
+                "max": -1
               },
               {
                 "type": "TripleConstraint",
@@ -667,6 +652,48 @@
                 "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
                 "min": 0,
                 "max": 1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0012003",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/Organism"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002233",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex",
+                    "http://purl.obolibrary.org/obo/go/shapes/Organism"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
               },
               {
                 "type": "TripleConstraint",
@@ -728,33 +755,6 @@
                 "type": "TripleConstraint",
                 "predicate": "http://purl.obolibrary.org/obo/RO_0002213",
                 "valueExpr": "http://purl.obolibrary.org/obo/go/shapes/BiologicalProcess",
-                "min": 0,
-                "max": -1
-              },
-              {
-                "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0012003",
-                "valueExpr": {
-                  "type": "ShapeOr",
-                  "shapeExprs": [
-                    "http://purl.obolibrary.org/obo/go/shapes/AnatomicalEntity",
-                    "http://purl.obolibrary.org/obo/go/shapes/Organism"
-                  ]
-                },
-                "min": 0,
-                "max": -1
-              },
-              {
-                "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0002092",
-                "valueExpr": {
-                  "type": "ShapeOr",
-                  "shapeExprs": [
-                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhase",
-                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
-                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
-                  ]
-                },
                 "min": 0,
                 "max": -1
               }
@@ -2429,12 +2429,39 @@
               },
               {
                 "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004009",
                 "valueExpr": {
                   "type": "ShapeOr",
                   "shapeExprs": [
                     "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
                     "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0004008",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
+                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002092",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhase",
+                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
+                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
                   ]
                 },
                 "min": 0,
@@ -2455,20 +2482,7 @@
               },
               {
                 "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0004009",
-                "valueExpr": {
-                  "type": "ShapeOr",
-                  "shapeExprs": [
-                    "http://purl.obolibrary.org/obo/go/shapes/ChemicalEntity",
-                    "http://purl.obolibrary.org/obo/go/shapes/ProteinContainingComplex"
-                  ]
-                },
-                "min": 0,
-                "max": -1
-              },
-              {
-                "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0004008",
+                "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
                 "valueExpr": {
                   "type": "ShapeOr",
                   "shapeExprs": [
@@ -2513,7 +2527,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2526,7 +2550,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2539,7 +2573,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2552,7 +2596,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2565,7 +2619,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2578,7 +2642,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2816,7 +2890,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2830,7 +2914,17 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               },
               {
                 "type": "TripleConstraint",
@@ -2844,25 +2938,93 @@
                   ]
                 },
                 "min": 0,
-                "max": -1
-              },
-              {
-                "type": "TripleConstraint",
-                "predicate": "http://purl.obolibrary.org/obo/RO_0002092",
-                "valueExpr": {
-                  "type": "ShapeOr",
-                  "shapeExprs": [
-                    "http://purl.obolibrary.org/obo/go/shapes/BiologicalPhase",
-                    "http://purl.obolibrary.org/obo/go/shapes/LifeCycleStage",
-                    "http://purl.obolibrary.org/obo/go/shapes/PlantStructureDevelopmentStage"
-                  ]
-                },
-                "min": 0,
-                "max": -1
+                "max": -1,
+                "annotations": [
+                  {
+                    "type": "Annotation",
+                    "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+                    "object": {
+                      "value": "true",
+                      "type": "http://www.w3.org/2001/XMLSchema#boolean"
+                    }
+                  }
+                ]
               }
             ]
           },
           "annotations": [
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
+            {
+              "type": "Annotation",
+              "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
+              "object": {
+                "value": "true",
+                "type": "http://www.w3.org/2001/XMLSchema#boolean"
+              }
+            },
             {
               "type": "Annotation",
               "predicate": "http://purl.obolibrary.org/obo/go/shapes/exclude_from_extensions",
