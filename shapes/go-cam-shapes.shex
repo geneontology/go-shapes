@@ -61,7 +61,7 @@ prefix GoMolecularEvent: <http://purl.obolibrary.org/obo/go/extensions/reacto.ow
 PREFIX GoTransporterActivity: <http://purl.obolibrary.org/obo/GO_0005215>
 PREFIX GoChemicalEntity: <http://purl.obolibrary.org/obo/CHEBI_24431>
 PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
-PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/CARO_0000000>
+PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
 PREFIX GoCell: <http://purl.obolibrary.org/obo/CL_0000000>
 PREFIX GoOrganism: <http://purl.obolibrary.org/obo/NCBITaxon_1>
 PREFIX GoBiologicalPhase: <http://purl.obolibrary.org/obo/GO_0044848>
