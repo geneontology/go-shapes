@@ -1,5 +1,5 @@
 # Auto generated from shex_json_linkml.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-11-18T12:44:53
+# Generation date: 2022-12-07T23:52:38
 # Schema: GODomainRangeConstraintsModel
 #
 # id: go-shex-domain-range-constraints
@@ -35,7 +35,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-SCHEMA = CurieNamespace('schema', 'http://example.org/UNKNOWN/schema/')
+SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 DEFAULT_ = GO
 
 
@@ -58,6 +58,7 @@ class Association(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = GO.Association
 
     subject: Union[str, URIorCURIE] = None
+    root_subject: Union[str, URIorCURIE] = None
     object: Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]] = None
     is_multivalued: Union[bool, Bool] = None
     is_required: Union[bool, Bool] = None
@@ -70,6 +71,9 @@ class Association(YAMLRoot):
             self.MissingRequiredField("subject")
         if not isinstance(self.subject, URIorCURIE):
             self.subject = URIorCURIE(self.subject)
+
+        if not isinstance(self.root_subject, URIorCURIE):
+            self.root_subject = URIorCURIE(self.root_subject)
 
         if self._is_empty(self.object):
             self.MissingRequiredField("object")
@@ -142,6 +146,9 @@ slots.predicate = Slot(uri=GO.predicate, name="predicate", curie=GO.curie('predi
 
 slots.subject = Slot(uri=GO.subject, name="subject", curie=GO.curie('subject'),
                    model_uri=GO.subject, domain=None, range=Union[str, URIorCURIE])
+
+slots.root_subject = Slot(uri=GO.root_subject, name="root_subject", curie=GO.curie('root_subject'),
+                   model_uri=GO.root_subject, domain=None, range=Union[str, URIorCURIE])
 
 slots.is_multivalued = Slot(uri=GO.is_multivalued, name="is_multivalued", curie=GO.curie('is_multivalued'),
                    model_uri=GO.is_multivalued, domain=None, range=Union[bool, Bool])

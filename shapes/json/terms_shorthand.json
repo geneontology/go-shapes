@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Protein",
+    "shorthand": "Protein"
+  },
+  {
+    "label": "Protein Containing Complex",
+    "shorthand": "Protein Complex"
+  },
+  {
+    "label": "Anatomical",
+    "shorthand": "Anatomy"
+  },
+  {
+    "label": "Native Cell",
+    "shorthand": "Cell"
+  },
+  {
+    "label": "Organism",
+    "shorthand": "Organism"
+  },
+  {
+    "label": "Biological Phase",
+    "shorthand": "Biological Phase"
+  },
+  {
+    "label": "Life Cycle Stage",
+    "shorthand": "Stage"
+  },
+  {
+    "label": "Plant Structure Development Stage",
+    "shorthand": "Stage"
+  }
+]

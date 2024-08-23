@@ -176,8 +176,8 @@ owl:versionInfo rdf:type owl:AnnotationProperty .
 <http://purl.obolibrary.org/obo/GO_0005634> rdf:type owl:Class .
 
 
-###  http://purl.obolibrary.org/obo/GO_0006306
-<http://purl.obolibrary.org/obo/GO_0006306> rdf:type owl:Class .
+###  http://purl.obolibrary.org/obo/GO_0043414
+<http://purl.obolibrary.org/obo/GO_0043414> rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/GO_0009008
@@ -367,7 +367,7 @@ owl:versionInfo rdf:type owl:AnnotationProperty .
 
 ###  http://model.geneontology.org/5d27d1cf00000056/5d27d1cf00000068
 <http://model.geneontology.org/5d27d1cf00000056/5d27d1cf00000068> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/GO_0006306> ;
+                                                                           <http://purl.obolibrary.org/obo/GO_0043414> ;
                                                                   <http://geneontology.org/lego/hint/layout/x> "447.75"^^xsd:string ;
                                                                   <http://geneontology.org/lego/hint/layout/y> "32.999996185302734"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "http://orcid.org/0000-0002-1706-4196"^^xsd:string ,

@@ -19,6 +19,7 @@ default_curi_maps:
 prefixes:
   biolink: https://w3id.org/biolink/vocab/
   linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
 
 classes:
   Association:
@@ -27,6 +28,7 @@ classes:
       expression rule
     slots:
       - subject
+      - root_subject      
       - predicate
       - object
       - is_multivalued
@@ -72,6 +74,13 @@ slots:
     description: >-
       The domain of the GO shape expression rule, this is the subject of the relationship.
 
+  root_subject:
+    range: uriorcurie
+    required: true
+    description: >-
+      The domain of the GO shape expression rule, this is the root subject of the relationship.
+
+
   is_multivalued:
     range: boolean
     required: true
@@ -84,7 +93,7 @@ slots:
     inlined: true
     inlined_as_list: true
     description: >-
-      A collectionm of GO domain/range constraint shapes where a GO domain/range constraint shape 
+      A collection of GO domain/range constraint shapes where a GO domain/range constraint shape 
       is defined as the domain, relationship, and range of a GO shape expression rule.
 
   is_required:
@@ -95,7 +104,7 @@ slots:
     range: string
     description: >-
       used to determine if this shape is used in the the visual pathway editor or the graphical editor.  Those shapes
-      annotated with like this https://github.com/geneontology/go-shapes/pull/285/files will be exlcuded from the
+      annotated with like this https://github.com/geneontology/go-shapes/pull/285/files will be excluded from the
       visual pathway editor but still included in the file so this file can be used in the graphical editor as well.
     required: true
 
