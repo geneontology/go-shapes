@@ -1,0 +1,76 @@
+id: shex-term-metadata
+name: ShexTermMetadataModel
+description: a schema for metadata of the terms used in the shex schema
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.1.0
+
+default_prefix: GO
+default_range: string
+
+imports:
+  - linkml:types
+  - shex_json_linkml
+
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+prefixes:
+  biolink: https://w3id.org/biolink/vocab/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+
+classes:
+  Term:
+    description: >-
+      A term metadata
+    slots:
+      - id
+      - label
+      - definition
+      - comment
+      - synonyms
+    close_mappings:
+     - schema:Thing
+
+  TermCollection:
+    tree_root: true
+    slots:
+      - terms
+    description: >-
+      A collection of terms 
+
+slots:
+
+  label:
+    range: string
+    description: >-
+      The term label
+    required: true    
+  
+  definition:
+    range: string
+    description: >-
+      The term definition
+
+  comment:
+    range: string
+    description: >-
+      The term comment
+
+  synonyms:
+    range: string
+    description: >-
+      The term synonyms
+  
+  terms:
+    multivalued: true
+    range: TermCollection
+    inlined: true
+    inlined_as_list: true
+    description: >-
+      A collection of terms
+
+  

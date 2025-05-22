@@ -1,0 +1,35 @@
+{
+  "goshapes": [
+    {
+      "domain_name": "GO:0008150",
+      "relationship": "BFO:0000050",
+      "is_multivalued": false,
+      "exclude_from_extensions": "part_of",
+      "range": ["GO:0008150"],
+      "context": "",
+      "is_required": true
+    },
+    {
+      "domain_name": "GO:0008150",
+      "relationship": "RO:0002233",
+      "is_multivalued": true,
+      "range": [
+        "CHEBI:24431",
+        "CARO:0000000",
+        "GO:0032991",
+        "NCBITaxon:1"
+      ],
+      "context": "",
+      "exclude_from_extensions": "occurs_in",
+      "is_required": true
+    },
+    {
+      "domain_name": "GO:0048856",
+      "relationship": "RO:0002296",
+      "is_multivalued": false,
+      "range": ["CARO:00000000"],
+      "exclude_from_extensions": "occurs_in",
+      "is_required": true
+    }
+  ]
+}
