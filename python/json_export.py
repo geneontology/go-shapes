@@ -35,8 +35,6 @@ def get_suffix(uri):
     
     suffix = converter.compress(uri)
     
-    print(suffix if suffix else uri)
-    
     return suffix if suffix else uri
 
 
@@ -171,7 +169,7 @@ class NoctuaFormShex:
 if __name__ == "__main__":
 
     base_path = Path(__file__).parent
-    shex_fp = (base_path / "../shapes/go-cam-shapes.shex").resolve()
+    shex_fp = (base_path / "../shapes/go-vpe-shapes.shex").resolve()
     json_shapes_fp = (base_path / "../shapes/json/shex_dump.json").resolve()
     terms_metadata_fp = (base_path / "../shapes/json/terms_metadata.json").resolve()
     terms_shorthand_fp = (base_path / "../shapes/json/terms_shorthand.json").resolve()
@@ -193,3 +191,7 @@ if __name__ == "__main__":
     
     with open(shex_full_fp, "w") as sf:
         json.dump(nfShex.parse_raw(), sf, indent=2)
+        
+        
+        
+
