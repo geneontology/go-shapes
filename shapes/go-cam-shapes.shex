@@ -539,6 +539,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   is_small_molecule_regulator_of: @<MolecularFunction> *;
   is_small_molecule_activator_of: @<MolecularFunction> *;
   is_small_molecule_inhibitor_of: @<MolecularFunction> *;
+  located_in: @<AnatomicalEntity> {0,1};
 }// rdfs:comment  "a molecular entity (a gene product, chemical, or complex typically)"
 
 <ChemicalEntityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf  {
