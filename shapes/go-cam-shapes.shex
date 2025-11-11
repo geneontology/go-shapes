@@ -45,6 +45,7 @@ PREFIX GoCellDivision: <http://purl.obolibrary.org/obo/GO_0051301>
 PREFIX GoCellFateCommitment: <http://purl.obolibrary.org/obo/GO_0045165>
 PREFIX GoCellFateDetermination: <http://purl.obolibrary.org/obo/GO_0001709>
 PREFIX GoCellFateSpecification: <http://purl.obolibrary.org/obo/GO_0001708>
+PREFIX GoCellMotility: <http://purl.obolibrary.org/obo/GO_0048870>
 PREFIX GoCellularComponentAssembly: <http://purl.obolibrary.org/obo/GO_0022607>
 PREFIX GoCellularComponentDisassembly: <http://purl.obolibrary.org/obo/GO_0022411>
 PREFIX GoCellularComponentOrganization: <http://purl.obolibrary.org/obo/GO_0016043>
@@ -281,6 +282,15 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   a @<CellFateSpecificationClass> {1};
   results_in_specification_of: @<Cell> {0,1};
 } // rdfs:comment "a cell fate specification GO biological process or child"
+
+<CellMotilityClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+	rdfs:subClassOf [ GoCellMotility: ] ;
+}
+
+<CellMotility> @<BiologicalProcess> AND EXTRA a {
+  a @<CellMotilityClass> {1};
+  results_in_movement_of: @<Cell> {0,1};
+} // rdfs:comment "a cell motility GO biological process or child"
 
 <CellularComponentAssemblyClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
 	rdfs:subClassOf [ GoCellularComponentAssembly: ] ;
