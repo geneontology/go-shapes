@@ -4,7 +4,6 @@
 
 Using RDF Shapes to define the schema of Gene Ontology Causal Activity Models
 
-
 # Schema
 
 See [shapes/go-cam-shapes.shex](shapes/go-cam-shapes.shex)
