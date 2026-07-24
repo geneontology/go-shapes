@@ -65,6 +65,7 @@ PREFIX GoEvidence: <http://purl.obolibrary.org/obo/ECO_0000000>
 PREFIX GoAnatomicalEntity: <http://purl.obolibrary.org/obo/UBERON_0001062>
 PREFIX GoCell: <http://purl.obolibrary.org/obo/CL_0000000>
 PREFIX GoOrganism: <http://purl.obolibrary.org/obo/NCBITaxon_1>
+PREFIX GoVirionComponent: <http://purl.obolibrary.org/obo/GO_0044423>
 PREFIX GoBiologicalPhase: <http://purl.obolibrary.org/obo/GO_0044848>
 PREFIX GoLifeCycleStage: <http://purl.obolibrary.org/obo/UBERON_0000105>
 PREFIX GoPlantStructureDevelopmentStage: <http://purl.obolibrary.org/obo/PO_0009012>
@@ -196,7 +197,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   has_output: ( @<ChemicalEntity> OR @<AnatomicalEntity> OR @<ProteinContainingComplex> ) *;
   has_primary_input: @<ChemicalEntity> *;
   has_primary_output: @<ChemicalEntity> *;
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: ( @<AnatomicalEntity> OR @<VirionComponent> ) {0,1};
   transports_or_maintains_localization_of: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   has_target_end_location: @<AnatomicalEntity> {0,1};
   has_target_start_location: @<AnatomicalEntity> {0,1};
@@ -420,7 +421,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   enabled_by:  ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex> ) *;
   part_of: @<BiologicalProcess> *;
   has_part: @<MolecularFunction> *;
-  occurs_in: @<AnatomicalEntity> {0,1};
+  occurs_in: ( @<AnatomicalEntity> OR @<VirionComponent> ) {0,1};
   has_output: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
   has_primary_input: ( @<ChemicalEntity> OR @<ProteinContainingComplex> ) *;
@@ -542,6 +543,10 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
 
 <ProteinContainingComplexClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoProteinContainingComplex: ];
+}
+
+<VirionComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
+  rdfs:subClassOf [ GoVirionComponent: ];
 }
 
 <ChemicalEntity> @<GoCamEntity> AND EXTRA a {
