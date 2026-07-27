@@ -545,6 +545,10 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   rdfs:subClassOf [ GoProteinContainingComplex: ];
 }
 
+<VirionComponent> @<GoCamEntity> AND EXTRA a {
+  a @<VirionComponentClass> ;
+} // rdfs:comment  "a virion component"
+
 <VirionComponentClass> IRI @<OwlClass> AND EXTRA rdfs:subClassOf {
   rdfs:subClassOf [ GoVirionComponent: ];
 }
