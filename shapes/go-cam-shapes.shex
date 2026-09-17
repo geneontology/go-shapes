@@ -108,6 +108,7 @@ PREFIX indirectly_regulates: <http://purl.obolibrary.org/obo/RO_0012012>
 PREFIX indirectly_positively_regulates: <http://purl.obolibrary.org/obo/RO_0002407>
 PREFIX indirectly_negatively_regulates: <http://purl.obolibrary.org/obo/RO_0002409>
 PREFIX constitutively_upstream_of: <http://purl.obolibrary.org/obo/RO_0012009>
+PREFIX immediately_constitutively_upstream_of: <http://purl.obolibrary.org/obo/RO_0019004>
 PREFIX removes_input_for: <http://purl.obolibrary.org/obo/RO_0012010>
 PREFIX causally_upstream_of_or_within: <http://purl.obolibrary.org/obo/RO_0002418>
 PREFIX causally_upstream_of_or_within_negative_effect: <http://purl.obolibrary.org/obo/RO_0004046>
@@ -437,6 +438,7 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   indirectly_positively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   indirectly_negatively_regulates: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
+  immediately_constitutively_upstream_of: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   removes_input_for: ( @<MolecularFunction> OR @<MolecularEvent> ) *;
   has_small_molecule_regulator: @<ChemicalEntity> *;
   has_small_molecule_activator: @<ChemicalEntity> *;
