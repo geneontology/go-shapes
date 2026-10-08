@@ -33,7 +33,7 @@ PREFIX imports: <http://www.w3.org/2002/07/owl#imports>
 PREFIX in_taxon: <https://w3id.org/biolink/vocab/in_taxon>
 #semantic: classes
 PREFIX GoInformationBiomacromolecule: <http://purl.obolibrary.org/obo/CHEBI_33695>
-PREFIX GoProtein: <http://purl.obolibrary.org/obo/CHEBI_36080>
+PREFIX GoProtein: <http://purl.obolibrary.org/obo/PR_000000001>
 PREFIX GoProteinContainingComplex: <http://purl.obolibrary.org/obo/GO_0032991>
 PREFIX GoCellularComponent: <http://purl.obolibrary.org/obo/GO_0005575>
 PREFIX GoBiologicalProcess: <http://purl.obolibrary.org/obo/GO_0008150>
