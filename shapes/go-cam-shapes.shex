@@ -131,6 +131,8 @@ PREFIX results_in_maturation_of: <http://purl.obolibrary.org/obo/RO_0002299>
 PREFIX results_in_growth_of: <http://purl.obolibrary.org/obo/RO_0002343>
 PREFIX results_in_movement_of: <http://purl.obolibrary.org/obo/RO_0002565>
 PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
+PREFIX has_accessory_component: <http://purl.obolibrary.org/obo/RO_0019006>
+PREFIX has_active_component: <http://purl.obolibrary.org/obo/RO_0019005>
 
 <GoCamModel> {
   a [owl:Ontology] + ;
@@ -539,6 +541,8 @@ PREFIX results_in_remodeling_of: <http://purl.obolibrary.org/obo/RO_0002591>
   located_in: @<AnatomicalEntity> {0,1};
   is_active_in: @<AnatomicalEntity> OR @<RootCellularComponent> {0,1};
   has_part: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
+  has_accessory_component: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
+  has_active_component: ( @<InformationBiomacromolecule> OR @<ProteinContainingComplex>) *;
   existence_overlaps: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
   existence_starts_and_ends_during: ( @<BiologicalProcess> OR @<LifeCycleStage> OR @<PlantStructureDevelopmentStage> ) *;
 } // rdfs:comment  "a protein complex"
